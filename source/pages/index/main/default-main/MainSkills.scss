@@ -1,4 +1,4 @@
-@import '../../body/resume-body/resume-body.scss';
+@import '../../body/default-body/default-body.scss';
 @mixin main-skills {
   z-index: 0;
   display: grid;
@@ -369,7 +369,7 @@
     }
   }
 }
-main[id*='resume'] {
+main[id*='default'] {
   section[id*='main'] {
     div[class*='margin'] {
       aside[id*='skills'] {

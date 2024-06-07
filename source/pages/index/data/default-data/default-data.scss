@@ -1,0 +1,27 @@
+@import '../../overlay/default-overlay/default-overlay.scss';
+@import '../../header/default-header/default-header.scss';
+@import '../../footer/default-footer/default-footer.scss';
+@import '../../leftbar/default-leftbar/default-leftbar.scss';
+@import '../../rightbar/default-rightbar/default-rightbar.scss';
+@import '../../main/default-main/default-main.scss';
+
+@import '../Data.scss';
+
+section[id*='overlay'] {
+  z-index: 5;
+}
+header[id*='header'] {
+  z-index: 4;
+}
+footer[id*='footer'] {
+  z-index: 3;
+}
+aside[id*='leftbar'] {
+  z-index: 2;
+}
+aside[id*='rightbar'] {
+  z-index: 1;
+}
+main[id*='main'] {
+  z-index: 0;
+}

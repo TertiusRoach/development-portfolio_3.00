@@ -21,7 +21,7 @@ const Body: React.FC<BodyProps> = ({ pageName, blockName }) => {
   const block = blockName.split('-')[0];
   // console.log('//--| body.tsx detected |--//');
   switch (blockName) {
-    case 'resume-body':
+    case 'default-body':
 
     case 'default-body':
       return (

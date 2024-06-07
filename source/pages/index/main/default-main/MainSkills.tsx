@@ -233,10 +233,10 @@ export default MainSkills;
         } else if (jobTitle === 'producing') {
           skillSection = ['design', 'editing', 'admin']; // Add other sections as needed
         } else {
-          throw new Error('//--|🠊 Broken! resume-main.tsx 🠈|--//');
+          throw new Error('//--|🠊 Broken! default-main.tsx 🠈|--//');
         }
       } catch (error) {
-        console.log('//--|🠊 Broken! resume-main.tsx 🠈|--//');
+        console.log('//--|🠊 Broken! default-main.tsx 🠈|--//');
         // Handle error or log it
       }
       */

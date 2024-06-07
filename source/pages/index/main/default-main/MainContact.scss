@@ -1,4 +1,4 @@
-@import '../../body/resume-body/resume-body.scss';
+@import '../../body/default-body/default-body.scss';
 
 @mixin main-contact {
   //--|🠋 Desktop (Landscape) 🠋|--//
@@ -14,7 +14,7 @@
 }
 
 //--|🠋 03. Contact <main> 🠋|--//
-main[id*='resume'] {
+main[id*='default'] {
   section[id*='main'] {
     div[class*='margin'] {
       aside[id*='contact'] {

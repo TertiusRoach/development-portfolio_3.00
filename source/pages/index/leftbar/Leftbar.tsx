@@ -1,6 +1,5 @@
 // Leftbar.tsx
 import React from 'react';
-import resumeLeftbar from './resume-leftbar/resume-leftbar';
 import defaultLeftbar from './default-leftbar/default-leftbar';
 
 interface LeftbarProps {
@@ -14,8 +13,8 @@ const Leftbar: React.FC<LeftbarProps> = ({ pageName, blockName }) => {
   switch (blockName) {
     case 'default-leftbar':
       return defaultLeftbar(pageName, blockName);
-    case 'resume-leftbar':
-      return resumeLeftbar(pageName, blockName);
+    case 'default-leftbar':
+    // return defaultLeftbar(pageName, blockName);
   }
 };
 export default Leftbar;

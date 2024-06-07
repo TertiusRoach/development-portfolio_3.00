@@ -1,6 +1,5 @@
 // Overlay.tsx
 import React from 'react';
-import resumeData from './resume-data/resume-data';
 import defaultData from './default-data/default-data';
 
 interface DataProps {
@@ -15,7 +14,7 @@ const Data: React.FC<DataProps> = ({ pageName, blockName }) => {
     case 'default-data':
       return defaultData(pageName, blockName);
     case 'resume-data':
-      return resumeData(pageName, blockName);
+    // return resumeData(pageName, blockName);
   }
 };
 export default Data;

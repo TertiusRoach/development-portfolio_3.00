@@ -1,0 +1,12 @@
+@import '../Leftbar.scss';
+@import '../../body/default-body/default-body.scss';
+
+aside[class='default-leftbar'] {
+  display: none;
+  grid-row-end: 4;
+  grid-row-start: 1;
+  grid-column-end: 4;
+  grid-column-start: 1;
+
+  background: $blue-dark;
+}

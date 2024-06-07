@@ -2,7 +2,6 @@
 import React from 'react';
 
 import defaultHeader from './default-header/default-header';
-import resumeHeader from './resume-header/resume-header';
 
 interface HeaderProps {
   pageName: string;
@@ -15,8 +14,8 @@ const Header: React.FC<HeaderProps> = ({ pageName, blockName }) => {
   switch (blockName) {
     case 'default-header':
       return defaultHeader(pageName, blockName);
-    case 'resume-header':
-      return resumeHeader(pageName, blockName);
+    case 'default-header':
+    // return defaultHeader(pageName, blockName);
   }
 };
 export default Header;

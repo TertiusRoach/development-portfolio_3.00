@@ -1,13 +1,46 @@
 import React from 'react';
 
+import Overlay from '../../overlay/Overlay';
+import Header from '../../header/Header';
+import Footer from '../../footer/Footer';
+import Leftbar from '../../leftbar/Leftbar';
+import Rightbar from '../../rightbar/Rightbar';
+import Main from '../../main/Main';
+import Data from '../../data/Data';
+
 export function defaultBody(pageName: any, blockName: any) {
   const page: string = pageName;
   const block: string = blockName;
   console.log('//--|🠊 Optional: default-body.tsx loaded 🠈|--//');
   return (
     <>
-      <h1>{pageName}</h1>
-      <h4>{blockName}</h4>
+      <section id={`${pageName}-overlay`} className={`${block}-overlay`}>
+        <Overlay pageName={`${pageName}-overlay`} blockName={`${block}-overlay`} />
+      </section>
+
+      <header style={{ zIndex: 4 }} id={`${pageName}-header`} className={`${block}-header`}>
+        <Header pageName={`${pageName}-header`} blockName={`${block}-header`} />
+      </header>
+
+      <footer style={{ zIndex: 3 }} id={`${pageName}-footer`} className={`${block}-footer`}>
+        <Footer pageName={`${pageName}-footer`} blockName={`${block}-footer`} />
+      </footer>
+
+      <aside style={{ zIndex: 2 }} id={`${pageName}-leftbar`} className={`${block}-leftbar`}>
+        <Leftbar pageName={`${pageName}-leftbar`} blockName={`${block}-leftbar`} />
+      </aside>
+
+      <aside style={{ zIndex: 1 }} id={`${pageName}-rightbar`} className={`${block}-rightbar`}>
+        <Rightbar pageName={`${pageName}-rightbar`} blockName={`${block}-rightbar`} />
+      </aside>
+
+      <main style={{ zIndex: 0 }} id={`${pageName}-main`} className={`${block}-main`}>
+        <Main pageName={`${pageName}-main`} blockName={`${block}-main`} />
+      </main>
+
+      <script id={`${pageName}-data`} className={`${block}-data`}>
+        <Data pageName={`${pageName}-data`} blockName={`${block}-data`} />
+      </script>
     </>
   );
 }

@@ -1,6 +1,5 @@
 // Rightbar.tsx
 import React from 'react';
-import resumeRightbar from './resume-rightbar/resume-rightbar';
 import defaultRightbar from './default-rightbar/default-rightbar';
 
 interface RightbarProps {
@@ -14,8 +13,8 @@ const Rightbar: React.FC<RightbarProps> = ({ pageName, blockName }) => {
   switch (blockName) {
     case 'default-rightbar':
       return defaultRightbar(pageName, blockName);
-    case 'resume-rightbar':
-      return resumeRightbar(pageName, blockName);
+    case 'default-rightbar':
+    // return defaultRightbar(pageName, blockName);
   }
 };
 export default Rightbar;
