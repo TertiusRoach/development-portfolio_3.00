@@ -9,7 +9,7 @@ module.exports = {
   entry: `./source/front-end/pages/${pageName}/${pageName}.tsx`,
   output: {
     filename: `${pageName}.js`,
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, 'public'),
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
@@ -65,7 +65,7 @@ module.exports = {
     }),
   ],
   devServer: {
-    static: path.join(__dirname, 'build'),
+    static: path.join(__dirname, 'public'),
     compress: true,
     port: 4000,
   },

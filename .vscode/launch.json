@@ -14,7 +14,7 @@
       "skipFiles": ["<node_internals>/**"],
       "name": "Go Webpack",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run-script", "build"]
+      "runtimeArgs": ["run-script", "public"]
     }
   ],
   "compounds": [
