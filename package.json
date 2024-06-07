@@ -7,7 +7,7 @@
     "node": ">=20.13.1"
   },
   "scripts": {
-    "test": "webpack-dev-server --mode development",
+    "host": "webpack-dev-server --mode development",
     "build": "webpack --mode production"
   },
   "keywords": [],

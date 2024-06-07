@@ -1,6 +1,7 @@
-import WebpackDevServer from 'webpack-dev-server';
 import webpack from 'webpack';
 import webpackConfig from '../webpack.config';
+import WebpackDevServer from 'webpack-dev-server';
+
 new WebpackDevServer(webpack(webpackConfig), {
   contentBase: 'example/',
   stats: {

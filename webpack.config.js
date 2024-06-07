@@ -67,6 +67,6 @@ module.exports = {
   devServer: {
     static: path.join(__dirname, 'public'),
     compress: true,
-    port: 4000,
+    port: 8080,
   },
 };
