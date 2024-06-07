@@ -13,6 +13,6 @@
     "strictNullChecks": true,
     "jsx": "react"
   },
-  "include": ["source/", "source/gulpfile.js", "source/front-end/pages/index/", "server/server.js"],
-  "exclude": ["build/", "node_modules/"]
+  "include": ["source/", "source/mods/*", "source/pages/*", "source/tools/*"],
+  "exclude": ["node_modules/"]
 }

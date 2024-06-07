@@ -29,17 +29,8 @@ module.exports = {
         ],
       },
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: 'babel-loader',
-      },
-      {
         test: /\.scss$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
-      },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(png|jpe?g|gif)$/i,

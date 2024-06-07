@@ -10,8 +10,13 @@
     "launch": "webpack-dev-server --mode development",
     "deploy": "webpack --mode production"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "sass",
+    "react",
+    "portfolio",
+    "typescript"
+  ],
+  "author": "Tertius Roach",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.24.5",
