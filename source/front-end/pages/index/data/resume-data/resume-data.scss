@@ -1,0 +1,27 @@
+@import '../../overlay/resume-overlay/resume-overlay.scss';
+@import '../../header/resume-header/resume-header.scss';
+@import '../../footer/resume-footer/resume-footer.scss';
+@import '../../leftbar/resume-leftbar/resume-leftbar.scss';
+@import '../../rightbar/resume-rightbar/resume-rightbar.scss';
+@import '../../main/resume-main/resume-main.scss';
+
+@import '../Data.scss';
+
+section[id*='overlay'] {
+  z-index: 5;
+}
+header[id*='header'] {
+  z-index: 4;
+}
+footer[id*='footer'] {
+  z-index: 3;
+}
+aside[id*='leftbar'] {
+  z-index: 2;
+}
+aside[id*='rightbar'] {
+  z-index: 1;
+}
+main[id*='main'] {
+  z-index: 0;
+}

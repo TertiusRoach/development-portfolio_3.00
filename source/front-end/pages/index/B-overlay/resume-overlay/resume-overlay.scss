@@ -1,8 +1,0 @@
-@import '../Overlay.scss';
-@import '../../a-body/resume-body/resume-body.scss';
-
-section[class='resume-overlay'] {
-  display: none;
-  grid-area: 1 / 1 / 4 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-  // background: rgba($pink-dark, 0.5);
-}

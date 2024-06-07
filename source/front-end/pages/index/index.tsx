@@ -1,6 +1,6 @@
 import './index.scss';
 import React from 'react';
-import Body from './a-body/Body';
+import Body from './body/Body';
 
 import { createRoot } from 'react-dom/client';
 

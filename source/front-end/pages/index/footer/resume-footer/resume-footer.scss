@@ -1,0 +1,43 @@
+// resume-footer.scss
+@import '../Footer.scss';
+@import '../../body/resume-body/resume-body.scss';
+
+footer[class='resume-footer'] {
+  //--|🠋 Desktop (Landscape) 🠋|--//
+  @media screen and (orientation: landscape) {
+    display: grid;
+    grid-area: 3 / 1 / 4 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+    grid-template-rows: 4rem;
+    grid-template-columns: repeat(5, 1fr);
+    menu {
+      display: flex;
+      grid-area: 1 / 1 / 2 / 6; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+      justify-content: flex-end;
+      button {
+        width: 20%;
+        background: none;
+        a {
+          display: grid;
+          cursor: default;
+          grid-template: 1fr auto 1fr / 1fr auto 1fr; //~~|🠊 rows / columns 🠈|~~//
+          img {
+            height: 3rem;
+            cursor: pointer;
+            grid-area: 2 / 2 / 3 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+            // background: rgba($red-dark, 0.5);
+          }
+        }
+      }
+      // background: rgba($blue-dark, 0.5);
+    }
+    // background: rgba($orange-dark, 0.5);
+  }
+  //--|🠋 Tablet (Square) 🠋|--//
+  @media screen and (max-aspect-ratio: 16/9) {
+    // display: none;
+  }
+  //--|🠋 Mobile (Portrait) 🠋|--//
+  @media screen and (orientation: portrait) {
+    display: none;
+  }
+}

@@ -1,0 +1,149 @@
+@import '../../body/resume-body/resume-body.scss';
+
+@mixin main-home {
+  width: 100%;
+  height: 100%;
+  display: grid;
+
+  @media screen and (orientation: portrait) {
+    border: 4px dashed $green-neon;
+    background: rgba($green-dark, 0.25);
+
+    &[id*='cover'] {
+      display: none;
+    }
+    &[id*='profile'] {
+      display: none;
+    }
+  }
+
+  @media screen and (orientation: landscape) {
+    grid-template-columns: 3rem repeat(5, 1fr) 3rem;
+    grid-template-rows: 2rem 1fr repeat(2, 0.5fr) 1fr 2rem;
+    &[id*='cover'] {
+      header[class*='header'] {
+        z-index: 3;
+        display: flex;
+        margin: 2rem 0 0 3rem; //~~|🠊 top / right / bot / left 🠈|~~//
+        flex-direction: column;
+        justify-content: center;
+        grid-area: 2 / 2 / 3 / 5; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+        h1[class='job-title'] {
+          z-index: 1;
+          position: relative;
+          white-space: nowrap;
+          color: $primary-dark; //~~|🠊 Set the primary dark color 🠈|~~//
+          filter: drop-shadow(0 0 4px black);
+          -webkit-text-stroke: 2px $primary-medium;
+          &::before {
+            overflow: hidden;
+            position: absolute;
+            white-space: nowrap;
+            color: $primary-light; //~~|🠊 Set the primary light color 🠈|~~//
+            border-radius: 0.25rem;
+            content: attr(data-text); //~~|🠊 Display the text content 🠈|~~//
+            border-right: 4px solid rgba(white, 0.75);
+            filter: drop-shadow(0 0 2rem rgba(black, 0.25));
+            animation: animate 90s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+            @keyframes animate {
+              0% {
+                width: 0;
+              }
+              50% {
+                width: 100%;
+              }
+              100% {
+                width: 0;
+              }
+            }
+          }
+        }
+        h3 {
+          z-index: 0;
+          color: $primary-dark;
+          filter: drop-shadow(0 0 2rem rgba(white, 0.95));
+        }
+      }
+      menu[class*='buttons'] {
+        z-index: 4;
+        display: flex;
+        margin-left: 3rem;
+        align-items: center;
+        grid-area: 4 / 2 / 3 / 5; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+        justify-content: space-around;
+        button {
+          height: 50%;
+          border: none;
+          cursor: default;
+          padding: 0 0.5rem;
+          border-radius: 0.5rem;
+          transition: 0.25s ease-in-out;
+          background: rgba(black, 0.15);
+          border: 4px solid $primary-medium;
+
+          filter: drop-shadow(0 0 0.25rem rgba(black, 0.75));
+          a {
+            color: inherit;
+            text-decoration: none;
+            h6 {
+              cursor: pointer;
+              font-weight: 600;
+              letter-spacing: 2px;
+              color: $primary-medium;
+              transition: 0.25s ease-in-out;
+            }
+            h6:hover {
+              color: $primary-dark;
+            }
+          }
+        }
+        button:hover {
+          background: $primary-light;
+          border: 4px solid $primary-dark;
+        }
+      }
+      p[class*='description'] {
+        z-index: 2;
+        color: white;
+        line-height: 1.75;
+        word-spacing: 2px;
+        text-align: justify;
+        margin: 0 0 2rem 3rem; //~~|🠊 top / right / bot / left 🠈|~~//
+        grid-area: 4 / 2 / 6 / 6; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+        padding: 0.25rem 0.25rem 0.25rem 0;
+        filter: drop-shadow(0 0 4px black);
+        & ~ div[class='mid-ground'] {
+          z-index: 1;
+          grid-area: 3 / 1 / 7 / 8; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+          background: linear-gradient(
+            0deg,
+            rgba($primary-dark, 0) 0%,
+            rgba(black, 0.25) 5%,
+            rgba(black, 0.75) 50%,
+            rgba(black, 0.25) 80%,
+            rgba($primary-dark, 0) 100%
+          );
+        }
+      }
+    }
+    &[id*='profile'] {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      img {
+        margin: 2rem 6rem 2rem 0; //~~|🠊 top / right / bot / left 🠈|~~//
+      }
+    }
+  }
+}
+
+main[id*='resume'] {
+  section[id*='main'] {
+    div[class*='margin'] {
+      aside[id*='home'] {
+        @include main-home;
+        position: absolute; //~~|🠊 Absolute lets an element be precisely placed in relation to an anchor point. 🠈|~~//
+      }
+    }
+  }
+}
