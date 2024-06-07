@@ -1,0 +1,26 @@
+//--|►| npm run devStart |◄|--//
+//--|▼| View Database |▼|--//
+//--► This shows the items in the database ◄--//
+GET http://localhost:3000/users
+
+###
+//--|▼| Signup Function |▼|--//
+//--► This adds to the database ◄--//
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "name":"Blah",
+    "password":"password"
+}
+
+###
+//--|▼| Login Function |▼|--//
+//--► This checks the database ◄--//
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+    "name":"Blah",
+    "password":"password"
+}

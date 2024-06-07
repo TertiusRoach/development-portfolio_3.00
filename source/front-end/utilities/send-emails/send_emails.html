@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--|▼| Resources |▼|-->
+    <!--► Send Emails (CSS) ▼-->
+    <link rel="stylesheet" type="text/css" href="send_emails.css" />
+    <!--► Send Emails (JavaScript) ▼-->
+    <script defer src="send_emails.js"></script>
+    <!--|▲| Resources |▲|-->
+
+    <title>Contact Form</title>
+  </head>
+  <body>
+    <!--► https://formsubmit.co/ ◄-->
+    <form action="https://formsubmit.co/tertius.akademia@gmail.com" method="post">
+      <input type="hidden" name="_subject" value="New submission!" />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <!--► Thank You Page ◄-->
+      <input type="hidden" name="_next" value="https://tertiusroach.github.io/My-Website/src/resources/miscellaneous/send_emails/thankyou.html" />
+
+      <text type="text" name="name" placeholder="First Name" required />
+      <button type="submit">Send</button>
+    </form>
+  </body>
+</html>

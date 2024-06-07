@@ -1,0 +1,120 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+/*--▼ Grid Index ▼--*/
+body{
+    display: grid;
+    height: 100vh;
+
+    grid-template-columns:            80px 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 80px;
+    grid-template-rows: /*► 01 ►*/    40px
+                        /*► 02 ►*/    1fr
+                        /*► 03 ►*/    1fr
+                        /*► 04 ►*/    1fr
+                        /*► 05 ►*/    1fr
+                        /*► 06 ►*/    1fr
+                        /*► 07 ►*/    1fr
+                        /*► 08 ►*/    1fr
+                        /*► 09 ►*/    1fr
+                        /*► 10 ►*/    1fr
+                        /*► 11 ►*/    1fr
+                        /*► 12 ►*/    1fr
+                        /*► 13 ►*/    1fr
+                        /*► 14 ►*/    1fr
+                        /*► 15 ►*/    1fr
+                        /*► 16 ►*/    1fr
+                        /*► 17 ►*/    1fr
+                        /*► 18 ►*/    1fr
+                        /*► 19 ►*/    1fr
+                        /*► 20 ►*/    1fr
+                        /*► 21 ►*/    1fr
+                        /*► 22 ►*/    40px;
+}
+/*--▲ Grid Index ▲--*/
+/*--▼ Index Page ▼--*/
+.cell-1{
+    grid-column-start: 1;
+    grid-column-end: 13;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    
+    background: green;
+}
+.cell-2{
+    background: lightgreen;
+}
+.cell-3{
+    background: yellowgreen;
+}
+.cell-4{
+    background: yellow;
+}
+.cell-5{
+    background: orange;
+}
+.cell-6{
+    background: brown;
+}
+.cell-7{
+    background: pink;
+}
+.cell-8{
+    background: deeppink;
+}
+.cell-9{
+    background: purple;
+}
+.cell-10{
+    background: blueviolet;
+}
+.cell-11{
+    background: blue;
+}
+.cell-12{
+    background: lightblue;
+}
+.cell-13{
+    background: green;
+}
+.cell-14{
+    background: lightgreen;
+}
+.cell-15{
+    background: yellowgreen;
+}
+.cell-16{
+    background: yellow;
+}
+.cell-17{
+    background: orange;
+}
+.cell-18{
+    background: brown;
+}
+.cell-19{
+    background: pink;
+}
+.cell-20{
+    background: deeppink;
+}
+.cell-21{
+    background: purple;
+}
+.cell-22{
+    background: blueviolet;
+}
+.cell-23{
+    background: blue;
+}
+.cell-24{
+    background: lightblue;
+}
+.cell-25{
+    background: green;
+}
+.cell-26{
+    background: lightgreen;
+}
+/*--▲ Index Page ▲--*/

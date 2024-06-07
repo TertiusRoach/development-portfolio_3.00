@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "target": "ES5",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "sourceMap": true,
+    "skipLibCheck": true,
+    /* linting */
+    "strict": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "strictNullChecks": true,
+    "jsx": "react"
+  },
+  "include": [
+    "source/",
+    "source/gulpfile.js",
+    "source/front-end/pages/index/"
+  ],
+  "exclude": ["build/", "node_modules/"]
+}
