@@ -6,7 +6,7 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 const pageName = 'index';
 module.exports = {
-  entry: `./source/front-end/pages/${pageName}/${pageName}.tsx`,
+  entry: `./source/pages/${pageName}/${pageName}.tsx`,
   output: {
     filename: `${pageName}.js`,
     path: path.resolve(__dirname, 'public'),
@@ -58,7 +58,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Index Page',
-      template: `./source/front-end/pages/${pageName}/${pageName}.html`,
+      template: `./source/pages/${pageName}/${pageName}.html`,
     }),
     new MiniCssExtractPlugin({
       filename: 'style.css',
