@@ -1,7 +1,5 @@
-//--|🠋| Résumé Page |🠋|--//
+//--|🠋| Index Page |🠋|--//
 @import '../index/data/default-data/default-data.scss';
-// @import 'a-body/react-body/react-body.scss';
-// @import 'a-body/knots-body/knots-body.scss';
 
 * {
   margin: 0;
@@ -13,25 +11,3 @@
   box-sizing: border-box;
   font-family: 'Rubik', Helvetica;
 }
-
-/*
-//--|🠋| Index Page |🠋|--//
-@import 'A-body/default-body/default-body.scss';
-@import 'B-overlay/default-overlay/default-overlay.scss';
-@import 'C-header/default-header/default-header.scss';
-@import 'D-footer/default-footer/default-footer.scss';
-@import 'E-leftbar/default-leftbar/default-leftbar.scss';
-@import 'F-rightbar/default-rightbar/default-rightbar.scss';
-@import 'G-main/default-main/default-main.scss';
-@import 'H-data/default-data/default-data.scss';
-
-
-@import '../../utilities/A-Body/Body.scss';
-@import '../../utilities/B-Overlay/Overlay.scss';
-@import '../../utilities/C-Header/Header.scss';
-@import '../../utilities/D-Footer/Footer.scss';
-@import '../../utilities/E-Leftbar/Leftbar.scss';
-@import '../../utilities/F-Rightbar/Rightbar.scss';
-@import '../../utilities/G-Main/Main.scss';
-@import '../../utilities/H-Data/Data.scss';
-*/
