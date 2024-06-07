@@ -2,13 +2,13 @@
   "name": "development-portfolio_3.00",
   "version": "1.0.0",
   "description": "",
-  "main": "source/server/server.js",
+  "main": "server/server.js",
   "engines": {
     "node": ">=20.13.1"
   },
   "scripts": {
-    "host": "webpack-dev-server --mode development",
-    "build": "webpack --mode production"
+    "launch": "webpack-dev-server --mode development",
+    "deploy": "webpack --mode production"
   },
   "keywords": [],
   "author": "",
