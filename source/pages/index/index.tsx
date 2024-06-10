@@ -1,25 +1,20 @@
 import './index.scss';
 import React from 'react';
-import { createRoot } from 'react-dom/client';
-
-import Overlay from './overlay/Overlay';
+import Main from './main/Main';
 import Header from './header/Header';
 import Footer from './footer/Footer';
 import Leftbar from './leftbar/Leftbar';
+import Overlay from './overlay/Overlay';
 import Rightbar from './rightbar/Rightbar';
-import Main from './main/Main';
+import { createRoot } from 'react-dom/client';
 
-// Improve the notes please
-const page: string = 'index'; // This represents the page being viewed
-const label: string = 'default'; // This represents the design that will be selected
-interface IndexProps {
+let page: string = 'index'; //--|🠊 This represents the page being viewed 🠈|--//
+let label: string = 'default'; //--|🠊 This represents the design that will be selected 🠈|--//
+interface BodyProps {
   page: string;
   label: string | 'default';
 }
-
-const Index: React.FC<IndexProps> = ({ page, label }) => {
-  let block: Array<Object> = ['overlay', 'header', 'footer', 'leftbar', 'rightbar', 'main']; // This represents all the blocks loaded within the HTML
-
+const Body: React.FC<BodyProps> = ({ page, label }) => {
   console.log(`//--|🠊 ${page}.tsx Loaded 🠈|--//`);
   return (
     <>
@@ -33,13 +28,12 @@ const Index: React.FC<IndexProps> = ({ page, label }) => {
   );
 };
 
-const Body: HTMLDivElement | null = document.querySelector(`#${page}-body`);
-if (Body !== null) {
-  let load = <Index page={page} label={label} />;
-  createRoot(Body).render(load);
+const message: string = `//--|🠊 Add an element inside the <body> tag with an id='${page}-body' 🠈|--//`;
+const container: HTMLDivElement | null = document.querySelector(`#${page}-body`); //--|🠊 Check for the required container element in the DOM 🠈|--//
+if (container) {
+  createRoot(container).render(<Body page={page} label={label} />);
 } else {
-  let message: string = `//--|🠊 Add an element inside the <body> tag with an id='${page}-body' 🠈|--//`;
   alert(message);
   throw new Error(message);
 }
-export default Index;
+export default Body;
