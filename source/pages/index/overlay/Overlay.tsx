@@ -3,18 +3,17 @@ import React from 'react';
 import defaultOverlay from './default-overlay/default-overlay';
 
 interface OverlayProps {
-  pageName: string;
-  blockName: string;
+  page: string;
+  label: string;
 }
-const Overlay: React.FC<OverlayProps> = ({ pageName, blockName }) => {
-  const page = pageName;
-  const block = blockName;
-  // console.log('//--|🠊 Overlay.tsx Detected 🠈|--//');
-  switch (blockName) {
-    case 'default-overlay':
-      return defaultOverlay(pageName, blockName);
-    case 'default-overlay':
-    // return defaultOverlay(pageName, blockName);
+
+const Overlay: React.FC<OverlayProps> = ({ page, label }) => {
+  let block: string = 'overlay';
+  console.log('//--|🠊 Overlay.tsx Loaded 🠈|--//');
+
+  switch (label) {
+    default:
+      return defaultOverlay(page, label, block);
   }
 };
 export default Overlay;

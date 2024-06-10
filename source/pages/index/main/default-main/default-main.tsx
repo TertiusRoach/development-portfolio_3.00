@@ -1,6 +1,18 @@
 // default-main.tsx
 import $ from 'jquery';
 import React from 'react';
+
+function defaultMain(page: string | any, label: string | any, block: string | any) {
+  console.log(`//--|🠊 ${label}-${block}.tsx Loaded 🠈|--//`);
+  return (
+    <main style={{ zIndex: 0 }} id={`${page}-${block}`} className={`${label}-${block}`}>
+      {/* Code here */}
+    </main>
+  );
+}
+export default defaultMain;
+
+/*
 import MainHome from '../default-main/MainHome';
 import MainSkills from '../default-main/MainSkills';
 import MainContact from '../default-main/MainContact';
@@ -132,3 +144,4 @@ $(function () {
   updateMenu(devIndex, $devArticle);
   updateMenu(proIndex, $proArticle);
 });
+*/

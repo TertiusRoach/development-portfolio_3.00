@@ -1,6 +1,17 @@
 // default-footer.tsx
 import React from 'react';
 
+function defaultFooter(page: string | any, label: string | any, block: string | any) {
+  console.log(`//--|🠊 ${label}-${block}.tsx Loaded 🠈|--//`);
+  return (
+    <footer style={{ zIndex: 3 }} id={`${page}-${block}`} className={`${label}-${block}`}>
+      {/* Code here */}
+    </footer>
+  );
+}
+export default defaultFooter;
+
+/*
 function defaultFooter(pageName: string | any, blockName: string | any) {
   const page = pageName;
   const block = blockName;
@@ -33,3 +44,4 @@ function defaultFooter(pageName: string | any, blockName: string | any) {
   );
 }
 export default defaultFooter;
+*/

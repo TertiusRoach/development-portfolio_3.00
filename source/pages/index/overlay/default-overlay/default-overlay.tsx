@@ -1,12 +1,11 @@
 // default-overlay.tsx
 import React from 'react';
-function defaultOverlay(pageName: string | any, blockName: string | any) {
-  console.log('//--|🠊 default-overlay.tsx loaded 🠈|--//');
+function defaultOverlay(page: string | any, label: string | any, block: string | any) {
+  console.log(`//--|🠊 ${label}-${block}.tsx Loaded 🠈|--//`);
   return (
-    <>
-      <h1>{pageName}</h1>
-      <h4>{blockName}</h4>
-    </>
+    <section style={{ zIndex: 5 }} id={`${page}-${block}`} className={`${label}-${block}`}>
+      {/* Code here */}
+    </section>
   );
 }
 

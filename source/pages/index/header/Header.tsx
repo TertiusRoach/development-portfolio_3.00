@@ -1,21 +1,19 @@
 // Header.tsx
 import React from 'react';
-
 import defaultHeader from './default-header/default-header';
 
 interface HeaderProps {
-  pageName: string;
-  blockName: string;
+  page: string;
+  label: string;
 }
-const Header: React.FC<HeaderProps> = ({ pageName, blockName }) => {
-  const page = pageName;
-  const block = blockName;
-  // console.log('//--|🠊 Header.tsx Detected 🠈|--//');
-  switch (blockName) {
-    case 'default-header':
-      return defaultHeader(pageName, blockName);
-    case 'default-header':
-    // return defaultHeader(pageName, blockName);
+
+const Header: React.FC<HeaderProps> = ({ page, label }) => {
+  let block: string = 'header';
+  console.log('//--|🠊 Header.tsx Loaded 🠈|--//');
+
+  switch (label) {
+    default:
+      return defaultHeader(page, label, block);
   }
 };
 export default Header;

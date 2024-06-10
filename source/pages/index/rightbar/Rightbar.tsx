@@ -3,18 +3,17 @@ import React from 'react';
 import defaultRightbar from './default-rightbar/default-rightbar';
 
 interface RightbarProps {
-  pageName: string;
-  blockName: string;
+  page: string;
+  label: string;
 }
-const Rightbar: React.FC<RightbarProps> = ({ pageName, blockName }) => {
-  const page = pageName;
-  const block = blockName;
-  // console.log('//--|🠊 Rightbar.tsx Detected 🠈|--//');
-  switch (blockName) {
-    case 'default-rightbar':
-      return defaultRightbar(pageName, blockName);
-    case 'default-rightbar':
-    // return defaultRightbar(pageName, blockName);
+
+const Rightbar: React.FC<RightbarProps> = ({ page, label }) => {
+  let block: string = 'rightbar';
+  console.log('//--|🠊 Rightbar.tsx Loaded 🠈|--//');
+
+  switch (label) {
+    default:
+      return defaultRightbar(page, label, block);
   }
 };
 export default Rightbar;

@@ -3,18 +3,17 @@ import React from 'react';
 import defaultLeftbar from './default-leftbar/default-leftbar';
 
 interface LeftbarProps {
-  pageName: string;
-  blockName: string;
+  page: string;
+  label: string;
 }
-const Leftbar: React.FC<LeftbarProps> = ({ pageName, blockName }) => {
-  const page = pageName;
-  const block = blockName;
-  // console.log('//--|🠊 Leftbar.tsx Detected 🠈|--//');
-  switch (blockName) {
-    case 'default-leftbar':
-      return defaultLeftbar(pageName, blockName);
-    case 'default-leftbar':
-    // return defaultLeftbar(pageName, blockName);
+
+const Leftbar: React.FC<LeftbarProps> = ({ page, label }) => {
+  let block: string = 'leftbar';
+  console.log('//--|🠊 Leftbar.tsx Loaded 🠈|--//');
+
+  switch (label) {
+    default:
+      return defaultLeftbar(page, label, block);
   }
 };
 export default Leftbar;

@@ -3,18 +3,17 @@ import React from 'react';
 import defaultFooter from './default-footer/default-footer';
 
 interface FooterProps {
-  pageName: string;
-  blockName: string;
+  page: string;
+  label: string;
 }
-const Footer: React.FC<FooterProps> = ({ pageName, blockName }) => {
-  const page = pageName;
-  const block = blockName;
-  // console.log('//--|🠊 Footer.tsx Detected 🠈|--//');
-  switch (blockName) {
-    case 'default-footer':
-      return defaultFooter(pageName, blockName);
-    case 'default-footer':
-    // return defaultFooter(pageName, blockName);
+
+const Footer: React.FC<FooterProps> = ({ page, label }) => {
+  let block: string = 'footer';
+  console.log('//--|🠊 Footer.tsx Loaded 🠈|--//');
+
+  switch (label) {
+    default:
+      return defaultFooter(page, label, block);
   }
 };
 export default Footer;

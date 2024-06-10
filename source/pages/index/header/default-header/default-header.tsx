@@ -2,6 +2,17 @@
 import $ from 'jquery';
 import React from 'react';
 
+function defaultHeader(page: string | any, label: string | any, block: string | any) {
+  console.log(`//--|🠊 ${label}-${block}.tsx Loaded 🠈|--//`);
+  return (
+    <header style={{ zIndex: 4 }} id={`${page}-${block}`} className={`${label}-${block}`}>
+      {/* Code here */}
+    </header>
+  );
+}
+export default defaultHeader;
+
+/*
 function defaultHeader(pageName: string | any, blockName: string | any) {
   const page = pageName;
   const block = blockName;
@@ -70,3 +81,4 @@ $(function () {
     $(retrieve.element).removeClass('downplay').addClass('highlight'); //--|🠊 Apply the 'highlight' class to the clicked button element 🠈|--//
   });
 });
+*/

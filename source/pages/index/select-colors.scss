@@ -1,6 +1,3 @@
-//--|🠋| Scaling Layout |🠋|--//
-@import '../Body.scss';
-
 //--|🠋| Color Scheme (Résumé) |🠋|--//
 $primary-dark: #1f3131; //--🠊 rgba(31,49,49,1) 🠈--//
 $primary-medium: #3d6262; //--🠊 rgba(61,98,98,1) 🠈--//
@@ -55,43 +52,3 @@ $turquoise-neon: #00ffff; //--🠊 rgba(0, 255, 255, 1) 🠈--//
 $turquoise-dark: #0c343d; //--🠊 rgba(12, 52, 61, 1) 🠈--//
 $turquoise-light: #a2c4c9; //--🠊 rgba(162, 196, 201, 1) 🠈--//
 //--|🠉| Backup Colors |🠉|--//
-
-div[class='default-body'] {
-  height: 100vh;
-  display: grid;
-  overflow-y: hidden;
-  background: $primary-dark;
-  main[id*='default'] {
-    grid-area: 1 / 1 / 4 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-    article:first-child {
-      display: grid;
-      overflow-y: auto;
-      max-height: 100vh;
-      &::-webkit-scrollbar {
-        display: none; //~~|🠊 Hide Scrollbar 🠈|~~//
-      }
-    }
-  }
-
-  //--|🠋 Desktop (Landscape) 🠋|--//
-  @media screen and (orientation: landscape) {
-    grid-template-rows: 4rem 1fr 4rem;
-    grid-template-columns: 6rem 1fr 6rem;
-  }
-  //--|🠋 Mobile (Portrait) 🠋|--//
-  @media screen and (orientation: portrait) {
-    grid-template-rows: 6rem 1fr 6rem;
-    grid-template-columns: 1rem 1fr 1rem;
-  }
-
-  //--|🠋 Tablet (Square) 🠋|--//
-  @media screen and (max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1) {
-    // display: none;
-  }
-
-  main[id*='default'] {
-    article::-webkit-scrollbar {
-      display: none; //~~|🠊 Hide Scrollbar 🠈|~~//
-    }
-  }
-}
