@@ -1,57 +1,43 @@
 @import 'scale-text.scss';
 @import 'select-colors.scss';
 
-@import 'main/default-main/default-main.scss';
-@import 'header/default-header/default-header.scss';
-@import 'footer/default-footer/default-footer.scss';
-
-@import 'overlay/default-overlay/default-overlay.scss';
-@import 'leftbar/default-leftbar/default-leftbar.scss';
-@import 'rightbar/default-rightbar/default-rightbar.scss';
-
-@import 'main/Main.scss';
-@import 'header/Header.scss';
-@import 'footer/Footer.scss';
-
-@import 'overlay/Overlay.scss';
-@import 'leftbar/Leftbar.scss';
-@import 'rightbar/Rightbar.scss';
-
-* {
-  margin: 0;
-  padding: 0;
-
-  border: none;
-  outline: none;
-  // overflow: visible;
-  box-sizing: border-box;
-  font-family: 'Rubik', Helvetica;
-}
-
 #index-body {
+  height: 100vh;
+  display: grid;
+  overflow-y: hidden;
+
   //--|🠋 Desktop (Landscape) 🠋|--//
   @media screen and (orientation: landscape) {
+    border: 4px dashed $red-neon;
+    background: rgba($red-dark, 0.25);
     /*
     grid-template-rows: 4rem 1fr 4rem;
     grid-template-columns: 6rem 1fr 6rem;
     */
+    //~~|🠊 border: 4px dashed $red-neon; 🠈|~~//
+    //~~|🠊 background: rgba($red-dark, 0.25); 🠈|~~//
   }
   //--|🠋 Mobile (Portrait) 🠋|--//
   @media screen and (orientation: portrait) {
+    border: 4px dashed $blue-neon;
+    background: rgba($blue-dark, 0.25);
     /*
     grid-template-rows: 6rem 1fr 6rem;
     grid-template-columns: 1rem 1fr 1rem;
     */
+    //~~|🠊 border: 4px dashed $blue-neon; 🠈|~~//
+    //~~|🠊 background: rgba($blue-dark, 0.25); 🠈|~~//
   }
   //--|🠋 Tablet (Square) 🠋|--//
   @media screen and (max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1) {
+    border: 4px dashed $green-neon;
+    background: rgba($green-dark, 0.25);
     // display: none;
+    //~~|🠊 border: 4px dashed $green-neon; 🠈|~~//
+    //~~|🠊 background: rgba($green-dark, 0.25); 🠈|~~//
   }
 
   /*
-  height: 100vh;
-  display: grid;
-  overflow-y: hidden;
   background: $primary-dark;
   main[id*='default'] {
     grid-area: 1 / 1 / 4 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
@@ -71,8 +57,11 @@
   }
   */
 }
-//--|🠋| Index Page |🠋|--//
-// @import '../index/data/default-data/default-data.scss';
 
-//--|🠋| Scaling Layout |🠋|--//
-// @import '../Body.scss';
+//--|🠋| Index Page |🠋|--//
+@import 'main/default-main/default-main.scss';
+@import 'header/default-header/default-header.scss';
+@import 'footer/default-footer/default-footer.scss';
+@import 'overlay/default-overlay/default-overlay.scss';
+@import 'leftbar/default-leftbar/default-leftbar.scss';
+@import 'rightbar/default-rightbar/default-rightbar.scss';

@@ -52,3 +52,14 @@ $turquoise-neon: #00ffff; //--🠊 rgba(0, 255, 255, 1) 🠈--//
 $turquoise-dark: #0c343d; //--🠊 rgba(12, 52, 61, 1) 🠈--//
 $turquoise-light: #a2c4c9; //--🠊 rgba(162, 196, 201, 1) 🠈--//
 //--|🠉| Backup Colors |🠉|--//
+
+* {
+  margin: 0;
+  padding: 0;
+
+  border: none;
+  outline: none;
+  // overflow: visible;
+  box-sizing: border-box;
+  font-family: 'Rubik', Helvetica;
+}

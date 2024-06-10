@@ -1,6 +1,5 @@
 // default-rightbar.tsx
 import React from 'react';
-
 function defaultRightbar(page: string, label: string, block: string) {
   return (
     <aside style={{ zIndex: 1 }} id={`${page}-${block}`} className={`${label}-${block}`}>
