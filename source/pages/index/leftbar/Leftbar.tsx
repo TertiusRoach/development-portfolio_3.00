@@ -9,11 +9,10 @@ interface LeftbarProps {
 
 const Leftbar: React.FC<LeftbarProps> = ({ page, label }) => {
   let block: string = 'leftbar';
-  console.log('//--|🠊 Leftbar.tsx Loaded 🠈|--//');
-
   switch (label) {
     default:
       return defaultLeftbar(page, label, block);
   }
+  console.log('//--|🠊 Leftbar.tsx Loaded 🠈|--//');
 };
 export default Leftbar;

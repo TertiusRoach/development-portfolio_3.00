@@ -8,12 +8,11 @@ interface MainProps {
 }
 
 const Main: React.FC<MainProps> = ({ page, label }) => {
-  let block: string = 'header';
-  console.log('//--|🠊 Main.tsx Loaded 🠈|--//');
-
+  let block: string = 'main';
   switch (label) {
     default:
       return defaultMain(page, label, block);
   }
+  console.log('//--|🠊 Main.tsx Loaded 🠈|--//');
 };
 export default Main;

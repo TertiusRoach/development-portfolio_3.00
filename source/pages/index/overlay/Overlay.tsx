@@ -9,11 +9,11 @@ interface OverlayProps {
 
 const Overlay: React.FC<OverlayProps> = ({ page, label }) => {
   let block: string = 'overlay';
-  console.log('//--|🠊 Overlay.tsx Loaded 🠈|--//');
 
   switch (label) {
     default:
       return defaultOverlay(page, label, block);
   }
+  console.log('//--|🠊 Overlay.tsx Loaded 🠈|--//');
 };
 export default Overlay;

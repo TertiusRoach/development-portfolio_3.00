@@ -9,11 +9,10 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ page, label }) => {
   let block: string = 'header';
-  console.log('//--|🠊 Header.tsx Loaded 🠈|--//');
-
   switch (label) {
     default:
       return defaultHeader(page, label, block);
   }
+  console.log('//--|🠊 Header.tsx Loaded 🠈|--//');
 };
 export default Header;

@@ -9,11 +9,10 @@ interface RightbarProps {
 
 const Rightbar: React.FC<RightbarProps> = ({ page, label }) => {
   let block: string = 'rightbar';
-  console.log('//--|🠊 Rightbar.tsx Loaded 🠈|--//');
-
   switch (label) {
     default:
       return defaultRightbar(page, label, block);
   }
+  console.log('//--|🠊 Rightbar.tsx Loaded 🠈|--//');
 };
 export default Rightbar;
