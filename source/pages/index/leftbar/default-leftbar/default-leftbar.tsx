@@ -2,12 +2,12 @@
 import React from 'react';
 
 function defaultLeftbar(page: string | any, label: string | any, block: string | any) {
-  console.log(`//--|🠊 ${label}-${block}.tsx Loaded 🠈|--//`);
   return (
     <aside style={{ zIndex: 2 }} id={`${page}-${block}`} className={`${label}-${block}`}>
       {/* Code here */}
     </aside>
   );
+  console.log(`//--|🠊 ${label}-${block}.tsx Loaded 🠈|--//`);
 }
 export default defaultLeftbar;
 

@@ -2,12 +2,12 @@
 import React from 'react';
 
 function defaultFooter(page: string | any, label: string | any, block: string | any) {
-  console.log(`//--|🠊 ${label}-${block}.tsx Loaded 🠈|--//`);
   return (
     <footer style={{ zIndex: 3 }} id={`${page}-${block}`} className={`${label}-${block}`}>
       {/* Code here */}
     </footer>
   );
+  console.log(`//--|🠊 ${label}-${block}.tsx Loaded 🠈|--//`);
 }
 export default defaultFooter;
 

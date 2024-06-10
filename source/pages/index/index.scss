@@ -1,39 +1,21 @@
-//--|🠋| Index Page |🠋|--//
-// @import '../index/data/default-data/default-data.scss';
-
-//--|🠋| Scaling Layout |🠋|--//
-// @import '../Body.scss';
-
-//--|🠋| Scaling Layout |🠋|--//
 @import 'scale-text.scss';
+@import 'select-colors.scss';
 
-@import 'overlay/default-overlay/default-overlay.scss';
+@import 'main/default-main/default-main.scss';
 @import 'header/default-header/default-header.scss';
 @import 'footer/default-footer/default-footer.scss';
+
+@import 'overlay/default-overlay/default-overlay.scss';
 @import 'leftbar/default-leftbar/default-leftbar.scss';
 @import 'rightbar/default-rightbar/default-rightbar.scss';
-@import 'main/default-main/default-main.scss';
 
-// @import '../Data.scss';
+@import 'main/Main.scss';
+@import 'header/Header.scss';
+@import 'footer/Footer.scss';
 
-section[id*='overlay'] {
-  z-index: 5;
-}
-header[id*='header'] {
-  z-index: 4;
-}
-footer[id*='footer'] {
-  z-index: 3;
-}
-aside[id*='leftbar'] {
-  z-index: 2;
-}
-aside[id*='rightbar'] {
-  z-index: 1;
-}
-main[id*='main'] {
-  z-index: 0;
-}
+@import 'overlay/Overlay.scss';
+@import 'leftbar/Leftbar.scss';
+@import 'rightbar/Rightbar.scss';
 
 * {
   margin: 0;
@@ -46,7 +28,27 @@ main[id*='main'] {
   font-family: 'Rubik', Helvetica;
 }
 
-div[class='default-body'] {
+#index-body {
+  //--|🠋 Desktop (Landscape) 🠋|--//
+  @media screen and (orientation: landscape) {
+    /*
+    grid-template-rows: 4rem 1fr 4rem;
+    grid-template-columns: 6rem 1fr 6rem;
+    */
+  }
+  //--|🠋 Mobile (Portrait) 🠋|--//
+  @media screen and (orientation: portrait) {
+    /*
+    grid-template-rows: 6rem 1fr 6rem;
+    grid-template-columns: 1rem 1fr 1rem;
+    */
+  }
+  //--|🠋 Tablet (Square) 🠋|--//
+  @media screen and (max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1) {
+    // display: none;
+  }
+
+  /*
   height: 100vh;
   display: grid;
   overflow-y: hidden;
@@ -62,26 +64,15 @@ div[class='default-body'] {
       }
     }
   }
-
-  //--|🠋 Desktop (Landscape) 🠋|--//
-  @media screen and (orientation: landscape) {
-    grid-template-rows: 4rem 1fr 4rem;
-    grid-template-columns: 6rem 1fr 6rem;
-  }
-  //--|🠋 Mobile (Portrait) 🠋|--//
-  @media screen and (orientation: portrait) {
-    grid-template-rows: 6rem 1fr 6rem;
-    grid-template-columns: 1rem 1fr 1rem;
-  }
-
-  //--|🠋 Tablet (Square) 🠋|--//
-  @media screen and (max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1) {
-    // display: none;
-  }
-
   main[id*='default'] {
     article::-webkit-scrollbar {
       display: none; //~~|🠊 Hide Scrollbar 🠈|~~//
     }
   }
+  */
 }
+//--|🠋| Index Page |🠋|--//
+// @import '../index/data/default-data/default-data.scss';
+
+//--|🠋| Scaling Layout |🠋|--//
+// @import '../Body.scss';

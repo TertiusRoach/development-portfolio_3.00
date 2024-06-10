@@ -2,12 +2,12 @@
 import React from 'react';
 
 function defaultRightbar(page: string, label: string, block: string) {
-  console.log(`//--|🠊 ${label}-${block}.tsx Loaded 🠈|--//`);
   return (
     <aside style={{ zIndex: 1 }} id={`${page}-${block}`} className={`${label}-${block}`}>
       {/* Code here */}
     </aside>
   );
+  console.log(`//--|🠊 ${label}-${block}.tsx Loaded 🠈|--//`);
 }
 export default defaultRightbar;
 

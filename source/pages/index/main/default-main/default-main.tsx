@@ -3,12 +3,12 @@ import $ from 'jquery';
 import React from 'react';
 
 function defaultMain(page: string | any, label: string | any, block: string | any) {
-  console.log(`//--|🠊 ${label}-${block}.tsx Loaded 🠈|--//`);
   return (
     <main style={{ zIndex: 0 }} id={`${page}-${block}`} className={`${label}-${block}`}>
       {/* Code here */}
     </main>
   );
+  console.log(`//--|🠊 ${label}-${block}.tsx Loaded 🠈|--//`);
 }
 export default defaultMain;
 
