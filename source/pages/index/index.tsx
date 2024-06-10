@@ -17,19 +17,20 @@ interface BodyProps {
 }
 const Body: React.FC<BodyProps> = ({ page, label }) => {
   //--|🠉 React.FC tells your code that this is a React function component. 🠉|--//
-  //--|🠊 This component needs info about the page and label to work. 🠈|--//
   //--|🠋 <BodyProps> defines the information this component needs to work. 🠋|--//
   return (
     <>
-      <Overlay page={page} label={label} />
       <Header page={page} label={label} />
+      <Main page={page} label={label} />
       <Footer page={page} label={label} />
+
+      <Overlay page={page} label={label} />
       <Leftbar page={page} label={label} />
       <Rightbar page={page} label={label} />
-      <Main page={page} label={label} />
     </>
   );
   console.log(`//--|🠊 ${page}.tsx Loaded 🠈|--//`);
+  //--|🠊 This component needs info about the page and label to work. 🠈|--//
 };
 
 const container: HTMLDivElement | null = document.querySelector(`#${page}-body`); //--|🠈 Check for the required container element in the DOM 🠈|--//
