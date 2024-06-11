@@ -1,5 +1,5 @@
 import React from 'react';
-import './Button.grid.scss';
+import './Button.module.scss';
 
 interface GridProps {
   text: string;

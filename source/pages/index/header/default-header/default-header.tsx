@@ -1,7 +1,7 @@
 // default-header.tsx
 import $ from 'jquery';
 import React from 'react';
-import Button from '../../../../mods/button/fade/Button.fade';
+import Button from '../../../../mods/button/fade/Button.module';
 
 function defaultHeader(page: string | any, label: string | any, block: string | any) {
   const logoURI: string =
