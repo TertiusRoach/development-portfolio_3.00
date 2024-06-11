@@ -1,16 +1,22 @@
 // default-header.tsx
 import $ from 'jquery';
 import React from 'react';
-
 import Button from '../../../../mods/button/Button.grid';
 
 function defaultHeader(page: string | any, label: string | any, block: string | any) {
+  const logoURI: string =
+    'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/17d708556905ed2a95bf3329e9dd6411792b16b9/public/content/svg-files/signature-adjacent/primary-light.svg';
+
   console.log(`//--|🠊 ${label}-${block}.tsx Loaded 🠈|--//`);
   return (
     <header style={{ zIndex: 4 }} id={`${page}-${block}`} className={`${label}-${block}`}>
-      <Button text={'Home'} />
-      <Button text={'Skills'} />
-      <Button text={'Contact'} />
+      <div>
+        <img src={logoURI} alt="Résumé Logo" />
+      </div>
+
+      <Button className="header-home" text={'Home'} />
+      <Button className="header-skills" text={'Skills'} />
+      <Button className="header-contact" text={'Contact'} />
     </header>
   );
 }
