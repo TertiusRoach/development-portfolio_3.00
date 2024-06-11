@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--▼ Resources Link ▼-->
+    <!--► Style (CSS) ►--><link rel="stylesheet" href="css_flexbox.css">
+    <!--▲ Resources Link ▲-->    
+
+    <title>CSS Flexbox</title>
+
+</head>
+
+<body> <!--▼ CSS Flexbox ▼-->
+    
+<section> <!--|▼ Display ▼|-->
+    <h1>Display Properties</h1>
+
+    <!--|▼ display: flex; ▼|-->
+    <section>
+        <h2>Flex</h2>
+        <div class="display flex"><!--|▼ Parent Container/Element ▼|-->
+            <div class="box box-1">display: flex;</div><!--|▼ Child Container/Element ▼|-->
+            <div class="box box-2">2</div>
+            <div class="box box-3">3</div>
+            <div class="box box-4">4</div>
+            <div class="box box-5">5</div>
+        </div>
+    </section>
+
+    <!--|▼ display: inline-flex; ▼|-->
+    <section>
+        <h2>Inline Flex</h2>
+        <div class="display inline-flex"><!--|▼ Parent Container/Element ▼|-->
+            <div class="box box-1">display: inline-flex;</div><!--|▼ Child Container/Element ▼|-->
+            <div class="box box-2">2</div>
+            <div class="box box-3">3</div>
+            <div class="box box-4">4</div>
+            <div class="box box-5">5</div>
+        </div>
+    </section>
+</section><!--|▲ Display ▲|-->    
+
+<section> <!--▼ Flex Direction ▼-->
+    <h1>Flex Direction Properties</h1>
+
+    <!--|▼ flex-direction: row; (Default Setting)▼|-->
+    <section>
+        <h2>Row</h2>
+        <div class="flex-direction flex row"><!--|▼ Parent Container/Element ▼|-->
+            <div class="box box-1">flex-direction: row; (Default Setting)</div><!--|▼ Child Container/Element ▼|-->
+            <div class="box box-2">display: flex;</div>
+            <div class="box box-3">3</div>
+            <div class="box box-4">4</div>
+            <div class="box box-5">5</div>
+        </div>
+    </section>
+
+    <!--|▼ flex-direction: row-reverse; ▼|-->
+    <section>
+        <h2>Row Reverse</h2>
+        <div class="flex-direction flex row-reverse"><!--|▼ Parent Container/Element ▼|-->
+            <div class="box box-1">flex-direction: row-reverse;</div><!--|▼ Child Container/Element ▼|-->
+            <div class="box box-2">display: flex;</div>
+            <div class="box box-3">3</div>
+            <div class="box box-4">4</div>
+            <div class="box box-5">5</div>
+        </div>
+    </section>
+
+    <!--|▼ flex-direction: column; ▼|-->
+    <section>
+        <h2>Column</h2>
+        <div class="flex-direction flex column"><!--|▼ Parent Container/Element ▼|-->
+            <div class="box box-1">flex-direction: column;</div><!--|▼ Child Container/Element ▼|-->
+            <div class="box box-2">display: flex;</div>
+            <div class="box box-3">3</div>
+            <div class="box box-4">4</div>
+            <div class="box box-5">5</div>
+        </div>
+    </section>
+
+    <!--|▼ flex-direction: column-reverse; ▼|-->
+    <section>
+        <h2>Column Reverse</h2>
+        <div class="flex-direction flex column-reverse"><!--|▼ Parent Container/Element ▼|-->
+            <div class="box box-1">flex-direction: column-reverse;</div><!--|▼ Child Container/Element ▼|-->
+            <div class="box box-2">display: flex;</div>
+            <div class="box box-3">3</div>
+            <div class="box box-4">4</div>
+            <div class="box box-5">5</div>
+        </div>
+    </section>
+</section><!--▲ Flex Direction ▲-->
+
+<section> <!--▼ Flex Wrap ▼-->
+    <h1>Flex Wrap Properties</h1>
+
+    <!--|▼ flex-wrap: wrap; ▼|-->
+    <section>
+        <h2>Wrap</h2>
+        <div class="flex-wrap flex wrap"><!--|▼ Parent Container/Element ▼|-->
+            <div class="box box-1">flex-wrap: wrap;</div><!--|▼ Child Container/Element ▼|-->
+            <div class="box box-2">display: flex;</div>
+            <div class="box box-3">3</div>
+            <div class="box box-4">4</div>
+            <div class="box box-5">5</div>
+            <div class="box box-6">6</div>
+            <div class="box box-7">7</div>
+            <div class="box box-8">8</div>
+            <div class="box box-9">9</div>
+            <div class="box box-10">10</div>
+            <div class="box box-11">11</div>
+            <div class="box box-12">12</div>
+            <div class="box box-13">13</div>
+            <div class="box box-14">14</div>
+            <div class="box box-15">15</div>
+            <div class="box box-16">16</div>
+            <div class="box box-17">17</div>
+            <div class="box box-18">18</div>
+            <div class="box box-19">19</div>
+            <div class="box box-20">20</div>
+            <div class="box box-21">21</div>
+            <div class="box box-22">22</div>
+            <div class="box box-23">23</div>
+            <div class="box box-24">24</div>
+            <div class="box box-25">25</div>
+        </div>
+    </section>
+
+    <!--|▼ flex-wrap: nowrap; (Default Setting)▼|-->
+    <section>
+        <h2>No Wrap (Default Setting)</h2>
+        <div class="flex-wrap flex nowrap"><!--|▼ Parent Container/Element ▼|-->
+            <div class="box box-1">flex-wrap: nowrap;</div><!--|▼ Child Container/Element ▼|-->
+            <div class="box box-2">display: flex;</div>
+            <div class="box box-3">3</div>
+            <div class="box box-4">4</div>
+            <div class="box box-5">5</div>
+            <div class="box box-6">6</div>
+            <div class="box box-7">7</div>
+            <div class="box box-8">8</div>
+            <div class="box box-9">9</div>
+            <div class="box box-10">10</div>
+            <div class="box box-11">11</div>
+            <div class="box box-12">12</div>
+            <div class="box box-13">13</div>
+            <div class="box box-14">14</div>
+            <div class="box box-15">15</div>
+            <div class="box box-16">16</div>
+            <div class="box box-17">17</div>
+            <div class="box box-18">18</div>
+            <div class="box box-19">19</div>
+            <div class="box box-20">20</div>
+            <div class="box box-21">21</div>
+            <div class="box box-22">22</div>
+            <div class="box box-23">23</div>
+            <div class="box box-24">24</div>
+            <div class="box box-25">25</div>
+        </div>
+    </section>
+
+    <!--|▼ flex-wrap: wrap-reverse; ▼|-->
+    <section>
+        <h2>Wrap Reverse</h2>
+        <div class="flex-wrap flex wrap-reverse"><!--|▼ Parent Container/Element ▼|-->
+            <div class="box box-1">flex-wrap: wrap-reverse;</div><!--|▼ Child Container/Element ▼|-->
+            <div class="box box-2">display: flex;</div>
+            <div class="box box-3">3</div>
+            <div class="box box-4">4</div>
+            <div class="box box-5">5</div>
+            <div class="box box-6">6</div>
+            <div class="box box-7">7</div>
+            <div class="box box-8">8</div>
+            <div class="box box-9">9</div>
+            <div class="box box-10">10</div>
+            <div class="box box-11">11</div>
+            <div class="box box-12">12</div>
+            <div class="box box-13">13</div>
+            <div class="box box-14">14</div>
+            <div class="box box-15">15</div>
+            <div class="box box-16">16</div>
+            <div class="box box-17">17</div>
+            <div class="box box-18">18</div>
+            <div class="box box-19">19</div>
+            <div class="box box-20">20</div>
+            <div class="box box-21">21</div>
+            <div class="box box-22">22</div>
+            <div class="box box-23">23</div>
+            <div class="box box-24">24</div>
+            <div class="box box-25">25</div>
+        </div>
+    </section>  
+</section><!--▲ Flex Wrap ▲-->
+
+<section> <!--▼ Justify Content ▼-->
+    <h1>Justify Content Properties</h1>
+
+    <!--|▼ justify-content: flex-start; (Default Setting)▼|-->
+    <section>
+        <h2>Flex Start (Default Setting)</h2>
+        <div class="justify-content flex row justify-content-flex-start"><!--|▼ Parent Container/Element ▼|-->
+            <div class="box box-1">justify-content: flex-start;</div><!--|▼ Child Container/Element ▼|-->
+            <div class="box box-2">display: flex;</div>
+            <div class="box box-3">flex-direction: row;</div>
+            <div class="box box-4">4</div>
+            <div class="box box-5">5</div>
+        </div>
+    </section>
+    <!--|▼ justify-content: flex-start; (Overlap)▼|-->
+    <section>
+        <div class="justify-content flex row justify-content-flex-start"><!--|▼ Parent Container/Element ▼|-->
+            <div class="box box-1">flex-wrap: nowrap; (Default Setting)</div><!--|▼ Child Container/Element ▼|-->
+            <div class="box box-2">2</div>
+            <div class="box box-3">3</div>
+            <div class="box box-4">4</div>
+            <div class="box box-5">5</div>
+            <div class="box box-6">6</div>
+            <div class="box box-7">7</div>
+            <div class="box box-8">8</div>
+            <div class="box box-9">9</div>
+            <div class="box box-10">10</div>
+            <div class="box box-11">11</div>
+            <div class="box box-12">12</div>
+            <div class="box box-13">13</div>
+            <div class="box box-14">14</div>
+            <div class="box box-15">15</div>
+            <div class="box box-16">16</div>
+            <div class="box box-17">17</div>
+            <div class="box box-18">18</div>
+            <div class="box box-19">19</div>
+            <div class="box box-20">20</div>
+            <div class="box box-21">21</div>
+            <div class="box box-22">22</div>
+            <div class="box box-23">23</div>
+            <div class="box box-24">24</div>
+            <div class="box box-25">25</div>
+        </div>
+    </section>
+    
+    <!--|▼ justify-content: flex-end; ▼|-->
+    <section>
+        <h2>Flex End</h2>
+        <div class="justify-content flex row justify-content-flex-end"><!--|▼ Parent Container/Element ▼|-->
+            <div class="box box-1">justify-content: flex-end;</div><!--|▼ Child Container/Element ▼|-->
+            <div class="box box-2">display: flex;</div>
+            <div class="box box-3">flex-direction: row;</div>
+            <div class="box box-4">4</div>
+            <div class="box box-5">5</div>
+        </div>
+    </section>
+    <!--|▼ justify-content: flex-end; (Overlap)▼|-->
+    <section>
+        <div class="justify-content flex row justify-content-flex-end"><!--|▼ Parent Container/Element ▼|-->
+            <div class="box box-1">1</div><!--|▼ Child Container/Element ▼|-->
+            <div class="box box-2">2</div>
+            <div class="box box-3">3</div>
+            <div class="box box-4">4</div>
+            <div class="box box-5">5</div>
+            <div class="box box-6">6</div>
+            <div class="box box-7">7</div>
+            <div class="box box-8">8</div>
+            <div class="box box-9">9</div>
+            <div class="box box-10">10</div>
+            <div class="box box-11">11</div>
+            <div class="box box-12">12</div>
+            <div class="box box-13">13</div>
+            <div class="box box-14">14</div>
+            <div class="box box-15">15</div>
+            <div class="box box-16">16</div>
+            <div class="box box-17">17</div>
+            <div class="box box-18">flex-wrap: nowrap; (Default Setting)</div>
+            <div class="box box-19">19</div>
+            <div class="box box-20">20</div>
+            <div class="box box-21">21</div>
+            <div class="box box-22">22</div>
+            <div class="box box-23">23</div>
+            <div class="box box-24">24</div>
+            <div class="box box-25">25</div>
+        </div>
+    </section>
+
+    <!--|▼ justify-content: center; ▼|-->
+    <section>
+        <h2>Center</h2>
+        <div class="justify-content flex row justify-content-center"><!--|▼ Parent Container/Element ▼|-->
+            <div class="box box-1">justify-content: center;</div><!--|▼ Child Container/Element ▼|-->
+            <div class="box box-2">display: flex;</div>
+            <div class="box box-3">flex-direction: row;</div>
+            <div class="box box-4">4</div>
+            <div class="box box-5">5</div>
+        </div>
+    </section>
+    <!--|▼ justify-content: center; (Overlap)▼|-->
+    <section>
+        <div class="justify-content flex row justify-content-center"><!--|▼ Parent Container/Element ▼|-->
+            <div class="box box-1">1</div><!--|▼ Child Container/Element ▼|-->
+            <div class="box box-2">2</div>
+            <div class="box box-3">3</div>
+            <div class="box box-4">4</div>
+            <div class="box box-5">5</div>
+            <div class="box box-6">6</div>
+            <div class="box box-7">7</div>
+            <div class="box box-8">8</div>
+            <div class="box box-9">9</div>
+            <div class="box box-10">10</div>
+            <div class="box box-11">11</div>
+            <div class="box box-12">12</div>
+            <div class="box box-13">flex-wrap: nowrap; (Default Setting)</div>
+            <div class="box box-14">14</div>
+            <div class="box box-15">15</div>
+            <div class="box box-16">16</div>
+            <div class="box box-17">17</div>
+            <div class="box box-18">18</div>
+            <div class="box box-19">19</div>
+            <div class="box box-20">20</div>
+            <div class="box box-21">21</div>
+            <div class="box box-22">22</div>
+            <div class="box box-23">23</div>
+            <div class="box box-24">24</div>
+            <div class="box box-25">25</div>
+        </div>
+    </section>
+
+    <!--|▼ justify-content: space-between; ▼|-->
+    <section>
+        <h2>Space Between</h2>
+        <div class="justify-content flex row space-between"><!--|▼ Parent Container/Element ▼|-->
+            <div class="box box-1">justify-content: space-between;</div><!--|▼ Child Container/Element ▼|-->
+            <div class="box box-2">display: flex;</div>
+            <div class="box box-3">flex-direction: row;</div>
+            <div class="box box-4">4</div>
+            <div class="box box-5">5</div>
+        </div>
+    </section>
+    <!--|▼ justify-content: space-between; (Overlap)▼|-->
+    <section>
+        <div class="justify-content flex row space-between"><!--|▼ Parent Container/Element ▼|-->
+            <div class="box box-1">flex-wrap: nowrap; (Default Setting)</div><!--|▼ Child Container/Element ▼|-->
+            <div class="box box-2">2</div>
+            <div class="box box-3">3</div>
+            <div class="box box-4">4</div>
+            <div class="box box-5">5</div>
+            <div class="box box-6">6</div>
+            <div class="box box-7">7</div>
+            <div class="box box-8">8</div>
+            <div class="box box-9">9</div>
+            <div class="box box-10">10</div>
+            <div class="box box-11">11</div>
+            <div class="box box-12">12</div>
+            <div class="box box-13">13</div>
+            <div class="box box-14">14</div>
+            <div class="box box-15">15</div>
+            <div class="box box-16">16</div>
+            <div class="box box-17">17</div>
+            <div class="box box-18">18</div>
+            <div class="box box-19">19</div>
+            <div class="box box-20">20</div>
+            <div class="box box-21">21</div>
+            <div class="box box-22">22</div>
+            <div class="box box-23">23</div>
+            <div class="box box-24">24</div>
+            <div class="box box-25">25</div>
+        </div>
+    </section>
+
+    <!--|▼ justify-content: space-around; ▼|-->
+    <section>
+        <h2>Space Around</h2>
+        <div class="justify-content flex row space-around"><!--|▼ Parent Container/Element ▼|-->
+            <div class="box box-1">justify-content: space-around;</div><!--|▼ Child Container/Element ▼|-->
+            <div class="box box-2">display: flex;</div>
+            <div class="box box-3">flex-direction: row;</div>
+            <div class="box box-4">4</div>
+            <div class="box box-5">5</div>
+        </div>
+    </section>
+    <!--|▼ justify-content: space-around; (Overlap)▼|-->
+    <section>
+        <div class="justify-content flex row space-around"><!--|▼ Parent Container/Element ▼|-->
+            <div class="box box-1">1</div><!--|▼ Child Container/Element ▼|-->
+            <div class="box box-2">2</div>
+            <div class="box box-3">3</div>
+            <div class="box box-4">4</div>
+            <div class="box box-5">5</div>
+            <div class="box box-6">6</div>
+            <div class="box box-7">7</div>
+            <div class="box box-8">8</div>
+            <div class="box box-9">9</div>
+            <div class="box box-10">10</div>
+            <div class="box box-11">11</div>
+            <div class="box box-12">12</div>
+            <div class="box box-13">flex-wrap: nowrap; (Default Setting)</div>
+            <div class="box box-14">14</div>
+            <div class="box box-15">15</div>
+            <div class="box box-16">16</div>
+            <div class="box box-17">17</div>
+            <div class="box box-18">18</div>
+            <div class="box box-19">19</div>
+            <div class="box box-20">20</div>
+            <div class="box box-21">21</div>
+            <div class="box box-22">22</div>
+            <div class="box box-23">23</div>
+            <div class="box box-24">24</div>
+            <div class="box box-25">25</div>
+        </div>
+    </section>
+</section><!--▲ Justify Content ▲-->
+
+<section> <!--▼ Align Items ▼-->
+    <h1>Align Item Properties</h1>
+
+    <!--|▼ align-items: stretch; ▼|-->
+    <section>
+        <h2>Stretch</h2>
+        <div class="align-items flex row align-items-stretch"><!--|▼ Parent Container/Element ▼|-->
+            <div class="box box-1">align-items: stretch;</div><!--|▼ Child Container/Element ▼|-->
+            <div class="box box-2">2</div>
+            <div class="box box-3">display: flex;</div>
+            <div class="box box-4">flex-direction: row;</div>
+            <div class="box box-5">height: 300px;</div>
+        </div>
+    </section>
+
+    <!--|▼ align-items: flex-start; ▼|-->
+    <section>
+        <h2>Flex Start</h2>
+        <div class="align-items flex row align-items-flex-start"><!--|▼ Parent Container/Element ▼|-->
+            <div class="box box-1">align-items: flex-start;</div><!--|▼ Child Container/Element ▼|-->
+            <div class="box box-2">2</div>
+            <div class="box box-3">display: flex;</div>
+            <div class="box box-4">flex-direction: row;</div>
+            <div class="box box-5">height: 300px;</div>
+        </div>
+    </section>
+
+    <!--|▼ align-items: flex-end; ▼|-->
+    <section>
+        <h2>Flex End</h2>
+        <div class="align-items flex row align-items-flex-end"><!--|▼ Parent Container/Element ▼|-->
+            <div class="box box-1">align-items: flex-end;</div><!--|▼ Child Container/Element ▼|-->
+            <div class="box box-2">2</div>
+            <div class="box box-3">display: flex;</div>
+            <div class="box box-4">flex-direction: row;</div>
+            <div class="box box-5">height: 300px;</div>
+        </div>
+    </section>
+
+    <!--|▼ align-items: baseline; ▼|-->
+    <section>
+        <h2>Baseline</h2>
+        <div class="align-items flex row baseline"><!--|▼ Parent Container/Element ▼|-->
+            <div class="box box-1">align-items: baseline;</div><!--|▼ Child Container/Element ▼|-->
+            <div class="box box-2"><h2>Place Logo</h2></div>
+            <div class="box box-3">display: flex;</div>
+            <div class="box box-4">flex-direction: row;</div>
+            <div class="box box-5">height: 300px;</div>
+        </div>
+    </section>
+
+    <!--|▼ align-items: center; ▼|-->
+    <section>
+        <h2>Center</h2>
+        <div class="align-items flex row align-items-center"><!--|▼ Parent Container/Element ▼|-->
+            <div class="box box-1">align-items: center;</div><!--|▼ Child Container/Element ▼|-->
+            <div class="box box-2">2</div>
+            <div class="box box-3">display: flex;</div>
+            <div class="box box-4">flex-direction: row;</div>
+            <div class="box box-5">height: 300px;</div>
+        </div>
+    </section>
+    <section><!--|▼ justify-content: center; ▼|-->
+        <div class="align-items flex row justify-content-center align-items-center"><!--|▼ Parent Container/Element ▼|-->
+            <div class="box box-1">align-items: center;</div><!--|▼ Child Container/Element ▼|-->
+            <div class="box box-2">justify-content: center;</div>
+            <div class="box box-3">display: flex;</div>
+            <div class="box box-4">flex-direction: row;</div>
+            <div class="box box-5">height: 300px;</div>
+        </div>
+    </section>
+</section><!--▲ Align Items ▲-->
+
+<section> <!--▼ Align Content ▼-->
+    <h1>Align Content</h1>
+
+    <!--|▼ align-content: stretch; ▼|-->
+    <section>
+        <h2>Stretch</h2>
+        <div class="align-content flex row align-content-stretch wrap"><!--|▼ Parent Container/Element ▼|-->
+            <div class="box box-1">align-content: stretch;</div><!--|▼ Child Container/Element ▼|-->
+            <div class="box box-2">height: 400px;</div>
+            <div class="box box-3">flex-wrap: wrap;</div>
+            <div class="box box-4">4</div>
+            <div class="box box-5">display: flex;</div>
+            <div class="box box-6">flex-direction: row;</div>
+            <div class="box box-7">7</div>
+            <div class="box box-8">8</div>
+            <div class="box box-9">9</div>
+            <div class="box box-10">10</div>
+            <div class="box box-11">11</div>
+            <div class="box box-12">12</div>
+            <div class="box box-13">13</div>
+            <div class="box box-14">14</div>
+            <div class="box box-15">15</div>
+            <div class="box box-16">16</div>
+            <div class="box box-17">17</div>
+            <div class="box box-18">18</div>
+            <div class="box box-19">19</div>
+            <div class="box box-20">20</div>
+            <div class="box box-21">21</div>
+            <div class="box box-22">22</div>
+            <div class="box box-23">23</div>
+            <div class="box box-24">24</div>
+            <div class="box box-25">25</div>
+        </div>
+    </section>
+
+    <!--|▼ align-content: flex-end; ▼|-->
+    <section>
+        <h2>Flex End</h2>
+        <div class="align-content flex row align-content-flex-end wrap"><!--|▼ Parent Container/Element ▼|-->
+            <div class="box box-1">align-content: flex-end;</div><!--|▼ Child Container/Element ▼|-->
+            <div class="box box-2">height: 400px;</div>
+            <div class="box box-3">flex-wrap: wrap;</div>
+            <div class="box box-4">4</div>
+            <div class="box box-5">display: flex;</div>
+            <div class="box box-6">flex-direction: row;</div>
+            <div class="box box-7">7</div>
+            <div class="box box-8">8</div>
+            <div class="box box-9">9</div>
+            <div class="box box-10">10</div>
+            <div class="box box-11">11</div>
+            <div class="box box-12">12</div>
+            <div class="box box-13">13</div>
+            <div class="box box-14">14</div>
+            <div class="box box-15">15</div>
+            <div class="box box-16">16</div>
+            <div class="box box-17">17</div>
+            <div class="box box-18">18</div>
+            <div class="box box-19">19</div>
+            <div class="box box-20">20</div>
+            <div class="box box-21">21</div>
+            <div class="box box-22">22</div>
+            <div class="box box-23">23</div>
+            <div class="box box-24">24</div>
+            <div class="box box-25">25</div>
+        </div>
+    </section>
+
+    <!--|▼ align-content: flex-start; ▼|-->
+    <section>
+        <h2>Flex Start</h2>
+        <div class="align-content flex row align-content-flex-start wrap"><!--|▼ Parent Container/Element ▼|-->
+            <div class="box box-1">align-content: flex-start;</div><!--|▼ Child Container/Element ▼|-->
+            <div class="box box-2">height: 400px;</div>
+            <div class="box box-3">flex-wrap: wrap;</div>
+            <div class="box box-4">4</div>
+            <div class="box box-5">display: flex;</div>
+            <div class="box box-6">flex-direction: row;</div>
+            <div class="box box-7">7</div>
+            <div class="box box-8">8</div>
+            <div class="box box-9">9</div>
+            <div class="box box-10">10</div>
+            <div class="box box-11">11</div>
+            <div class="box box-12">12</div>
+            <div class="box box-13">13</div>
+            <div class="box box-14">14</div>
+            <div class="box box-15">15</div>
+            <div class="box box-16">16</div>
+            <div class="box box-17">17</div>
+            <div class="box box-18">18</div>
+            <div class="box box-19">19</div>
+            <div class="box box-20">20</div>
+            <div class="box box-21">21</div>
+            <div class="box box-22">22</div>
+            <div class="box box-23">23</div>
+            <div class="box box-24">24</div>
+            <div class="box box-25">25</div>
+        </div>
+    </section>
+
+    <!--|▼ align-content: space-around; ▼|-->
+    <section>
+        <h2>Space Around</h2>
+        <div class="align-content flex row align-content-space-around wrap"><!--|▼ Parent Container/Element ▼|-->
+            <div class="box box-1">align-content: space-around;</div><!--|▼ Child Container/Element ▼|-->
+            <div class="box box-2">height: 400px;</div>
+            <div class="box box-3">flex-wrap: wrap;</div>
+            <div class="box box-4">4</div>
+            <div class="box box-5">display: flex;</div>
+            <div class="box box-6">flex-direction: row;</div>
+            <div class="box box-7">7</div>
+            <div class="box box-8">8</div>
+            <div class="box box-9">9</div>
+            <div class="box box-10">10</div>
+            <div class="box box-11">11</div>
+            <div class="box box-12">12</div>
+            <div class="box box-13">13</div>
+            <div class="box box-14">14</div>
+            <div class="box box-15">15</div>
+            <div class="box box-16">16</div>
+            <div class="box box-17">17</div>
+            <div class="box box-18">18</div>
+            <div class="box box-19">19</div>
+            <div class="box box-20">20</div>
+            <div class="box box-21">21</div>
+            <div class="box box-22">22</div>
+            <div class="box box-23">23</div>
+            <div class="box box-24">24</div>
+            <div class="box box-25">25</div>
+        </div>
+    </section>
+
+    <!--|▼ align-content: space-between; ▼|-->
+    <section>
+        <h2>Space Between</h2>
+        <div class="align-content flex row align-content-space-between wrap"><!--|▼ Parent Container/Element ▼|-->
+            <div class="box box-1">align-content: space-between;</div><!--|▼ Child Container/Element ▼|-->
+            <div class="box box-2">height: 400px;</div>
+            <div class="box box-3">flex-wrap: wrap;</div>
+            <div class="box box-4">4</div>
+            <div class="box box-5">display: flex;</div>
+            <div class="box box-6">flex-direction: row;</div>
+            <div class="box box-7">7</div>
+            <div class="box box-8">8</div>
+            <div class="box box-9">9</div>
+            <div class="box box-10">10</div>
+            <div class="box box-11">11</div>
+            <div class="box box-12">12</div>
+            <div class="box box-13">13</div>
+            <div class="box box-14">14</div>
+            <div class="box box-15">15</div>
+            <div class="box box-16">16</div>
+            <div class="box box-17">17</div>
+            <div class="box box-18">18</div>
+            <div class="box box-19">19</div>
+            <div class="box box-20">20</div>
+            <div class="box box-21">21</div>
+            <div class="box box-22">22</div>
+            <div class="box box-23">23</div>
+            <div class="box box-24">24</div>
+            <div class="box box-25">25</div>
+        </div>
+    </section>
+
+    <!--|▼ align-content: center; ▼|-->
+    <section>
+        <h2>Center</h2>
+        <div class="align-content flex row align-content-center wrap"><!--|▼ Parent Container/Element ▼|-->
+            <div class="box box-1">align-content: center;</div><!--|▼ Child Container/Element ▼|-->
+            <div class="box box-2">height: 400px;</div>
+            <div class="box box-3">flex-wrap: wrap;</div>
+            <div class="box box-4">4</div>
+            <div class="box box-5">display: flex;</div>
+            <div class="box box-6">flex-direction: row;</div>
+            <div class="box box-7">7</div>
+            <div class="box box-8">8</div>
+            <div class="box box-9">9</div>
+            <div class="box box-10">10</div>
+            <div class="box box-11">11</div>
+            <div class="box box-12">12</div>
+            <div class="box box-13">13</div>
+            <div class="box box-14">14</div>
+            <div class="box box-15">15</div>
+            <div class="box box-16">16</div>
+            <div class="box box-17">17</div>
+            <div class="box box-18">18</div>
+            <div class="box box-19">19</div>
+            <div class="box box-20">20</div>
+            <div class="box box-21">21</div>
+            <div class="box box-22">22</div>
+            <div class="box box-23">23</div>
+            <div class="box box-24">24</div>
+            <div class="box box-25">25</div>
+        </div>
+    </section>
+</section><!--▲ Align Content ▲-->
+
+<h1>Research</h1>
+<h2>Flexbox: Order</h2>
+<h2>Flexbox: Align Self</h2>
+<h2>Flexbox: Flex Grow</h2>
+<h2>Flexbox: Flex Shrink</h2>
+<h2>Flexbox: Flex Basis</h2>
+    
+</body><!--▲ CSS Flexbox ▲-->
+</html>

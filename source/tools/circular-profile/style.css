@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #162052;
+}
+
+.box {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.box::before {
+  content: '';
+  position: absolute;
+  inset: -10px 140px;
+  background: linear-gradient(315deg, #00ccff, #d400d4);
+  transition: 0.5s;
+  animation: clockwise 4s linear infinite;
+}
+
+.box:hover::before {
+  inset: -20px 0px;
+}
+
+@keyframes clockwise {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes anti-clockwise {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.box::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  background: #162052;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.content {
+  position: absolute;
+  inset: 30px;
+  /* border: 6px solid #070a1c; */
+  z-index: 3;
+  border-radius: 50%;
+  overflow: visible;
+}
+
+.content::before {
+  animation: clockwise 4s linear infinite;
+}
+
+.content img {
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: -1rem;
+  left: 0;
+  object-fit: cover;
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.box:hover .content img {
+  /* height: 150%;
+  width: 150%;
+  transform: translate(-25%, -25%); Center the image using translate */
+  /* opacity: 0; */
+}

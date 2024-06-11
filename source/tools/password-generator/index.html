@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--|▼| Font |▼|-->
+    <!--► Baloo Bhai 2 (Google Fonts) ▼-->
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!--|▼| Design |▼|-->
+    <!--► Styling (CSS) ▼-->
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <!--|▼| Script |▼|-->
+    <!--► Main (JavaScript) ▼-->
+    <script defer type="text/javascript" src="main.js"></script>
+
+    <title>Password Generator</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Password Generator</h2>
+
+      <div class="result-container">
+        <input type="text" id="result" />
+
+        <button class="copy-result" id="copy">Copy</button>
+      </div>
+
+      <div class="settings">
+        <div class="input-group">
+          <label>Password length (4-20)</label>
+
+          <input type="range" id="length" min="4" max="20" step="1" />
+
+          <span id="length-result">10</span>
+        </div>
+
+        <div class="input-group">
+          <label>Include numbers</label>
+
+          <input type="checkbox" id="numbers" checked />
+        </div>
+
+        <div class="input-group">
+          <label>Include symbols</label>
+
+          <input type="checkbox" id="symbols" checked />
+        </div>
+      </div>
+
+      <button class="generate-btn" id="generate">Generate</button>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,174 @@
+/*
+The default display value for most elements is block or inline .
+This panel contains a <div> element, which is hidden by default
+( display: none ). It is styled with CSS, and we use JavaScript
+to show it (change it to ( display: block ).
+*/
+
+/*--▼ Box Background ▼--*/
+.box-1{background: brown;}
+.box-2{background: yellow;}
+.box-3{background: orange;}
+.box-4{background: blue;}
+.box-5{background: green;}
+.box-6{background: brown;}
+.box-7{background: yellow;}
+.box-8{background: orange;}
+.box-9{background: blue;}
+.box-10{background: green;}
+.box-11{background: brown;}
+.box-12{background: yellow;}
+.box-13{background: orange;}
+.box-14{background: blue;}
+.box-15{background: green;}
+.box-16{background: brown;}
+.box-17{background: yellow;}
+.box-18{background: orange;}
+.box-19{background: blue;}
+.box-20{background: green;}
+.box-21{background: brown;}
+.box-22{background: yellow;}
+.box-23{background: orange;}
+.box-24{background: blue;}
+.box-25{background: green;}
+/*--▲ Box Background ▲--*/
+
+/*--▼ Starting with Flexbox ▼--*/
+h1{
+    font-size: 45px;
+    text-decoration: underline;
+    text-align: center;
+}
+.container{ /* Parent Container/Element */
+    border: 5px solid black;
+}
+.box{ /* Child Container/Element */
+    padding: 30px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: darkgrey;
+}
+/*--▲ Starting with Flexbox ▲--*/
+
+/*--▼ Flex Display ▼--*/
+.display{
+    border: 5px solid brown;
+}
+.flex{
+    display: flex;
+}
+.inline-flex{
+    display: inline-flex;
+}
+/*--▲ Flex Display ▲--*/
+
+/*--▼ Flex Direction ▼--*/
+.flex-direction{
+    border: 5px solid yellow;
+}
+.row{
+    flex-direction: row; /* Default Setting */
+}
+.row-reverse{
+    flex-direction: row-reverse;
+}
+.column{
+    flex-direction: column;
+}
+.column-reverse{
+    flex-direction: column-reverse;
+}
+/*--▲ Flex Direction ▲--*/
+
+/*--▼ Flex Wrap ▼--*/
+.flex-wrap{
+    border: 5px solid orange;
+}
+.wrap{
+    flex-wrap: wrap;                        
+}
+.nowrap{ /* Default Setting */
+    flex-wrap: nowrap;
+}
+.wrap-reverse{
+    flex-wrap: wrap-reverse;
+}
+/*--▲ Flex Wrap ▲--*/
+
+/*--▼ Justify Content ▼--*/
+.justify-content{
+    border: 5px solid blue;
+}
+.justify-content-flex-start{ /* Default Setting */
+    justify-content: flex-start;
+}
+.justify-content-flex-end{
+    justify-content: flex-end;
+}
+.justify-content-center{
+    justify-content: center;
+}
+.space-between{
+    justify-content: space-between;
+}
+.space-around{
+    justify-content: space-around;
+}
+/*--▲ Justify Content ▲--*/
+
+/*--▼ Align Items ▼--*/
+.align-items{
+    border: 5px solid green;
+}
+.align-items-stretch{
+    align-items: stretch;
+    height: 300px;
+}
+.align-items-flex-start{
+    align-items: flex-start;
+    height: 300px;
+}
+.align-items-flex-end{
+    align-items: flex-end;
+    height: 300px;
+}
+.align-items-center{
+    align-items: center;
+    height: 300px;
+}
+.baseline{
+    align-items: baseline;
+    height: 300px;
+}
+/*--▲ Align Items ▲--*/
+
+/*--▼ Align Content ▼--*/
+.align-content{
+    border: 5px solid brown;
+}
+.align-content-stretch{
+    align-content: stretch;
+    height: 400px;
+}
+.align-content-flex-end{
+    align-content: flex-end;
+    height: 400px;
+}
+.align-content-flex-start{
+    align-content: flex-start;
+    height: 400px;
+}
+.align-content-space-around{
+    align-content: space-around;
+    height: 400px;
+}
+.align-content-space-between{
+    align-content: space-between;
+    height: 400px;
+}
+.align-content-center{
+    align-content: center;
+    height: 400px;
+}
+/*--▲ Align Content ▲--*/

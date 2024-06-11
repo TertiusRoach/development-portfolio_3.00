@@ -1,0 +1,39 @@
+body{
+    background-color: lightgrey;
+}
+
+.AllWide{
+    width: 100%;
+}
+
+[id*="page"], #NoClick-1{
+    display: inline-block;
+    border: 1px solid green;
+    padding: 5px;
+} 
+
+#ShowPage{
+    width: 250px;
+    height: 50px;
+    border: 1px solid green;
+}
+
+.groot{
+    font-size: 15px;
+    color: red;
+}
+
+.groot.blou{
+    font-size: 15px;
+    color: blue;
+}
+
+/*--|▼| Bin |▼|--*/
+
+div[class*="test"]{
+    background: #ffff00;
+}
+
+/*--|▲| Bin |▲|--*/
+
+
