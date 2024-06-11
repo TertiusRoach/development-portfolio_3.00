@@ -1,7 +1,16 @@
 @import '../Main.scss';
+
 #index-main {
+  display: inherit; //~~|🠈 display: grid; 🠈|~~//
+
   //--|🠋 Desktop (Landscape) 🠋|--//
   @media screen and (orientation: landscape) {
+    //~~|🠊 border: 4px dashed $orange-neon; 🠈|~~//
+    //~~|🠊 background: rgba($orange-dark, 0.25); 🠈|~~//
+    display: none;
+    background: $purple-dark;
+    grid-area: 1 / 1 / 4 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+    grid-template: 1fr / 1fr; //~~|🠊 rows / columns 🠈|~~//
   }
 
   //--|🠋 Mobile (Portrait) 🠋|--//

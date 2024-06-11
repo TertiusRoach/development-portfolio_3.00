@@ -2,14 +2,19 @@
 import $ from 'jquery';
 import React from 'react';
 
+import Button from '../../../../mods/button/Button.grid';
+
 function defaultHeader(page: string | any, label: string | any, block: string | any) {
+  console.log(`//--|🠊 ${label}-${block}.tsx Loaded 🠈|--//`);
   return (
     <header style={{ zIndex: 4 }} id={`${page}-${block}`} className={`${label}-${block}`}>
-      {/* Code here */}
+      <Button text={'Home'} />
+      <Button text={'Skills'} />
+      <Button text={'Contact'} />
     </header>
   );
-  console.log(`//--|🠊 ${label}-${block}.tsx Loaded 🠈|--//`);
 }
+
 export default defaultHeader;
 
 /*
