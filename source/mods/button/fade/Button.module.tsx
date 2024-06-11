@@ -10,8 +10,8 @@ interface FadeProps {
 
 const Button: React.FC<FadeProps> = ({ grid, icon, text, state }) => {
   return (
-    <button className={`${grid} fade${state ? ` ${state}` : ''}`}>
-      <img src={icon} alt={text.toLowerCase() + '-icon'} />
+    <button className={`${grid} fade ${state}`}>
+      <img src={icon} alt={text.toLowerCase()} />
       <h6>{text}</h6>
     </button>
   );
