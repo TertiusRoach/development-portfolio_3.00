@@ -1,5 +1,15 @@
 @import '../Leftbar.scss';
-
+#index-leftbar {
+  //--|🠋 Desktop (Landscape) 🠋|--//
+  @media screen and (orientation: landscape) {
+  }
+  //--|🠋 Mobile (Portrait) 🠋|--//
+  @media screen and (orientation: portrait) {
+  }
+  //--|🠋 Tablet (Square) 🠋|--//
+  @media screen and (max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1) {
+  }
+}
 /*
 aside[class='default-leftbar'] {
   display: none;

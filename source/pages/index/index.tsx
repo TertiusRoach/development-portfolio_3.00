@@ -20,8 +20,8 @@ const Body: React.FC<BodyProps> = ({ page, label }) => {
   //--|🠋 <BodyProps> defines the information this component needs to work. 🠋|--//
   return (
     <>
-      <Main page={page} label={label} />
       <Header page={page} label={label} />
+      <Main page={page} label={label} />
       <Footer page={page} label={label} />
 
       <Overlay page={page} label={label} />

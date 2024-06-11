@@ -1,6 +1,16 @@
 // default-footer.scss
 @import '../Footer.scss';
-
+#index-footer {
+  //--|🠋 Desktop (Landscape) 🠋|--//
+  @media screen and (orientation: landscape) {
+  }
+  //--|🠋 Mobile (Portrait) 🠋|--//
+  @media screen and (orientation: portrait) {
+  }
+  //--|🠋 Tablet (Square) 🠋|--//
+  @media screen and (max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1) {
+  }
+}
 /*
 footer[class='default-footer'] {
   //--|🠋 Desktop (Landscape) 🠋|--//
