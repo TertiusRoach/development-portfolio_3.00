@@ -1,0 +1,10 @@
+@import '../../backup-colors.scss';
+@import '../../../pages/index/select-colors.scss';
+
+button {
+  border: 4px dashed $red-neon;
+  background: rgba($red-dark, 0.25);
+
+  //~~|🠊 border: 4px dashed $red-neon; 🠈|~~//
+  //~~|🠊 background: rgba($red-dark, 0.25); 🠈|~~//
+}
