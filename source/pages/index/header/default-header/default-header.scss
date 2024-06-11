@@ -13,7 +13,7 @@
     div {
       display: flex;
       align-items: center;
-      grid-area0: 1 / 2 / 2 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+      grid-area: 1 / 2 / 2 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
       justify-content: flex-start;
       img {
         height: 50%;
