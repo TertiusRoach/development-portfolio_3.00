@@ -5,6 +5,9 @@ import React from 'react';
 function defaultMain(page: string | any, label: string | any, block: string | any) {
   return (
     <main style={{ zIndex: 0 }} id={`${page}-${block}`} className={`${label}-${block}`}>
+      <section></section>
+      <section></section>
+      <section></section>
       {/* Code here */}
     </main>
   );
