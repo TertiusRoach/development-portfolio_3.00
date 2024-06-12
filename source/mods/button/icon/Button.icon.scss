@@ -1,0 +1,35 @@
+@import '../../backup-colors.scss';
+@import '../../../pages/select-colors.scss';
+
+button[class*='icon'] {
+  // display: flex;
+  // background: none;
+  // align-items: center;
+  // justify-content: flex-start;
+  // filter: drop-shadow(0 0 4px rgba(black, 0.25));
+  // img {
+  //   height: 75%;
+  //   padding: 0 1rem;
+  // }
+  // h6 {
+  //   cursor: pointer;
+  //   color: $primary-light;
+  //   transition: color 0.25s ease-in-out;
+  // }
+
+  // &:hover {
+  //   filter: drop-shadow(0 0 4px rgba(white, 0.25));
+  //   h6 {
+  //     color: white;
+  //   }
+  // }
+  // &[class*='active'] {
+  //   filter: drop-shadow(0 0 4px rgba(white, 0.25));
+  //   h6 {
+  //     cursor: default;
+  //     color: $primary-medium;
+  //   }
+  // }
+  //~~|🠊 border: 4px dashed $red-neon; 🠈|~~//
+  //~~|🠊 background: rgba($red-dark, 0.25); 🠈|~~//
+}

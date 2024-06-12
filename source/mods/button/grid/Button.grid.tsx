@@ -7,7 +7,7 @@ interface GridProps {
 }
 
 // This is the component I can't find
-const Button: React.FC<GridProps> = ({ text, className }) => {
+const ButtonGrid: React.FC<GridProps> = ({ text, className }) => {
   console.log(`//--|🠊 Button.grid.tsx Loaded 🠈|--//`);
   return (
     <button className={className}>
@@ -16,4 +16,4 @@ const Button: React.FC<GridProps> = ({ text, className }) => {
   );
 };
 
-export default Button;
+export default ButtonGrid;

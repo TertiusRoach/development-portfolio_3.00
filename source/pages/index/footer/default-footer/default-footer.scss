@@ -19,9 +19,9 @@
   }
   //--|🠋 Mobile (Portrait) - ☐ 🠋|--//
   @media screen and (orientation: portrait) {
-    a {
-      display: none;
-    }
+    // a {
+    //   display: none;
+    // }
   }
   //--|🠋 Tablet (Square) - ☐ 🠋|--//
   @media screen and (max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1) {

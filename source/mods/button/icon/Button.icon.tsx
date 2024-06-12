@@ -1,16 +1,16 @@
 import React from 'react';
-import './Button.fade.scss';
+import './Button.icon.scss';
 
-interface FadeProps {
+interface IconProps {
   grid: string; //--|🠈 This className is used to position the button within a grid layout. 🠈|--//
   icon: string;
   text: string;
   state?: 'active' | '';
 }
 
-const ButtonFade: React.FC<FadeProps> = ({ grid, icon, text, state }) => {
+const ButtonIcon: React.FC<IconProps> = ({ grid, icon, text, state }) => {
   return (
-    <button className={`${grid} fade ${state}`}>
+    <button className={`${grid} icon ${state}`}>
       <img src={icon} alt={text.toLowerCase()} />
       <h6>{text}</h6>
     </button>
@@ -19,4 +19,4 @@ const ButtonFade: React.FC<FadeProps> = ({ grid, icon, text, state }) => {
   //--|🠊 : - Is an Else Operator and adds nothing if the state has a falsy value. 🠈|--//
 };
 
-export default ButtonFade;
+export default ButtonIcon;
