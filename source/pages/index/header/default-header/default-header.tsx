@@ -2,31 +2,34 @@
 import $ from 'jquery';
 import React from 'react';
 import Button from '../../../../mods/button/fade/Button.fade';
-
+interface IconURL {
+  logo: string;
+  home: string;
+  skills: string;
+  contact: string;
+}
 function defaultHeader(page: string | any, label: string | any, block: string | any) {
-  const logoURI: string =
-    'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/17d708556905ed2a95bf3329e9dd6411792b16b9/public/content/svg-files/signature-adjacent/primary-light.svg';
-  const homeURI: string =
-    'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/33ecc4eebaa902dbc040024fbc24833dd4e1fdd1/public/content/svg-files/icon-collection/duotone/home.svg';
-  const skillsURI: string =
-    'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/33ecc4eebaa902dbc040024fbc24833dd4e1fdd1/public/content/svg-files/icon-collection/duotone/lightbulb-on.svg';
-  const contactURI: string =
-    'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/33ecc4eebaa902dbc040024fbc24833dd4e1fdd1/public/content/svg-files/icon-collection/duotone/phone-volume.svg';
-
+  const projectURI: string = 'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00';
+  const icons: IconURL = {
+    logo: `${projectURI}/17d708556905ed2a95bf3329e9dd6411792b16b9/public/content/svg-files/signature-adjacent/primary-light.svg`,
+    home: `${projectURI}/33ecc4eebaa902dbc040024fbc24833dd4e1fdd1/public/content/svg-files/icon-collection/duotone/home.svg`,
+    skills: `${projectURI}/33ecc4eebaa902dbc040024fbc24833dd4e1fdd1/public/content/svg-files/icon-collection/duotone/lightbulb-on.svg`,
+    contact: `${projectURI}/33ecc4eebaa902dbc040024fbc24833dd4e1fdd1/public/content/svg-files/icon-collection/duotone/phone-volume.svg`,
+  };
   return (
     <header style={{ zIndex: 4 }} id={`${page}-${block}`} className={`${label}-${block}`}>
       <div>
-        <img src={logoURI} alt="Résumé Logo" />
+        {/* Property 'logo' does not exist on type 'Object'. */}
+        <img src={icons.logo} alt="Résumé Logo" />
       </div>
 
-      <Button grid="header-home" icon={homeURI} text="Home" state="active" />
-      <Button grid="header-skills" icon={skillsURI} text="Skills" />
-      <Button grid="header-contact" icon={contactURI} text="Contact" />
+      <Button grid="header-home" icon={icons.home} text="Home" state="active" />
+      <Button grid="header-skills" icon={icons.skills} text="Skills" />
+      <Button grid="header-contact" icon={icons.contact} text="Contact" />
     </header>
   );
   console.log(`//--|🠊 ${label}-${block}.tsx Loaded 🠈|--//`);
 }
-
 export default defaultHeader;
 
 /*

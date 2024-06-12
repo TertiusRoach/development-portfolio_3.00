@@ -1,9 +1,12 @@
 // default-footer.tsx
+import $ from 'jquery';
 import React from 'react';
+// import Anchor from '../../../../mods/anchor/icon/Anchor.icon';
 
 function defaultFooter(page: string | any, label: string | any, block: string | any) {
   return (
     <footer style={{ zIndex: 3 }} id={`${page}-${block}`} className={`${label}-${block}`}>
+      {/* <Anchor /> */}
       {/* Code here */}
     </footer>
   );
