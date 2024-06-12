@@ -8,6 +8,11 @@
 }
 //--|🠋 Mobile (Portrait) 🠋|--//
 @media screen and (orientation: portrait) {
+  #index-main section {
+    @media only screen and (max-height: 1366px) {
+      height: 1366px;
+    }
+  }
 }
 
 //--|🠋 Tablet (Square) 🠋|--//

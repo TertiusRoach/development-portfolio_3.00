@@ -3,7 +3,7 @@
 #index-footer {
   display: inherit; //~~|🠈 display: grid; 🠈|~~//
 
-  //--|🠋 Desktop (Landscape) 🠋|--//
+  //--|🠋 Desktop (Landscape) - ☒ 🠋|--//
   @media screen and (orientation: landscape) {
     grid-area: 3 / 1 / 4 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
     grid-template: 4rem / 3rem 50% repeat(3, 1fr) 3rem; //~~|🠊 rows / columns 🠈|~~//
@@ -17,10 +17,13 @@
       grid-area: 1 / 5 / 2 / 6; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
     }
   }
-  //--|🠋 Mobile (Portrait) 🠋|--//
+  //--|🠋 Mobile (Portrait) - ☐ 🠋|--//
   @media screen and (orientation: portrait) {
+    a {
+      display: none;
+    }
   }
-  //--|🠋 Tablet (Square) 🠋|--//
+  //--|🠋 Tablet (Square) - ☐ 🠋|--//
   @media screen and (max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1) {
   }
 }

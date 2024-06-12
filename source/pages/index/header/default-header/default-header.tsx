@@ -19,7 +19,6 @@ function defaultHeader(page: string | any, label: string | any, block: string | 
   return (
     <header style={{ zIndex: 4 }} id={`${page}-${block}`} className={`${label}-${block}`}>
       <div>
-        {/* Property 'logo' does not exist on type 'Object'. */}
         <img src={icons.logo} alt="Résumé Logo" />
       </div>
 

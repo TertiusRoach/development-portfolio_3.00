@@ -2,11 +2,30 @@
 
 #index-header {
   display: inherit; //~~|🠈 display: grid; 🠈|~~//
+  div {
+    display: flex;
+    align-items: center;
+    img {
+      height: 50%;
+    }
+  }
 
-  //--|🠋 Desktop (Landscape) 🠋|--//
+  //--|🠋 Desktop (Landscape) - ☒ 🠋|--//
   @media screen and (orientation: landscape) {
     grid-area: 1 / 1 / 2 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+    //--|🠊 display: grid; 🠈|--//
     grid-template: 4rem / 3rem 2fr repeat(3, 1fr) 3rem; //~~|🠊 rows / columns 🠈|~~//
+
+    //~~|🠊 border: 4px dashed $red-neon; 🠈|~~//
+    //~~|🠊 background: rgba($red-dark, 0.25); 🠈|~~//
+    div {
+      grid-area: 1 / 2 / 2 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+      justify-content: flex-start;
+      //--|🠊 display: flex; 🠈|--//
+      img {
+        padding-right: 3rem;
+      }
+    }
     .header-home {
       grid-area: 1 / 3 / 2 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
     }
@@ -16,28 +35,31 @@
     .header-contact {
       grid-area: 1 / 5 / 2 / 6; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
     }
-
-    div {
-      display: flex;
-      align-items: center;
-      grid-area: 1 / 2 / 2 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-      justify-content: flex-start;
-      img {
-        height: 50%;
-        padding-right: 3rem;
-      }
-    }
-
-    //~~|🠊 border: 4px dashed $yellow-neon; 🠈|~~//
-    //~~|🠊 background: rgba($yellow-dark, 0.25); 🠈|~~//
   }
-
-  //--|🠋 Mobile (Portrait) 🠋|--//
+  //--|🠋 Mobile (Portrait) - ☒ 🠋|--//
   @media screen and (orientation: portrait) {
+    grid-area: 1 / 1 / 2 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+    //--|🠊 display: grid; 🠈|--//
+    //~~|🠊 border: 4px dashed $green-neon; 🠈|~~//
+    //~~|🠊 background: rgba($green-dark, 0.25); 🠈|~~//
+    div {
+      justify-content: center;
+      //--|🠊 display: flex; 🠈|--//
+    }
+    .header-home,
+    .header-skills,
+    .header-contact {
+      display: none;
+    }
   }
-
-  //--|🠋 Tablet (Square) 🠋|--//
+  //--|🠋 Tablet (Square) - ☐  🠋|--//
   @media screen and (max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1) {
+    //--|🠊 display: grid; 🠈|--//
+    //~~|🠊 border: 4px dashed $blue-neon; 🠈|~~//
+    //~~|🠊 background: rgba($blue-dark, 0.25); 🠈|~~//
+    div {
+      //--|🠊 display: flex; 🠈|--//
+    }
   }
 }
 
