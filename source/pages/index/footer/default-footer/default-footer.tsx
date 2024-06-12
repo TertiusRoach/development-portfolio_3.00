@@ -1,12 +1,14 @@
 // default-footer.tsx
 import $ from 'jquery';
 import React from 'react';
-// import Anchor from '../../../../mods/anchor/icon/Anchor.icon';
+import Anchor from '../../../../mods/anchor/grid/Anchor.grid';
 
 function defaultFooter(page: string | any, label: string | any, block: string | any) {
   return (
     <footer style={{ zIndex: 3 }} id={`${page}-${block}`} className={`${label}-${block}`}>
-      {/* <Anchor /> */}
+      <Anchor text="LinkedIn" className="footer-linkedin" />
+      <Anchor text="LinkedIn" className="footer-github" />
+      <Anchor text="LinkedIn" className="footer-youtube" />
       {/* Code here */}
     </footer>
   );

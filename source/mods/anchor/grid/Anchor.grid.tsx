@@ -1,5 +1,5 @@
 import React from 'react';
-import './Button.grid.scss';
+import './Anchor.grid.scss';
 
 interface GridProps {
   text: string;
@@ -8,12 +8,12 @@ interface GridProps {
 
 // This is the component I can't find
 const Anchor: React.FC<GridProps> = ({ text, className }) => {
-  console.log(`//--|🠊 Button.grid.tsx Loaded 🠈|--//`);
   return (
     <a className={className}>
       <h6>{text}</h6>
     </a>
   );
+  console.log(`//--|🠊 Anchor.grid.tsx Loaded 🠈|--//`);
 };
 
 export default Anchor;
