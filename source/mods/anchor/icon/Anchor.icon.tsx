@@ -15,7 +15,5 @@ const Anchor: React.FC<GridProps> = ({ url, text, grid, icon, action }) => {
       <img src={icon} alt={text.toLowerCase()} />
     </a>
   );
-  console.log(`//--|🠊 Anchor.icon.tsx Loaded 🠈|--//`);
 };
-
 export default Anchor;

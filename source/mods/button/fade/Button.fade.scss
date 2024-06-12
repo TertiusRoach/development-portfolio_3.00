@@ -13,21 +13,21 @@ button[class*='fade'] {
   }
   h6 {
     cursor: pointer;
-    color: $primary-medium;
+    color: $primary-light;
     transition: color 0.25s ease-in-out;
   }
 
   &:hover {
     filter: drop-shadow(0 0 4px rgba(white, 0.25));
     h6 {
-      color: $primary-light;
+      color: white;
     }
   }
   &[class*='active'] {
     filter: drop-shadow(0 0 4px rgba(white, 0.25));
     h6 {
       cursor: default;
-      color: $primary-light;
+      color: $primary-medium;
     }
   }
   //~~|🠊 border: 4px dashed $red-neon; 🠈|~~//
