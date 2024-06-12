@@ -5,10 +5,9 @@ import React from 'react';
 function defaultMain(page: string | any, label: string | any, block: string | any) {
   return (
     <main style={{ zIndex: 0 }} id={`${page}-${block}`} className={`${label}-${block}`}>
-      <section></section>
-      <section></section>
-      <section></section>
-      {/* Code here */}
+      <section className="main-home"></section>
+      <section className="main-skills"></section>
+      <section className="main-contact"></section>
     </main>
   );
   console.log(`//--|🠊 ${label}-${block}.tsx Loaded 🠈|--//`);
