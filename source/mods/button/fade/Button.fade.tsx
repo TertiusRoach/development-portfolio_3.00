@@ -1,5 +1,5 @@
 import React from 'react';
-import './Button.module.scss';
+import './Button.fade.scss';
 
 interface FadeProps {
   grid: string; //--|🠈 This className is used to position the button within a grid layout. 🠈|--//
