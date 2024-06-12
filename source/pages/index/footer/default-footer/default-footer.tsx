@@ -1,15 +1,35 @@
 // default-footer.tsx
 import $ from 'jquery';
 import React from 'react';
-import Anchor from '../../../../mods/anchor/grid/Anchor.grid';
+import Anchor from '../../../../mods/anchor/icon/anchor.icon';
 
+interface URL {
+  linkedin: Array<string>;
+  github: Array<string>;
+  youtube: Array<string>;
+}
 function defaultFooter(page: string | any, label: string | any, block: string | any) {
+  const projectURI: string = 'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00';
+  const icons: URL = {
+    linkedin: [
+      `${projectURI}/8581795ce870e5465e4673403a22c14f5b9c156f/public/content/svg-files/icon-collection/brands/linkedin.svg`,
+      'https://www.linkedin.com/in/tertius-roach/',
+    ],
+    github: [
+      `${projectURI}/8581795ce870e5465e4673403a22c14f5b9c156f/public/content/svg-files/icon-collection/brands/github.svg`,
+      'https://github.com/TertiusRoach',
+    ],
+    youtube: [
+      `${projectURI}/8581795ce870e5465e4673403a22c14f5b9c156f/public/content/svg-files/icon-collection/brands/youtube.svg`,
+      'https://www.youtube.com/@TertiusRoach',
+    ],
+  };
+
   return (
     <footer style={{ zIndex: 3 }} id={`${page}-${block}`} className={`${label}-${block}`}>
-      <Anchor text="LinkedIn" className="footer-linkedin" />
-      <Anchor text="LinkedIn" className="footer-github" />
-      <Anchor text="LinkedIn" className="footer-youtube" />
-      {/* Code here */}
+      <Anchor grid="footer-github" icon={icons.github[0]} url={icons.github[1]} text="GitHub" action="_blank" />
+      <Anchor grid="footer-youtube" icon={icons.youtube[0]} url={icons.youtube[1]} text="YouTube" action="_blank" />
+      <Anchor grid="footer-linkedin" icon={icons.linkedin[0]} url={icons.linkedin[1]} text="LinkedIn" action="_blank" />
     </footer>
   );
   console.log(`//--|🠊 ${label}-${block}.tsx Loaded 🠈|--//`);

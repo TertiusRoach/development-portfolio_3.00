@@ -1,18 +1,18 @@
 import React from 'react';
-import './Button.grid.scss';
+import './Anchor.icon.scss';
 
 interface GridProps {
   url: string;
-  grid: string; //--|🠈 This className is used to position the button within a grid layout. 🠈|--//
+  text: string;
+  grid: string; //--|🠈 This is a className used to position the anchor within a grid layout. 🠈|--//
   icon: string;
   action: '_blank' | '_parent' | '_self' | '_top';
 }
 
-// This is the component I can't find
-const Anchor: React.FC<GridProps> = ({ url, grid, icon, action }) => {
+const Anchor: React.FC<GridProps> = ({ url, text, grid, icon, action }) => {
   return (
-    <a className={grid} href={url} target={action}>
-      <img src={icon} alt="" />
+    <a className={`${grid} icon`} href={url} target={action}>
+      <img src={icon} alt={text.toLowerCase()} />
     </a>
   );
   console.log(`//--|🠊 Anchor.icon.tsx Loaded 🠈|--//`);
