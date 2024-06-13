@@ -6,6 +6,7 @@ a[class*='icon'] {
   cursor: default;
   background: none;
   align-items: center;
+  text-decoration: none;
   justify-content: center;
   img {
     height: 75%;
@@ -18,6 +19,7 @@ a[class*='icon'] {
       filter: drop-shadow(0 0 4px rgba(white, 0.25));
     }
   }
-  //~~|🠊 border: 4px dashed $red-neon; 🠈|~~//
-  //~~|🠊 background: rgba($red-dark, 0.25); 🠈|~~//
+
+  //~~|🠊 border: 4px dashed $yellow-neon; 🠈|~~//
+  //~~|🠊 background: rgba($yellow-dark, 0.25); 🠈|~~//
 }
