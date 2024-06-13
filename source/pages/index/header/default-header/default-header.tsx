@@ -1,103 +1,67 @@
 // default-header.tsx
 import $ from 'jquery';
 import React from 'react';
+import { useMediaQuery } from 'react-responsive';
 import Button from '../../../../mods/button/fade/Button.fade';
-interface IconURL {
-  logo: string;
-  home: string;
-  skills: string;
-  contact: string;
-}
+
 function defaultHeader(page: string | any, label: string | any, block: string | any) {
-  const projectURI: string = 'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00';
-  const icons: IconURL = {
-    logo: `${projectURI}/17d708556905ed2a95bf3329e9dd6411792b16b9/public/content/svg-files/signature-adjacent/primary-light.svg`,
-    home: `${projectURI}/33ecc4eebaa902dbc040024fbc24833dd4e1fdd1/public/content/svg-files/icon-collection/duotone/home.svg`,
-    skills: `${projectURI}/33ecc4eebaa902dbc040024fbc24833dd4e1fdd1/public/content/svg-files/icon-collection/duotone/lightbulb-on.svg`,
-    contact: `${projectURI}/33ecc4eebaa902dbc040024fbc24833dd4e1fdd1/public/content/svg-files/icon-collection/duotone/phone-volume.svg`,
-  };
   return (
     <header style={{ zIndex: 4 }} id={`${page}-${block}`} className={`${label}-${block}`}>
-      <div>
-        <img src={icons.logo} alt="Résumé Logo" />
-      </div>
+      {
+        //--|🠋 Desktop (Landscape) 🠋|--//
+        useMediaQuery({ query: '(orientation: landscape) and (min-aspect-ratio: 16/9)' }) && (
+          <>
+            <div>
+              <img src={icons.logo} alt="Résumé Logo" />
+            </div>
 
-      <Button grid="header-home" icon={icons.home} text="Home" state="active" />
-      <Button grid="header-skills" icon={icons.skills} text="Skills" />
-      <Button grid="header-contact" icon={icons.contact} text="Contact" />
+            <Button grid="header-home" icon={icons.home} text="Home" state="active" />
+            <Button grid="header-skills" icon={icons.skills} text="Skills" />
+            <Button grid="header-contact" icon={icons.contact} text="Contact" />
+          </>
+        )
+      }
+      {
+        //--|🠋 Mobile (Portrait) 🠋|--//
+        useMediaQuery({ query: '(orientation: portrait) and (max-aspect-ratio: 1/1)' }) && (
+          <>
+            <div>
+              <img src={icons.logo} alt="Résumé Logo" />
+            </div>
+          </>
+        )
+      }
+      {
+        //--|🠋 Tablet (Square) 🠋|--//
+        useMediaQuery({ query: '(max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)' }) && (
+          <>
+            <div>
+              <img src={icons.logo} alt="Résumé Logo" />
+            </div>
+
+            <Button grid="header-projects" icon={icons.projects} text="Projects" />
+          </>
+        )
+      }
     </header>
   );
   console.log(`//--|🠊 ${label}-${block}.tsx Loaded 🠈|--//`);
 }
 export default defaultHeader;
 
-/*
-function defaultHeader(pageName: string | any, blockName: string | any) {
-  const page = pageName;
-  const block = blockName;
-  const archiveURI: string = 'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00';
-
-  let logoAdjacent: string = `${archiveURI}/65b0fdc15d33bc59025893b17dea07b08dc3a52c/source/front-end/pages/index/%7Econtent/svg-files/signature-adjacent/primary-light.svg`;
-  let logoIcon: string = `${archiveURI}/65b0fdc15d33bc59025893b17dea07b08dc3a52c/source/front-end/pages/index/%7Econtent/svg-files/signature-icon/primary-light.svg`;
-  let homeHeader: string = `${archiveURI}/e88887177fcc7c80c4c3ad5db0268a1bcffa1fa6/source/front-end/pages/index/%7Econtent/svg-files/icon-collection/duotone/home.svg`;
-  let skillsHeader: string = `${archiveURI}/c028ce2a23eafd9b5f267f74262e47621ada789b/source/front-end/pages/index/%7Econtent/svg-files/icon-collection/duotone/lightbulb-on.svg`;
-  let contactHeader: { desktop: string; mobile: string } = {
-    desktop: `${archiveURI}/e88887177fcc7c80c4c3ad5db0268a1bcffa1fa6/source/front-end/pages/index/~content/svg-files/icon-collection/duotone/phone.svg`,
-    mobile: `${archiveURI}/e88887177fcc7c80c4c3ad5db0268a1bcffa1fa6/source/front-end/pages/index/~content/svg-files/icon-collection/duotone/mobile-alt.svg`,
-  };
-
-  let projectsMain: string = `${archiveURI}/c028ce2a23eafd9b5f267f74262e47621ada789b/source/front-end/pages/index/%7Econtent/svg-files/icon-collection/duotone/browser.svg`;
-
-  console.log('//--|🠊 default-header.tsx loaded 🠈|--//');
-  return (
-    <>
-      <aside id="header-aside">
-        <img src={logoAdjacent} alt="Résumé Logo" />
-      </aside>
-      <menu id="header-menu">
-        <button id="header-home" className="highlight">
-          <a href="#main-home">
-            <img src={homeHeader} alt="..." />
-            <h4>Home</h4>
-          </a>
-        </button>
-        <button id="header-skills" className="downplay">
-          <a href="#main-skills">
-            <img src={skillsHeader} alt="..." />
-            <h4>Skills</h4>
-          </a>
-        </button>
-        <button id="header-contact" className="downplay">
-          <a href="#main-contact">
-            <img src={contactHeader.desktop} alt="..." />
-            <h4>Contact</h4>
-          </a>
-        </button>
-      </menu>
-    </>
-  );
+interface IconURL {
+  logo: string;
+  home: string;
+  skills: string;
+  contact: string;
+  projects: string;
 }
-export default defaultHeader;
-
-$(function () {
-  const headerButtons: string = '#header-menu button';
-  $(headerButtons).on('click', (event) => {
-    let target = event.currentTarget as HTMLButtonElement; //--|🠊 Extract the clicked button element 🠈|--//
-    let retrieve = {
-      //--|🠋 Define an object to hold related elements and their properties 🠋|--//
-      element: target, //--|🠊 Reference to the clicked button element 🠈|--//
-      get parent() {
-        return $(target).parent()[0] as HTMLElement; //--|🠊 Get the parent element of the clicked button 🠈|--//
-      },
-      get children() {
-        return $(target).parent().children().toArray() as HTMLButtonElement[]; //--|🠊 Get an array of children elements of the parent 🠈|--//
-      },
-      get siblings() {
-        return $(target).siblings().toArray() as HTMLButtonElement[]; //--|🠊 Get an array of sibling elements of the clicked button 🠈|--//
-      },
-    };
-    $(retrieve.siblings).removeClass().addClass('downplay'); //--|🠊 Apply the 'downplay' class to all sibling elements 🠈|--//
-    $(retrieve.element).removeClass('downplay').addClass('highlight'); //--|🠊 Apply the 'highlight' class to the clicked button element 🠈|--//
-  });
-});
-*/
+const projectURI: string =
+  'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00';
+const icons: IconURL = {
+  logo: `${projectURI}/17d708556905ed2a95bf3329e9dd6411792b16b9/public/content/svg-files/signature-adjacent/primary-light.svg`,
+  home: `${projectURI}/33ecc4eebaa902dbc040024fbc24833dd4e1fdd1/public/content/svg-files/icon-collection/duotone/home.svg`,
+  skills: `${projectURI}/33ecc4eebaa902dbc040024fbc24833dd4e1fdd1/public/content/svg-files/icon-collection/duotone/lightbulb-on.svg`,
+  contact: `${projectURI}/33ecc4eebaa902dbc040024fbc24833dd4e1fdd1/public/content/svg-files/icon-collection/duotone/phone-volume.svg`,
+  projects: `${projectURI}/64766ee2eec5d723042a565c96644dd5d3b5732d/public/content/svg-files/icon-collection/duotone/code.svg`,
+};

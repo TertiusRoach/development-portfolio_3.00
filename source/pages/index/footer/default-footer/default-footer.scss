@@ -18,8 +18,13 @@
       grid-column: 5 / 6; //~~|🠊 col-start / col-end 🠈|~~//
     }
 
+    a {
+      text-decoration: none;
+    }
+
+    background: rgba($red-dark, 0.75);
     //~~|🠊 border: 4px dashed $red-neon; 🠈|~~//
-    //~~|🠊 background: rgba($red-dark, 0.25); 🠈|~~//
+    //~~|🠊 background: rgba($red-dark, 0.75); 🠈|~~//
   }
   //--|🠋 Mobile (Portrait) - ☐ 🠋|--//
   @media screen and (orientation: portrait) and (max-aspect-ratio: 1/1) {
@@ -38,8 +43,9 @@
       grid-column: 4 / 5; //~~|🠊 col-start / col-end 🠈|~~//
     }
 
-    //~~|🠊 border: 4px dashed $green-neon; 🠈|~~//
-    //~~|🠊 background: rgba($green-dark, 0.25); 🠈|~~//
+    background: rgba($blue-dark, 0.75);
+    //~~|🠊 border: 4px dashed $blue-neon; 🠈|~~//
+    //~~|🠊 background: rgba($blue-dark, 0.75); 🠈|~~//
   }
   //--|🠋 Tablet (Square) - ☐ 🠋|--//
   @media screen and (max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1) {
@@ -56,8 +62,9 @@
       grid-column: 4 / 5; //~~|🠊 col-start / col-end 🠈|~~//
     }
 
-    //~~|🠊 border: 4px dashed $blue-neon; 🠈|~~//
-    //~~|🠊 background: rgba($blue-dark, 0.25); 🠈|~~//
+    background: rgba($green-dark, 0.75);
+    //~~|🠊 border: 4px dashed $green-neon; 🠈|~~//
+    //~~|🠊 background: rgba($green-dark, 0.75); 🠈|~~//
   }
 
   a[class*='footer'],

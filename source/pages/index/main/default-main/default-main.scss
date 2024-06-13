@@ -3,7 +3,7 @@
   //--|🠋 Desktop (Landscape) - ☐ 🠋|--//
   @media screen and (orientation: landscape) and (min-aspect-ratio: 16/9) {
     section {
-      display: grid;
+      //--|🠊 display: grid; 🠈|--//
       grid-template: 2rem 1fr 2rem / 3rem 1fr 3rem; //~~|🠊 rows / columns 🠈|~~//
     }
     .main-home {
@@ -16,7 +16,7 @@
   //--|🠋 Mobile (Portrait) - ☐ 🠋|--//
   @media screen and (orientation: portrait) and (max-aspect-ratio: 1/1) {
     section {
-      display: grid;
+      //--|🠊 display: grid; 🠈|--//
       grid-template: 3rem 1fr 3rem / 2rem 1fr 2rem; //~~|🠊 rows / columns 🠈|~~//
     }
 
@@ -30,7 +30,7 @@
   //--|🠋 Tablet (Square) - ☐ 🠋|--//
   @media screen and (max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1) {
     section {
-      display: grid;
+      //--|🠊 display: grid; 🠈|--//
       grid-template: 2rem 1fr 2rem / 2rem 1fr 2rem; //~~|🠊 rows / columns 🠈|~~//
     }
 
@@ -47,24 +47,11 @@
   grid-template: 1fr / 1fr; //~~|🠊 rows / columns 🠈|~~//
   grid-area: 1 / 1 / 4 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
   background: white; //~~|🠊 background: $primary-dark; 🠈|~~//
+  section {
+    display: grid;
+  }
   &::-webkit-scrollbar {
     display: none; //~~|🠊 Hide Scrollbar 🠈|~~//
-  }
-
-  .main-home {
-    background: rgba($red-dark, 0.75);
-    //~~|🠊 border: 4px dashed $red-neon; 🠈|~~//
-    //~~|🠊 background: rgba($red-dark, 0.75); 🠈|~~//
-  }
-  .main-skills {
-    background: rgba($green-dark, 0.75);
-    //~~|🠊 border: 4px dashed $green-neon; 🠈|~~//
-    //~~|🠊 background: rgba($green-dark, 0.75); 🠈|~~//
-  }
-  .main-contact {
-    background: rgba($blue-dark, 0.75);
-    //~~|🠊 border: 4px dashed $blue-neon; 🠈|~~//
-    //~~|🠊 background: rgba($blue-dark, 0.75); 🠈|~~//
   }
 }
 
