@@ -1,5 +1,5 @@
 //--|🠋 Desktop (Landscape) 🠋|--//
-@media screen and (orientation: landscape) {
+@media screen and (orientation: landscape) and (min-aspect-ratio: 16/9) {
   #index-main section {
     @media only screen and (max-height: 768px) {
       height: 768px;
@@ -7,7 +7,7 @@
   }
 }
 //--|🠋 Mobile (Portrait) 🠋|--//
-@media screen and (orientation: portrait) {
+@media screen and (orientation: portrait) and (max-aspect-ratio: 1/1) {
   #index-main section {
     @media only screen and (max-height: 1366px) {
       height: 1366px;
@@ -17,4 +17,9 @@
 
 //--|🠋 Tablet (Square) 🠋|--//
 @media screen and (max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1) {
+  #index-main section {
+    @media only screen and (max-height: 1000px) {
+      height: 1000px;
+    }
+  }
 }

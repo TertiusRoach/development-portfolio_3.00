@@ -7,7 +7,7 @@
   display: grid;
 
   //--|🠋 Desktop (Landscape) - ☒ 🠋|--//
-  @media screen and (orientation: landscape) {
+  @media screen and (orientation: landscape) and (min-aspect-ratio: 16/9) {
     grid-template: 4rem 1fr 4rem / 6rem 1fr 6rem; //~~|🠊 rows / columns 🠈|~~//
 
     // border: 4px dashed $red-neon;
@@ -17,7 +17,7 @@
   }
 
   //--|🠋 Mobile (Portrait) - ☐ 🠋|--//
-  @media screen and (orientation: portrait) {
+  @media screen and (orientation: portrait) and (max-aspect-ratio: 1/1) {
     grid-template: 6rem 1fr 6rem / 4rem 1fr 4rem; //~~|🠊 rows / columns 🠈|~~//
 
     // border: 4px dashed $blue-neon;

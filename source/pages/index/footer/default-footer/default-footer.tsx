@@ -11,50 +11,75 @@ function defaultFooter(page: string | any, label: string | any, block: string | 
   const pageName = page;
   return (
     <footer style={{ zIndex: 3 }} id={`${page}-${block}`} className={`${label}-${block}`}>
-      {useMediaQuery({ query: '(orientation: landscape)' }) && (
+      {
         //--|🠋 Desktop (Landscape) 🠋|--//
-        <>
-          <AnchorIcon grid="footer-github" icon={anchor.github[0]} url={anchor.github[1]} text="GitHub" action="_blank" />
-          <AnchorIcon
-            grid="footer-youtube"
-            icon={anchor.youtube[0]}
-            url={anchor.youtube[1]}
-            text="YouTube"
-            action="_blank"
-          />
-          <AnchorIcon
-            grid="footer-linkedin"
-            icon={anchor.linkedin[0]}
-            url={anchor.linkedin[1]}
-            text="LinkedIn"
-            action="_blank"
-          />
-        </>
-      )}
-      {useMediaQuery({ query: '(orientation: portrait)' }) && (
+        useMediaQuery({ query: '(orientation: landscape) and (min-aspect-ratio: 16/9)' }) && (
+          <>
+            <AnchorIcon
+              grid="footer-github"
+              icon={anchor.github[0]}
+              url={anchor.github[1]}
+              text="GitHub"
+              action="_blank"
+            />
+            <AnchorIcon
+              grid="footer-youtube"
+              icon={anchor.youtube[0]}
+              url={anchor.youtube[1]}
+              text="YouTube"
+              action="_blank"
+            />
+            <AnchorIcon
+              grid="footer-linkedin"
+              icon={anchor.linkedin[0]}
+              url={anchor.linkedin[1]}
+              text="LinkedIn"
+              action="_blank"
+            />
+          </>
+        )
+      }
+      {
         //--|🠋 Mobile (Portrait) 🠋|--//
-        <>
-          {/* <ButtonIcon grid="footer-home" icon={button.home} text="Home" state="active" /> */}
-          {/* <ButtonIcon grid="footer-skills" icon={button.skills} text="Skills" /> */}
-          {/* <ButtonIcon grid="footer-contact" icon={button.contact} text="Contact" /> */}
-          {/* <ButtonIcon grid="footer-projects" icon={button.projects} text="Projects" /> */}
-        </>
-      )}
-      {useMediaQuery({ query: '(max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)' }) && (
+        useMediaQuery({ query: '(orientation: portrait) and (max-aspect-ratio: 1/1)' }) && (
+          <>
+            <ButtonIcon grid="footer-home" icon={button.home} state="active" />
+            <ButtonIcon grid="footer-skills" icon={button.skills} />
+            <ButtonIcon grid="footer-contact" icon={button.contact} />
+            <ButtonIcon grid="footer-projects" icon={button.projects} />
+          </>
+        )
+      }
+      {
         //--|🠋 Tablet (Square) 🠋|--//
-        <>
-          {/* <ButtonFade grid="footer-home" icon={button.home} text="Home" state="active" /> */}
-          {/* <ButtonFade grid="footer-skills" icon={button.skills} text="Skills" /> */}
-          {/* <ButtonFade grid="footer-contact" icon={button.contact} text="Contact" /> */}
-        </>
-      )}
+        useMediaQuery({ query: '(max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)' }) && (
+          <>
+            <ButtonFade grid="footer-home" icon={button.home} text="Home" state="active" />
+            <ButtonFade grid="footer-skills" icon={button.skills} text="Skills" />
+            <ButtonFade grid="footer-contact" icon={button.contact} text="Contact" />
+          </>
+        )
+      }
     </footer>
   );
+
   console.log(`//--|🠊 ${label}-${block}.tsx Loaded 🠈|--//`);
 }
 export default defaultFooter;
 
-const projectURI: string = 'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00';
+const desktop = () => {
+  console.log('desktop');
+};
+const mobile = () => {
+  console.log('mobile');
+};
+
+const tablet = () => {
+  console.log('tablet');
+};
+
+const projectURI: string =
+  'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00';
 interface AnchorURL {
   linkedin: Array<string>;
   github: Array<string>;
