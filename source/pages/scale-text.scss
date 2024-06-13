@@ -1,7 +1,7 @@
 html {
   //--|🠋 Desktop (Landscape) 🠋|--//
   @media screen and (orientation: landscape) {
-    @media only screen and (max-width: 1920px) {
+    @media only screen and (min-width: 1920px) {
       h1 {
         font-size: 80px;
       }
@@ -44139,33 +44139,21 @@ html {
       }
     }
     @media only screen and (max-width: 1px) {
-      h1 {
-        font-size: 0.04px;
-      }
-      h2 {
-        font-size: 0.04px;
-      }
-      h3 {
-        font-size: 0.03px;
-      }
-      h4 {
-        font-size: 0.03px;
-      }
-      h5 {
-        font-size: 0.03px;
-      }
-      h6 {
-        font-size: 0.02px;
-      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
       p {
-        font-size: 0.01px;
+        display: none;
       }
     }
   }
   //--|🠉 Desktop (Landscape) 🠉|--//
   //--|🠋 Mobile (Portrait) 🠋|--//
   @media screen and (orientation: portrait) {
-    @media only screen and (max-height: 1920px) {
+    @media only screen and (min-height: 1920px) {
       h1 {
         font-size: 96px;
       }
@@ -90222,26 +90210,14 @@ html {
     }
 
     @media only screen and (max-height: 1px) {
-      h1 {
-        font-size: 0.05px;
-      }
-      h2 {
-        font-size: 0.05px;
-      }
-      h3 {
-        font-size: 0.04px;
-      }
-      h4 {
-        font-size: 0.04px;
-      }
-      h5 {
-        font-size: 0.03px;
-      }
-      h6 {
-        font-size: 0.03px;
-      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
       p {
-        font-size: 0.02px;
+        display: none;
       }
     }
   }
