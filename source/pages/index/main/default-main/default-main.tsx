@@ -9,12 +9,21 @@ import SectionContact from '../../../../mods/section/contact/Section.contact';
 
 function defaultMain(page: string | any, label: string | any, block: string | any) {
   //--|🠋 Highlight Active Section 🠋|--//
-  const activateButton = (event: React.MouseEvent<HTMLElement>) => {
-    const hoveredElement = event.target as HTMLElement; //--|🠈 Get the clicked element 🠈|--//
-    // console.log(device);
+  const activateButton = (element: React.MouseEvent<HTMLElement>) => {
+    let getSelectors = (element: React.MouseEvent<HTMLElement>) => {
+      var navigationLocation = () => {
+        return window.matchMedia('(orientation: landscape) and (min-aspect-ratio: 16/9)').matches
+          ? 'header'
+          : 'footer';
+      };
+      var menu = navigationLocation();
+      var hoveredElement = element.target as HTMLElement; //--|🠈 Get the clicked element 🠈|--//
+      var enableSelector = `.${menu}-${hoveredElement.className.split('-')[1]}`; //--|🠈 Selector for button to activate (based on clicked button's class) 🠈|--//
+      var disableSelector = `${menu} button[class*="active"]`; //--|🠈 Selector for button to deactivate 🠈|--//
+      return { enableSelector, disableSelector };
+    };
 
-    let enableSelector = `.header-${hoveredElement.className.split('-')[1]}`; //--|🠈 Selector for button to activate (based on clicked button's class) 🠈|--//
-    let disableSelector = 'header button[class*="active"]'; //--|🠈 Selector for button to deactivate 🠈|--//
+    let { enableSelector, disableSelector } = getSelectors(element);
     let buttons = {
       //--|🠋 Get references to the buttons 🠋|--//
       downplay: document.querySelector(disableSelector) as HTMLButtonElement,
