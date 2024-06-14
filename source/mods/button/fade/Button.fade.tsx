@@ -5,12 +5,13 @@ interface FadeProps {
   grid: string; //--|🠈 This className is used to position the button within a grid layout. 🠈|--//
   icon: string;
   text: string;
-  state?: 'active' | '';
+  state?: 'active';
 }
 
 const ButtonFade: React.FC<FadeProps> = ({ grid, icon, text, state }) => {
+  let selectors: string = `${grid} fade${state ? ` ${state}` : ''}`;
   return (
-    <button className={`${grid} fade ${state}`}>
+    <button className={selectors}>
       <img src={icon} alt={text.toLowerCase()} />
       <h6>{text}</h6>
     </button>

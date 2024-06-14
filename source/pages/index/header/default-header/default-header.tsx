@@ -2,7 +2,7 @@
 import $ from 'jquery';
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
-import Button from '../../../../mods/button/fade/Button.fade';
+import ButtonFade from '../../../../mods/button/fade/Button.fade';
 
 function defaultHeader(page: string | any, label: string | any, block: string | any) {
   return (
@@ -15,9 +15,9 @@ function defaultHeader(page: string | any, label: string | any, block: string | 
               <img src={icons.logo} alt="Résumé Logo" />
             </div>
 
-            <Button grid="header-home" icon={icons.home} text="Home" state="active" />
-            <Button grid="header-skills" icon={icons.skills} text="Skills" />
-            <Button grid="header-contact" icon={icons.contact} text="Contact" />
+            <ButtonFade grid="header-home" icon={icons.home} text="Home" state="active" />
+            <ButtonFade grid="header-skills" icon={icons.skills} text="Skills" />
+            <ButtonFade grid="header-contact" icon={icons.contact} text="Contact" />
           </>
         )
       }
@@ -39,7 +39,7 @@ function defaultHeader(page: string | any, label: string | any, block: string | 
               <img src={icons.logo} alt="Résumé Logo" />
             </div>
 
-            <Button grid="header-projects" icon={icons.projects} text="Projects" />
+            <ButtonFade grid="header-projects" icon={icons.projects} text="Projects" />
           </>
         )
       }
