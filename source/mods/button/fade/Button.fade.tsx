@@ -10,14 +10,14 @@ interface FadeProps {
 
 const ButtonFade: React.FC<FadeProps> = ({ grid, icon, text, state }) => {
   let selectors: string = `${grid} fade${state ? ` ${state}` : ''}`;
+  //--|🠊 ? - Is a Ternary Operator and it checks if state has a value. 🠈|--//
+  //--|🠊 : - Is an Else Operator and adds nothing if the state has a falsy value. 🠈|--//
   return (
     <button className={selectors}>
       <img src={icon} alt={text.toLowerCase()} />
       <h6>{text}</h6>
     </button>
   );
-  //--|🠊 ? - Is a Ternary Operator and it checks if state has a value. 🠈|--//
-  //--|🠊 : - Is an Else Operator and adds nothing if the state has a falsy value. 🠈|--//
 };
 
 export default ButtonFade;

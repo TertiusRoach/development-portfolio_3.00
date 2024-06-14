@@ -1,16 +1,21 @@
 // default-main.tsx
 import $ from 'jquery';
 import React from 'react';
+import { useMediaQuery } from 'react-responsive';
+
+import SectionHome from '../../../../mods/section/home/Section.home';
+import SectionSkills from '../../../../mods/section/skills/Section.skills';
+import SectionContact from '../../../../mods/section/contact/Section.contact';
 
 function defaultMain(page: string | any, label: string | any, block: string | any) {
-  const highlightHeader = (event: React.MouseEvent<HTMLElement>) => {
-    //--|🠉 Function to handle highlighting a header button on click 🠉|--//
-    const clickedElement = event.target as HTMLElement; //--|🠈 Get the clicked element 🠈|--//
+  //--|🠋 Highlight Active Section 🠋|--//
+  const activateButton = (event: React.MouseEvent<HTMLElement>) => {
+    const hoveredElement = event.target as HTMLElement; //--|🠈 Get the clicked element 🠈|--//
+    // console.log(device);
 
-    //--|🠋 Define selectors for buttons 🠋|--//
-    const disableSelector = 'header button[class*="active"]'; //--|🠈 Selector for button to deactivate 🠈|--//
-    const enableSelector = `.header-${clickedElement.className.split('-')[1]}`; //--|🠈 Selector for button to activate (based on clicked button's class) 🠈|--//
-    const buttons = {
+    let enableSelector = `.header-${hoveredElement.className.split('-')[1]}`; //--|🠈 Selector for button to activate (based on clicked button's class) 🠈|--//
+    let disableSelector = 'header button[class*="active"]'; //--|🠈 Selector for button to deactivate 🠈|--//
+    let buttons = {
       //--|🠋 Get references to the buttons 🠋|--//
       downplay: document.querySelector(disableSelector) as HTMLButtonElement,
       highlight: document.querySelector(enableSelector) as HTMLButtonElement,
@@ -23,15 +28,11 @@ function defaultMain(page: string | any, label: string | any, block: string | an
     }
   };
 
-  const highlightFooter = (event: React.MouseEvent<HTMLElement>) => {
-    const target = event.target as HTMLElement;
-  };
-
   return (
     <main style={{ zIndex: 0 }} id={`${page}-${block}`} className={`${label}-${block}`}>
-      <section className="main-home" onMouseEnter={highlightHeader}></section>
-      <section className="main-skills" onMouseEnter={highlightHeader}></section>
-      <section className="main-contact" onMouseEnter={highlightHeader}></section>
+      <SectionHome flex="main-home" text="Home" toggle={activateButton} />
+      <SectionSkills flex="main-skills" text="Skills" toggle={activateButton} />
+      <SectionContact flex="main-contact" text="Contact" toggle={activateButton} />
     </main>
   );
   console.log(`//--|🠊 ${label}-${block}.tsx Loaded 🠈|--//`);

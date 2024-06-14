@@ -11,9 +11,11 @@ interface GridProps {
 
 const Anchor: React.FC<GridProps> = ({ url, text, grid, icon, action }) => {
   return (
-    <a className={`${grid} icon`} href={url} target={action}>
-      <img src={icon} alt={text.toLowerCase()} />
-    </a>
+    <>
+      <a className={`${grid} icon`} href={url} target={action}>
+        <img src={icon} alt={text.toLowerCase()} />
+      </a>
+    </>
   );
 };
 export default Anchor;

@@ -45,7 +45,7 @@ function defaultFooter(page: string | any, label: string | any, block: string | 
           <>
             <ButtonIcon grid="footer-home" icon={button.home} state="active" />
             <ButtonIcon grid="footer-skills" icon={button.skills} />
-            <ButtonIcon grid="footer-contact" icon={button.contact} />
+            <ButtonIcon grid="footer-contact" icon={button.cellphone} />
             <ButtonIcon grid="footer-projects" icon={button.projects} />
           </>
         )
@@ -56,27 +56,15 @@ function defaultFooter(page: string | any, label: string | any, block: string | 
           <>
             <ButtonFade grid="footer-home" icon={button.home} text="Home" state="active" />
             <ButtonFade grid="footer-skills" icon={button.skills} text="Skills" />
-            <ButtonFade grid="footer-contact" icon={button.contact} text="Contact" />
+            <ButtonFade grid="footer-contact" icon={button.email} text="Contact" />
           </>
         )
       }
     </footer>
   );
-
   console.log(`//--|🠊 ${label}-${block}.tsx Loaded 🠈|--//`);
 }
 export default defaultFooter;
-
-const desktop = () => {
-  console.log('desktop');
-};
-const mobile = () => {
-  console.log('mobile');
-};
-
-const tablet = () => {
-  console.log('tablet');
-};
 
 const projectURI: string =
   'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00';
@@ -103,14 +91,18 @@ const anchor: AnchorURL = {
 interface ButtonURL {
   logo: string;
   home: string;
+  email: string;
   skills: string;
-  contact: string;
   projects: string;
+  telephone: string;
+  cellphone: string;
 }
 const button: ButtonURL = {
   logo: `${projectURI}/17d708556905ed2a95bf3329e9dd6411792b16b9/public/content/svg-files/signature-adjacent/primary-light.svg`,
   home: `${projectURI}/33ecc4eebaa902dbc040024fbc24833dd4e1fdd1/public/content/svg-files/icon-collection/duotone/home.svg`,
+  email: `${projectURI}/b6fafac72b6b8c324b14d8a0560ad55e2e803096/public/content/svg-files/icon-collection/duotone/envelope-open-text.svg`,
   skills: `${projectURI}/33ecc4eebaa902dbc040024fbc24833dd4e1fdd1/public/content/svg-files/icon-collection/duotone/lightbulb-on.svg`,
-  contact: `${projectURI}/33ecc4eebaa902dbc040024fbc24833dd4e1fdd1/public/content/svg-files/icon-collection/duotone/phone-volume.svg`,
   projects: `${projectURI}/64766ee2eec5d723042a565c96644dd5d3b5732d/public/content/svg-files/icon-collection/duotone/code.svg`,
+  telephone: `${projectURI}/33ecc4eebaa902dbc040024fbc24833dd4e1fdd1/public/content/svg-files/icon-collection/duotone/phone-volume.svg`,
+  cellphone: `${projectURI}/b6fafac72b6b8c324b14d8a0560ad55e2e803096/public/content/svg-files/icon-collection/duotone/mobile-android-alt.svg`,
 };

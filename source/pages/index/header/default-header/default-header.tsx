@@ -11,35 +11,31 @@ function defaultHeader(page: string | any, label: string | any, block: string | 
         //--|🠋 Desktop (Landscape) 🠋|--//
         useMediaQuery({ query: '(orientation: landscape) and (min-aspect-ratio: 16/9)' }) && (
           <>
-            <div>
-              <img src={icons.logo} alt="Résumé Logo" />
-            </div>
-
             <ButtonFade grid="header-home" icon={icons.home} text="Home" state="active" />
             <ButtonFade grid="header-skills" icon={icons.skills} text="Skills" />
             <ButtonFade grid="header-contact" icon={icons.contact} text="Contact" />
+            <div>
+              <img src={icons.logo} alt="Résumé Logo" />
+            </div>
           </>
         )
       }
       {
         //--|🠋 Mobile (Portrait) 🠋|--//
         useMediaQuery({ query: '(orientation: portrait) and (max-aspect-ratio: 1/1)' }) && (
-          <>
-            <div>
-              <img src={icons.logo} alt="Résumé Logo" />
-            </div>
-          </>
+          <div>
+            <img src={icons.logo} alt="Résumé Logo" />
+          </div>
         )
       }
       {
         //--|🠋 Tablet (Square) 🠋|--//
         useMediaQuery({ query: '(max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)' }) && (
           <>
+            <ButtonFade grid="header-projects" icon={icons.projects} text="Projects" />
             <div>
               <img src={icons.logo} alt="Résumé Logo" />
             </div>
-
-            <ButtonFade grid="header-projects" icon={icons.projects} text="Projects" />
           </>
         )
       }
