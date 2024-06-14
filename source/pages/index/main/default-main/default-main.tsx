@@ -36,12 +36,25 @@ function defaultMain(page: string | any, label: string | any, block: string | an
       buttons.downplay?.classList.remove('active'); //--|🠈 Remove 'active' class from previously active button (if any) 🠈|--//
     }
   };
+  const selectSection = () => {
+    console.log('Scroll to section');
+  };
 
   return (
     <main style={{ zIndex: 0 }} id={`${page}-${block}`} className={`${label}-${block}`}>
-      <SectionHome flex="main-home" text="Home" toggle={activateButton} />
-      <SectionSkills flex="main-skills" text="Skills" toggle={activateButton} />
-      <SectionContact flex="main-contact" text="Contact" toggle={activateButton} />
+      <SectionHome flex="main-home" text="Home" hover={activateButton} click={selectSection} />
+      <SectionSkills
+        flex="main-skills"
+        text="Skills"
+        hover={activateButton}
+        click={selectSection}
+      />
+      <SectionContact
+        flex="main-contact"
+        text="Contact"
+        hover={activateButton}
+        click={selectSection}
+      />
     </main>
   );
   console.log(`//--|🠊 ${label}-${block}.tsx Loaded 🠈|--//`);
