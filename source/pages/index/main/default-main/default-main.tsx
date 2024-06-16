@@ -14,11 +14,22 @@ function defaultMain(page: string | any, label: string | any, block: string | an
 
     while (enable && !enable.classList.contains('hidden')) {
       //--|🠉 Traverse up the DOM tree from the target element to check for 'hidden' class 🠉|--//
+      //--|🠊 The while loop should be above the if statement 🠈|--//
       enable = enable.parentElement as HTMLElement; //--|🠈 Move up to the parent element 🠈|--//
+      /*
+      The while loop is a critical component of the hoverSection function because it
+      ensures robust and reliable activation of hover effects across nested DOM elements.
+      By traversing up the DOM tree to find the nearest ancestor with the 'hidden' class,
+      it guarantees that the desired effects are applied consistently, regardless of the
+      exact target of the hover event within the element hierarchy. This approach enhances
+      the functionality of the hover interaction, making it more intuitive and responsive
+      to user actions across various UI scenarios.
+      */
     }
 
     if (enable && enable.classList.contains('hidden')) {
-      //--|🠉 Check if the element has 'hidden' class; if true, proceed to toggle classes. 🠉|--//
+      //--|🠉 Check if the element has 'hidden' class. 🠉|--//
+      //--|🠊 If true, proceed to toggle classes. 🠈|--//
       var marker = enable.classList[0].split('-')[1] as string; //--|🠈 Retrieve the marker from the target element's class list. 🠈|--//
       var disable = document.querySelector('main .visible') as HTMLElement; //--|🠈 Retrieve the currently visible main element and disable it. 🠈|--//
       var downplay = document.querySelector(`${device} .active`) as HTMLButtonElement; //--|🠈 Retrieve the currently active footer/header button and disable it. 🠈|--//
