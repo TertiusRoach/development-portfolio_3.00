@@ -6,7 +6,7 @@ import { useMediaQuery } from 'react-responsive';
 interface ContactProps {
   flex: string; //--|🠈 This className is used to position the section as a flex layout. 🠈|--//
   text: string;
-
+  view: 'visible' | 'hidden';
   hover: (event: React.MouseEvent<HTMLElement>) => void; //--|🠈 Highlights the button of the viewed section on mouse interaction. 🠈|--//
   click: (event: React.MouseEvent<HTMLElement>) => void; //--|🠈 Centers the view on the user-clicked section. 🠈|--//
   //--|🠊 Event: Reflects dynamic mouse interactions. 🠈|--//
@@ -19,11 +19,12 @@ const tablet: string = '(max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)';
 const SectionContact: React.FC<ContactProps> = ({
   flex,
   text,
+  view,
   hover: activateButton,
   click: selectSection,
 }) => {
   return (
-    <section className={flex} onMouseEnter={activateButton} onClick={selectSection}>
+    <section className={`${flex} ${view}`} onMouseEnter={activateButton} onClick={selectSection}>
       <>
         {
           //--|🠋 Desktop (Landscape) 🠋|--//

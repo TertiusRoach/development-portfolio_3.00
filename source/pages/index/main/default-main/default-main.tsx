@@ -16,10 +16,11 @@ function defaultMain(page: string | any, label: string | any, block: string | an
           ? 'header'
           : 'footer';
       };
-      var menu = navigationLocation();
+      var navigation: 'header' | 'footer' = navigationLocation();
       var hoveredElement = element.target as HTMLElement; //--|🠈 Get the clicked element 🠈|--//
-      var enableSelector = `.${menu}-${hoveredElement.className.split('-')[1]}`; //--|🠈 Selector for button to activate (based on clicked button's class) 🠈|--//
-      var disableSelector = `${menu} button[class*="active"]`; //--|🠈 Selector for button to deactivate 🠈|--//
+      var enableSelector = `.${navigation}-${hoveredElement.className.split('-')[1]}`; //--|🠈 Selector for button to activate (based on clicked button's class) 🠈|--//
+      var disableSelector = `${navigation} button[class*="active"]`; //--|🠈 Selector for button to deactivate 🠈|--//
+
       return { enableSelector, disableSelector };
     };
 
@@ -42,16 +43,24 @@ function defaultMain(page: string | any, label: string | any, block: string | an
 
   return (
     <main style={{ zIndex: 0 }} id={`${page}-${block}`} className={`${label}-${block}`}>
-      <SectionHome flex="main-home" text="Home" hover={activateButton} click={selectSection} />
+      <SectionHome
+        flex="main-home"
+        text="Home"
+        view="visible"
+        hover={activateButton}
+        click={selectSection}
+      />
       <SectionSkills
         flex="main-skills"
         text="Skills"
+        view="hidden"
         hover={activateButton}
         click={selectSection}
       />
       <SectionContact
         flex="main-contact"
         text="Contact"
+        view="hidden"
         hover={activateButton}
         click={selectSection}
       />
