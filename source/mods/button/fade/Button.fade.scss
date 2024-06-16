@@ -13,7 +13,7 @@ button[class*='fade'] {
   }
   h6 {
     cursor: pointer;
-    color: $primary-light;
+    color: $primary-medium;
     transition: color 0.25s ease-in-out;
   }
 
@@ -27,7 +27,7 @@ button[class*='fade'] {
     filter: drop-shadow(0 0 4px rgba(white, 0.25));
     h6 {
       cursor: default;
-      color: $primary-medium;
+      color: $primary-light;
     }
   }
   //~~|🠊 border: 4px dashed $red-neon; 🠈|~~//

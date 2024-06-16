@@ -8,62 +8,44 @@ import SectionSkills from '../../../../mods/section/skills/Section.skills';
 import SectionContact from '../../../../mods/section/contact/Section.contact';
 
 function defaultMain(page: string | any, label: string | any, block: string | any) {
-  //--|🠋 Highlight Active Section 🠋|--//
-  const activateButton = (element: React.MouseEvent<HTMLElement>) => {
-    let getSelectors = (element: React.MouseEvent<HTMLElement>) => {
-      var navigationLocation = () => {
-        return window.matchMedia('(orientation: landscape) and (min-aspect-ratio: 16/9)').matches
-          ? 'header'
-          : 'footer';
-      };
-      var navigation: 'header' | 'footer' = navigationLocation();
-      var hoveredElement = element.target as HTMLElement; //--|🠈 Get the clicked element 🠈|--//
-      var enableSelector = `.${navigation}-${hoveredElement.className.split('-')[1]}`; //--|🠈 Selector for button to activate (based on clicked button's class) 🠈|--//
-      var disableSelector = `${navigation} button[class*="active"]`; //--|🠈 Selector for button to deactivate 🠈|--//
+  const hoverSection = (element: React.MouseEvent<HTMLElement>) => {
+    let enable = element.target as HTMLElement; //--|🠈 Enable the target element upon hover. 🠈|--//
+    let device = window.matchMedia('(orientation: landscape) and (min-aspect-ratio: 16/9)').matches ? 'header' : 'footer'; //--|🠈 Determine the device based on landscape orientation and aspect ratio. 🠈|--//
 
-      return { enableSelector, disableSelector };
-    };
+    while (enable && !enable.classList.contains('hidden')) {
+      //--|🠉 Traverse up the DOM tree from the target element to check for 'hidden' class 🠉|--//
+      enable = enable.parentElement as HTMLElement; //--|🠈 Move up to the parent element 🠈|--//
+    }
 
-    let { enableSelector, disableSelector } = getSelectors(element);
-    let buttons = {
-      //--|🠋 Get references to the buttons 🠋|--//
-      downplay: document.querySelector(disableSelector) as HTMLButtonElement,
-      highlight: document.querySelector(enableSelector) as HTMLButtonElement,
-    };
+    if (enable && enable.classList.contains('hidden')) {
+      //--|🠉 Check if the element has 'hidden' class; if true, proceed to toggle classes. 🠉|--//
+      var marker = enable.classList[0].split('-')[1] as string; //--|🠈 Retrieve the marker from the target element's class list. 🠈|--//
+      var disable = document.querySelector('main .visible') as HTMLElement; //--|🠈 Retrieve the currently visible main element and disable it. 🠈|--//
+      var downplay = document.querySelector(`${device} .active`) as HTMLButtonElement; //--|🠈 Retrieve the currently active footer/header button and disable it. 🠈|--//
+      var highlight = document.querySelector(`${device} .${device}-${marker}`) as HTMLButtonElement; //--|🠈 Highlight the footer/header button corresponding to the marker. 🠈|--//
 
-    //--|🠋 Check if the clicked button isn't already active 🠋|--//
-    if (!buttons.highlight?.classList.contains('active')) {
-      buttons.highlight?.classList.add('active'); //--|🠈 Add 'active' class to clicked button for highlighting 🠈|--//
-      buttons.downplay?.classList.remove('active'); //--|🠈 Remove 'active' class from previously active button (if any) 🠈|--//
+      disable.classList.add('hidden');
+      disable.classList.remove('visible');
+
+      downplay.classList.remove('active');
+      highlight.classList.add('active');
+
+      //--|🠋 Enable the target element by removing 'hidden' class and adding 'visible' class. 🠋|--//
+      enable.classList.add('visible');
+      enable.classList.remove('hidden');
     }
   };
-  const selectSection = () => {
-    console.log('Scroll to section');
+
+  const scrollSection = (element: React.MouseEvent<HTMLElement>) => {
+    console.log('//--|🠊 Scroll to Selected Section 🠈|--//');
+    console.log(element);
   };
 
   return (
     <main style={{ zIndex: 0 }} id={`${page}-${block}`} className={`${label}-${block}`}>
-      <SectionHome
-        flex="main-home"
-        text="Home"
-        view="visible"
-        hover={activateButton}
-        click={selectSection}
-      />
-      <SectionSkills
-        flex="main-skills"
-        text="Skills"
-        view="hidden"
-        hover={activateButton}
-        click={selectSection}
-      />
-      <SectionContact
-        flex="main-contact"
-        text="Contact"
-        view="hidden"
-        hover={activateButton}
-        click={selectSection}
-      />
+      <SectionHome flex="main-home" text="Home" view="visible" hover={hoverSection} click={scrollSection} />
+      <SectionSkills flex="main-skills" text="Skills" view="hidden" hover={hoverSection} click={scrollSection} />
+      <SectionContact flex="main-contact" text="Contact" view="hidden" hover={hoverSection} click={scrollSection} />
     </main>
   );
   console.log(`//--|🠊 ${label}-${block}.tsx Loaded 🠈|--//`);
