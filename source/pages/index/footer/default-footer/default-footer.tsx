@@ -8,14 +8,14 @@ import ButtonFade from '../../../../mods/button/fade/Button.fade'; //--|🠈 Mob
 import ButtonIcon from '../../../../mods/button/icon/Button.icon'; //--|🠈 Tablet (Square) 🠈|--//
 
 function defaultFooter(page: string | any, label: string | any, block: string | any) {
-  const revealSection = (element: HTMLElement): void => {};
+  const scrollSection = (element: HTMLElement): void => {};
 
   const selectSegment = (element: React.MouseEvent<HTMLElement>): void => {
     let enable = element.target as HTMLElement; //--|🠈 Enable the target element when clicked 🠈|--//
     if (!enable.parentElement?.classList.contains('active')) {
       //--|🠊 The ? is a Chaining Operator and can access properties with null or undefined values  🠈|--//
       activateButton(enable);
-      revealSection(enable);
+      scrollSection(enable);
     }
   };
 

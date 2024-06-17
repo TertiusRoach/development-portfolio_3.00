@@ -5,16 +5,16 @@ import { useMediaQuery } from 'react-responsive';
 import ButtonFade from '../../../../mods/button/fade/Button.fade';
 
 function defaultHeader(page: string | any, label: string | any, block: string | any) {
-  const revealSection = (element: HTMLElement): void => {
-    // console.log(disable);
-    // console.log(enable);
+  const scrollSection = (element: HTMLElement): void => {
+    //--|🠊 jQuery gets the job done! Deal with it...for now. 🠈|--//
+    console.log(element.parentElement);
   };
 
   const selectSegment = (element: React.MouseEvent<HTMLElement>): void => {
     let enable = element.target as HTMLElement; //--|🠈 Enable the target element when clicked 🠈|--//
     if (!enable.parentElement?.classList.contains('active')) {
       //--|🠊 The ? is a Chaining Operator and can access properties with null or undefined values  🠈|--//
-      revealSection(enable);
+      scrollSection(enable);
       activateButton(enable);
     }
   };
