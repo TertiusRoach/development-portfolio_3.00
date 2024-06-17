@@ -48,6 +48,7 @@
   grid-area: 1 / 1 / 4 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
   background: white; //~~|🠊 background: $primary-dark; 🠈|~~//
   section {
+    scroll-behavior: smooth;
     display: grid;
   }
   &::-webkit-scrollbar {
