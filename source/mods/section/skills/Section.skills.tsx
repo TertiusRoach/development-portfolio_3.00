@@ -7,22 +7,16 @@ interface SkillsProps {
   flex: string; //--|🠈 This className is used to position the section as a flex layout. 🠈|--//
   text: string;
   view: 'visible' | 'hidden';
-  hover: (event: React.MouseEvent<HTMLElement>) => void; //--|🠈 Highlights the button of the viewed section on mouse interaction. 🠈|--//
-  click: (event: React.MouseEvent<HTMLElement>) => void; //--|🠈 Centers the view on the user-clicked section. 🠈|--//
+  hover: (element: React.MouseEvent<HTMLElement>) => void; //--|🠈 Highlights the button of the viewed section on mouse interaction. 🠈|--//
+  click: (element: React.MouseEvent<HTMLElement>) => void; //--|🠈 Centers the view on the user-clicked section. 🠈|--//
   //--|🠊 Event: Reflects dynamic mouse interactions. 🠈|--//
   //--|🠊 MouseEvent: Standard interface for DOM mouse events. 🠈|--//
-  //--|🠊 Void: Indicates tht no value is returned by the toggle function. 🠈|--//
+  //--|🠊 Void: Indicates that no value is returned by the toggle function. 🠈|--//
 }
 const desktop: string = '(orientation: landscape) and (min-aspect-ratio: 16/9)';
 const mobile: string = '(orientation: portrait) and (max-aspect-ratio: 1/1)';
 const tablet: string = '(max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)';
-const SectionSkills: React.FC<SkillsProps> = ({
-  flex,
-  text,
-  view,
-  hover: activateButton,
-  click: selectSection,
-}) => {
+const SectionSkills: React.FC<SkillsProps> = ({ flex, text, view, hover: activateButton, click: selectSection }) => {
   return (
     <section className={`${flex} ${view}`} onMouseEnter={activateButton} onClick={selectSection}>
       <>

@@ -6,14 +6,15 @@ interface IconProps {
   icon: string;
   text?: string;
   state?: 'active';
+  click?: (element: React.MouseEvent<HTMLElement>) => void;
 }
-const ButtonIcon: React.FC<IconProps> = ({ grid, icon, state }) => {
+const ButtonIcon: React.FC<IconProps> = ({ grid, icon, state, click: selectSegment }) => {
   let selectors: string = `${grid} icon${state ? ` ${state}` : ''}`;
   //--|🠊 ? - Is a Ternary Operator and it checks if state has a value. 🠈|--//
   //--|🠊 : - Is an Else Operator and adds nothing if the state has a falsy value. 🠈|--//
   return (
     <button className={selectors}>
-      <img src={icon} alt={grid.split('-')[1].toLowerCase()} />
+      <img onClick={selectSegment} src={icon} alt={grid.split('-')[1].toLowerCase()} />
     </button>
   );
 };

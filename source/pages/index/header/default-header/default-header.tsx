@@ -5,15 +5,38 @@ import { useMediaQuery } from 'react-responsive';
 import ButtonFade from '../../../../mods/button/fade/Button.fade';
 
 function defaultHeader(page: string | any, label: string | any, block: string | any) {
+  const selectSegment = (element: React.MouseEvent<HTMLElement>): void => {
+    let enable = element.target as HTMLElement; //--|🠈 Enable the target element when clicked 🠈|--//
+    activateButton(enable);
+    revealSection(enable);
+  };
+
+  const revealSection = (enable: HTMLElement): void => {};
+
+  const activateButton = (enable: HTMLElement): void => {
+    if (!enable.parentElement?.classList.contains('active')) {
+      //--|🠊 The ? is a Chaining Operator and can access properties with null or undefined values  🠈|--//
+      var downplay = document.querySelector('header .active') as HTMLButtonElement; //--|🠈 Retrieve the currently active header 🠈|--//
+      var highlight = enable.parentElement as HTMLButtonElement; //--|🠈 Highlight the parent element of the selected button 🠈|--//
+
+      downplay.classList.remove('active'); //--|🠈 Disable the current header 🠈|--//
+      highlight.classList.add('active'); //--|🠈 Enable the selected header 🠈|--//
+    }
+  };
+
+  // console.log('//--|🠊 Highlight Button 🠈|--//');
+  // console.log('//--|🠊 Scroll to Selected Section and Highlight button 🠈|--//');
+  // console.log(element);
+
   return (
     <header style={{ zIndex: 4 }} id={`${page}-${block}`} className={`${label}-${block}`}>
       {
         //--|🠋 Desktop (Landscape) 🠋|--//
         useMediaQuery({ query: '(orientation: landscape) and (min-aspect-ratio: 16/9)' }) && (
           <>
-            <ButtonFade grid="header-home" icon={icons.home} text="Home" state="active" />
-            <ButtonFade grid="header-skills" icon={icons.skills} text="Skills" />
-            <ButtonFade grid="header-contact" icon={icons.contact} text="Contact" />
+            <ButtonFade click={selectSegment} grid="header-home" icon={icons.home} text="Home" state="active" />
+            <ButtonFade click={selectSegment} grid="header-skills" icon={icons.skills} text="Skills" />
+            <ButtonFade click={selectSegment} grid="header-contact" icon={icons.contact} text="Contact" />
             <div>
               <img src={icons.logo} alt="Résumé Logo" />
             </div>
@@ -52,8 +75,7 @@ interface IconURL {
   contact: string;
   projects: string;
 }
-const projectURI: string =
-  'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00';
+const projectURI: string = 'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00';
 const icons: IconURL = {
   logo: `${projectURI}/17d708556905ed2a95bf3329e9dd6411792b16b9/public/content/svg-files/signature-adjacent/primary-light.svg`,
   home: `${projectURI}/33ecc4eebaa902dbc040024fbc24833dd4e1fdd1/public/content/svg-files/icon-collection/duotone/home.svg`,

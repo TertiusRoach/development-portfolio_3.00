@@ -8,20 +8,31 @@ import ButtonFade from '../../../../mods/button/fade/Button.fade'; //--|🠈 Mob
 import ButtonIcon from '../../../../mods/button/icon/Button.icon'; //--|🠈 Tablet (Square) 🠈|--//
 
 function defaultFooter(page: string | any, label: string | any, block: string | any) {
-  const pageName = page;
+  const selectSegment = (element: React.MouseEvent<HTMLElement>): void => {
+    let enable = element.target as HTMLElement; //--|🠈 Enable the target element when clicked 🠈|--//
+    activateButton(enable);
+    revealSection(enable);
+  };
+
+  const revealSection = (element: HTMLElement): void => {};
+
+  const activateButton = (element: HTMLElement): void => {
+    if (!element.parentElement?.classList.contains('active')) {
+      //--|🠊 The ? is a Chaining Operator and can access properties with null or undefined values  🠈|--//
+      var downplay = document.querySelector('footer .active') as HTMLButtonElement; //--|🠈 Retrieve the currently active footer 🠈|--//
+      var highlight = element.parentElement as HTMLButtonElement; //--|🠈 Highlight the parent element of the selected button 🠈|--//
+
+      downplay.classList.remove('active'); //--|🠈 Disable the current footer 🠈|--//
+      highlight.classList.add('active'); //--|🠈 Enable the selected footer 🠈|--//
+    }
+  };
   return (
     <footer style={{ zIndex: 3 }} id={`${page}-${block}`} className={`${label}-${block}`}>
       {
         //--|🠋 Desktop (Landscape) 🠋|--//
         useMediaQuery({ query: '(orientation: landscape) and (min-aspect-ratio: 16/9)' }) && (
           <>
-            <AnchorIcon
-              grid="footer-github"
-              icon={anchor.github[0]}
-              url={anchor.github[1]}
-              text="GitHub"
-              action="_blank"
-            />
+            <AnchorIcon grid="footer-github" icon={anchor.github[0]} url={anchor.github[1]} text="GitHub" action="_blank" />
             <AnchorIcon
               grid="footer-youtube"
               icon={anchor.youtube[0]}
@@ -43,9 +54,9 @@ function defaultFooter(page: string | any, label: string | any, block: string | 
         //--|🠋 Mobile (Portrait) 🠋|--//
         useMediaQuery({ query: '(orientation: portrait) and (max-aspect-ratio: 1/1)' }) && (
           <>
-            <ButtonIcon grid="footer-home" icon={button.home} state="active" />
-            <ButtonIcon grid="footer-skills" icon={button.skills} />
-            <ButtonIcon grid="footer-contact" icon={button.cellphone} />
+            <ButtonIcon click={selectSegment} grid="footer-home" icon={button.home} state="active" />
+            <ButtonIcon click={selectSegment} grid="footer-skills" icon={button.skills} />
+            <ButtonIcon click={selectSegment} grid="footer-contact" icon={button.cellphone} />
             <ButtonIcon grid="footer-projects" icon={button.projects} />
           </>
         )
@@ -54,9 +65,9 @@ function defaultFooter(page: string | any, label: string | any, block: string | 
         //--|🠋 Tablet (Square) 🠋|--//
         useMediaQuery({ query: '(max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)' }) && (
           <>
-            <ButtonFade grid="footer-home" icon={button.home} text="Home" state="active" />
-            <ButtonFade grid="footer-skills" icon={button.skills} text="Skills" />
-            <ButtonFade grid="footer-contact" icon={button.email} text="Contact" />
+            <ButtonFade click={selectSegment} grid="footer-home" icon={button.home} text="Home" state="active" />
+            <ButtonFade click={selectSegment} grid="footer-skills" icon={button.skills} text="Skills" />
+            <ButtonFade click={selectSegment} grid="footer-contact" icon={button.email} text="Contact" />
           </>
         )
       }
@@ -66,8 +77,7 @@ function defaultFooter(page: string | any, label: string | any, block: string | 
 }
 export default defaultFooter;
 
-const projectURI: string =
-  'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00';
+const projectURI: string = 'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00';
 interface AnchorURL {
   linkedin: Array<string>;
   github: Array<string>;
