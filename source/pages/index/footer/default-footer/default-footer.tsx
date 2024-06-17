@@ -8,23 +8,32 @@ import ButtonFade from '../../../../mods/button/fade/Button.fade'; //--|🠈 Mob
 import ButtonIcon from '../../../../mods/button/icon/Button.icon'; //--|🠈 Tablet (Square) 🠈|--//
 
 function defaultFooter(page: string | any, label: string | any, block: string | any) {
-  const selectSegment = (element: React.MouseEvent<HTMLElement>): void => {
-    let enable = element.target as HTMLElement; //--|🠈 Enable the target element when clicked 🠈|--//
-    activateButton(enable);
-    revealSection(enable);
-  };
-
   const revealSection = (element: HTMLElement): void => {};
 
-  const activateButton = (element: HTMLElement): void => {
-    if (!element.parentElement?.classList.contains('active')) {
+  const selectSegment = (element: React.MouseEvent<HTMLElement>): void => {
+    let enable = element.target as HTMLElement; //--|🠈 Enable the target element when clicked 🠈|--//
+    if (!enable.parentElement?.classList.contains('active')) {
       //--|🠊 The ? is a Chaining Operator and can access properties with null or undefined values  🠈|--//
-      var downplay = document.querySelector('footer .active') as HTMLButtonElement; //--|🠈 Retrieve the currently active footer 🠈|--//
-      var highlight = element.parentElement as HTMLButtonElement; //--|🠈 Highlight the parent element of the selected button 🠈|--//
-
-      downplay.classList.remove('active'); //--|🠈 Disable the current footer 🠈|--//
-      highlight.classList.add('active'); //--|🠈 Enable the selected footer 🠈|--//
+      activateButton(enable);
+      revealSection(enable);
     }
+  };
+
+  const activateButton = (element: HTMLElement): void => {
+    let name = element.parentElement?.classList[0].split('-')[1] as string; //--|🠈 Retrieve the name of the section for element selection 🠈|--//
+    let enable = document.querySelector(`main section[class*='${name}'`) as HTMLElement; //--|🠈 Retrieve the section selected in the <footer>  🠈|--//
+    let disable = document.querySelector('main .visible') as HTMLElement; //--|🠈 Retrieve the active section to hide it 🠈|--//
+    let downplay = document.querySelector('footer .active') as HTMLButtonElement; //--|🠈 Retrieve the currently active footer 🠈|--//
+    let highlight = element.parentElement as HTMLButtonElement; //--|🠈 Highlight the parent element of the selected button 🠈|--//
+
+    downplay.classList.remove('active'); //--|🠈 Disable the current footer 🠈|--//
+    highlight.classList.add('active'); //--|🠈 Enable the selected footer 🠈|--//
+
+    disable.classList.add('hidden');
+    disable.classList.remove('visible');
+
+    enable.classList.add('visible');
+    enable.classList.remove('hidden');
   };
   return (
     <footer style={{ zIndex: 3 }} id={`${page}-${block}`} className={`${label}-${block}`}>

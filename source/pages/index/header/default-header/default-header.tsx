@@ -5,28 +5,36 @@ import { useMediaQuery } from 'react-responsive';
 import ButtonFade from '../../../../mods/button/fade/Button.fade';
 
 function defaultHeader(page: string | any, label: string | any, block: string | any) {
-  const selectSegment = (element: React.MouseEvent<HTMLElement>): void => {
-    let enable = element.target as HTMLElement; //--|🠈 Enable the target element when clicked 🠈|--//
-    activateButton(enable);
-    revealSection(enable);
+  const revealSection = (element: HTMLElement): void => {
+    // console.log(disable);
+    // console.log(enable);
   };
 
-  const revealSection = (enable: HTMLElement): void => {};
-
-  const activateButton = (enable: HTMLElement): void => {
+  const selectSegment = (element: React.MouseEvent<HTMLElement>): void => {
+    let enable = element.target as HTMLElement; //--|🠈 Enable the target element when clicked 🠈|--//
     if (!enable.parentElement?.classList.contains('active')) {
       //--|🠊 The ? is a Chaining Operator and can access properties with null or undefined values  🠈|--//
-      var downplay = document.querySelector('header .active') as HTMLButtonElement; //--|🠈 Retrieve the currently active header 🠈|--//
-      var highlight = enable.parentElement as HTMLButtonElement; //--|🠈 Highlight the parent element of the selected button 🠈|--//
-
-      downplay.classList.remove('active'); //--|🠈 Disable the current header 🠈|--//
-      highlight.classList.add('active'); //--|🠈 Enable the selected header 🠈|--//
+      revealSection(enable);
+      activateButton(enable);
     }
   };
 
-  // console.log('//--|🠊 Highlight Button 🠈|--//');
-  // console.log('//--|🠊 Scroll to Selected Section and Highlight button 🠈|--//');
-  // console.log(element);
+  const activateButton = (element: HTMLElement): void => {
+    let name = element.parentElement?.classList[0].split('-')[1] as string; //--|🠈 Retrieve the name of the section for element selection 🠈|--//
+    let enable = document.querySelector(`main section[class*='${name}'`) as HTMLElement; //--|🠈 Retrieve the section selected in the <header>  🠈|--//
+    let disable = document.querySelector('main .visible') as HTMLElement; //--|🠈 Retrieve the active section to hide it 🠈|--//
+    let downplay = document.querySelector('header .active') as HTMLButtonElement; //--|🠈 Retrieve the currently active header 🠈|--//
+    let highlight = element.parentElement as HTMLButtonElement; //--|🠈 Highlight the parent element of the selected button 🠈|--//
+
+    downplay.classList.remove('active'); //--|🠈 Disable the current header 🠈|--//
+    highlight.classList.add('active'); //--|🠈 Enable the selected header 🠈|--//
+
+    disable.classList.add('hidden');
+    disable.classList.remove('visible');
+
+    enable.classList.add('visible');
+    enable.classList.remove('hidden');
+  };
 
   return (
     <header style={{ zIndex: 4 }} id={`${page}-${block}`} className={`${label}-${block}`}>
