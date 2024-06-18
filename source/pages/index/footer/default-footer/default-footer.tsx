@@ -43,9 +43,9 @@ function defaultFooter(page: string | any, label: string | any, block: string | 
         //--|🠋 Mobile (Portrait) 🠋|--//
         useMediaQuery({ query: '(orientation: portrait) and (max-aspect-ratio: 1/1)' }) && (
           <>
-            <ButtonIcon click={selectSegment} grid="footer-home" icon={buttonIcon.home} state="active" />
-            <ButtonIcon click={selectSegment} grid="footer-skills" icon={buttonIcon.skills} />
-            <ButtonIcon click={selectSegment} grid="footer-contact" icon={buttonIcon.cellphone} />
+            <ButtonIcon click={validationCheck} grid="footer-home" icon={buttonIcon.home} state="active" />
+            <ButtonIcon click={validationCheck} grid="footer-skills" icon={buttonIcon.skills} />
+            <ButtonIcon click={validationCheck} grid="footer-contact" icon={buttonIcon.cellphone} />
             <ButtonIcon grid="footer-projects" icon={buttonIcon.projects} />
           </>
         )
@@ -54,9 +54,9 @@ function defaultFooter(page: string | any, label: string | any, block: string | 
         //--|🠋 Tablet (Square) 🠋|--//
         useMediaQuery({ query: '(max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)' }) && (
           <>
-            <ButtonFade click={selectSegment} grid="footer-home" icon={buttonIcon.home} text="Home" state="active" />
-            <ButtonFade click={selectSegment} grid="footer-skills" icon={buttonIcon.skills} text="Skills" />
-            <ButtonFade click={selectSegment} grid="footer-contact" icon={buttonIcon.email} text="Contact" />
+            <ButtonFade click={validationCheck} grid="footer-home" icon={buttonIcon.home} text="Home" state="active" />
+            <ButtonFade click={validationCheck} grid="footer-skills" icon={buttonIcon.skills} text="Skills" />
+            <ButtonFade click={validationCheck} grid="footer-contact" icon={buttonIcon.email} text="Contact" />
           </>
         )
       }
@@ -89,14 +89,6 @@ const scrollSection = (element: HTMLElement): void => {
   //--|🠊 jQuery gets the job done! Deal with it...for now. 🠈|--//
   $(main).animate({ scrollTop: `+=${height * slot - adjust}px` }, 250);
 };
-const selectSegment = (element: React.MouseEvent<HTMLElement>): void => {
-  let enable = element.target as HTMLElement; //--|🠈 Enable the target element when clicked 🠈|--//
-  if (!enable.parentElement?.classList.contains('active')) {
-    //--|🠊 The ? is a Chaining Operator and can access properties with null or undefined values  🠈|--//
-    activateButton(enable);
-    scrollSection(enable);
-  }
-};
 const activateButton = (element: HTMLElement): void => {
   let name = element.parentElement?.classList[0].split('-')[1] as string; //--|🠈 Retrieve the name of the section for element selection 🠈|--//
   let enable = document.querySelector(`main section[class*='${name}'`) as HTMLElement; //--|🠈 Retrieve the section selected in the <footer>  🠈|--//
@@ -112,6 +104,15 @@ const activateButton = (element: HTMLElement): void => {
 
   enable.classList.add('visible');
   enable.classList.remove('hidden');
+};
+const validationCheck = (element: React.MouseEvent<HTMLElement>): void => {
+  let enable = element.target as HTMLElement; //--|🠈 Enable the target element when clicked 🠈|--//
+  //--|🠋 Validation Check 🠋|--//
+  if (!enable.parentElement?.classList.contains('active')) {
+    //--|🠊 The ? is a Chaining Operator and can access properties with null or undefined values  🠈|--//
+    activateButton(enable);
+    scrollSection(enable);
+  }
 };
 
 /*
@@ -135,9 +136,7 @@ const anchor: AnchorURL = {
     'https://www.youtube.com/@TertiusRoach',
   ],
 };
-*/
 
-/*
 interface ButtonURL {
   logo: string;
   home: string;

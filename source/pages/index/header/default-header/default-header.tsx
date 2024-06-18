@@ -12,9 +12,9 @@ function defaultHeader(page: string | any, label: string | any, block: string | 
         //--|🠋 Desktop (Landscape) 🠋|--//
         useMediaQuery({ query: '(orientation: landscape) and (min-aspect-ratio: 16/9)' }) && (
           <>
-            <ButtonFade click={selectSegment} grid="header-home" icon={buttonIcon.home} text="Home" state="active" />
-            <ButtonFade click={selectSegment} grid="header-skills" icon={buttonIcon.skills} text="Skills" />
-            <ButtonFade click={selectSegment} grid="header-contact" icon={buttonIcon.telephone} text="Contact" />
+            <ButtonFade click={validationCheck} grid="header-home" icon={buttonIcon.home} text="Home" state="active" />
+            <ButtonFade click={validationCheck} grid="header-skills" icon={buttonIcon.skills} text="Skills" />
+            <ButtonFade click={validationCheck} grid="header-contact" icon={buttonIcon.telephone} text="Contact" />
             <div>
               <img src={buttonIcon.logo} alt="Résumé Logo" />
             </div>
@@ -69,15 +69,6 @@ const scrollSection = (element: HTMLElement): void => {
   //--|🠊 jQuery gets the job done! Deal with it...for now. 🠈|--//
   $(main).animate({ scrollTop: `+=${height * slot - adjust}px` }, 250);
 };
-const selectSegment = (element: React.MouseEvent<HTMLElement>): void => {
-  let enable = element.target as HTMLElement; //--|🠈 Enable the target element when clicked 🠈|--//
-  //--|🠋 Validation Check  🠋|--//
-  if (!enable.parentElement?.classList.contains('active')) {
-    //--|🠊 The ? is a Chaining Operator and can access properties with null or undefined values  🠈|--//
-    scrollSection(enable);
-    activateButton(enable);
-  }
-};
 const activateButton = (element: HTMLElement): void => {
   let name = element.parentElement?.classList[0].split('-')[1] as string; //--|🠈 Retrieve the name of the section for element selection 🠈|--//
   let enable = document.querySelector(`main section[class*='${name}'`) as HTMLElement; //--|🠈 Retrieve the section selected in the <header>  🠈|--//
@@ -93,6 +84,15 @@ const activateButton = (element: HTMLElement): void => {
 
   enable.classList.add('visible');
   enable.classList.remove('hidden');
+};
+const validationCheck = (element: React.MouseEvent<HTMLElement>): void => {
+  let enable = element.target as HTMLElement; //--|🠈 Enable the target element when clicked 🠈|--//
+  //--|🠋 Validation Check 🠋|--//
+  if (!enable.parentElement?.classList.contains('active')) {
+    //--|🠊 The ? is a Chaining Operator and can access properties with null or undefined values  🠈|--//
+    scrollSection(enable);
+    activateButton(enable);
+  }
 };
 
 /*
