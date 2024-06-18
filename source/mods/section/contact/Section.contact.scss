@@ -1,6 +1,7 @@
 #index-main {
   .main-contact {
     display: flex;
+    overflow: hidden;
     flex-direction: column;
   }
 }
