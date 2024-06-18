@@ -10,8 +10,10 @@ import { createRoot } from 'react-dom/client';
 
 const page: string = 'index'; //--|🠈 This represents the page being viewed 🠈|--//
 const label: string = 'default'; //--|🠈 This represents the design that will be selected 🠈|--//
+const container: HTMLDivElement | null = document.querySelector(`#${page}-body`); //--|🠈 Check for the required container element in the DOM 🠈|--//
+
+//--|🠋 Interface = Component Recipe 🠋|--//
 interface BodyProps {
-  //--|🠉 An interface is like a recipe that tells your code what ingredients (props) a component needs. 🠈|--//
   page: string;
   label: string | 'default';
 }
@@ -32,13 +34,11 @@ const Body: React.FC<BodyProps> = ({ page, label }) => {
   console.log(`//--|🠊 ${page}.tsx Loaded 🠈|--//`);
   //--|🠊 This component needs info about the page and label to work. 🠈|--//
 };
-
-const container: HTMLDivElement | null = document.querySelector(`#${page}-body`); //--|🠈 Check for the required container element in the DOM 🠈|--//
 if (container) {
   createRoot(container).render(<Body page={page} label={label} />);
   //--|🠊 If the container element exists then render the <Body> component. 🠈|--//
 } else {
-  let message: string = `//--|🠊 Add an element inside the <body> tag with an id='${page}-body' 🠈|--//`;
+  let message: string = `//--|🠊 Add a <div id='${page}-body'> inside the <body> HTML tag 🠈|--//`;
   alert(message);
   throw new Error(message);
 }
