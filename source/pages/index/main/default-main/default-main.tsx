@@ -18,6 +18,29 @@ function defaultMain(page: string | any, label: string | any, block: string | an
 }
 export default defaultMain;
 
+const scrollSection = (element: React.MouseEvent<HTMLElement>): void => {
+  const section = element.target as HTMLElement; //--|🠈 Select the clicked section inside <main> 🠈|--//
+  const main = section.parentElement as HTMLElement; //--|🠈 Get the clicked section's parent element (main container) 🠈|--//
+  let getIndex = (target: HTMLElement) => {
+    //--|🠉 Helper function to get a section's index within its parent 🠉|--//
+    //--|🠋 Check if the target element is a valid section 🠋|--//
+    if (target && target.nodeName === 'SECTION') {
+      var parent = target.parentNode as HTMLElement; //--|🠈 Get the parent of the target section 🠈|--//
+      var children = Array.from(parent.children) as Array<HTMLElement>; //--|🠈 Convert parent's children to an array of HTMLElements 🠈|--//
+      var index = children.indexOf(target) as number; //--|🠈 Get the target section's index within the children array 🠈|--//
+
+      return index;
+    }
+  };
+  let height = section.offsetHeight as number; //--|🠈 Get the clicked section's height 🠈|--//
+  let adjust = main.scrollTop as number; //--|🠈 Get the current scroll position of <main> 🠈|--//
+  let slot = getIndex(section) as number; //--|🠈 Call the helper to get the clicked section's index 🠈|--//
+
+  //--|🠋 Animate scrolling to the clicked section considering height, index, and scroll position 🠋|--//
+  //--|🠊 jQuery gets the job done! Deal with it...for now. 🠈|--//
+  $(main).animate({ scrollTop: `+=${height * slot - adjust}px` }, 250);
+};
+
 const hoverSection = (element: React.MouseEvent<HTMLElement>): void => {
   let enable = element.target as HTMLElement; //--|🠈 Enable the target element upon hover 🠈|--//
   let device = window.matchMedia('(orientation: landscape) and (min-aspect-ratio: 16/9)').matches ? 'header' : 'footer'; //--|🠈 Determine the device based on landscape orientation and aspect ratio. 🠈|--//
@@ -50,26 +73,4 @@ const hoverSection = (element: React.MouseEvent<HTMLElement>): void => {
     enable.classList.add('visible');
     enable.classList.remove('hidden');
   }
-};
-const scrollSection = (element: React.MouseEvent<HTMLElement>): void => {
-  const section = element.target as HTMLElement; //--|🠈 Select the clicked section inside <main> 🠈|--//
-  const main = section.parentElement as HTMLElement; //--|🠈 Get the clicked section's parent element (main container) 🠈|--//
-  let getIndex = (target: HTMLElement) => {
-    //--|🠉 Helper function to get a section's index within its parent 🠉|--//
-    //--|🠋 Check if the target element is a valid section 🠋|--//
-    if (target && target.nodeName === 'SECTION') {
-      var parent = target.parentNode as HTMLElement; //--|🠈 Get the parent of the target section 🠈|--//
-      var children = Array.from(parent.children) as Array<HTMLElement>; //--|🠈 Convert parent's children to an array of HTMLElements 🠈|--//
-      var index = children.indexOf(target) as number; //--|🠈 Get the target section's index within the children array 🠈|--//
-
-      return index;
-    }
-  };
-  let height = section.offsetHeight as number; //--|🠈 Get the clicked section's height 🠈|--//
-  let adjust = main.scrollTop as number; //--|🠈 Get the current scroll position of <main> 🠈|--//
-  let slot = getIndex(section) as number; //--|🠈 Call the helper to get the clicked section's index 🠈|--//
-
-  //--|🠋 Animate scrolling to the clicked section considering height, index, and scroll position 🠋|--//
-  //--|🠊 jQuery gets the job done! Deal with it...for now. 🠈|--//
-  $(main).animate({ scrollTop: `+=${height * slot - adjust}px` }, 250);
 };
