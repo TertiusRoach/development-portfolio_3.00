@@ -75,26 +75,26 @@ export const scrollSection = (
   //--|🠊 jQuery gets the job done! Deal with it...for now. 🠈|--//
   $(main).animate({ scrollTop: `+=${height * slot - adjust}px` }, 250);
 
-  console.log(main);
+  // Function to log all elements recursively
+  function logElements(element: HTMLElement) {
+    let children = element.children;
+    let i = 0;
 
-  /*
-  let isScrolling = true; // Flag to control loop
-  while (isScrolling) {
-    console.log('Please do not repeat');
-    $(main).animate({ scrollTop: `+=${height * slot - adjust}px` }, 250, () => {
-      // Callback function after animation completes
-      isScrolling = $(main).find('.visible').length > 0; // Check for a visible section
-    });
+    while (i < children.length) {
+      console.log(children[i]);
+      // Recursively log the children of the current child element
+      logElements(children[i] as HTMLElement);
+      i++;
+    }
   }
-  */
+
+  // Start logging from the section element
+  logElements(section);
 };
 
 //------------------------------//
 const hoverSection = (element: React.MouseEvent<HTMLElement>): void => {
   let enable = element.target as HTMLElement; //--|🠈 Enable the target element upon hover 🠈|--//
-  let device = window.matchMedia('(orientation: landscape) and (min-aspect-ratio: 16/9)').matches ? 'header' : 'footer'; //--|🠈 Determines where the buttons are based on orientation 🠈|--//
-
-  //--|🠋 There must be more efficient and less confusing way 🠋|--//
   while (enable && !enable.classList.contains('hidden')) {
     enable = enable.parentElement as HTMLElement; //--|🠈 Move up to the parent element 🠈|--//
     //--|🠉 Traverse up the DOM tree from the target element to check for 'hidden' class 🠉|--//
@@ -106,6 +106,7 @@ const hoverSection = (element: React.MouseEvent<HTMLElement>): void => {
     //--|🠊 The while loop should be above the if statement 🠈|--//
   }
 
+  let device = window.matchMedia('(orientation: landscape) and (min-aspect-ratio: 16/9)').matches ? 'header' : 'footer'; //--|🠈 Determines where the buttons are based on orientation 🠈|--//
   if (enable && enable.classList.contains('hidden')) {
     //--|🠉 Check if the element has 'hidden' class 🠉|--//
     //--|🠊 If true, proceed to toggle classes 🠈|--//
@@ -124,3 +125,15 @@ const hoverSection = (element: React.MouseEvent<HTMLElement>): void => {
     enable.classList.remove('hidden');
   }
 };
+
+/*
+  // Get all child elements of the section
+  let children = section.children;
+  let i = 0;
+
+  // Use a while loop to log each child element
+  while (i < children.length) {
+    console.log(children[i]);
+    i++;
+  }
+  */

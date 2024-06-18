@@ -30,21 +30,51 @@ const SectionHome: React.FC<HomeProps> = ({ flex, text, view, hover: hoverSectio
           <>
             <div>
               <h1>{text}</h1>
+              <p>Paragraph</p>
+              <article>
+                <h1>Article</h1>
+                <p>Another Paragraph</p>
+              </article>
             </div>
             <div>
               <h2>{text}</h2>
+              <p>Paragraph</p>
+              <article>
+                <h2>Article</h2>
+                <p>Another Paragraph</p>
+              </article>
             </div>
             <div>
               <h3>{text}</h3>
+              <p>Paragraph</p>
+              <article>
+                <h3>Article</h3>
+                <p>Another Paragraph</p>
+              </article>
             </div>
             <div>
               <h4>{text}</h4>
+              <p>Paragraph</p>
+              <article>
+                <h4>Article</h4>
+                <p>Another Paragraph</p>
+              </article>
             </div>
             <div>
               <h5>{text}</h5>
+              <p>Paragraph</p>
+              <article>
+                <h5>Article</h5>
+                <p>Another Paragraph</p>
+              </article>
             </div>
             <div>
               <h6>{text}</h6>
+              <p>Paragraph</p>
+              <article>
+                <h6>Article</h6>
+                <p>Another Paragraph</p>
+              </article>
             </div>
           </>
         )
@@ -55,21 +85,51 @@ const SectionHome: React.FC<HomeProps> = ({ flex, text, view, hover: hoverSectio
           <>
             <div>
               <h1>{text}</h1>
+              <p>Paragraph</p>
+              <article>
+                <h1>Article</h1>
+                <p>Another Paragraph</p>
+              </article>
             </div>
             <div>
               <h2>{text}</h2>
+              <p>Paragraph</p>
+              <article>
+                <h2>Article</h2>
+                <p>Another Paragraph</p>
+              </article>
             </div>
             <div>
               <h3>{text}</h3>
+              <p>Paragraph</p>
+              <article>
+                <h3>Article</h3>
+                <p>Another Paragraph</p>
+              </article>
             </div>
             <div>
               <h4>{text}</h4>
+              <p>Paragraph</p>
+              <article>
+                <h4>Article</h4>
+                <p>Another Paragraph</p>
+              </article>
             </div>
             <div>
               <h5>{text}</h5>
+              <p>Paragraph</p>
+              <article>
+                <h5>Article</h5>
+                <p>Another Paragraph</p>
+              </article>
             </div>
             <div>
               <h6>{text}</h6>
+              <p>Paragraph</p>
+              <article>
+                <h6>Article</h6>
+                <p>Another Paragraph</p>
+              </article>
             </div>
           </>
         )
@@ -80,21 +140,51 @@ const SectionHome: React.FC<HomeProps> = ({ flex, text, view, hover: hoverSectio
           <>
             <div>
               <h1>{text}</h1>
+              <p>Paragraph</p>
+              <article>
+                <h1>Article</h1>
+                <p>Another Paragraph</p>
+              </article>
             </div>
             <div>
               <h2>{text}</h2>
+              <p>Paragraph</p>
+              <article>
+                <h2>Article</h2>
+                <p>Another Paragraph</p>
+              </article>
             </div>
             <div>
               <h3>{text}</h3>
+              <p>Paragraph</p>
+              <article>
+                <h3>Article</h3>
+                <p>Another Paragraph</p>
+              </article>
             </div>
             <div>
               <h4>{text}</h4>
+              <p>Paragraph</p>
+              <article>
+                <h4>Article</h4>
+                <p>Another Paragraph</p>
+              </article>
             </div>
             <div>
               <h5>{text}</h5>
+              <p>Paragraph</p>
+              <article>
+                <h5>Article</h5>
+                <p>Another Paragraph</p>
+              </article>
             </div>
             <div>
               <h6>{text}</h6>
+              <p>Paragraph</p>
+              <article>
+                <h6>Article</h6>
+                <p>Another Paragraph</p>
+              </article>
             </div>
           </>
         )
