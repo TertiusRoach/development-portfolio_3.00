@@ -6,12 +6,32 @@ import ButtonFade from '../../../../mods/button/fade/Button.fade';
 
 function defaultHeader(page: string | any, label: string | any, block: string | any) {
   const scrollSection = (element: HTMLElement): void => {
+    const name = element.parentElement?.classList[0].split('-')[1] as string; //--|🠈 Extract the marker linking <button> to <main> 🠈|--//
+    const section = document.querySelector(`main .main-${name}`) as HTMLElement; //--|🠈 Select the clicked section inside <main> 🠈|--//
+    const main = section.parentElement as HTMLElement; //--|🠈 Get the clicked section's parent element (main container) 🠈|--//
+    let getIndex = (target: HTMLElement) => {
+      //--|🠉 Helper function to get a section's index within its parent 🠉|--//
+      //--|🠋 Check if the target element is a valid section 🠋|--//
+      if (target && target.nodeName === 'SECTION') {
+        var parent = target.parentNode as HTMLElement; //--|🠈 Get the parent of the target section 🠈|--//
+        var children = Array.from(parent.children) as Array<HTMLElement>; //--|🠈 Convert parent's children to an array of HTMLElements 🠈|--//
+        var index = children.indexOf(target) as number; //--|🠈 Get the target section's index within the children array 🠈|--//
+
+        return index;
+      }
+    };
+    let height = section.offsetHeight as number; //--|🠈 Get the clicked section's height 🠈|--//
+    let adjust = main.scrollTop as number; //--|🠈 Get the current scroll position of <main> 🠈|--//
+    let slot = getIndex(section) as number; //--|🠈 Call the helper to get the clicked section's index 🠈|--//
+
+    //--|🠋 Animate scrolling to the clicked section considering height, index, and scroll position 🠋|--//
     //--|🠊 jQuery gets the job done! Deal with it...for now. 🠈|--//
-    console.log(element.parentElement);
+    $(main).animate({ scrollTop: `+=${height * slot - adjust}px` }, 250);
   };
 
   const selectSegment = (element: React.MouseEvent<HTMLElement>): void => {
     let enable = element.target as HTMLElement; //--|🠈 Enable the target element when clicked 🠈|--//
+    //--|🠋 Validation Check  🠋|--//
     if (!enable.parentElement?.classList.contains('active')) {
       //--|🠊 The ? is a Chaining Operator and can access properties with null or undefined values  🠈|--//
       scrollSection(enable);
