@@ -24,20 +24,81 @@ const SectionHome: React.FC<HomeProps> = ({ flex, text, view, hover: hoverSectio
       onMouseEnter={hoverSection}
       onClick={(trigger) => scrollSection(trigger, '<main>')}
     >
-      <>
-        {
-          //--|🠋 Desktop (Landscape) 🠋|--//
-          useMediaQuery({ query: desktop }) && <h1>{text}</h1>
-        }
-        {
-          //--|🠋 Mobile (Portrait) 🠋|--//
-          useMediaQuery({ query: mobile }) && <h1>{text}</h1>
-        }
-        {
-          //--|🠋 Tablet (Square) 🠋|--//
-          useMediaQuery({ query: tablet }) && <h1>{text}</h1>
-        }
-      </>
+      {
+        //--|🠋 Desktop (Landscape) 🠋|--//
+        useMediaQuery({ query: desktop }) && (
+          <>
+            <div>
+              <h1>{text}</h1>
+            </div>
+            <div>
+              <h2>{text}</h2>
+            </div>
+            <div>
+              <h3>{text}</h3>
+            </div>
+            <div>
+              <h4>{text}</h4>
+            </div>
+            <div>
+              <h5>{text}</h5>
+            </div>
+            <div>
+              <h6>{text}</h6>
+            </div>
+          </>
+        )
+      }
+      {
+        //--|🠋 Mobile (Portrait) 🠋|--//
+        useMediaQuery({ query: mobile }) && (
+          <>
+            <div>
+              <h1>{text}</h1>
+            </div>
+            <div>
+              <h2>{text}</h2>
+            </div>
+            <div>
+              <h3>{text}</h3>
+            </div>
+            <div>
+              <h4>{text}</h4>
+            </div>
+            <div>
+              <h5>{text}</h5>
+            </div>
+            <div>
+              <h6>{text}</h6>
+            </div>
+          </>
+        )
+      }
+      {
+        //--|🠋 Tablet (Square) 🠋|--//
+        useMediaQuery({ query: tablet }) && (
+          <>
+            <div>
+              <h1>{text}</h1>
+            </div>
+            <div>
+              <h2>{text}</h2>
+            </div>
+            <div>
+              <h3>{text}</h3>
+            </div>
+            <div>
+              <h4>{text}</h4>
+            </div>
+            <div>
+              <h5>{text}</h5>
+            </div>
+            <div>
+              <h6>{text}</h6>
+            </div>
+          </>
+        )
+      }
     </section>
   );
 };

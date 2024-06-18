@@ -55,7 +55,6 @@ export const scrollSection = (
       section = element.target as HTMLElement;
       break;
   }
-
   let getIndex = (target: HTMLElement) => {
     //--|🠉 Helper function to get a section's index within its parent 🠉|--//
     //--|🠋 Check if the target element is a valid section 🠋|--//
@@ -71,9 +70,23 @@ export const scrollSection = (
   let height: number = section.offsetHeight; //--|🠈 Get the clicked section's height 🠈|--//
   let adjust: number = main.scrollTop; //--|🠈 Get the current scroll position of <main> 🠈|--//
   let slot = getIndex(section) as number; //--|🠈 Call the helper to get the clicked section's index 🠈|--//
+
   //--|🠋 Animate scrolling to the clicked section 🠋|--//
   //--|🠊 jQuery gets the job done! Deal with it...for now. 🠈|--//
   $(main).animate({ scrollTop: `+=${height * slot - adjust}px` }, 250);
+
+  console.log(main);
+
+  /*
+  let isScrolling = true; // Flag to control loop
+  while (isScrolling) {
+    console.log('Please do not repeat');
+    $(main).animate({ scrollTop: `+=${height * slot - adjust}px` }, 250, () => {
+      // Callback function after animation completes
+      isScrolling = $(main).find('.visible').length > 0; // Check for a visible section
+    });
+  }
+  */
 };
 
 //------------------------------//
@@ -81,6 +94,7 @@ const hoverSection = (element: React.MouseEvent<HTMLElement>): void => {
   let enable = element.target as HTMLElement; //--|🠈 Enable the target element upon hover 🠈|--//
   let device = window.matchMedia('(orientation: landscape) and (min-aspect-ratio: 16/9)').matches ? 'header' : 'footer'; //--|🠈 Determines where the buttons are based on orientation 🠈|--//
 
+  //--|🠋 There must be more efficient and less confusing way 🠋|--//
   while (enable && !enable.classList.contains('hidden')) {
     enable = enable.parentElement as HTMLElement; //--|🠈 Move up to the parent element 🠈|--//
     //--|🠉 Traverse up the DOM tree from the target element to check for 'hidden' class 🠉|--//

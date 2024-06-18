@@ -11,7 +11,7 @@ import ButtonFade from '../../../../mods/button/fade/Button.fade'; //--|🠈 Mob
 import ButtonIcon from '../../../../mods/button/icon/Button.icon'; //--|🠈 Tablet (Square) 🠈|--//
 
 function defaultFooter(page: string | any, label: string | any, block: string | any) {
-  const validationCheck = (element: React.MouseEvent<HTMLElement>): void => {
+  const statusCheck = (element: React.MouseEvent<HTMLElement>): void => {
     let validate = element.target as HTMLElement; //--|🠈 Enable the target element when clicked 🠈|--//
     //--|🠋 Only execute if the clicked button isn't active 🠋|--//
     if (!validate.parentElement?.classList.contains('active')) {
@@ -54,9 +54,9 @@ function defaultFooter(page: string | any, label: string | any, block: string | 
         //--|🠋 Mobile (Portrait) 🠋|--//
         useMediaQuery({ query: '(orientation: portrait) and (max-aspect-ratio: 1/1)' }) && (
           <>
-            <ButtonIcon click={validationCheck} grid="footer-home" icon={buttonIcon.home} state="active" />
-            <ButtonIcon click={validationCheck} grid="footer-skills" icon={buttonIcon.skills} />
-            <ButtonIcon click={validationCheck} grid="footer-contact" icon={buttonIcon.cellphone} />
+            <ButtonIcon click={statusCheck} grid="footer-home" icon={buttonIcon.home} state="active" />
+            <ButtonIcon click={statusCheck} grid="footer-skills" icon={buttonIcon.skills} />
+            <ButtonIcon click={statusCheck} grid="footer-contact" icon={buttonIcon.cellphone} />
             <ButtonIcon grid="footer-projects" icon={buttonIcon.projects} />
           </>
         )
@@ -65,9 +65,9 @@ function defaultFooter(page: string | any, label: string | any, block: string | 
         //--|🠋 Tablet (Square) 🠋|--//
         useMediaQuery({ query: '(max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)' }) && (
           <>
-            <ButtonFade click={validationCheck} grid="footer-home" icon={buttonIcon.home} text="Home" state="active" />
-            <ButtonFade click={validationCheck} grid="footer-skills" icon={buttonIcon.skills} text="Skills" />
-            <ButtonFade click={validationCheck} grid="footer-contact" icon={buttonIcon.email} text="Contact" />
+            <ButtonFade click={statusCheck} grid="footer-home" icon={buttonIcon.home} text="Home" state="active" />
+            <ButtonFade click={statusCheck} grid="footer-skills" icon={buttonIcon.skills} text="Skills" />
+            <ButtonFade click={statusCheck} grid="footer-contact" icon={buttonIcon.email} text="Contact" />
           </>
         )
       }
