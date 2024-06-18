@@ -18,6 +18,26 @@ function defaultMain(page: string | any, label: string | any, block: string | an
 }
 export default defaultMain;
 
+export const activateButton = (element: HTMLElement): void => {
+  let name = element.parentElement?.classList[0].split('-')[1] as string; //--|🠈 Retrieve the name of the section for element selection 🠈|--//
+  let show = document.querySelector(`main section[class*='${name}'`) as HTMLElement; //--|🠈 Retrieve the section selected in the <footer>  🠈|--//
+  let hide = document.querySelector('main .visible') as HTMLElement; //--|🠈 Retrieve the active section to hide it 🠈|--//
+  let device = window.matchMedia('(orientation: landscape) and (min-aspect-ratio: 16/9)').matches ? 'header' : 'footer'; //--|🠈 Determines where the buttons are based on orientation 🠈|--//
+  let downplay = document.querySelector(`${device} .active`) as HTMLButtonElement; //--|🠈 Retrieve the currently active footer 🠈|--//
+  let highlight = element.parentElement as HTMLButtonElement; //--|🠈 Highlight the parent element of the selected button 🠈|--//
+
+  downplay.classList.remove('active'); //--|🠈 Downplay Button 🠈|--//
+  highlight.classList.add('active'); //--|🠈 Highlight Button 🠈|--//
+
+  hide.classList.add('hidden');
+  //--|🠉 Hide Section 🠋|--//
+  hide.classList.remove('visible');
+
+  show.classList.add('visible');
+  //--|🠉 Show Section 🠋|--//
+  show.classList.remove('hidden');
+};
+
 export const scrollSection = (
   element: React.MouseEvent<HTMLElement>,
   navigation: '<header>' | '<main>' | '<footer>'
@@ -55,10 +75,11 @@ export const scrollSection = (
   //--|🠊 jQuery gets the job done! Deal with it...for now. 🠈|--//
   $(main).animate({ scrollTop: `+=${height * slot - adjust}px` }, 250);
 };
+
 //------------------------------//
 const hoverSection = (element: React.MouseEvent<HTMLElement>): void => {
   let enable = element.target as HTMLElement; //--|🠈 Enable the target element upon hover 🠈|--//
-  let device = window.matchMedia('(orientation: landscape) and (min-aspect-ratio: 16/9)').matches ? 'header' : 'footer'; //--|🠈 Determine the device based on landscape orientation and aspect ratio. 🠈|--//
+  let device = window.matchMedia('(orientation: landscape) and (min-aspect-ratio: 16/9)').matches ? 'header' : 'footer'; //--|🠈 Determines where the buttons are based on orientation 🠈|--//
 
   while (enable && !enable.classList.contains('hidden')) {
     enable = enable.parentElement as HTMLElement; //--|🠈 Move up to the parent element 🠈|--//

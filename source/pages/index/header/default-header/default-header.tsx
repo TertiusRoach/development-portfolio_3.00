@@ -5,7 +5,7 @@ import { buttonIcon } from '../..';
 import { useMediaQuery } from 'react-responsive';
 import ButtonFade from '../../../../mods/button/fade/Button.fade';
 
-import { scrollSection } from '../../main/default-main/default-main';
+import { activateButton, scrollSection } from '../../main/default-main/default-main';
 
 function defaultHeader(page: string | any, label: string | any, block: string | any) {
   const validationCheck = (element: React.MouseEvent<HTMLElement>): void => {
@@ -55,20 +55,3 @@ function defaultHeader(page: string | any, label: string | any, block: string | 
   console.log(`//--|🠊 ${label}-${block}.tsx Loaded 🠈|--//`);
 }
 export default defaultHeader;
-
-const activateButton = (element: HTMLElement): void => {
-  let name = element.parentElement?.classList[0].split('-')[1] as string; //--|🠈 Retrieve the name of the section for element selection 🠈|--//
-  let enable = document.querySelector(`main section[class*='${name}'`) as HTMLElement; //--|🠈 Retrieve the section selected in the <header>  🠈|--//
-  let disable = document.querySelector('main .visible') as HTMLElement; //--|🠈 Retrieve the active section to hide it 🠈|--//
-  let downplay = document.querySelector('header .active') as HTMLButtonElement; //--|🠈 Retrieve the currently active header 🠈|--//
-  let highlight = element.parentElement as HTMLButtonElement; //--|🠈 Highlight the parent element of the selected button 🠈|--//
-
-  downplay.classList.remove('active'); //--|🠈 Disable the current header 🠈|--//
-  highlight.classList.add('active'); //--|🠈 Enable the selected header 🠈|--//
-
-  disable.classList.add('hidden');
-  disable.classList.remove('visible');
-
-  enable.classList.add('visible');
-  enable.classList.remove('hidden');
-};
