@@ -5,7 +5,17 @@ import { buttonIcon } from '../..';
 import { useMediaQuery } from 'react-responsive';
 import ButtonFade from '../../../../mods/button/fade/Button.fade';
 
+import { scrollSection } from '../../main/default-main/default-main';
+
 function defaultHeader(page: string | any, label: string | any, block: string | any) {
+  const validationCheck = (element: React.MouseEvent<HTMLElement>): void => {
+    let validate = element.target as HTMLElement; //--|🠈 Enable the target element when clicked 🠈|--//
+    //--|🠋 Only execute if the clicked button isn't active 🠋|--//
+    if (!validate.parentElement?.classList.contains('active')) {
+      activateButton(validate);
+      scrollSection(element, '<header>');
+    }
+  };
   return (
     <header style={{ zIndex: 4 }} id={`${page}-${block}`} className={`${label}-${block}`}>
       {
@@ -46,30 +56,6 @@ function defaultHeader(page: string | any, label: string | any, block: string | 
 }
 export default defaultHeader;
 
-const scrollSection = (element: HTMLElement): void => {
-  const name = element.parentElement?.classList[0].split('-')[1] as string; //--|🠈 Extract the marker linking <button> to <main> 🠈|--//
-  const section = document.querySelector(`main .main-${name}`) as HTMLElement; //--|🠈 Select the clicked section inside <main> 🠈|--//
-  const main = section.parentElement as HTMLElement; //--|🠈 Get the clicked section's parent element (main container) 🠈|--//
-  let getIndex = (target: HTMLElement) => {
-    //--|🠉 Helper function to get a section's index within its parent 🠉|--//
-    //--|🠋 Check if the target element is a valid section 🠋|--//
-    if (target && target.nodeName === 'SECTION') {
-      var parent = target.parentNode as HTMLElement; //--|🠈 Get the parent of the target section 🠈|--//
-      var children = Array.from(parent.children) as Array<HTMLElement>; //--|🠈 Convert parent's children to an array of HTMLElements 🠈|--//
-      var index = children.indexOf(target) as number; //--|🠈 Get the target section's index within the children array 🠈|--//
-
-      return index;
-    }
-  };
-  let height = section.offsetHeight as number; //--|🠈 Get the clicked section's height 🠈|--//
-  let adjust = main.scrollTop as number; //--|🠈 Get the current scroll position of <main> 🠈|--//
-  let slot = getIndex(section) as number; //--|🠈 Call the helper to get the clicked section's index 🠈|--//
-
-  //--|🠋 Animate scrolling to the clicked section considering height, index, and scroll position 🠋|--//
-  //--|🠊 jQuery gets the job done! Deal with it...for now. 🠈|--//
-  $(main).animate({ scrollTop: `+=${height * slot - adjust}px` }, 250);
-};
-
 const activateButton = (element: HTMLElement): void => {
   let name = element.parentElement?.classList[0].split('-')[1] as string; //--|🠈 Retrieve the name of the section for element selection 🠈|--//
   let enable = document.querySelector(`main section[class*='${name}'`) as HTMLElement; //--|🠈 Retrieve the section selected in the <header>  🠈|--//
@@ -86,30 +72,3 @@ const activateButton = (element: HTMLElement): void => {
   enable.classList.add('visible');
   enable.classList.remove('hidden');
 };
-const validationCheck = (element: React.MouseEvent<HTMLElement>): void => {
-  let enable = element.target as HTMLElement; //--|🠈 Enable the target element when clicked 🠈|--//
-  //--|🠋 Validation Check 🠋|--//
-  if (!enable.parentElement?.classList.contains('active')) {
-    //--|🠊 The ? is a Chaining Operator and can access properties with null or undefined values  🠈|--//
-    scrollSection(enable);
-    activateButton(enable);
-  }
-};
-
-/*
-interface Designs {
-  logo: string;
-  home: string;
-  skills: string;
-  contact: string;
-  projects: string;
-}
-const projectURI: string = 'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00';
-const buttonIcon: Designs = {
-  logo: `${projectURI}/17d708556905ed2a95bf3329e9dd6411792b16b9/public/content/svg-files/signature-adjacent/primary-light.svg`,
-  home: `${projectURI}/33ecc4eebaa902dbc040024fbc24833dd4e1fdd1/public/content/svg-files/icon-collection/duotone/home.svg`,
-  skills: `${projectURI}/33ecc4eebaa902dbc040024fbc24833dd4e1fdd1/public/content/svg-files/icon-collection/duotone/lightbulb-on.svg`,
-  contact: `${projectURI}/33ecc4eebaa902dbc040024fbc24833dd4e1fdd1/public/content/svg-files/icon-collection/duotone/phone-volume.svg`,
-  projects: `${projectURI}/64766ee2eec5d723042a565c96644dd5d3b5732d/public/content/svg-files/icon-collection/duotone/code.svg`,
-};
-*/

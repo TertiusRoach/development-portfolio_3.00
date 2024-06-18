@@ -8,7 +8,8 @@ interface HomeProps {
   text: string;
   view: 'visible' | 'hidden';
   hover: (element: React.MouseEvent<HTMLElement>) => void; //--|🠈 Highlights the button of the viewed section on mouse interaction. 🠈|--//
-  click: (element: React.MouseEvent<HTMLElement>) => void; //--|🠈 Centers the view on the user-clicked section. 🠈|--//
+  click: (trigger: React.MouseEvent<HTMLElement>, string: '<header>' | '<main>' | '<footer>') => void; //--|🠈 Centers the view on the user-clicked section. 🠈|--//
+
   //--|🠊 Event: Reflects dynamic mouse interactions. 🠈|--//
   //--|🠊 MouseEvent: Standard interface for DOM mouse events. 🠈|--//
   //--|🠊 Void: Indicates that no value is returned by the toggle function. 🠈|--//
@@ -18,7 +19,11 @@ const mobile: string = '(orientation: portrait) and (max-aspect-ratio: 1/1)';
 const tablet: string = '(max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)';
 const SectionHome: React.FC<HomeProps> = ({ flex, text, view, hover: hoverSection, click: scrollSection }) => {
   return (
-    <section className={`${flex} ${view}`} onMouseEnter={hoverSection} onClick={scrollSection}>
+    <section
+      className={`${flex} ${view}`}
+      onMouseEnter={hoverSection}
+      onClick={(trigger) => scrollSection(trigger, '<main>')}
+    >
       <>
         {
           //--|🠋 Desktop (Landscape) 🠋|--//
