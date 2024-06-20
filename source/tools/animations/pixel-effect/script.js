@@ -23,14 +23,12 @@ myImage.addEventListener('load', function () {
       const red = pixels.data[y * 4 * pixels.width + x * 4];
       const green = pixels.data[y * 4 * pixels.width + x * 4 + 1];
       const blue = pixels.data[y * 4 * pixels.width + x * 4 + 2];
-
       const brightness = calculateRelativeBrightness(red, green, blue);
-      const cell = [(cellBrightness = brightness)];
+      const cell = [brightness, `rgb(${red},${green},${blue})`];
       row.push(cell);
     }
     mappedImage.push(row);
   }
-  //   console.log(mappedImage);
 
   function calculateRelativeBrightness(red, green, blue) {
     return Math.sqrt(red * red * 0.299 + green * green * 0.587 + blue * blue * 0.114) / 100;
@@ -45,6 +43,7 @@ myImage.addEventListener('load', function () {
       this.size = Math.random() * 1.5 + 1;
       this.position1 = Math.floor(this.y);
       this.position2 = Math.floor(this.x);
+      this.color = mappedImage[this.position1][this.position2][1];
     }
     update() {
       this.position1 = Math.floor(this.y);
@@ -52,31 +51,30 @@ myImage.addEventListener('load', function () {
       this.speed = mappedImage[this.position1][this.position2][0];
       let movement = 2.5 - this.speed + this.velocity;
       this.y += movement;
-
       if (this.y >= canvas.height) {
         this.y = 0;
         this.x = Math.random() * canvas.width;
       }
+      this.color = mappedImage[this.position1][this.position2][1];
     }
     draw() {
       ctx.beginPath();
-      ctx.fillStyle = 'white';
+      ctx.fillStyle = this.color;
       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
       ctx.fill();
     }
   }
+
   function init() {
     for (let i = 0; i < NumberOfParticles; i++) {
       particlesArray.push(new Particle());
     }
   }
-  init();
-  function animate() {
-    // Add: ctx.drawImage(myImage, 0, 0, canvas.width, canvas.height); to see the image
 
-    ctx.globalAlpha = 0.05;
-    ctx.fillStyle = 'rgb(0,0,0)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  init();
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas to keep the background transparent
 
     ctx.globalAlpha = 0.2;
 
@@ -87,6 +85,8 @@ myImage.addEventListener('load', function () {
     }
     requestAnimationFrame(animate);
   }
+
   animate();
 });
+
 console.log('JavaScript Linked');

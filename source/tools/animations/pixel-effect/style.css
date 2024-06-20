@@ -5,7 +5,8 @@
   background: darkblue;
 }
 
-#canvas1 {
+#canvas1,
+img {
   border: 2px solid white;
   position: absolute;
   top: 50%;
@@ -13,4 +14,5 @@
   transform: translate(-50%, -50%);
   width: 500px;
   height: 500px;
+  background: transparent;
 }
