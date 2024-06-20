@@ -36,7 +36,7 @@ const SectionHome: React.FC<HomeProps> = ({ flex, text, view, hover: hoverSectio
                 <p>Another Paragraph</p>
               </article>
             </div>
-            <div>
+            {/* <div>
               <h2>{text}</h2>
               <p>Paragraph</p>
               <article>
@@ -75,7 +75,7 @@ const SectionHome: React.FC<HomeProps> = ({ flex, text, view, hover: hoverSectio
                 <h6>Article</h6>
                 <p>Another Paragraph</p>
               </article>
-            </div>
+            </div> */}
           </>
         )
       }
@@ -91,7 +91,7 @@ const SectionHome: React.FC<HomeProps> = ({ flex, text, view, hover: hoverSectio
                 <p>Another Paragraph</p>
               </article>
             </div>
-            <div>
+            {/* <div>
               <h2>{text}</h2>
               <p>Paragraph</p>
               <article>
@@ -130,7 +130,7 @@ const SectionHome: React.FC<HomeProps> = ({ flex, text, view, hover: hoverSectio
                 <h6>Article</h6>
                 <p>Another Paragraph</p>
               </article>
-            </div>
+            </div> */}
           </>
         )
       }
@@ -146,7 +146,7 @@ const SectionHome: React.FC<HomeProps> = ({ flex, text, view, hover: hoverSectio
                 <p>Another Paragraph</p>
               </article>
             </div>
-            <div>
+            {/* <div>
               <h2>{text}</h2>
               <p>Paragraph</p>
               <article>
@@ -185,7 +185,7 @@ const SectionHome: React.FC<HomeProps> = ({ flex, text, view, hover: hoverSectio
                 <h6>Article</h6>
                 <p>Another Paragraph</p>
               </article>
-            </div>
+            </div> */}
           </>
         )
       }
@@ -193,3 +193,22 @@ const SectionHome: React.FC<HomeProps> = ({ flex, text, view, hover: hoverSectio
   );
 };
 export default SectionHome;
+
+/*
+// I feel this might be usefull
+  // Function to log all elements recursively
+  function logElements(element: HTMLElement) {
+    let children = element.children;
+    let i = 0;
+
+    while (i < children.length) {
+      console.log(children[i]);
+      // Recursively log the children of the current child element
+      logElements(children[i] as HTMLElement);
+      i++;
+    }
+  }
+
+  // Start logging from the section element
+  logElements(section);
+  */

@@ -5,26 +5,23 @@ import { buttonIcon } from '../..';
 import { useMediaQuery } from 'react-responsive';
 import ButtonFade from '../../../../mods/button/fade/Button.fade';
 
-import { activateButton, scrollSection } from '../../main/default-main/default-main';
+import { activeButton, scrollSection } from '../../main/default-main/default-main';
 
 function defaultHeader(page: string | any, label: string | any, block: string | any) {
-  const statusCheck = (element: React.MouseEvent<HTMLElement>): void => {
-    let validate = element.target as HTMLElement; //--|🠈 Enable the target element when clicked 🠈|--//
-    //--|🠋 Only execute if the clicked button isn't active 🠋|--//
-    if (!validate.parentElement?.classList.contains('active')) {
-      activateButton(validate);
-      scrollSection(element, '<header>');
-    }
+  const wrapperFunction = (element: React.MouseEvent<HTMLElement>): void => {
+    scrollSection(element, '<header>');
+    activeButton(element.target as HTMLButtonElement);
   };
+
   return (
     <header style={{ zIndex: 4 }} id={`${page}-${block}`} className={`${label}-${block}`}>
       {
         //--|🠋 Desktop (Landscape) 🠋|--//
         useMediaQuery({ query: '(orientation: landscape) and (min-aspect-ratio: 16/9)' }) && (
           <>
-            <ButtonFade click={statusCheck} grid="header-home" icon={buttonIcon.home} text="Home" state="active" />
-            <ButtonFade click={statusCheck} grid="header-skills" icon={buttonIcon.skills} text="Skills" />
-            <ButtonFade click={statusCheck} grid="header-contact" icon={buttonIcon.telephone} text="Contact" />
+            <ButtonFade click={wrapperFunction} grid="header-home" icon={buttonIcon.home} text="Home" state="active" />
+            <ButtonFade click={wrapperFunction} grid="header-skills" icon={buttonIcon.skills} text="Skills" />
+            <ButtonFade click={wrapperFunction} grid="header-contact" icon={buttonIcon.telephone} text="Contact" />
             <div>
               <img src={buttonIcon.logo} alt="Résumé Logo" />
             </div>

@@ -32,3 +32,22 @@
 @import 'overlay/default-overlay/default-overlay.scss';
 @import 'leftbar/default-leftbar/default-leftbar.scss';
 @import 'rightbar/default-rightbar/default-rightbar.scss';
+
+/*
+// I feel this might be usefull
+  // Function to log all elements recursively
+  function logElements(element: HTMLElement) {
+    let children = element.children;
+    let i = 0;
+
+    while (i < children.length) {
+      console.log(children[i]);
+      // Recursively log the children of the current child element
+      logElements(children[i] as HTMLElement);
+      i++;
+    }
+  }
+
+  // Start logging from the section element
+  logElements(section);
+  */

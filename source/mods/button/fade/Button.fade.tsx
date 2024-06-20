@@ -9,14 +9,14 @@ interface FadeProps {
   click?: (element: React.MouseEvent<HTMLElement>) => void;
 }
 
-const ButtonFade: React.FC<FadeProps> = ({ grid, icon, text, state, click: selectSegment }) => {
+const ButtonFade: React.FC<FadeProps> = ({ grid, icon, text, state, click: wrapperFunction }) => {
   let selectors: string = `${grid} fade${state ? ` ${state}` : ''}`;
   //--|🠊 ? - Is a Ternary Operator and it checks if state has a value. 🠈|--//
   //--|🠊 : - Is an Else Operator and adds nothing if the state has a falsy value. 🠈|--//
   return (
     <button className={selectors}>
-      <img onClick={selectSegment} src={icon} alt={text.toLowerCase()} />
-      <h6 onClick={selectSegment}>{text}</h6>
+      <img onClick={wrapperFunction} src={icon} alt={text.toLowerCase()} />
+      <h6 onClick={wrapperFunction}>{text}</h6>
     </button>
   );
 };

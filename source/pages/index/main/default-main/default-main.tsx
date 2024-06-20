@@ -18,26 +18,23 @@ function defaultMain(page: string | any, label: string | any, block: string | an
 }
 export default defaultMain;
 
-export const activateButton = (element: HTMLElement): void => {
+export const activeButton = (element: HTMLButtonElement): void => {
   let name = element.parentElement?.classList[0].split('-')[1] as string; //--|🠈 Retrieve the name of the section for element selection 🠈|--//
   let show = document.querySelector(`main section[class*='${name}'`) as HTMLElement; //--|🠈 Retrieve the section selected in the <footer>  🠈|--//
   let hide = document.querySelector('main .visible') as HTMLElement; //--|🠈 Retrieve the active section to hide it 🠈|--//
   let device = window.matchMedia('(orientation: landscape) and (min-aspect-ratio: 16/9)').matches ? 'header' : 'footer'; //--|🠈 Determines where the buttons are based on orientation 🠈|--//
-  let downplay = document.querySelector(`${device} .active`) as HTMLButtonElement; //--|🠈 Retrieve the currently active footer 🠈|--//
-  let highlight = element.parentElement as HTMLButtonElement; //--|🠈 Highlight the parent element of the selected button 🠈|--//
+  let diable = document.querySelector(`${device} .active`) as HTMLButtonElement; //--|🠈 Retrieve the currently active footer 🠈|--//
+  let enable = element.parentElement as HTMLButtonElement; //--|🠈 Highlight the parent element of the selected button 🠈|--//
 
-  downplay.classList.remove('active'); //--|🠈 Downplay Button 🠈|--//
-  highlight.classList.add('active'); //--|🠈 Highlight Button 🠈|--//
+  diable.classList.remove('active'); //--|🠈 Downplay Button 🠈|--//
+  enable.classList.add('active'); //--|🠈 Highlight Button 🠈|--//
 
   hide.classList.add('hidden');
-  //--|🠉 Hide Section 🠋|--//
   hide.classList.remove('visible');
 
   show.classList.add('visible');
-  //--|🠉 Show Section 🠋|--//
   show.classList.remove('hidden');
 };
-
 export const scrollSection = (
   element: React.MouseEvent<HTMLElement>,
   navigation: '<header>' | '<main>' | '<footer>'
@@ -61,17 +58,11 @@ export const scrollSection = (
       checking its parent for a "hidden" class to guarantee consistent behavior when
       hovering over a <section> within the <main> tag.
       */
-      console.log('loop');
       if (reassign.parentElement?.tagName === 'MAIN' && reassign.classList.contains('visible')) {
-        console.log('loop');
-
         break; //--|🠈 Break the loop when the selected <section> within <main> is found 🠈|--//
       }
-      console.log('loop');
       reassign = reassign.parentElement as HTMLElement;
     }
-    console.log('loop');
-
     return reassign;
   };
   let section: HTMLElement;
@@ -97,8 +88,6 @@ export const scrollSection = (
   //--|🠊 jQuery gets the job done! Deal with it...for now. 🠈|--//
   $(main).animate({ scrollTop: `+=${height * slot - adjust}px` }, 250);
 };
-
-//------------------------------//
 const hoverSection = (element: React.MouseEvent<HTMLElement>): void => {
   let enable = element.target as HTMLElement; //--|🠈 Enable the target element upon hover 🠈|--//
   let device = window.matchMedia('(orientation: landscape) and (min-aspect-ratio: 16/9)').matches ? 'header' : 'footer'; //--|🠈 Determines where the buttons are based on orientation 🠈|--//
@@ -109,12 +98,10 @@ const hoverSection = (element: React.MouseEvent<HTMLElement>): void => {
     checking its parent for a "hidden" class to guarantee consistent behavior when
     hovering over a <section> within the <main> tag.
     */
-    console.log('loop');
+
     if (enable.parentElement?.tagName === 'MAIN' && enable.classList.contains('visible')) {
-      console.log('loop');
       break; //--|🠈 Break the loop when the selected <section> within <main> is found 🠈|--//
     }
-    console.log('loop');
     enable = enable.parentElement as HTMLElement;
   }
 
@@ -136,22 +123,3 @@ const hoverSection = (element: React.MouseEvent<HTMLElement>): void => {
     enable.classList.remove('hidden');
   }
 };
-
-/*
-// I feel this might be usefull
-  // Function to log all elements recursively
-  function logElements(element: HTMLElement) {
-    let children = element.children;
-    let i = 0;
-
-    while (i < children.length) {
-      console.log(children[i]);
-      // Recursively log the children of the current child element
-      logElements(children[i] as HTMLElement);
-      i++;
-    }
-  }
-
-  // Start logging from the section element
-  logElements(section);
-  */
