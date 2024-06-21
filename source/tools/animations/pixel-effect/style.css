@@ -3,9 +3,12 @@
   padding: 0;
   box-sizing: border-box;
   background: darkblue;
+  /* The linear-gradient clashes with the canvas element.
+  /* background: linear-gradient(315deg, rgba(0, 0, 0, 1) 0%, rgba(38, 87, 134, 1) 100%); */
 }
 
-#canvas1,
+#profile-picture,
+#profile-silhouette,
 img {
   border: 2px solid white;
   position: absolute;
@@ -15,4 +18,12 @@ img {
   width: 500px;
   height: 500px;
   background: transparent;
+}
+
+/* #canvas {
+  } */
+
+img {
+  z-index: -1;
+  /* opacity: 0.5; */
 }
