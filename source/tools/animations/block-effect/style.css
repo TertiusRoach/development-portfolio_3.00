@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: darkblue;
+
+  /* background: linear-gradient(315deg, rgba(0, 0, 0, 1) 0%, rgba(38, 87, 134, 1) 100%); */
+}
+canvas {
+  border: 2px solid white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+
+  background: linear-gradient(315deg, rgba(0, 0, 0, 1) 0%, rgba(38, 87, 134, 1) 100%);
+  /* background: transparent; */
+}
