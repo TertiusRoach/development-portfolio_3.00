@@ -4,9 +4,9 @@ import './Section.skills.scss';
 import { useMediaQuery } from 'react-responsive';
 
 interface SkillsProps {
-  text: string;
   view: 'visible' | 'hidden';
   className: string;
+  sectionText: {};
   hover: (element: React.MouseEvent<HTMLElement>) => void; //--|🠈 Highlights the button of the viewed section on mouse interaction. 🠈|--//
   click: (trigger: React.MouseEvent<HTMLElement>, string: '<header>' | '<main>' | '<footer>') => void; //--|🠈 Centers the view on the user-clicked section. 🠈|--//
   //--|🠊 Event: Reflects dynamic mouse interactions. 🠈|--//
@@ -16,7 +16,13 @@ interface SkillsProps {
 const desktop: string = '(orientation: landscape) and (min-aspect-ratio: 16/9)';
 const mobile: string = '(orientation: portrait) and (max-aspect-ratio: 1/1)';
 const tablet: string = '(max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)';
-const SectionSkills: React.FC<SkillsProps> = ({ className, hover: activateButton, click: scrollSection, text, view }) => {
+const SectionSkills: React.FC<SkillsProps> = ({
+  hover: activateButton,
+  click: scrollSection,
+  view,
+  className,
+  sectionText,
+}) => {
   return (
     <section
       className={`${className} ${view}`}

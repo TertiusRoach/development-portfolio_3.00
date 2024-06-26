@@ -4,9 +4,17 @@ import './Section.home.scss';
 import { useMediaQuery } from 'react-responsive';
 
 interface HomeProps {
-  text: string;
   view: 'visible' | 'hidden';
   className: string;
+  sectionText: {
+    title: string;
+    career: string;
+    contact: string;
+    profile: string;
+    subject: string;
+    portfolio: string;
+    description: string;
+  };
   hover: (element: React.MouseEvent<HTMLElement>) => void; //--|🠈 Highlights the button of the viewed section on mouse interaction. 🠈|--//
   click: (trigger: React.MouseEvent<HTMLElement>, string: '<header>' | '<main>' | '<footer>') => void; //--|🠈 Centers the view on the user-clicked section. 🠈|--//
 
@@ -17,7 +25,7 @@ interface HomeProps {
 const desktop: string = '(orientation: landscape) and (min-aspect-ratio: 16/9)';
 const mobile: string = '(orientation: portrait) and (max-aspect-ratio: 1/1)';
 const tablet: string = '(max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)';
-const SectionHome: React.FC<HomeProps> = ({ className, hover: activateButton, click: scrollSection, text, view }) => {
+const SectionHome: React.FC<HomeProps> = ({ sectionText, hover: activateButton, click: scrollSection, view, className }) => {
   return (
     <section
       className={`${className} ${view}`}
@@ -29,12 +37,13 @@ const SectionHome: React.FC<HomeProps> = ({ className, hover: activateButton, cl
           //--|🠋 Desktop (Landscape) 🠋|--//
           useMediaQuery({ query: desktop }) && (
             <>
-              {/* <h1>{text}</h1>
-              <p>Paragraph</p>
-              <article>
-                <h1>Article</h1>
-                <p>Another Paragraph</p>
-              </article> */}
+              <span className="home-title">
+                <h1 data-text={sectionText.title}>{sectionText.title}</h1>
+              </span>
+              <span className="home-subject">
+                <h3>{sectionText.subject}</h3>
+              </span>
+              <span className="home-description">{/* <p>{sectionText.description}</p> */}</span>
             </>
           )
         }

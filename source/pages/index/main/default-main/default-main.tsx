@@ -7,11 +7,36 @@ import SectionSkills from '../../../../mods/section/skills/Section.skills';
 import SectionContact from '../../../../mods/section/contact/Section.contact';
 
 function defaultMain(page: string | any, label: string | any, block: string | any) {
+  const imageURI: string = 'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content';
+  const homeText = {
+    title: 'Multimedia Programmer',
+    career: 'My Career',
+    contact: 'Contact Me',
+    profile: `${imageURI}/png-files/profile-picture.png`,
+    subject: 'Welcome to my portfolio,',
+    portfolio: 'View Portfolio',
+    description: `As a Multimedia Programmer, I create immersive websites, animations, and applications, seamlessly blending technology and art to deliver engaging user experiences. I thrive on experimenting with new tools and staying at the forefront of multimedia technologies. I am eager to collaborate with fellow creatives to transform concepts into impactful, enduring applications. If you're open to considering someone without a CS degree...😬, I would love the opportunity to prove myself. Take a chance on me!
+                  Oops...that pitch took an unexpected turn.`,
+  };
+  let skillsText: Object = {};
+  let contactText: Object = {};
   return (
     <main style={{ zIndex: 0 }} id={`${page}-${block}`} className={`${label}-${block}`}>
-      <SectionHome className="main-home" text="Home" view="visible" hover={hoverSection} click={scrollSection} />
-      <SectionSkills className="main-skills" text="Skills" view="hidden" hover={hoverSection} click={scrollSection} />
-      <SectionContact className="main-contact" text="Contact" view="hidden" hover={hoverSection} click={scrollSection} />
+      <SectionHome view="visible" sectionText={homeText} className="main-home" hover={hoverSection} click={scrollSection} />
+      <SectionSkills
+        view="hidden"
+        sectionText={(skillsText = {})}
+        className="main-skills"
+        hover={hoverSection}
+        click={scrollSection}
+      />
+      <SectionContact
+        view="hidden"
+        sectionText={(contactText = {})}
+        className="main-contact"
+        hover={hoverSection}
+        click={scrollSection}
+      />
     </main>
   );
   console.log(`//--|🠊 ${label}-${block}.tsx Loaded 🠈|--//`);
