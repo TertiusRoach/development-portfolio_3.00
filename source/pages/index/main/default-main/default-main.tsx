@@ -9,9 +9,9 @@ import SectionContact from '../../../../mods/section/contact/Section.contact';
 function defaultMain(page: string | any, label: string | any, block: string | any) {
   return (
     <main style={{ zIndex: 0 }} id={`${page}-${block}`} className={`${label}-${block}`}>
-      <SectionHome flex="main-home" text="Home" view="visible" hover={hoverSection} click={scrollSection} />
-      <SectionSkills flex="main-skills" text="Skills" view="hidden" hover={hoverSection} click={scrollSection} />
-      <SectionContact flex="main-contact" text="Contact" view="hidden" hover={hoverSection} click={scrollSection} />
+      <SectionHome className="main-home" text="Home" view="visible" hover={hoverSection} click={scrollSection} />
+      <SectionSkills className="main-skills" text="Skills" view="hidden" hover={hoverSection} click={scrollSection} />
+      <SectionContact className="main-contact" text="Contact" view="hidden" hover={hoverSection} click={scrollSection} />
     </main>
   );
   console.log(`//--|🠊 ${label}-${block}.tsx Loaded 🠈|--//`);

@@ -1,10 +1,8 @@
 @import '../../backup-colors.scss';
 @import '../../../pages/select-colors.scss';
-section[class*='contact'] {
+section {
   //--|🠊 display: grid; 🠈|--//
-  div {
-    display: inherit;
-    grid-area: 2 / 2 / 3 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+  div[class*='contact'] {
     //--|🠋 Desktop (Landscape) - ☐ 🠋|--//
     @media screen and (orientation: landscape) and (min-aspect-ratio: 16/9) {
       & {

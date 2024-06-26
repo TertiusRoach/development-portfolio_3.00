@@ -5,12 +5,17 @@
   grid-template: 1fr / 1fr; //~~|🠊 rows / columns 🠈|~~//
   grid-area: 1 / 1 / 4 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
   background: white; //~~|🠊 background: $primary-dark; 🠈|~~//
-  &::-webkit-scrollbar {
-    display: none; //~~|🠊 Hide Scrollbar 🠈|~~//
-  }
+
   section {
     display: grid;
     //--|🠊 scroll-behavior: smooth; 🠈|--//
+    div {
+      display: inherit;
+      grid-area: 2 / 2 / 3 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+    }
+  }
+  &::-webkit-scrollbar {
+    display: none; //~~|🠊 Hide Scrollbar 🠈|~~//
   }
   //--|🠋 Desktop (Landscape) - ☒ 🠋|--//
   @media screen and (orientation: landscape) and (min-aspect-ratio: 16/9) {
