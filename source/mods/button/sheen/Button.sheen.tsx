@@ -2,10 +2,10 @@ import React from 'react';
 import './Button.sheen.scss';
 
 interface SheenProps {
-  icon: string;
   text: string;
-  state?: 'active';
   className: string;
+  icon?: string;
+  state?: 'active';
   click?: (element: React.MouseEvent<HTMLElement>) => void;
 }
 

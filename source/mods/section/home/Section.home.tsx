@@ -2,6 +2,7 @@
 import React from 'react';
 import './Section.home.scss';
 import { useMediaQuery } from 'react-responsive';
+// import ButtonSheen, { buttonSheen } from '../../button/sheen/Button.sheen';
 
 interface HomeProps {
   view: 'visible' | 'hidden';
@@ -13,7 +14,7 @@ interface HomeProps {
     profile: string;
     subject: string;
     portfolio: string;
-    description: string;
+    description: Array<string>;
   };
   hover: (element: React.MouseEvent<HTMLElement>) => void; //--|🠈 Highlights the button of the viewed section on mouse interaction. 🠈|--//
   click: (trigger: React.MouseEvent<HTMLElement>, string: '<header>' | '<main>' | '<footer>') => void; //--|🠈 Centers the view on the user-clicked section. 🠈|--//
@@ -40,10 +41,21 @@ const SectionHome: React.FC<HomeProps> = ({ sectionText, hover: activateButton, 
               <span className="home-title">
                 <h1 data-text={sectionText.title}>{sectionText.title}</h1>
               </span>
+              <span className="home-buttons">
+                {/* <ButtonSheen className="contact-me" text="My Career" state="active" /> */}
+              </span>
               <span className="home-subject">
                 <h3>{sectionText.subject}</h3>
               </span>
-              <span className="home-description">{/* <p>{sectionText.description}</p> */}</span>
+              <span className="home-description">
+                <p>
+                  {sectionText.description[0]}
+                  <br />
+                  <br />
+                  {sectionText.description[1]}
+                </p>
+                <h6>{sectionText.description[2]}</h6>
+              </span>
             </>
           )
         }

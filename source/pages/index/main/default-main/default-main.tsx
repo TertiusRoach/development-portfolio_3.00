@@ -15,8 +15,18 @@ function defaultMain(page: string | any, label: string | any, block: string | an
     profile: `${imageURI}/png-files/profile-picture.png`,
     subject: 'Welcome to my portfolio,',
     portfolio: 'View Portfolio',
-    description: `As a Multimedia Programmer, I create immersive websites, animations, and applications, seamlessly blending technology and art to deliver engaging user experiences. I thrive on experimenting with new tools and staying at the forefront of multimedia technologies. I am eager to collaborate with fellow creatives to transform concepts into impactful, enduring applications. If you're open to considering someone without a CS degree...😬, I would love the opportunity to prove myself. Take a chance on me!
-                  Oops...that pitch took an unexpected turn.`,
+    description: [
+      `As a Multimedia Programmer, I create immersive websites, captivating animations, and interactive
+       applications, blending cutting-edge technologies with an artistic vision for engaging experiences. My
+       curiosity drives me to experiment with upcoming tools to stay ahead in this fast-paced world of computer
+       technologies. I thrive in collaborative environments, and love to transform abstract ideas into impactful,
+       long-lasting applications.`,
+      `My strong work ethic and demonstrable skills equip me to excel in this field. I'm a quick learner, eager to
+       prove myself and bring value to your team. So if you're willing to take a chance on me then we can create
+       something extraordinary together. While I may not have a traditional "Computer Science De 😬 gree". Uhm, I
+       shouldn't have used those air quotes...take a chance on me?`,
+      `Well this pitch took an unexpected turn.`,
+    ],
   };
   let skillsText: Object = {};
   let contactText: Object = {};
