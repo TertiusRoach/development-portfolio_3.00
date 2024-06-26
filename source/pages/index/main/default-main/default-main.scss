@@ -1,58 +1,37 @@
 @import '../Main.scss';
 #index-main {
-  //--|🠋 Desktop (Landscape) - ☐ 🠋|--//
-  @media screen and (orientation: landscape) and (min-aspect-ratio: 16/9) {
-    section {
-      //--|🠊 display: grid; 🠈|--//
-      grid-template: 2rem 1fr 2rem / 3rem 1fr 3rem; //~~|🠊 rows / columns 🠈|~~//
-    }
-    .main-home {
-    }
-    .main-skills {
-    }
-    .main-contact {
-    }
-  }
-  //--|🠋 Mobile (Portrait) - ☐ 🠋|--//
-  @media screen and (orientation: portrait) and (max-aspect-ratio: 1/1) {
-    section {
-      //--|🠊 display: grid; 🠈|--//
-      grid-template: 3rem 1fr 3rem / 2rem 1fr 2rem; //~~|🠊 rows / columns 🠈|~~//
-    }
-
-    .main-home {
-    }
-    .main-skills {
-    }
-    .main-contact {
-    }
-  }
-  //--|🠋 Tablet (Square) - ☐ 🠋|--//
-  @media screen and (max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1) {
-    section {
-      //--|🠊 display: grid; 🠈|--//
-      grid-template: 2rem 1fr 2rem / 2rem 1fr 2rem; //~~|🠊 rows / columns 🠈|~~//
-    }
-
-    .main-home {
-    }
-    .main-skills {
-    }
-    .main-contact {
-    }
-  }
-
   display: block;
   overflow-y: scroll;
   grid-template: 1fr / 1fr; //~~|🠊 rows / columns 🠈|~~//
   grid-area: 1 / 1 / 4 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
   background: white; //~~|🠊 background: $primary-dark; 🠈|~~//
-  section {
-    scroll-behavior: smooth;
-    display: grid;
-  }
   &::-webkit-scrollbar {
     display: none; //~~|🠊 Hide Scrollbar 🠈|~~//
+  }
+  section {
+    display: grid;
+    //--|🠊 scroll-behavior: smooth; 🠈|--//
+  }
+  //--|🠋 Desktop (Landscape) - ☒ 🠋|--//
+  @media screen and (orientation: landscape) and (min-aspect-ratio: 16/9) {
+    section {
+      //--|🠊 display: grid; 🠈|--//
+      grid-template: 2rem 1fr 2rem / 3rem 1fr 3rem; //~~|🠊 rows / columns 🠈|~~//
+    }
+  }
+  //--|🠋 Mobile (Portrait) - ☒ 🠋|--//
+  @media screen and (orientation: portrait) and (max-aspect-ratio: 1/1) {
+    section {
+      //--|🠊 display: grid; 🠈|--//
+      grid-template: 3rem 1fr 3rem / 2rem 1fr 2rem; //~~|🠊 rows / columns 🠈|~~//
+    }
+  }
+  //--|🠋 Tablet (Square) - ☒ 🠋|--//
+  @media screen and (max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1) {
+    section {
+      //--|🠊 display: grid; 🠈|--//
+      grid-template: 2rem 1fr 2rem / 2rem 1fr 2rem; //~~|🠊 rows / columns 🠈|~~//
+    }
   }
 }
 

@@ -1,7 +1,30 @@
-#index-main {
-  .main-skills {
-    display: flex;
-    overflow: hidden;
-    flex-direction: column;
+@import '../../backup-colors.scss';
+@import '../../../pages/select-colors.scss';
+section[class*='skills'] {
+  //--|🠊 display: grid; 🠈|--//
+  div {
+    display: inherit;
+    grid-area: 2 / 2 / 3 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+    //--|🠋 Desktop (Landscape) - ☐ 🠋|--//
+    @media screen and (orientation: landscape) and (min-aspect-ratio: 16/9) {
+      & {
+        //--|🠊 display: grid; 🠈|--//
+        background: $red-neon;
+      }
+    }
+    //--|🠋 Mobile (Portrait) - ☐ 🠋|--//
+    @media screen and (orientation: portrait) and (max-aspect-ratio: 1/1) {
+      & {
+        //--|🠊 display: grid; 🠈|--//
+        background: $blue-neon;
+      }
+    }
+    //--|🠋 Tablet (Square) - ☐ 🠋|--//
+    @media screen and (max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1) {
+      & {
+        //--|🠊 display: grid; 🠈|--//
+        background: $green-neon;
+      }
+    }
   }
 }

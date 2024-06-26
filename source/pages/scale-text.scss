@@ -1,3 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+
+  border: none;
+  outline: none;
+  // overflow: visible;
+  box-sizing: border-box;
+  font-family: 'Rubik', Helvetica;
+}
+
 html {
   //--|🠋 Desktop (Landscape) 🠋|--//
   @media screen and (orientation: landscape) {
