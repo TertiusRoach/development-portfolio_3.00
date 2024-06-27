@@ -1,0 +1,22 @@
+@import '../../backup-colors.scss';
+@import '../../../pages/select-colors.scss';
+
+button[class*='glow'] {
+  // height: 50%;
+  // display: flex;
+  /*
+    padding: 0; // Remove any padding
+    line-height: 1; // Set line-height to 1 to match text height
+    font-size: inherit; // Optional: Inherit font-size from parent or set your desired size
+    border: 4px solid rgba(darkred, 0.75);
+    background: $red-neon;
+    */
+  h6 {
+    padding: 0.25rem 0.5rem;
+  }
+  // border: 4px dashed $red-neon;
+  background: rgba($red-neon, 0.25);
+
+  //~~|🠊 border: 4px dashed $red-neon; 🠈|~~//
+  //~~|🠊 background: rgba($red-dark, 0.25); 🠈|~~//
+}
