@@ -1,4 +1,4 @@
-# *.svg
+*.svg
 # .vscode
 desktop.ini
 node_modules

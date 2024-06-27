@@ -1,5 +1,4 @@
-// @import '../../body/default-body/default-body.scss';
-
+// #resume-main: I don't know.
 @mixin main-home {
   width: 100%;
   height: 100%;
@@ -136,7 +135,7 @@
     }
   }
 }
-
+// Pro Tip for VSC: Ctrl + K + 0
 main[id*='default'] {
   section[id*='main'] {
     div[class*='margin'] {
