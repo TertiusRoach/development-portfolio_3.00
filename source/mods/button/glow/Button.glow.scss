@@ -4,96 +4,61 @@
 button[class*='glow'] {
   cursor: default;
   background: none;
+  overflow: hidden;
   position: relative;
-  overflow: hidden; // Ensure no overflow from child elements
-
+  filter: drop-shadow(0 0 0.5rem rgba(black, 0.75));
   h6 {
     z-index: 1;
     cursor: pointer;
     position: relative;
     margin: 0.5rem 1rem;
-    color: $primary-light;
+    color: $primary-medium;
     transition: color 0.25s ease-in-out;
-    filter: drop-shadow(0 0 4px rgba(black, 0.25));
+    filter: drop-shadow(0 0 4px black);
 
     &:hover {
       color: white;
       filter: drop-shadow(0 0 4px rgba($primary-light, 0.25));
     }
+    &:hover ~ div {
+      background: $primary-light;
+    }
   }
-
   div {
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background: rgba($primary-medium, 1);
+    position: absolute;
+    background: $primary-medium;
+    transition: 0.25s ease-in-out;
 
     &::before {
+      opacity: 0;
       content: '';
-      position: absolute;
-      width: 3rem;
-      height: 3rem;
-      border-radius: 50%;
-      background: radial-gradient(white, transparent, transparent);
+      width: 8rem;
+      height: 8rem;
       top: var(--y);
       left: var(--x);
+      position: absolute;
+      border-radius: 50%;
       transform: translate(-50%, -50%);
-      opacity: 0;
       transition: opacity 0.5s, top 0s, left 0s;
-    }
-
-    &:hover::before {
-      opacity: 1;
+      background: radial-gradient(white, transparent, transparent);
     }
 
     &::after {
+      inset: 2px;
       content: '';
       position: absolute;
-      inset: 2px;
-      background: rgba(black, 0.75);
+
+      background: radial-gradient(circle, rgba(black, 0.8) 0%, rgba(black, 0.75) 100%);
     }
   }
 
   &:hover div::before {
+    //--|🠊 This keeps the glow when hoverwing over the button 🠈|--//
     opacity: 1;
   }
-}
-
-button[class*='glow'] {
-  //~~|🠊 border: 4px dashed $red-neon; 🠈|~~//
-  //~~|🠊 background: rgba($red-dark, 0.25); 🠈|~~//
-  /*
-  h6 {
-    overflow: hidden;
-    position: relative;
-    background: rgba($primary-medium, 1);
-    &::before {
-      opacity: 0;
-      content: '';
-      width: 6rem;
-      height: 6rem;
-      top: var(--y);
-      left: var(--x);
-      border-radius: 50%;
-      position: absolute;
-      transform: translate(-50%, -50%);
-      transition: 0.5s, top 0s, left 0s;
-      background: radial-gradient(white, transparent, transparent);
-    }
-
-    &:hover::before {
-      opacity: 1;
-      background: rgba($primary-medium, 1);
-    }
-    &::after {
-      inset: 2px;
-      content: '';
-      position: absolute;
-      background: rgba(black, 0.75);
-    }
-  }
-  */
 }
