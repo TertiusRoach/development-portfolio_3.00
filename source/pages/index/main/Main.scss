@@ -1,6 +1,7 @@
 // Pro Tip for VSC: Ctrl + K + 0
 // Scaling for <main> <section>
 #index-main section {
+  // Not working on Mobile.
   @media only screen and (height: 1920px) {
     height: 1920px;
   }
