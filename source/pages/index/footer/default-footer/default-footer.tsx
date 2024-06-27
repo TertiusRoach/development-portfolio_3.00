@@ -61,9 +61,9 @@ function defaultFooter(page: string | any, label: string | any, block: string | 
         //--|🠋 Tablet (Square) 🠋|--//
         useMediaQuery({ query: '(max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)' }) && (
           <>
-            <ButtonFade click={wrapperFunction} grid="footer-home" icon={buttonIcon.home} text="Home" state="active" />
-            <ButtonFade click={wrapperFunction} grid="footer-skills" icon={buttonIcon.skills} text="Skills" />
-            <ButtonFade click={wrapperFunction} grid="footer-contact" icon={buttonIcon.email} text="Contact" />
+            <ButtonFade click={wrapperFunction} className="footer-home" icon={buttonIcon.home} text="Home" state="active" />
+            <ButtonFade click={wrapperFunction} className="footer-skills" icon={buttonIcon.skills} text="Skills" />
+            <ButtonFade click={wrapperFunction} className="footer-contact" icon={buttonIcon.email} text="Contact" />
           </>
         )
       }

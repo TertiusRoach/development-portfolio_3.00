@@ -2,7 +2,7 @@
 import React from 'react';
 import './Section.home.scss';
 import { useMediaQuery } from 'react-responsive';
-// import ButtonSheen, { buttonSheen } from '../../button/sheen/Button.sheen';
+import ButtonGlow from '../../button/glow/Button.glow';
 
 interface HomeProps {
   view: 'visible' | 'hidden';
@@ -42,7 +42,8 @@ const SectionHome: React.FC<HomeProps> = ({ sectionText, hover: activateButton, 
                 <h1 data-text={sectionText.title}>{sectionText.title}</h1>
               </span>
               <span className="home-buttons">
-                {/* <ButtonSheen className="contact-me" text="My Career" state="active" /> */}
+                <ButtonGlow className="career-button" text="My Career" />
+                <ButtonGlow className="contact-button" text="Contact Me" />
               </span>
               <span className="home-subject">
                 <h3>{sectionText.subject}</h3>

@@ -19,9 +19,9 @@ function defaultHeader(page: string | any, label: string | any, block: string | 
         //--|🠋 Desktop (Landscape) 🠋|--//
         useMediaQuery({ query: '(orientation: landscape) and (min-aspect-ratio: 16/9)' }) && (
           <>
-            <ButtonFade click={wrapperFunction} grid="header-home" icon={buttonIcon.home} text="Home" state="active" />
-            <ButtonFade click={wrapperFunction} grid="header-skills" icon={buttonIcon.skills} text="Skills" />
-            <ButtonFade click={wrapperFunction} grid="header-contact" icon={buttonIcon.telephone} text="Contact" />
+            <ButtonFade click={wrapperFunction} className="header-home" icon={buttonIcon.home} text="Home" state="active" />
+            <ButtonFade click={wrapperFunction} className="header-skills" icon={buttonIcon.skills} text="Skills" />
+            <ButtonFade click={wrapperFunction} className="header-contact" icon={buttonIcon.telephone} text="Contact" />
             <div>
               <img src={buttonIcon.logo} alt="Résumé Logo" />
             </div>
@@ -40,7 +40,7 @@ function defaultHeader(page: string | any, label: string | any, block: string | 
         //--|🠋 Tablet (Square) 🠋|--//
         useMediaQuery({ query: '(max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)' }) && (
           <>
-            <ButtonFade grid="header-projects" icon={buttonIcon.projects} text="Projects" />
+            <ButtonFade className="header-projects" icon={buttonIcon.projects} text="Projects" />
             <div>
               <img src={buttonIcon.logo} alt="Résumé Logo" />
             </div>
