@@ -26,21 +26,24 @@ section {
               overflow: hidden;
               position: absolute;
               white-space: nowrap;
-              color: $primary-light;
-              // border-radius: 0.25rem;
+              color: $primary-light; // Assuming $primary-light is defined elsewhere in your Sass variables
               content: attr(data-text);
-              filter: drop-shadow(0 0 1rem rgba(white, 0.25));
-              border-right: 4px solid rgba($primary-medium, 0.75);
+              border-right: 4px solid rgba($primary-light, 0.75); // Initial border color
+              filter: drop-shadow(0 0 1rem rgba($primary-medium, 0.25));
               animation: animate 90s cubic-bezier(0.42, 0, 0.58, 1) infinite;
             }
+
             @keyframes animate {
               0% {
+                border-right-color: rgba($primary-light, 0.75); // Start with $primary-light color
                 width: 0;
               }
               50% {
+                border-right-color: rgba($primary-medium, 0.75); // Transition to $primary-medium color
                 width: 100%;
               }
               100% {
+                border-right-color: rgba($primary-dark, 0.75); // End with $primary-dark color
                 width: 0;
               }
             }
@@ -60,7 +63,7 @@ section {
           justify-content: flex-start;
           grid-area: 3 / 1 / 4 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
           h3 {
-            color: $primary-dark;
+            color: $primary-light;
             filter: drop-shadow(0 0 0.25rem rgba(black, 0.75));
           }
         }
