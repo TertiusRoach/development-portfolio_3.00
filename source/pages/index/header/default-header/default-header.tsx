@@ -40,7 +40,7 @@ function defaultHeader(page: string | any, label: string | any, block: string | 
         //--|🠋 Tablet (Square) 🠋|--//
         useMediaQuery({ query: '(max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)' }) && (
           <>
-            <ButtonFade className="header-projects" icon={buttonIcon.projects} text="Projects" />
+            {/* <ButtonFade className="header-projects" icon={buttonIcon.projects} text="Projects" /> */}
             <div>
               <img src={buttonIcon.logo} alt="Résumé Logo" />
             </div>
