@@ -7,6 +7,65 @@
     <title>Index Page</title>
   </head>
   <body>
+    <!-- Styling, yay! -->
+    <style id="loading-style">
+      .loading-body {
+        display: grid;
+        height: 100vh;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr;
+        background: radial-gradient(circle, rgba(#1f3131, 1) 25%, rgba(#3d6262, 1) 100%, rgba(#172525, 1) 100%);
+      }
+      .loading-body main {
+        grid-row-end: 2;
+        grid-row-start: 1;
+        grid-column-end: 2;
+        grid-column-start: 1;
+      }
+      body article {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      body article img {
+        height: auto;
+        max-width: 100%;
+        filter: drop-shadow(0 0 1rem black);
+      }
+    </style>
+    <main id="loading-container" style="height: 100vh; display: flex">
+      <img
+        style="width: 100%"
+        src="https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content/gif-files/1280x720%2C%2015fps/signature-light.gif"
+        alt="Loading Screen"
+      />
+    </main>
+    <script id="loading-script">
+      // Function to handle the mutation event
+      const handleMutation = (mutationsList) => {
+        for (const mutation of mutationsList) {
+          if (mutation.addedNodes.length > 0) {
+            console.log('New nodes added to index-body:', mutation.addedNodes);
+
+            // Hide the loading screen
+            document.getElementById('loading-container').style.display = 'none';
+            console.log('loading-container display set to none');
+
+            // Stop observing once the loading screen is hidden
+            observer.disconnect();
+            console.log('Observer disconnected');
+          }
+        }
+      };
+
+      // Create a MutationObserver to observe changes in the #index-body element
+      const observer = new MutationObserver(handleMutation);
+
+      // Start observing the #index-body element
+      observer.observe(document.getElementById('index-body'), { childList: true });
+      console.log('Observer started');
+    </script>
+
     <div id="index-body" class="default-body"></div>
   </body>
 </html>

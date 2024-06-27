@@ -4,7 +4,7 @@
   overflow-y: scroll;
   grid-template: 1fr / 1fr; //~~|🠊 rows / columns 🠈|~~//
   grid-area: 1 / 1 / 4 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-  background: white; //~~|🠊 background: $primary-dark; 🠈|~~//
+  background: $primary-dark; //~~|🠊 background: $primary-dark; 🠈|~~//
 
   section {
     display: grid;

@@ -1,10 +1,21 @@
 @import '../scale-text.scss';
 @import '../select-colors.scss';
 @import '../../mods/backup-colors.scss';
+body {
+  /* Hide the scrollbar completely */
+  overflow: hidden;
+
+  /* Force body's height to fit the screen */
+  height: 100vh;
+
+  /* Apply the background gradient */
+  background: linear-gradient(140deg, #1f3131 0%, rgba(61, 98, 98, 1) 50%, #1f3131 100%);
+}
 
 #index-body {
   height: 100vh;
   display: grid;
+  background: linear-gradient(140deg, $primary-dark 0%, $primary-medium 75%, $primary-dark 100%);
   //--|🠋 Desktop (Landscape) - ☒ 🠋|--//
   @media screen and (orientation: landscape) and (min-aspect-ratio: 16/9) {
     grid-template: 4rem 1fr 4rem / 6rem 1fr 6rem; //~~|🠊 rows / columns 🠈|~~//

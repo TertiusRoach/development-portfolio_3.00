@@ -23,10 +23,11 @@ interface HomeProps {
   //--|🠊 MouseEvent: Standard interface for DOM mouse events. 🠈|--//
   //--|🠊 Void: Indicates that no value is returned by the toggle function. 🠈|--//
 }
-const desktop: string = '(orientation: landscape) and (min-aspect-ratio: 16/9)';
-const mobile: string = '(orientation: portrait) and (max-aspect-ratio: 1/1)';
-const tablet: string = '(max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)';
+
 const SectionHome: React.FC<HomeProps> = ({ sectionText, hover: activateButton, click: scrollSection, view, className }) => {
+  let desktop: string = '(orientation: landscape) and (min-aspect-ratio: 16/9)';
+  let mobile: string = '(orientation: portrait) and (max-aspect-ratio: 1/1)';
+  let tablet: string = '(max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)';
   return (
     <section
       className={`${className} ${view}`}
