@@ -69,7 +69,6 @@ body {
   background: rgba(45, 45, 45, 1);
   overflow: hidden;
 }
-
 .containerTwo .card::before {
   content: '';
   position: absolute;
@@ -82,7 +81,6 @@ body {
   opacity: 0;
   transition: 0.5s, top 0s, left 0s;
 }
-
 .containerTwo .card:hover::before {
   opacity: 1;
 }
