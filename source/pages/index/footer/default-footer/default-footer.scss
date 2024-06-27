@@ -50,20 +50,15 @@
     //--|🠊 display: grid; 🠈|--//
     grid-template: 4rem / 2rem repeat(3, 1fr) 2rem; //~~|🠊 rows / columns 🠈|~~//
     .footer-home {
-      display: none;
       grid-column: 2 / 3; //~~|🠊 col-start / col-end 🠈|~~//
     }
     .footer-skills {
-      display: none;
       grid-column: 3 / 4; //~~|🠊 col-start / col-end 🠈|~~//
     }
     .footer-contact {
-      display: none;
       grid-column: 4 / 5; //~~|🠊 col-start / col-end 🠈|~~//
     }
-    .footer-projects {
-      display: none;
-    }
+
     background: rgba($green-dark, 0.75);
     //~~|🠊 border: 4px dashed $green-neon; 🠈|~~//
     //~~|🠊 background: rgba($green-dark, 0.75); 🠈|~~//
