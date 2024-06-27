@@ -58,6 +58,12 @@ const SectionHome: React.FC<HomeProps> = ({ sectionText, hover: activateButton, 
                 </p>
                 <h6>{sectionText.description[2]}</h6>
               </span>
+              <aside className="home-profile">
+                <img
+                  src="https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content/png-files/profile-picture.png"
+                  alt="..."
+                />
+              </aside>
             </>
           )
         }
