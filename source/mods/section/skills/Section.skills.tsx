@@ -4,24 +4,24 @@ import './Section.skills.scss';
 import { useMediaQuery } from 'react-responsive';
 
 interface SkillsProps {
-  view: 'visible' | 'hidden';
   className: string;
   sectionText: {};
+  view: 'visible' | 'hidden';
   hover: (element: React.MouseEvent<HTMLElement>) => void; //--|🠈 Highlights the button of the viewed section on mouse interaction. 🠈|--//
   click: (trigger: React.MouseEvent<HTMLElement>, string: '<header>' | '<main>' | '<footer>') => void; //--|🠈 Centers the view on the user-clicked section. 🠈|--//
   //--|🠊 Event: Reflects dynamic mouse interactions. 🠈|--//
   //--|🠊 MouseEvent: Standard interface for DOM mouse events. 🠈|--//
-  //--|🠊 Void: Indicates that no value is returned by the toggle function. 🠈|--//
+  //--|🠊 Void: Indicates that no value is returned by the click function. 🠈|--//
 }
 const desktop: string = '(orientation: landscape) and (min-aspect-ratio: 16/9)';
 const mobile: string = '(orientation: portrait) and (max-aspect-ratio: 1/1)';
 const tablet: string = '(max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)';
 const SectionSkills: React.FC<SkillsProps> = ({
+  view,
   hover: activateButton,
   click: scrollSection,
-  view,
   className,
-  sectionText,
+  // sectionText,
 }) => {
   return (
     <section
