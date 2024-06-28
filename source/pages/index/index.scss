@@ -1,15 +1,25 @@
 @import '../scale-text.scss';
 @import '../select-colors.scss';
 @import '../../mods/backup-colors.scss';
+
+//--|🠋| Index Page |🠋|--//
+@import 'main/default-main/default-main.scss';
+@import 'header/default-header/default-header.scss';
+@import 'footer/default-footer/default-footer.scss';
+@import 'overlay/default-overlay/default-overlay.scss';
+@import 'leftbar/default-leftbar/default-leftbar.scss';
+@import 'rightbar/default-rightbar/default-rightbar.scss';
 body {
-  /* Hide the scrollbar completely */
-  overflow: hidden;
+  overflow: hidden; //~~|🠊 Hide the scrollbar completely 🠈|~~//
 
-  /* Force body's height to fit the screen */
-  height: 100vh;
+  height: 100vh; //~~|🠊 Force body's height to fit the screen 🠈|~~//
 
-  /* Apply the background gradient */
-  background: linear-gradient(140deg, #1f3131 0%, rgba(61, 98, 98, 1) 50%, #1f3131 100%);
+  background: linear-gradient(
+    140deg,
+    $primary-dark 0%,
+    $primary-medium 50%,
+    #1f3131 100%
+  ); //~~|🠊 Apply the background gradient 🠈|~~//
 }
 
 #index-body {
@@ -35,30 +45,3 @@ body {
     //~~|🠊 background: rgba($green-dark, 0.75); 🠈|~~//
   }
 }
-
-//--|🠋| Index Page |🠋|--//
-@import 'main/default-main/default-main.scss';
-@import 'header/default-header/default-header.scss';
-@import 'footer/default-footer/default-footer.scss';
-@import 'overlay/default-overlay/default-overlay.scss';
-@import 'leftbar/default-leftbar/default-leftbar.scss';
-@import 'rightbar/default-rightbar/default-rightbar.scss';
-
-/*
-// I feel this might be usefull
-  // Function to log all elements recursively
-  function logElements(element: HTMLElement) {
-    let children = element.children;
-    let i = 0;
-
-    while (i < children.length) {
-      console.log(children[i]);
-      // Recursively log the children of the current child element
-      logElements(children[i] as HTMLElement);
-      i++;
-    }
-  }
-
-  // Start logging from the section element
-  logElements(section);
-  */

@@ -1,5 +1,6 @@
+import React, { useEffect } from 'react';
+
 import './index.scss';
-import React from 'react';
 import Main from './main/Main';
 import Header from './header/Header';
 import Footer from './footer/Footer';
@@ -23,9 +24,9 @@ interface Designs {
   cellphone: string;
 }
 interface Websites {
-  linkedin: Array<string>;
   github: Array<string>;
   youtube: Array<string>;
+  linkedin: Array<string>;
 }
 
 const page: string = 'index'; //--|🠈 This represents the page being viewed 🠈|--//
@@ -68,6 +69,25 @@ const Body: React.FC<BodyProps> = ({ page, label }) => {
       <Overlay page={page} label={label} />
       <Leftbar page={page} label={label} />
       <Rightbar page={page} label={label} />
+      {
+        useEffect(() => {
+          const removeElements = (elementId: string, styleId: string) => {
+            //--|🠉 Remove Elements Outside Container 🠉|--//
+            const element = document.getElementById(elementId) as HTMLElement;
+            const style = document.getElementById(styleId) as HTMLStyleElement;
+
+            if (element && style) {
+              style.remove();
+              element.remove();
+              console.log(`//--|🠊 Removed <article id="${elementId}"> & <style id="${styleId}"> Elements 🠈|--//`);
+            } else {
+              console.log(`//--|🠊 Error: #${elementId} and #${styleId} not found 🠈|--//`);
+            }
+          };
+
+          removeElements('loading-container', 'loading-style'); //--|🠈 Launch Function 🠈|--//
+        }, []) //--|🠈 Empty Array = Execute Once 🠈|--//
+      }
     </>
   );
   console.log(`//--|🠊 ${page}.tsx Loaded 🠈|--//`);
