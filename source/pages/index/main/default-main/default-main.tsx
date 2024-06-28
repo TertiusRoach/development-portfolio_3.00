@@ -125,7 +125,7 @@ export const scrollSection = (
   $(main).animate({ scrollTop: `+=${height * slot - adjust}px` }, 250);
 };
 
-const MainSection = (element: React.MouseEvent<HTMLElement>): void => {
+const MainSection = (): void => {
   // console.log(element);
   // console.log(`DesktopLandscape: (orientation: landscape) and (min-aspect-ratio: 16/9)`);
   // console.log(`TabletSquare: (max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)`);
