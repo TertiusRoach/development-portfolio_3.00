@@ -54,40 +54,43 @@ function defaultMain(page: string | any, label: string | any, block: string | an
 export default defaultMain;
 
 const hoverSection = (element: React.MouseEvent<HTMLElement>): void => {
-  let enable = element.target as HTMLElement; //--|🠈 Enable the target element upon hover 🠈|--//
-  let device = window.matchMedia('(orientation: landscape) and (min-aspect-ratio: 16/9)').matches ? 'header' : 'footer'; //--|🠈 Determines where the buttons are based on orientation 🠈|--//
-  while (enable && !enable.classList.contains('hidden')) {
-    //--|🠉 Traverse up the DOM tree for a 'hidden' class 🠉|--//
-    /*
-    This while loop ensures the hover effect works across all the nested elements by
-    checking its parent for a "hidden" class to guarantee consistent behavior when
-    hovering over a <section> within the <main> tag.
-    */
+  console.log(`${element} Hovered`);
 
-    if (enable.parentElement?.tagName === 'MAIN' && enable.classList.contains('visible')) {
-      break; //--|🠈 Break the loop when the selected <section> within <main> is found 🠈|--//
-    }
-    enable = enable.parentElement as HTMLElement;
-  }
+  // let enable = element.target as HTMLElement; //--|🠈 Enable the target element upon hover 🠈|--//
+  // let device = window.matchMedia('(orientation: landscape) and (min-aspect-ratio: 16/9)').matches ? 'header' : 'footer'; //--|🠈 Determines where the buttons are based on orientation 🠈|--//
+  // while (enable && !enable.classList.contains('hidden')) {
+  //   //--|🠉 Traverse up the DOM tree for a 'hidden' class 🠉|--//
+  //
+  //   This while loop ensures the hover effect works across all the nested elements by
+  //   checking its parent for a "hidden" class to guarantee consistent behavior when
+  //   hovering over a <section> within the <main> tag.
+  //
 
-  if (enable.classList.contains('hidden')) {
-    //--|🠉 Check if the element has 'hidden' class 🠉|--//
-    //--|🠊 If true, proceed to toggle classes 🠈|--//
-    var name = enable.classList[0].split('-')[1] as string; //--|🠈 Retrieve the name of the section for element selection 🠈|--//
-    var disable = document.querySelector('main .visible') as HTMLElement; //--|🠈 Retrieve the currently visible main element and disable it 🠈|--//
-    var downplay = document.querySelector(`${device} .active`) as HTMLButtonElement; //--|🠈 Retrieve the currently active footer/header button and disable it 🠈|--//
-    var highlight = document.querySelector(`${device} .${device}-${name}`) as HTMLButtonElement; //--|🠈 Highlight the footer/header button corresponding to the marker 🠈|--//
+  //   if (enable.parentElement?.tagName === 'MAIN' && enable.classList.contains('visible')) {
+  //     break; //--|🠈 Break the loop when the selected <section> within <main> is found 🠈|--//
+  //   }
+  //   enable = enable.parentElement as HTMLElement;
+  // }
+  // let classList = enable.classList;
+  // if (classList.contains('hidden')) {
+  //   //--|🠉 Check if the element has 'hidden' class 🠉|--//
+  //   //--|🠊 If true, proceed to toggle classes 🠈|--//
+  //   var name = enable.classList[0].split('-')[1] as string; //--|🠈 Retrieve the name of the section for element selection 🠈|--//
+  //   var disable = document.querySelector('main .visible') as HTMLElement; //--|🠈 Retrieve the currently visible main element and disable it 🠈|--//
+  //   var downplay = document.querySelector(`${device} .active`) as HTMLButtonElement; //--|🠈 Retrieve the currently active footer/header button and disable it 🠈|--//
+  //   var highlight = document.querySelector(`${device} .${device}-${name}`) as HTMLButtonElement; //--|🠈 Highlight the footer/header button corresponding to the marker 🠈|--//
 
-    downplay.classList.remove('active');
-    highlight.classList.add('active');
+  //   downplay.classList.remove('active');
+  //   highlight.classList.add('active');
 
-    disable.classList.add('hidden');
-    disable.classList.remove('visible');
+  //   disable.classList.add('hidden');
+  //   disable.classList.remove('visible');
 
-    enable.classList.add('visible');
-    enable.classList.remove('hidden');
-  }
+  //   enable.classList.add('visible');
+  //   enable.classList.remove('hidden');
+  // }
 };
+
 export const activeButton = (element: HTMLButtonElement): void => {
   let name = element.parentElement?.classList[0].split('-')[1] as string; //--|🠈 Retrieve the name of the section for element selection 🠈|--//
   let show = document.querySelector(`main section[class*='${name}'`) as HTMLElement; //--|🠈 Retrieve the section selected in the <footer>  🠈|--//
@@ -115,7 +118,7 @@ export const scrollSection = (
     if (target && target.nodeName === 'SECTION') {
       var parent = target.parentNode as HTMLElement; //--|🠈 Get the parent of the target section 🠈|--//
       var children = Array.from(parent.children) as Array<HTMLElement>; //--|🠈 Convert parent's children to an array of HTMLElements 🠈|--//
-      var index = children.indexOf(target) as number; //--|🠈 Get the target section's index within the children array 🠈|--//
+      var index: number = children.indexOf(target) as number; //--|🠈 Get the target section's index within the children array 🠈|--//
 
       return index;
     }
