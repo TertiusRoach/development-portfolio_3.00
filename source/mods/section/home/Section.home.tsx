@@ -7,7 +7,7 @@ import ButtonGlow from '../../button/glow/Button.glow';
 interface HomeProps {
   view: 'visible' | 'hidden';
   className: string;
-  sectionText: {
+  tag: {
     title: string;
     career: string;
     contact: string;
@@ -16,15 +16,21 @@ interface HomeProps {
     portfolio: string;
     description: Array<string>;
   };
-  hover: (element: React.MouseEvent<HTMLElement>) => void; //--|🠈 Highlights the button of the viewed section on mouse interaction. 🠈|--//
-  click: (trigger: React.MouseEvent<HTMLElement>, string: '<header>' | '<main>' | '<footer>') => void; //--|🠈 Centers the view on the user-clicked section. 🠈|--//
+  onMouseHover: (element: React.MouseEvent<HTMLElement>) => void; //--|🠈 Highlights the button of the viewed section on mouse interaction. 🠈|--//
+  onMouseClick: (trigger: React.MouseEvent<HTMLElement>, string: '<header>' | '<main>' | '<footer>') => void; //--|🠈 Centers the view on the user-clicked section. 🠈|--//
 
   //--|🠊 Event: Reflects dynamic mouse interactions. 🠈|--//
   //--|🠊 MouseEvent: Standard interface for DOM mouse events. 🠈|--//
   //--|🠊 Void: Indicates that no value is returned by the toggle function. 🠈|--//
 }
 
-const SectionHome: React.FC<HomeProps> = ({ sectionText, hover: activateButton, click: scrollSection, view, className }) => {
+const SectionHome: React.FC<HomeProps> = ({
+  tag: sectionText,
+  onMouseHover: activateButton,
+  onMouseClick: scrollSection,
+  view,
+  className,
+}) => {
   let desktop: string = '(orientation: landscape) and (min-aspect-ratio: 16/9)';
   let mobile: string = '(orientation: portrait) and (max-aspect-ratio: 1/1)';
   let tablet: string = '(max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)';

@@ -5,10 +5,10 @@ import { useMediaQuery } from 'react-responsive';
 
 interface SkillsProps {
   view: 'visible' | 'hidden';
-  hover: (element: React.MouseEvent<HTMLElement>) => void; //--|🠈 Highlights the button of the viewed section on mouse interaction. 🠈|--//
-  click: (trigger: React.MouseEvent<HTMLElement>, string: '<header>' | '<main>' | '<footer>') => void; //--|🠈 Centers the view on the user-clicked section. 🠈|--//
+  onMouseHover: (element: React.MouseEvent<HTMLElement>) => void; //--|🠈 Highlights the button of the viewed section on mouse interaction. 🠈|--//
+  onMouseClick: (trigger: React.MouseEvent<HTMLElement>, string: '<header>' | '<main>' | '<footer>') => void; //--|🠈 Centers the view on the user-clicked section. 🠈|--//
   className: string;
-  sectionText: {};
+  tag: {};
 
   //--|🠊 Event: Reflects dynamic mouse interactions. 🠈|--//
   //--|🠊 MouseEvent: Standard interface for DOM mouse events. 🠈|--//
@@ -16,8 +16,8 @@ interface SkillsProps {
 }
 const SectionSkills: React.FC<SkillsProps> = ({
   view,
-  hover: activateButton,
-  click: scrollSection,
+  onMouseHover: activateButton,
+  onMouseClick: scrollSection,
   className,
   // sectionText,
 }) => {

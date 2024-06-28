@@ -2,9 +2,9 @@
 import $ from 'jquery';
 import React from 'react';
 
-import SectionHome from '../../../../mods/section/home/Section.home';
-import SectionSkills from '../../../../mods/section/skills/Section.skills';
-import SectionContact from '../../../../mods/section/contact/Section.contact';
+import MainSectionHome from '../../../../mods/section/home/Section.home';
+import MainSectionSkills from '../../../../mods/section/skills/Section.skills';
+import MainSectionContact from '../../../../mods/section/contact/Section.contact';
 
 function defaultMain(page: string | any, label: string | any, block: string | any) {
   const imageURI: string = 'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content';
@@ -32,20 +32,38 @@ function defaultMain(page: string | any, label: string | any, block: string | an
   let contactText: Object = {};
   return (
     <main style={{ zIndex: 0 }} id={`${page}-${block}`} className={`${label}-${block}`}>
-      <SectionHome view="visible" sectionText={homeText} className="main-home" hover={hoverSection} click={scrollSection} />
-      <SectionSkills
-        view="hidden"
-        sectionText={(skillsText = {})}
-        className="main-skills"
-        hover={hoverSection}
-        click={scrollSection}
+      <MainSectionHome
+        //--|🠋 Input 🠋|--//
+        className="home"
+        view="visible"
+        tag={homeText}
+        //--|🠋 Functions 🠋|--//
+        onMouseHover={MainSection}
+        onMouseClick={scrollSection}
+
+        /*?-|🠋 Output 🠋|-?*/
       />
-      <SectionContact
+      <MainSectionSkills
+        //--|🠋 Input 🠋|--//
+        className="skills"
         view="hidden"
-        sectionText={(contactText = {})}
-        className="main-contact"
-        hover={hoverSection}
-        click={scrollSection}
+        tag={(skillsText = {})}
+        //--|🠋 Functions 🠋|--//
+        onMouseHover={MainSection}
+        onMouseClick={scrollSection}
+
+        /*?-|🠋 Output 🠋|-?*/
+      />
+      <MainSectionContact
+        //--|🠋 Input 🠋|--//
+        className="contact"
+        view="hidden"
+        tag={(contactText = {})}
+        //--|🠋 Functions 🠋|--//
+        onMouseHover={MainSection}
+        onMouseClick={scrollSection}
+
+        /*?-|🠋 Output 🠋|-?*/
       />
     </main>
   );
@@ -53,61 +71,6 @@ function defaultMain(page: string | any, label: string | any, block: string | an
 }
 export default defaultMain;
 
-const hoverSection = (element: React.MouseEvent<HTMLElement>): void => {
-  console.log(`${element} Hovered`);
-
-  // let enable = element.target as HTMLElement; //--|🠈 Enable the target element upon hover 🠈|--//
-  // let device = window.matchMedia('(orientation: landscape) and (min-aspect-ratio: 16/9)').matches ? 'header' : 'footer'; //--|🠈 Determines where the buttons are based on orientation 🠈|--//
-  // while (enable && !enable.classList.contains('hidden')) {
-  //   //--|🠉 Traverse up the DOM tree for a 'hidden' class 🠉|--//
-  //
-  //   This while loop ensures the hover effect works across all the nested elements by
-  //   checking its parent for a "hidden" class to guarantee consistent behavior when
-  //   hovering over a <section> within the <main> tag.
-  //
-
-  //   if (enable.parentElement?.tagName === 'MAIN' && enable.classList.contains('visible')) {
-  //     break; //--|🠈 Break the loop when the selected <section> within <main> is found 🠈|--//
-  //   }
-  //   enable = enable.parentElement as HTMLElement;
-  // }
-  // let classList = enable.classList;
-  // if (classList.contains('hidden')) {
-  //   //--|🠉 Check if the element has 'hidden' class 🠉|--//
-  //   //--|🠊 If true, proceed to toggle classes 🠈|--//
-  //   var name = enable.classList[0].split('-')[1] as string; //--|🠈 Retrieve the name of the section for element selection 🠈|--//
-  //   var disable = document.querySelector('main .visible') as HTMLElement; //--|🠈 Retrieve the currently visible main element and disable it 🠈|--//
-  //   var downplay = document.querySelector(`${device} .active`) as HTMLButtonElement; //--|🠈 Retrieve the currently active footer/header button and disable it 🠈|--//
-  //   var highlight = document.querySelector(`${device} .${device}-${name}`) as HTMLButtonElement; //--|🠈 Highlight the footer/header button corresponding to the marker 🠈|--//
-
-  //   downplay.classList.remove('active');
-  //   highlight.classList.add('active');
-
-  //   disable.classList.add('hidden');
-  //   disable.classList.remove('visible');
-
-  //   enable.classList.add('visible');
-  //   enable.classList.remove('hidden');
-  // }
-};
-
-export const activeButton = (element: HTMLButtonElement): void => {
-  let name = element.parentElement?.classList[0].split('-')[1] as string; //--|🠈 Retrieve the name of the section for element selection 🠈|--//
-  let show = document.querySelector(`main section[class*='${name}'`) as HTMLElement; //--|🠈 Retrieve the section selected in the <footer>  🠈|--//
-  let hide = document.querySelector('main .visible') as HTMLElement; //--|🠈 Retrieve the active section to hide it 🠈|--//
-  let device = window.matchMedia('(orientation: landscape) and (min-aspect-ratio: 16/9)').matches ? 'header' : 'footer'; //--|🠈 Determines where the buttons are based on orientation 🠈|--//
-  let diable = document.querySelector(`${device} .active`) as HTMLButtonElement; //--|🠈 Retrieve the currently active footer 🠈|--//
-  let enable = element.parentElement as HTMLButtonElement; //--|🠈 Highlight the parent element of the selected button 🠈|--//
-
-  diable.classList.remove('active'); //--|🠈 Downplay Button 🠈|--//
-  enable.classList.add('active'); //--|🠈 Highlight Button 🠈|--//
-
-  hide.classList.add('hidden');
-  hide.classList.remove('visible');
-
-  show.classList.add('visible');
-  show.classList.remove('hidden');
-};
 export const scrollSection = (
   element: React.MouseEvent<HTMLElement>,
   navigation: '<header>' | '<main>' | '<footer>'
@@ -160,4 +123,33 @@ export const scrollSection = (
   //--|🠋 Animate scrolling to the clicked section 🠋|--//
   //--|🠊 jQuery gets the job done! Deal with it...for now. 🠈|--//
   $(main).animate({ scrollTop: `+=${height * slot - adjust}px` }, 250);
+};
+
+const MainSection = (element: React.MouseEvent<HTMLElement>): void => {
+  // console.log(element);
+  // console.log(`DesktopLandscape: (orientation: landscape) and (min-aspect-ratio: 16/9)`);
+  // console.log(`TabletSquare: (max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)`);
+  // console.log(`MobilePortrait: (orientation: portrait) and (max-aspect-ratio: 1/1)`);
+  // const desktopOrientation = ``;
+  // const tabletOrientation = ``;
+  // const mobileOrientation = ``;
+  // console.log(`${element} Hovered`);
+};
+
+export const activeButton = (element: HTMLButtonElement): void => {
+  const device = window.matchMedia('(orientation: landscape) and (min-aspect-ratio: 16/9)').matches ? 'header' : 'footer'; //--|🠈 Determines where the buttons are based on orientation 🠈|--//
+  let name = element.parentElement?.classList[0].split('-')[1] as string; //--|🠈 Retrieve the name of the section for element selection 🠈|--//
+  let show = document.querySelector(`main section[class*='${name}'`) as HTMLElement; //--|🠈 Retrieve the section selected in the <footer>  🠈|--//
+  let hide = document.querySelector('main .visible') as HTMLElement; //--|🠈 Retrieve the active section to hide it 🠈|--//
+  let diable = document.querySelector(`${device} .active`) as HTMLButtonElement; //--|🠈 Retrieve the currently active footer 🠈|--//
+  let enable = element.parentElement as HTMLButtonElement; //--|🠈 Highlight the parent element of the selected button 🠈|--//
+
+  diable.classList.remove('active'); //--|🠈 Downplay Button 🠈|--//
+  enable.classList.add('active'); //--|🠈 Highlight Button 🠈|--//
+
+  hide.classList.add('hidden');
+  hide.classList.remove('visible');
+
+  show.classList.add('visible');
+  show.classList.remove('hidden');
 };

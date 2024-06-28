@@ -36,7 +36,7 @@ const Body: React.FC<BodyProps> = ({ page, label }) => {
             if (element && style) {
               style.remove();
               element.remove();
-              console.log(`//--|🠊 Removed <article id="${elementId}"> & <style id="${styleId}"> Elements 🠈|--//`);
+              //--|🠊 console.log(`//--|🠊 Removed <article id="${elementId}"> & <style id="${styleId}"> Elements 🠈|--//`); 🠈|--//
             } else {
               console.log(`//--|🠊 Error: #${elementId} and #${styleId} not found 🠈|--//`);
             }
