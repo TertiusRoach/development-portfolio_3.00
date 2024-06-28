@@ -30,7 +30,7 @@
     .header-contact {
       grid-area: 1 / 5 / 2 / 6; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
     }
-    background: rgba($red-dark, 0.75);
+    // background: rgba($red-dark, 0.75);
     //~~|🠊 border: 4px dashed $red-neon; 🠈|~~//
     //~~|🠊 background: rgba($red-dark, 0.75); 🠈|~~//
   }
@@ -46,7 +46,7 @@
       grid-area: 1 / 1 / 2 / 2; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
     }
 
-    background: rgba($blue-dark, 0.75);
+    // background: rgba($blue-dark, 0.75);
     //~~|🠊 border: 4px dashed $blue-neon; 🠈|~~//
     //~~|🠊 background: rgba($blue-dark, 0.75); 🠈|~~//
   }
@@ -61,7 +61,7 @@
       justify-content: center;
       grid-area: 1 / 1 / 2 / 2; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
     }
-    background: rgba($blue-dark, 0.75);
+    // background: rgba($blue-dark, 0.75);
     //~~|🠊 border: 4px dashed $blue-neon; 🠈|~~//
     //~~|🠊 background: rgba($blue-dark, 0.75); 🠈|~~//
   }
