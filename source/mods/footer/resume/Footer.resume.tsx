@@ -1,0 +1,1 @@
+// Footer.resume.tsx
