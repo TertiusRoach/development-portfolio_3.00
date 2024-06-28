@@ -37,7 +37,7 @@ const SectionHome: React.FC<HomeProps> = ({ sectionText, hover: activateButton, 
       {
         //--|🠋 Desktop (Landscape) 🠋|--//
         useMediaQuery({ query: desktop }) && (
-          <div className={className}>
+          <div className={`${className} desktop`}>
             <span className="home-title">
               <h1 data-text={sectionText.title}>{sectionText.title}</h1>
             </span>
@@ -69,7 +69,7 @@ const SectionHome: React.FC<HomeProps> = ({ sectionText, hover: activateButton, 
       {
         //--|🠋 Mobile (Portrait) 🠋|--//
         useMediaQuery({ query: mobile }) && (
-          <div className={className}>
+          <div className={`${className} mobile`}>
             {/* <h1>{text}</h1>
               <p>Paragraph</p>
               <article>
@@ -82,7 +82,7 @@ const SectionHome: React.FC<HomeProps> = ({ sectionText, hover: activateButton, 
       {
         //--|🠋 Tablet (Square) 🠋|--//
         useMediaQuery({ query: tablet }) && (
-          <div className={className}>
+          <div className={`${className} tablet`}>
             <span className="home-title">
               <h1 data-text={sectionText.title}>{sectionText.title}</h1>
             </span>

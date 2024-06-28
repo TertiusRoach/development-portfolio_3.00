@@ -21,7 +21,7 @@ const SectionContact: React.FC<ContactProps> = ({
   click: scrollSection,
   view,
   className,
-  sectionText,
+  // sectionText,
 }) => {
   return (
     <section
@@ -29,47 +29,45 @@ const SectionContact: React.FC<ContactProps> = ({
       onMouseEnter={activateButton}
       onClick={(trigger) => scrollSection(trigger, '<main>')}
     >
-      <div className={className}>
-        {
-          //--|🠋 Desktop (Landscape) 🠋|--//
-          useMediaQuery({ query: desktop }) && (
-            <>
-              {/* <h1>{text}</h1>
+      {
+        //--|🠋 Desktop (Landscape) 🠋|--//
+        useMediaQuery({ query: desktop }) && (
+          <div className={`${className} desktop`}>
+            {/* <h1>{text}</h1>
               <p>Paragraph</p>
               <article>
                 <h1>Article</h1>
                 <p>Another Paragraph</p>
               </article> */}
-            </>
-          )
-        }
-        {
-          //--|🠋 Mobile (Portrait) 🠋|--//
-          useMediaQuery({ query: mobile }) && (
-            <>
-              {/* <h1>{text}</h1>
+          </div>
+        )
+      }
+      {
+        //--|🠋 Mobile (Portrait) 🠋|--//
+        useMediaQuery({ query: mobile }) && (
+          <div className={`${className} mobile`}>
+            {/* <h1>{text}</h1>
               <p>Paragraph</p>
               <article>
                 <h1>Article</h1>
                 <p>Another Paragraph</p>
               </article> */}
-            </>
-          )
-        }
-        {
-          //--|🠋 Tablet (Square) 🠋|--//
-          useMediaQuery({ query: tablet }) && (
-            <>
-              {/* <h1>{text}</h1>
+          </div>
+        )
+      }
+      {
+        //--|🠋 Tablet (Square) 🠋|--//
+        useMediaQuery({ query: tablet }) && (
+          <div className={`${className} tablet`}>
+            {/* <h1>{text}</h1>
               <p>Paragraph</p>
               <article>
                 <h1>Article</h1>
                 <p>Another Paragraph</p>
               </article> */}
-            </>
-          )
-        }
-      </div>
+          </div>
+        )
+      }
     </section>
   );
 };
