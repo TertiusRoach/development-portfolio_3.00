@@ -5,7 +5,7 @@ import { buttonIcon } from '../..';
 import { useMediaQuery } from 'react-responsive';
 import ButtonFade from '../../../../mods/button/fade/Button.fade';
 
-import { activeButton, scrollSection } from '../../main/default-main/default-main';
+import { activeButton, scrollToSection } from '../../main/default-main/default-main';
 
 function defaultHeader(page: string | any, label: string | any, block: string | any) {
   // console.log('page');

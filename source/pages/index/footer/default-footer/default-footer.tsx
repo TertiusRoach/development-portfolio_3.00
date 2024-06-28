@@ -4,7 +4,7 @@ import React from 'react';
 import { anchorIcon, buttonIcon } from '../..';
 import { useMediaQuery } from 'react-responsive';
 
-import { activeButton, scrollSection } from '../../main/default-main/default-main';
+import { activeButton, scrollToSection } from '../../main/default-main/default-main';
 
 import AnchorIcon from '../../../../mods/anchor/icon/Anchor.icon'; //--|🠈 Desktop (Landscape) 🠈|--//
 import ButtonFade from '../../../../mods/button/fade/Button.fade'; //--|🠈 Mobile (Portrait) 🠈|--//
@@ -12,7 +12,7 @@ import ButtonIcon from '../../../../mods/button/icon/Button.icon'; //--|🠈 Tab
 
 function defaultFooter(page: string | any, label: string | any, block: string | any) {
   const wrapperFunction = (element: React.MouseEvent<HTMLElement>): void => {
-    scrollSection(element, '<footer>');
+    scrollToSection(element, '<footer>');
     activeButton(element.target as HTMLButtonElement);
   };
 

@@ -39,7 +39,7 @@ function defaultMain(page: string | any, label: string | any, block: string | an
         tag={homeText}
         //--|🠋 Functions 🠋|--//
         onMouseHover={MainSection}
-        onMouseClick={scrollSection}
+        onMouseClick={scrollToSection}
 
         /*?-|🠋 Output 🠋|-?*/
       />
@@ -50,7 +50,7 @@ function defaultMain(page: string | any, label: string | any, block: string | an
         tag={(skillsText = {})}
         //--|🠋 Functions 🠋|--//
         onMouseHover={MainSection}
-        onMouseClick={scrollSection}
+        onMouseClick={scrollToSection}
 
         /*?-|🠋 Output 🠋|-?*/
       />
@@ -61,7 +61,7 @@ function defaultMain(page: string | any, label: string | any, block: string | an
         tag={(contactText = {})}
         //--|🠋 Functions 🠋|--//
         onMouseHover={MainSection}
-        onMouseClick={scrollSection}
+        onMouseClick={scrollToSection}
 
         /*?-|🠋 Output 🠋|-?*/
       />
@@ -71,7 +71,7 @@ function defaultMain(page: string | any, label: string | any, block: string | an
 }
 export default defaultMain;
 
-export const scrollSection = (
+export const scrollToSection = (
   element: React.MouseEvent<HTMLElement>,
   navigation: '<header>' | '<main>' | '<footer>'
 ): void => {

@@ -1,5 +1,6 @@
 @import '../Main.scss';
-#index-main {
+
+main[id*='index'] {
   display: block;
   overflow-y: scroll;
   grid-template: 1fr / 1fr; //~~|🠊 rows / columns 🠈|~~//
@@ -17,6 +18,7 @@
   &::-webkit-scrollbar {
     display: none; //~~|🠊 Hide Scrollbar 🠈|~~//
   }
+
   //--|🠋 Desktop (Landscape) - ☒ 🠋|--//
   @media screen and (orientation: landscape) and (min-aspect-ratio: 16/9) {
     //--|🠋 Desktop (Red) 🠋|--//
@@ -27,6 +29,7 @@
       // background: rgba($red-dark, 0.75);
       //~~|🠊 border: 4px dashed $red-neon; 🠈|~~//
       //~~|🠊 background: rgba($red-dark, 0.75); 🠈|~~//
+      /*
       .main-home {
         // background: rgba($red-dark, 0.5);
       }
@@ -36,6 +39,7 @@
       .main-contact {
         // background: rgba($red-neon, 0.5);
       }
+      */
     }
   }
   //--|🠋 Mobile (Portrait) - ☒ 🠋|--//
@@ -48,6 +52,7 @@
       // background: rgba($blue-dark, 0.75);
       //~~|🠊 border: 4px dashed $blue-neon; 🠈|~~//
       //~~|🠊 background: rgba($blue-dark, 0.75); 🠈|~~//
+      /*
       .main-home {
         // display: none;
         // background: rgba($blue-dark, 0.5);
@@ -60,6 +65,7 @@
         // display: none;
         // background: rgba($blue-neon, 0.5);
       }
+      */
     }
   }
   //--|🠋 Tablet (Square) - ☒ 🠋|--//
@@ -72,6 +78,7 @@
       // background: rgba($green-dark, 0.75);
       //~~|🠊 border: 4px dashed $green-neon; 🠈|~~//
       //~~|🠊 background: rgba($green-dark, 0.75); 🠈|~~//
+      /*
       .main-home {
         // background: rgba($green-dark, 0.5);
       }
@@ -81,6 +88,7 @@
       .main-contact {
         // background: rgba($green-neon, 0.5);
       }
+      */
     }
   }
 }
