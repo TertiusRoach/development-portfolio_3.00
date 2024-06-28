@@ -196,9 +196,6 @@ section {
           display: inherit; //~~|🠊 display: grid; 🠈|~~//
           grid-area: 1 / 1 / 7 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
           grid-template: 3rem auto 3rem / 1fr auto 1fr; //~~|🠊 rows / columns 🠈|~~//
-
-          border: 4px dotted $yellow-neon;
-          background: rgba($yellow-dark, 0.25);
           img {
             height: 100%;
             grid-area: 2 / 2 / 3 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
