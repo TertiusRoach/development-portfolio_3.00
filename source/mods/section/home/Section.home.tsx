@@ -25,15 +25,16 @@ interface HomeProps {
 }
 
 const SectionHome: React.FC<HomeProps> = ({
-  tag: sectionText,
+  className,
+  view,
+  tag: sectionObject,
+
   onMouseHover: activateButton,
   onMouseClick: scrollSection,
-  view,
-  className,
 }) => {
-  let desktop: string = '(orientation: landscape) and (min-aspect-ratio: 16/9)';
-  let mobile: string = '(orientation: portrait) and (max-aspect-ratio: 1/1)';
-  let tablet: string = '(max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)';
+  console.log(sectionObject);
+  console.log('TEST!');
+
   return (
     <section
       className={`${className} ${view}`}
@@ -42,27 +43,28 @@ const SectionHome: React.FC<HomeProps> = ({
     >
       {
         //--|🠋 Desktop (Landscape) 🠋|--//
-        useMediaQuery({ query: desktop }) && (
-          <div className={`${className} desktop`}>
+        useMediaQuery({ query: '(orientation: landscape) and (min-aspect-ratio: 16/9)' }) && (
+          <div className={`${className} desktop-landscape`}>
             <span className="home-title">
-              <h1 data-text={sectionText.title}>{sectionText.title}</h1>
+              <h1 data-text={sectionObject.title}>{sectionObject.title}</h1>
             </span>
             <span className="home-buttons">
               <ButtonGlow className="career-button" text="My Career" />
               <ButtonGlow className="contact-button" text="Contact Me" />
             </span>
             <span className="home-subject">
-              <h3>{sectionText.subject}</h3>
+              <h6>{sectionObject.subject}</h6>
             </span>
             <span className="home-description">
               <p>
-                {sectionText.description[0]}
+                {sectionObject.description[0]}
                 <br />
                 <br />
-                {sectionText.description[1]}
+                {sectionObject.description[1]}
               </p>
-              <h6>{sectionText.description[2]}</h6>
+              <h6>{sectionObject.description[2]}</h6>
             </span>
+
             <aside className="home-profile">
               <img
                 src="https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content/png-files/profile-picture.png"
@@ -74,23 +76,19 @@ const SectionHome: React.FC<HomeProps> = ({
       }
       {
         //--|🠋 Mobile (Portrait) 🠋|--//
-        useMediaQuery({ query: mobile }) && (
-          <div className={`${className} mobile`}>
-            {/* <h1>{text}</h1>
-              <p>Paragraph</p>
-              <article>
-                <h1>Article</h1>
-                <p>Another Paragraph</p>
-              </article> */}
-          </div>
-        )
-      }
-      {
-        //--|🠋 Tablet (Square) 🠋|--//
-        useMediaQuery({ query: tablet }) && (
-          <div className={`${className} tablet`}>
+        useMediaQuery({ query: '(orientation: portrait) and (max-aspect-ratio: 1/1)' }) && (
+          <div className={`${className} mobile-portrait`}>
             <span className="home-title">
-              <h1 data-text={sectionText.title}>{sectionText.title}</h1>
+              <h3 data-text="My Portfolio">My Portfolio</h3>
+            </span>
+
+            <span className="home-subject">
+              <h6>Why mobile is the future,</h6>
+            </span>
+            <span className="home-description">
+              <span className="home-description">
+                <p>{sectionObject.description[0]}</p>
+              </span>
             </span>
 
             <span className="home-buttons">
@@ -98,28 +96,57 @@ const SectionHome: React.FC<HomeProps> = ({
               <ButtonGlow className="contact-button" text="Contact Me" />
             </span>
 
-            <span className="home-subject">
-              <h3>{sectionText.subject}</h3>
-            </span>
             <aside className="home-profile">
               <img
                 src="https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content/png-files/profile-picture.png"
                 alt="Tertius Roach"
               />
             </aside>
+          </div>
+        )
+      }
+      {
+        //--|🠋 Tablet (Square) 🠋|--//
+        useMediaQuery({ query: '(max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)' }) && (
+          <div className={`${className} tablet-square`}>
+            <aside className="home-profile">
+              <img
+                src="https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content/png-files/profile-picture.png"
+                alt="Tertius Roach"
+              />
+            </aside>
+
+            <span className="home-title">
+              <h1 data-text={sectionObject.title}>{sectionObject.title}</h1>
+            </span>
+            <span className="home-buttons">
+              <ButtonGlow className="career-button" text="My Career" />
+              <ButtonGlow className="contact-button" text="Contact Me" />
+            </span>
+            <span className="home-subject">
+              <h3>{sectionObject.subject}</h3>
+            </span>
             <span className="home-description">
               <p>
-                {sectionText.description[0]}
+                {sectionObject.description[0]}
                 <br />
                 <br />
-                {sectionText.description[1]}
+                {sectionObject.description[1]}
               </p>
-              <h6>{sectionText.description[2]}</h6>
+              <h6>{sectionObject.description[2]}</h6>
             </span>
           </div>
         )
       }
     </section>
   );
+
+  const desktopLandscape: string = '(orientation: landscape) and (min-aspect-ratio: 16/9)';
+  const mobilePortrait: string = '(orientation: portrait) and (max-aspect-ratio: 1/1)';
+  const tabletSquare: string = '(max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)';
+
+  console.log(desktopLandscape);
+  console.log(mobilePortrait);
+  console.log(tabletSquare);
 };
 export default SectionHome;
