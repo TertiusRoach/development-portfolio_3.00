@@ -2,8 +2,6 @@ import React, { useRef } from 'react';
 import './Button.glow.scss';
 import $ from 'jquery';
 
-import { scrollToSection } from '../../../pages/index/main/default-main/default-main';
-
 interface GlowProps {
   text: string;
   className: string;
