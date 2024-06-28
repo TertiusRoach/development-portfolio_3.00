@@ -8,10 +8,10 @@ import ButtonFade from '../../../../mods/button/fade/Button.fade';
 import { activeButton, scrollSection } from '../../main/default-main/default-main';
 
 function defaultHeader(page: string | any, label: string | any, block: string | any) {
-  const wrapperFunction = (element: React.MouseEvent<HTMLElement>): void => {
-    scrollSection(element, '<header>');
-    activeButton(element.target as HTMLButtonElement);
-  };
+  // const wrapperFunction = (element: React.MouseEvent<HTMLElement>): void => {
+  //   // scrollSection(element, '<header>');
+  //   // activeButton(element.target as HTMLButtonElement);
+  // };
 
   return (
     <header style={{ zIndex: 4 }} id={`${page}-${block}`} className={`${label}-${block}`}>
