@@ -5,22 +5,11 @@ import { useMediaQuery } from 'react-responsive';
 
 interface SkillsProps {
   view: 'visible' | 'hidden';
-  onMouseHover: (element: React.MouseEvent<HTMLElement>) => void; //--|🠈 Highlights the button of the viewed section on mouse interaction. 🠈|--//
-  onMouseClick: (trigger: React.MouseEvent<HTMLElement>, string: '<header>' | '<main>' | '<footer>') => void; //--|🠈 Centers the view on the user-clicked section. 🠈|--//
   className: string;
-  tag: {};
-
-  //--|🠊 Event: Reflects dynamic mouse interactions. 🠈|--//
-  //--|🠊 MouseEvent: Standard interface for DOM mouse events. 🠈|--//
-  //--|🠊 Void: Indicates that no value is returned by the click function. 🠈|--//
+  onMouseHover: (element: React.MouseEvent<HTMLElement>) => void; //--|🠈 Highlights the button of the viewed section on mouse interaction. 🠈|--//
+  onClick: (trigger: React.MouseEvent<HTMLElement>, string: '<header>' | '<main>' | '<footer>') => void; //--|🠈 Centers the view on the user-clicked section. 🠈|--//
 }
-const SectionSkills: React.FC<SkillsProps> = ({
-  view,
-  onMouseHover: activateButton,
-  onMouseClick: scrollSection,
-  className,
-  // sectionText,
-}) => {
+const SectionSkills: React.FC<SkillsProps> = ({ className, view, onMouseHover: activateButton, onClick: scrollSection }) => {
   return (
     <section
       className={`${className} ${view}`}
@@ -30,7 +19,7 @@ const SectionSkills: React.FC<SkillsProps> = ({
       {
         //--|🠋 Desktop (Landscape) 🠋|--//
         useMediaQuery({ query: desktop }) && (
-          <div className={`${className} desktop`}>
+          <div className={`${className} desktop-landscape`}>
             {/* <h1>{text}</h1>
               <p>Paragraph</p>
               <article>
@@ -43,7 +32,7 @@ const SectionSkills: React.FC<SkillsProps> = ({
       {
         //--|🠋 Mobile (Portrait) 🠋|--//
         useMediaQuery({ query: mobile }) && (
-          <div className={`${className} mobile`}>
+          <div className={`${className} mobile-portrait`}>
             {/* <h1>{text}</h1>
               <p>Paragraph</p>
               <article>
@@ -56,7 +45,7 @@ const SectionSkills: React.FC<SkillsProps> = ({
       {
         //--|🠋 Tablet (Square) 🠋|--//
         useMediaQuery({ query: tablet }) && (
-          <div className={`${className} tablet`}>
+          <div className={`${className} tablet-square`}>
             {/* <h1>{text}</h1>
               <p>Paragraph</p>
               <article>

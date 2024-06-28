@@ -47,10 +47,9 @@ function defaultMain(page: string | any, label: string | any, block: string | an
         //--|🠋 Input 🠋|--//
         className="skills"
         view="hidden"
-        tag={(skillsText = {})}
         //--|🠋 Functions 🠋|--//
+        onClick={scrollToSection}
         onMouseHover={MainSection}
-        onMouseClick={scrollToSection}
 
         /*?-|🠋 Output 🠋|-?*/
       />
@@ -61,6 +60,7 @@ function defaultMain(page: string | any, label: string | any, block: string | an
         tag={(contactText = {})}
         //--|🠋 Functions 🠋|--//
         onMouseHover={MainSection}
+        //--|🠋 Functions 🠋|--//
         onMouseClick={scrollToSection}
 
         /*?-|🠋 Output 🠋|-?*/
@@ -71,10 +71,7 @@ function defaultMain(page: string | any, label: string | any, block: string | an
 }
 export default defaultMain;
 
-export const scrollToSection = (
-  element: React.MouseEvent<HTMLElement>,
-  navigation: '<header>' | '<main>' | '<footer>'
-): void => {
+export const scrollToSection = (element: React.MouseEvent<HTMLElement>, navigation: '<header>' | '<main>' | '<footer>') => {
   let getIndex = (target: HTMLElement) => {
     //--|🠉 Helper function to get a section's index within its parent 🠉|--//
     //--|🠋 Check if the target element is a valid section 🠋|--//
@@ -101,6 +98,7 @@ export const scrollToSection = (
     }
     return reassign;
   };
+
   let section: HTMLElement;
   switch (navigation) {
     case '<header>':
@@ -116,13 +114,14 @@ export const scrollToSection = (
   }
 
   let main = section.parentElement as HTMLElement; //--|🠈 Get the clicked section's <main> container 🠈|--//
-  let height: number = section.offsetHeight; //--|🠈 Get the clicked section's height 🠈|--//
-  let adjust: number = main.scrollTop; //--|🠈 Get the current scroll position of <main> 🠈|--//
-  let slot = getIndex(section) as number; //--|🠈 Call the helper to get the clicked section's index 🠈|--//
+  let height: number = section.offsetHeight as number; //--|🠈 Get the clicked section's height 🠈|--//
+  let adjust: number = main.scrollTop as number; //--|🠈 Get the current scroll position of <main> 🠈|--//
+  let slot: number = getIndex(section) as number; //--|🠈 Call the helper to get the clicked section's index 🠈|--//
 
   //--|🠋 Animate scrolling to the clicked section 🠋|--//
   //--|🠊 jQuery gets the job done! Deal with it...for now. 🠈|--//
   $(main).animate({ scrollTop: `+=${height * slot - adjust}px` }, 250);
+  return (height * slot - adjust) as number;
 };
 
 const MainSection = (): void => {
