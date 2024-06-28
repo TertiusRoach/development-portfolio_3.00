@@ -1,4 +1,5 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"/><link rel="shortcut icon" href=""/><title>Index Page</title><script defer="defer" src="index.js"></script><link href="style.css" rel="stylesheet"></head><body><style id="loading-style">.loading-body {
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><link rel="shortcut icon" href="https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/8e693fe896721283aabb6ed16ba749fcbc750371/public/content/svg-files/signature-icon/primary-dark.svg"/><title>Index Page</title><script defer="defer" src="index.js"></script><link href="style.css" rel="stylesheet"></head><body><style id="loading-style">/*--|🠋 Loading Screen 🠋|--*/
+      .loading-body {
         display: grid;
         height: 100vh;
         grid-template-rows: 1fr;
@@ -20,26 +21,4 @@
         height: auto;
         max-width: 100%;
         filter: drop-shadow(0 0 1rem black);
-      }</style><article id="loading-container" style="height: 100vh; display: flex"><img style="width: 100%" src="https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content/gif-files/1280x720%2C%2015fps/signature-light.gif" alt="Loading Screen"/></article><script id="loading-script">// Function to handle the mutation event
-      const handleMutation = (mutationsList) => {
-        for (const mutation of mutationsList) {
-          if (mutation.addedNodes.length > 0) {
-            console.log('New nodes added to index-body:', mutation.addedNodes);
-
-            // Hide the loading screen
-            document.getElementById('loading-container').style.display = 'none';
-            console.log('loading-container display set to none');
-
-            // Stop observing once the loading screen is hidden
-            observer.disconnect();
-            console.log('Observer disconnected');
-          }
-        }
-      };
-
-      // Create a MutationObserver to observe changes in the #index-body element
-      const observer = new MutationObserver(handleMutation);
-
-      // Start observing the #index-body element
-      observer.observe(document.getElementById('index-body'), { childList: true });
-      console.log('Observer started');</script><div id="index-body" class="default-body"></div></body></html>
+      }</style><article id="loading-container" style="height: 100vh; display: flex"><img style="width: 100%" src="https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content/gif-files/1280x720%2C%2015fps/signature-light.gif" alt="Loading Screen"/></article><div id="index-body" class="default-body"></div></body></html>
