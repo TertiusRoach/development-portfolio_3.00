@@ -9,16 +9,38 @@
 @import 'overlay/default-overlay/default-overlay.scss';
 @import 'leftbar/default-leftbar/default-leftbar.scss';
 @import 'rightbar/default-rightbar/default-rightbar.scss';
+
+@mixin orientation {
+  //--|🠋 Desktop (Landscape) - ☒ 🠋|--//
+  @media screen and (orientation: landscape) and (min-aspect-ratio: 16/9) {
+    grid-template: 4rem 1fr 4rem / 6rem 1fr 6rem; //~~|🠊 rows / columns 🠈|~~//
+
+    //~~|🠊 border: 4px dashed $red-neon; 🠈|~~//
+    //~~|🠊 background: rgba($red-dark, 0.75); 🠈|~~//
+  }
+  //--|🠋 Mobile (Portrait) - ☒ 🠋|--//
+  @media screen and (orientation: portrait) and (max-aspect-ratio: 1/1) {
+    grid-template: 6rem 1fr 6rem / 4rem 1fr 4rem; //~~|🠊 rows / columns 🠈|~~//
+
+    //~~|🠊 border: 4px dashed $blue-neon; 🠈|~~//
+    //~~|🠊 background: rgba($blue-dark, 0.75); 🠈|~~//
+  }
+  //--|🠋 Tablet (Square) - ☒ 🠋|--//
+  @media screen and (max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1) {
+    grid-template: 4rem 1fr 4rem / 4rem 1fr 4rem; //~~|🠊 rows / columns 🠈|~~//
+
+    //~~|🠊 border: 4px dashed $green-neon; 🠈|~~//
+    //~~|🠊 background: rgba($green-dark, 0.75); 🠈|~~//
+  }
+}
 body {
-  overflow: hidden; //~~|🠊 Hide the scrollbar completely 🠈|~~//
-
   height: 100vh; //~~|🠊 Force body's height to fit the screen 🠈|~~//
-
+  overflow: hidden; //~~|🠊 Hide the scrollbar completely 🠈|~~//
   background: linear-gradient(
     140deg,
     $primary-dark 0%,
     $primary-medium 50%,
-    #1f3131 100%
+    $primary-light 100%
   ); //~~|🠊 Apply the background gradient 🠈|~~//
 }
 
@@ -26,22 +48,6 @@ body {
   height: 100vh;
   display: grid;
   background: linear-gradient(140deg, $primary-dark 0%, $primary-medium 75%, $primary-dark 100%);
-  //--|🠋 Desktop (Landscape) - ☒ 🠋|--//
-  @media screen and (orientation: landscape) and (min-aspect-ratio: 16/9) {
-    grid-template: 4rem 1fr 4rem / 6rem 1fr 6rem; //~~|🠊 rows / columns 🠈|~~//
-    //~~|🠊 border: 4px dashed $red-neon; 🠈|~~//
-    //~~|🠊 background: rgba($red-dark, 0.75); 🠈|~~//
-  }
-  //--|🠋 Mobile (Portrait) - ☒ 🠋|--//
-  @media screen and (orientation: portrait) and (max-aspect-ratio: 1/1) {
-    grid-template: 6rem 1fr 6rem / 4rem 1fr 4rem; //~~|🠊 rows / columns 🠈|~~//
-    //~~|🠊 border: 4px dashed $blue-neon; 🠈|~~//
-    //~~|🠊 background: rgba($blue-dark, 0.75); 🠈|~~//
-  }
-  //--|🠋 Tablet (Square) - ☒ 🠋|--//
-  @media screen and (max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1) {
-    grid-template: 4rem 1fr 4rem / 4rem 1fr 4rem; //~~|🠊 rows / columns 🠈|~~//
-    //~~|🠊 border: 4px dashed $green-neon; 🠈|~~//
-    //~~|🠊 background: rgba($green-dark, 0.75); 🠈|~~//
-  }
+
+  @include orientation();
 }
