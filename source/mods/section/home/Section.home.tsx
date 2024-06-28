@@ -78,7 +78,6 @@ const SectionHome: React.FC<HomeProps> = ({
             <span className="home-title">
               <h3 data-text={sectionObject.title}>{sectionObject.title}</h3>
             </span>
-
             <span className="home-subject">
               <h6>{sectionObject.subject}</h6>
             </span>
@@ -88,17 +87,16 @@ const SectionHome: React.FC<HomeProps> = ({
               </span>
             </span>
 
-            <span className="home-buttons">
-              <ButtonGlow className="career-button" text="My Career" />
-              <ButtonGlow className="contact-button" text="Contact Me" />
-            </span>
-
             <aside className="home-profile">
               <img
                 src="https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content/png-files/profile-picture.png"
                 alt="Tertius Roach"
               />
             </aside>
+            <span className="home-buttons">
+              <ButtonGlow className="career-button" text="My Career" />
+              <ButtonGlow className="contact-button" text="Contact Me" />
+            </span>
           </div>
         )
       }
@@ -106,13 +104,6 @@ const SectionHome: React.FC<HomeProps> = ({
         //--|🠋 Tablet (Square) 🠋|--//
         useMediaQuery({ query: '(max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)' }) && (
           <div className={`${className} tablet-square`}>
-            <aside className="home-profile">
-              <img
-                src="https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content/png-files/profile-picture.png"
-                alt="Tertius Roach"
-              />
-            </aside>
-
             <span className="home-title">
               <h1 data-text={sectionObject.title}>{sectionObject.title}</h1>
             </span>
@@ -132,6 +123,13 @@ const SectionHome: React.FC<HomeProps> = ({
               </p>
               <h6>{sectionObject.description[2]}</h6>
             </span>
+
+            <aside className="home-profile">
+              <img
+                src="https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content/png-files/profile-picture.png"
+                alt="Tertius Roach"
+              />
+            </aside>
           </div>
         )
       }
