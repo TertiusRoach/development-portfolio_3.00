@@ -76,11 +76,11 @@ const SectionHome: React.FC<HomeProps> = ({
         useMediaQuery({ query: '(orientation: portrait) and (max-aspect-ratio: 1/1)' }) && (
           <div className={`${className} mobile-portrait`}>
             <span className="home-title">
-              <h3 data-text="My Portfolio">My Portfolio</h3>
+              <h3 data-text={sectionObject.title}>{sectionObject.title}</h3>
             </span>
 
             <span className="home-subject">
-              <h6>Why mobile is the future,</h6>
+              <h6>{sectionObject.subject}</h6>
             </span>
             <span className="home-description">
               <span className="home-description">

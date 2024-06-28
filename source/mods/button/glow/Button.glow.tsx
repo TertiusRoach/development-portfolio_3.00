@@ -6,7 +6,6 @@ interface GlowProps {
   text: string;
   className: string;
 }
-
 const ButtonGlow: React.FC<GlowProps> = ({ text, className }) => {
   let element = useRef<HTMLButtonElement>(null);
   const glowingEffect = (event: React.MouseEvent<HTMLButtonElement>) => {
