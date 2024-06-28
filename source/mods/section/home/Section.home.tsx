@@ -34,66 +34,64 @@ const SectionHome: React.FC<HomeProps> = ({ sectionText, hover: activateButton, 
       onMouseEnter={activateButton}
       onClick={(trigger) => scrollSection(trigger, '<main>')}
     >
-      <div className={className}>
-        {
-          //--|🠋 Desktop (Landscape) 🠋|--//
-          useMediaQuery({ query: desktop }) && (
-            <>
-              <span className="home-title">
-                <h1 data-text={sectionText.title}>{sectionText.title}</h1>
-              </span>
-              <span className="home-buttons">
-                <ButtonGlow className="career-button" text="My Career" />
-                <ButtonGlow className="contact-button" text="Contact Me" />
-              </span>
-              <span className="home-subject">
-                <h3>{sectionText.subject}</h3>
-              </span>
-              <span className="home-description">
-                <p>
-                  {sectionText.description[0]}
-                  <br />
-                  <br />
-                  {sectionText.description[1]}
-                </p>
-                <h6>{sectionText.description[2]}</h6>
-              </span>
-              <aside className="home-profile">
-                <img
-                  src="https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content/png-files/profile-picture.png"
-                  alt="..."
-                />
-              </aside>
-            </>
-          )
-        }
-        {
-          //--|🠋 Mobile (Portrait) 🠋|--//
-          useMediaQuery({ query: mobile }) && (
-            <>
-              {/* <h1>{text}</h1>
+      {
+        //--|🠋 Desktop (Landscape) 🠋|--//
+        useMediaQuery({ query: desktop }) && (
+          <div className={className}>
+            <span className="home-title">
+              <h1 data-text={sectionText.title}>{sectionText.title}</h1>
+            </span>
+            <span className="home-buttons">
+              <ButtonGlow className="career-button" text="My Career" />
+              <ButtonGlow className="contact-button" text="Contact Me" />
+            </span>
+            <span className="home-subject">
+              <h3>{sectionText.subject}</h3>
+            </span>
+            <span className="home-description">
+              <p>
+                {sectionText.description[0]}
+                <br />
+                <br />
+                {sectionText.description[1]}
+              </p>
+              <h6>{sectionText.description[2]}</h6>
+            </span>
+            <aside className="home-profile">
+              <img
+                src="https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content/png-files/profile-picture.png"
+                alt="..."
+              />
+            </aside>
+          </div>
+        )
+      }
+      {
+        //--|🠋 Mobile (Portrait) 🠋|--//
+        useMediaQuery({ query: mobile }) && (
+          <div className={className}>
+            {/* <h1>{text}</h1>
               <p>Paragraph</p>
               <article>
                 <h1>Article</h1>
                 <p>Another Paragraph</p>
               </article> */}
-            </>
-          )
-        }
-        {
-          //--|🠋 Tablet (Square) 🠋|--//
-          useMediaQuery({ query: tablet }) && (
-            <>
-              {/* <h1>{text}</h1>
+          </div>
+        )
+      }
+      {
+        //--|🠋 Tablet (Square) 🠋|--//
+        useMediaQuery({ query: tablet }) && (
+          <div className={className}>
+            {/* <h1>{text}</h1>
               <p>Paragraph</p>
               <article>
                 <h1>Article</h1>
                 <p>Another Paragraph</p>
               </article> */}
-            </>
-          )
-        }
-      </div>
+          </div>
+        )
+      }
     </section>
   );
 };
