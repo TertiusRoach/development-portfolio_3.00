@@ -60,7 +60,7 @@ const SectionHome: React.FC<HomeProps> = ({ sectionText, hover: activateButton, 
             <aside className="home-profile">
               <img
                 src="https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content/png-files/profile-picture.png"
-                alt="..."
+                alt="Tertius Roach"
               />
             </aside>
           </div>
@@ -86,12 +86,30 @@ const SectionHome: React.FC<HomeProps> = ({ sectionText, hover: activateButton, 
             <span className="home-title">
               <h1 data-text={sectionText.title}>{sectionText.title}</h1>
             </span>
+
+            <span className="home-buttons">
+              <ButtonGlow className="career-button" text="My Career" />
+              <ButtonGlow className="contact-button" text="Contact Me" />
+            </span>
+
+            <span className="home-subject">
+              <h3>{sectionText.subject}</h3>
+            </span>
             <aside className="home-profile">
-              {/* <img
+              <img
                 src="https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content/png-files/profile-picture.png"
-                alt="..."
-              /> */}
+                alt="Tertius Roach"
+              />
             </aside>
+            <span className="home-description">
+              <p>
+                {sectionText.description[0]}
+                <br />
+                <br />
+                {sectionText.description[1]}
+              </p>
+              <h6>{sectionText.description[2]}</h6>
+            </span>
           </div>
         )
       }

@@ -19,6 +19,10 @@
       grid-column: 5 / 6; //~~|🠊 col-start / col-end 🠈|~~//
     }
 
+    button[class*='footer'] {
+      display: none;
+    }
+
     background: rgba($red-dark, 0.75);
     //~~|🠊 border: 4px dashed $red-neon; 🠈|~~//
     //~~|🠊 background: rgba($red-dark, 0.75); 🠈|~~//
@@ -57,6 +61,11 @@
     }
     .footer-contact {
       grid-column: 4 / 5; //~~|🠊 col-start / col-end 🠈|~~//
+    }
+    button[class*='footer'] {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     background: rgba($green-dark, 0.75);
