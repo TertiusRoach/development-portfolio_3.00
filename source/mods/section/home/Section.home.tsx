@@ -78,6 +78,16 @@ const SectionHome: React.FC<HomeProps> = ({
             <span className="home-title">
               <h3 data-text={sectionObject.title}>{sectionObject.title}</h3>
             </span>
+            <aside className="home-profile">
+              <img
+                src="https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content/png-files/profile-picture.png"
+                alt="Tertius Roach"
+              />
+            </aside>
+            <span className="home-button">
+              <ButtonGlow className="career-button" text="My Career" />
+            </span>
+
             <span className="home-subject">
               <h6>{sectionObject.subject}</h6>
             </span>
@@ -85,17 +95,6 @@ const SectionHome: React.FC<HomeProps> = ({
               <span className="home-description">
                 <p>{sectionObject.description[0]}</p>
               </span>
-            </span>
-
-            <aside className="home-profile">
-              <img
-                src="https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content/png-files/profile-picture.png"
-                alt="Tertius Roach"
-              />
-            </aside>
-            <span className="home-buttons">
-              <ButtonGlow className="career-button" text="My Career" />
-              <ButtonGlow className="contact-button" text="Contact Me" />
             </span>
           </div>
         )
