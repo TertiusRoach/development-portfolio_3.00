@@ -6,7 +6,7 @@ import MainSectionHome from '../../../../mods/components/section/home/Section.ho
 import MainSectionSkills from '../../../../mods/components/section/skills/Section.skills';
 import MainSectionContact from '../../../../mods/components/section/contact/Section.contact';
 
-function defaultMain(page: string | any, label: string | any, block: string | any) {
+function DefaultMain(page: string | any, label: string | any, block: string | any) {
   const imageURI: string = 'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content';
   const homeText = {
     title: 'Multimedia Programmer',
@@ -38,7 +38,7 @@ function defaultMain(page: string | any, label: string | any, block: string | an
         view="visible"
         tag={homeText}
         //--|🠋 Functions 🠋|--//
-        onMouseHover={MainSection}
+        onMouseHover={activateButtons}
         onMouseClick={scrollToSection}
 
         /*?-|🠋 Output 🠋|-?*/
@@ -48,8 +48,9 @@ function defaultMain(page: string | any, label: string | any, block: string | an
         className="skills"
         view="hidden"
         //--|🠋 Functions 🠋|--//
-        onClick={scrollToSection}
-        onMouseHover={MainSection}
+
+        onMouseClick={scrollToSection}
+        onMouseHover={activateButtons}
 
         /*?-|🠋 Output 🠋|-?*/
       />
@@ -59,9 +60,8 @@ function defaultMain(page: string | any, label: string | any, block: string | an
         view="hidden"
         tag={(contactText = {})}
         //--|🠋 Functions 🠋|--//
-        onMouseHover={MainSection}
-        //--|🠋 Functions 🠋|--//
         onMouseClick={scrollToSection}
+        onMouseHover={activateButtons}
 
         /*?-|🠋 Output 🠋|-?*/
       />
@@ -69,7 +69,18 @@ function defaultMain(page: string | any, label: string | any, block: string | an
   );
   console.log(`//--|🠊 ${label}-${block}.tsx Loaded 🠈|--//`);
 }
-export default defaultMain;
+export default DefaultMain;
+
+const activateButtons = (): void => {
+  // console.log(element);
+  // console.log(`DesktopLandscape: (orientation: landscape) and (min-aspect-ratio: 16/9)`);
+  // console.log(`TabletSquare: (max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)`);
+  // console.log(`MobilePortrait: (orientation: portrait) and (max-aspect-ratio: 1/1)`);
+  // const desktopOrientation = ``;
+  // const tabletOrientation = ``;
+  // const mobileOrientation = ``;
+  // console.log(`${element} Hovered`);
+};
 
 export const scrollToSection = (element: React.MouseEvent<HTMLElement>, navigation: '<header>' | '<main>' | '<footer>') => {
   let getIndex = (target: HTMLElement) => {
@@ -85,54 +96,40 @@ export const scrollToSection = (element: React.MouseEvent<HTMLElement>, navigati
   };
   let getSection = (reassign: HTMLElement) => {
     while (reassign && !reassign.classList.contains('hidden')) {
-      //--|🠉 Traverse up the DOM tree for a 'hidden' class 🠉|--//
+      //--|🠉 jQuery, I get it. This code doesn't make sense. 🠉|--//
       /*
-      This while loop ensures the hover effect works across all the nested elements by
-      checking its parent for a "hidden" class to guarantee consistent behavior when
-      hovering over a <section> within the <main> tag.
+      This while loop ensures the hover effect works across all...
       */
       if (reassign.parentElement?.tagName === 'MAIN' && reassign.classList.contains('visible')) {
         break; //--|🠈 Break the loop when the selected <section> within <main> is found 🠈|--//
-      }
-      reassign = reassign.parentElement as HTMLElement;
+      } else reassign = reassign.parentElement as HTMLElement;
     }
     return reassign;
   };
 
   let section: HTMLElement;
   switch (navigation) {
-    case '<header>':
     case '<footer>':
       var validate = element.target as HTMLImageElement | HTMLHeadingElement;
       var button = validate.parentElement as HTMLButtonElement;
       var name = button.classList[0].split('-')[1] as string;
       section = document.querySelector(`main .main-${name}`) as HTMLElement;
       break;
+    case '<header>':
     case '<main>':
       section = getSection(element.target as HTMLElement);
       break;
   }
 
-  let main = section.parentElement as HTMLElement; //--|🠈 Get the clicked section's <main> container 🠈|--//
-  let height: number = section.offsetHeight as number; //--|🠈 Get the clicked section's height 🠈|--//
-  let adjust: number = main.scrollTop as number; //--|🠈 Get the current scroll position of <main> 🠈|--//
   let slot: number = getIndex(section) as number; //--|🠈 Call the helper to get the clicked section's index 🠈|--//
+  let height: number = section.offsetHeight as number; //--|🠈 Get the clicked section's height 🠈|--//
+  const main = section.parentElement as HTMLElement; //--|🠈 Get the clicked section's <main> container 🠈|--//
+  let adjust: number = main.scrollTop as number; //--|🠈 Get the current scroll position of <main> 🠈|--//
 
   //--|🠋 Animate scrolling to the clicked section 🠋|--//
   //--|🠊 jQuery gets the job done! Deal with it...for now. 🠈|--//
   $(main).animate({ scrollTop: `+=${height * slot - adjust}px` }, 250);
   return (height * slot - adjust) as number;
-};
-
-const MainSection = (): void => {
-  // console.log(element);
-  // console.log(`DesktopLandscape: (orientation: landscape) and (min-aspect-ratio: 16/9)`);
-  // console.log(`TabletSquare: (max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)`);
-  // console.log(`MobilePortrait: (orientation: portrait) and (max-aspect-ratio: 1/1)`);
-  // const desktopOrientation = ``;
-  // const tabletOrientation = ``;
-  // const mobileOrientation = ``;
-  // console.log(`${element} Hovered`);
 };
 
 export const activeButton = (element: HTMLButtonElement): void => {

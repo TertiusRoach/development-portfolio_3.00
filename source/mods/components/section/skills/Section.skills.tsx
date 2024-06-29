@@ -7,9 +7,14 @@ interface SkillsProps {
   view: 'visible' | 'hidden';
   className: string;
   onMouseHover: (element: React.MouseEvent<HTMLElement>) => void; //--|🠈 Highlights the button of the viewed section on mouse interaction. 🠈|--//
-  onClick: (trigger: React.MouseEvent<HTMLElement>, string: '<header>' | '<main>' | '<footer>') => void; //--|🠈 Centers the view on the user-clicked section. 🠈|--//
+  onMouseClick: (trigger: React.MouseEvent<HTMLElement>, string: '<header>' | '<main>' | '<footer>') => void; //--|🠈 Centers the view on the user-clicked section. 🠈|--//
 }
-const SectionSkills: React.FC<SkillsProps> = ({ className, view, onMouseHover: activateButton, onClick: scrollSection }) => {
+const SectionSkills: React.FC<SkillsProps> = ({
+  className,
+  view,
+  onMouseHover: activateButton,
+  onMouseClick: scrollSection,
+}) => {
   return (
     <section
       className={`${className} ${view}`}

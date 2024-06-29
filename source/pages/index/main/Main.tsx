@@ -1,6 +1,6 @@
 // Main.tsx
 import React from 'react';
-import defaultMain from './default-main/default-main';
+import DefaultMain from './default-main/default-main';
 
 interface MainProps {
   page: string;
@@ -11,7 +11,7 @@ const Main: React.FC<MainProps> = ({ page, label }) => {
   let block: string = 'main';
   switch (label) {
     default:
-      return defaultMain(page, label, block);
+      return DefaultMain(page, label, block);
   }
 };
 
