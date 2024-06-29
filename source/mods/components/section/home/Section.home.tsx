@@ -1,15 +1,10 @@
 import React from 'react';
 import './Section.home.scss';
-import { useEffect, useRef } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import initCanvas from '../../canvas/Canvas.propel';
+import { useEffect, useRef, useState } from 'react';
+import propelEffect from '../../canvas/Canvas.propel';
 import ButtonGlow from '../../button/glow/Button.glow';
 
-// Getting the canvas's bounding rectangle:
-
-// Calculating the mouse position relative to the canvas:
-// mouseX = event.clientX - rect.left;
-// mouseY = event.clientY - rect.top;
 interface HomeProps {
   view: 'visible' | 'hidden';
   className: string;
@@ -32,15 +27,35 @@ const SectionHome: React.FC<HomeProps> = ({
   onMouseHover: activateButton,
   onMouseClick: scrollSection,
 }) => {
-  const canvasTag = useRef<HTMLCanvasElement | null>(null);
+  const canvasToggle = useRef<HTMLCanvasElement | null>(null);
   useEffect(() => {
-    const canvas = canvasTag.current;
+    const canvas = canvasToggle.current;
     if (canvas) {
-      initCanvas(canvas);
+      propelEffect(canvas);
     } else {
       console.log('Error')!;
     }
   }, []);
+  const [visible, hidden] = useState(false);
+
+  const handleShowContent = () => {
+    // Change the className of .visible to .hidden
+    const hideElement = document.querySelector('main section canvas') as HTMLCanvasElement; // Or use a more specific selector
+    if (hideElement) {
+      hideElement.classList.add('hidden'); // Hide element using CSS class
+      hideElement.classList.remove('visible'); // Remove "visible" class if needed
+
+      // Set timeout to hide element after a delay (adjust delay as needed)
+      setTimeout(() => {
+        // Rather remove element completely.
+        hideElement.remove();
+        // hideElement.style.display = 'none';
+      }, 1000);
+    } else {
+      console.error('Error: Element not found!'); // Handle case where element doesn't exist
+    }
+    hidden(true);
+  };
 
   return (
     <section
@@ -69,26 +84,30 @@ const SectionHome: React.FC<HomeProps> = ({
             </p>
             <h6>{sectionObject.description[2]}</h6>
           </span>
-          <canvas className="home-profile" ref={canvasTag}>
-            {/* <img
-              src="https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content/png-files/profile-picture.png"
-              alt="Tertius Roach"
-            /> */}
-          </canvas>
+          <>
+            <aside className={visible ? 'home-profile visible' : 'home-profile hidden'}>
+              <img
+                src="https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content/png-files/profile-picture.png"
+                alt="Tertius Roach"
+              />
+            </aside>
+            <canvas onClick={handleShowContent} className="home-profile visible" ref={canvasToggle}></canvas>
+          </>
         </div>
       )}
       {/*--|🠋 Desktop (Landscape) 🠋|--*/}
       {useMediaQuery({ query: '(orientation: portrait) and (max-aspect-ratio: 1/1)' }) && (
         <div className={`${className} mobile-portrait`}>
-          <span className="home-title">
-            <h3 data-text={sectionObject.title}>{sectionObject.title}</h3>
-          </span>
           <aside className="home-profile">
             <img
               src="https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content/png-files/profile-picture.png"
               alt="Tertius Roach"
             />
           </aside>
+
+          <span className="home-title">
+            <h3 data-text={sectionObject.title}>{sectionObject.title}</h3>
+          </span>
           <span className="home-button">
             <ButtonGlow className="career-button" text="My Career" />
           </span>

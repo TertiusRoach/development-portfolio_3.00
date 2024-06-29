@@ -1,7 +1,8 @@
+import '../canvas/Canvas.propel.scss';
 const REPEL_SPEED = 5;
 const REPEL_RADIUS = 50;
 const RETURN_SPEED = 0.1;
-const PARTICLE_DIAMETER = 12;
+const PARTICLE_DIAMETER = 6;
 
 interface Particle {
   originX: number;
@@ -15,7 +16,7 @@ const particles: Particle[] = [];
 
 export default function CanvasPropel(canvas: HTMLCanvasElement) {
   const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
-  const img = new Image();
+  let img = new Image();
   img.crossOrigin = 'anonymous'; // Allow cross-origin image loading
   img.src =
     'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content/png-files/profile-picture.png';
@@ -49,7 +50,6 @@ export default function CanvasPropel(canvas: HTMLCanvasElement) {
           });
         }
       }
-
       drawParticles(canvas, ctx);
     } catch (error) {
       console.error('Failed to get image data:', error);
@@ -58,16 +58,16 @@ export default function CanvasPropel(canvas: HTMLCanvasElement) {
 
   let mouseX = Infinity;
   let mouseY = Infinity;
+  // canvas.addEventListener('click', () => {
+
+  //   console.log('test');
+  //   // Hide effect and use img.src
+  // });
 
   canvas.addEventListener('mousemove', (event: MouseEvent) => {
     const rect = canvas.getBoundingClientRect();
     mouseX = event.clientX - rect.left;
     mouseY = event.clientY - rect.top;
-
-    // console.log(`X: ${mouseX}px`);
-    // console.log(`Y: ${mouseY - (mouseY / 100) * 50}px`);
-
-    // mouseY;
   });
 
   canvas.addEventListener('mouseleave', () => {
@@ -114,3 +114,5 @@ export default function CanvasPropel(canvas: HTMLCanvasElement) {
     });
   }
 }
+
+let hideCanvas = () => {};
