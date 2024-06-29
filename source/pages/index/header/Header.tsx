@@ -1,7 +1,7 @@
 // Header.tsx
 import React from 'react';
 
-import defaultHeader from '../../../mods/header/resume/Header.resume';
+import defaultHeader from '../../../mods/containers/header/resume/Header.resume';
 
 interface HeaderProps {
   page: string;

@@ -2,9 +2,9 @@
 import $ from 'jquery';
 import React from 'react';
 
-import MainSectionHome from '../../../../mods/section/home/Section.home';
-import MainSectionSkills from '../../../../mods/section/skills/Section.skills';
-import MainSectionContact from '../../../../mods/section/contact/Section.contact';
+import MainSectionHome from '../../../../mods/components/section/home/Section.home';
+import MainSectionSkills from '../../../../mods/components/section/skills/Section.skills';
+import MainSectionContact from '../../../../mods/components/section/contact/Section.contact';
 
 function defaultMain(page: string | any, label: string | any, block: string | any) {
   const imageURI: string = 'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content';
