@@ -12,13 +12,23 @@
   h3,
   h4,
   h5,
-  h6,
-  p {
+  h6{
+    margin: 0;
+    padding: 0;
+    cursor: default;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  p{
     margin: 0;
     padding: 0;
     cursor: default;
     white-space: wrap;
   }
+}
+
+html {
   h1 {
     font-weight: 800;
   }
@@ -37,9 +47,6 @@
   h6 {
     font-weight: 300;
   }
-}
-
-html {
   //--|🠋 Desktop (Landscape) 🠋|--//
   @media screen and (orientation: landscape) {
     @media only screen and (min-width: 1920px) {
