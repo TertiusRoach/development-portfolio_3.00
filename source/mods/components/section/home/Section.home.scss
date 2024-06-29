@@ -5,7 +5,6 @@
   &[class*='desktop-landscape'] {
     @media screen and (orientation: landscape) and (min-aspect-ratio: 16/9) {
       //--|🠊 display: grid; 🠈|--//
-
       grid-template: auto 1fr 0.5fr 4fr / repeat(5, 1fr); //~~|🠊 rows / columns 🠈|~~//
       span[class*='title'] {
         display: inherit; //~~|🠊 display: grid; 🠈|~~//
@@ -66,6 +65,7 @@
         }
       }
       span[class*='description'] {
+        z-index: 1;
         display: flex;
         padding-bottom: 2rem;
         flex-direction: column;
@@ -87,9 +87,10 @@
       canvas[class*='profile'] {
         top: 50%;
         left: 66%;
+        z-index: 0;
         height: 100%;
         display: flex;
-        position: absolute;
+        position: fixed;
         align-items: flex-end;
         justify-content: center;
         background: transparent;

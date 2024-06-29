@@ -1,7 +1,7 @@
 const REPEL_SPEED = 5;
 const REPEL_RADIUS = 50;
 const RETURN_SPEED = 0.1;
-const PARTICLE_DIAMETER = 2;
+const PARTICLE_DIAMETER = 12;
 
 interface Particle {
   originX: number;
@@ -64,7 +64,10 @@ export default function CanvasPropel(canvas: HTMLCanvasElement) {
     mouseX = event.clientX - rect.left;
     mouseY = event.clientY - rect.top;
 
-    console.log(mouseX);
+    // console.log(`X: ${mouseX}px`);
+    // console.log(`Y: ${mouseY - (mouseY / 100) * 50}px`);
+
+    // mouseY;
   });
 
   canvas.addEventListener('mouseleave', () => {
