@@ -11,9 +11,9 @@
     {
       "type": "node",
       "request": "launch",
-      "skipFiles": ["<node_internals>/**"],
       "name": "Go Webpack",
       "runtimeExecutable": "npm",
+      "skipFiles": ["<node_internals>/**"],
       "runtimeArgs": ["run-script", "public"]
     }
   ],
