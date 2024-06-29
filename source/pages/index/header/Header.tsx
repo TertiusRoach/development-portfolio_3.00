@@ -1,6 +1,7 @@
 // Header.tsx
 import React from 'react';
-import defaultHeader from './default-header/default-header';
+
+import defaultHeader from '../../../mods/header/resume/Header.resume';
 
 interface HeaderProps {
   page: string;
@@ -12,6 +13,7 @@ const Header: React.FC<HeaderProps> = ({ page, label }) => {
   switch (label) {
     default:
       return defaultHeader(page, label, block);
+      break;
   }
   console.log('//--|🠊 Header.tsx Loaded 🠈|--//');
 };

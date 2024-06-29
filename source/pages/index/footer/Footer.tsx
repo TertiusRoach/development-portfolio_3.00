@@ -1,6 +1,6 @@
 // Footer.tsx
 import React from 'react';
-import defaultFooter from './default-footer/default-footer';
+import defaultFooter from '../../../mods/footer/resume/Footer.resume';
 
 interface FooterProps {
   page: string;
