@@ -82,6 +82,22 @@
           filter: drop-shadow(0 0 4px black);
         }
       }
+
+      canvas[class*='profile'] {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        padding: 2rem / 0;
+        grid-area: 1 / 3 / 5 / 6; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+        background: $yellow-dark;
+        grid-template: repeat(3, auto) / repeat(3, auto); //~~|🠊 rows / columns 🠈|~~//
+
+        img {
+          width: 100%;
+          grid-area: 2 / 2 / 3 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+        }
+      }
+
       aside[class*='profile'] {
         display: grid;
         padding: 2rem / 0;
@@ -295,7 +311,6 @@
     }
   }
 }
-
 section {
   //--|🠊 display: grid; 🠈|--//
   div[class*='home'] {
