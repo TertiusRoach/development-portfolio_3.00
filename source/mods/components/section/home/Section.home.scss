@@ -5,6 +5,7 @@
   &[class*='desktop-landscape'] {
     @media screen and (orientation: landscape) and (min-aspect-ratio: 16/9) {
       //--|🠊 display: grid; 🠈|--//
+
       grid-template: auto 1fr 0.5fr 4fr / repeat(5, 1fr); //~~|🠊 rows / columns 🠈|~~//
       span[class*='title'] {
         display: inherit; //~~|🠊 display: grid; 🠈|~~//
@@ -84,20 +85,21 @@
       }
 
       canvas[class*='profile'] {
-        width: 100%;
+        top: 50%;
+        left: 66%;
         height: 100%;
-        display: grid;
-        padding: 2rem / 0;
+        display: flex;
+        position: absolute;
+        align-items: flex-end;
+        justify-content: center;
+        background: transparent;
+        // border: 2px solid white;
         grid-area: 1 / 3 / 5 / 6; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-        background: $yellow-dark;
+        transform: translate(-50%, -50%);
         grid-template: repeat(3, auto) / repeat(3, auto); //~~|🠊 rows / columns 🠈|~~//
-
-        img {
-          width: 100%;
-          grid-area: 2 / 2 / 3 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-        }
       }
 
+      /*
       aside[class*='profile'] {
         display: grid;
         padding: 2rem / 0;
@@ -109,6 +111,7 @@
           grid-area: 2 / 2 / 3 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
         }
       }
+      */
     }
   }
 }

@@ -15,8 +15,8 @@ const particles: Particle[] = [];
 
 export default function CanvasPropel(canvas: HTMLCanvasElement) {
   const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
-
   const img = new Image();
+  img.crossOrigin = 'anonymous'; // Allow cross-origin image loading
   img.src =
     'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content/png-files/profile-picture.png';
 
@@ -26,38 +26,45 @@ export default function CanvasPropel(canvas: HTMLCanvasElement) {
 
     ctx.drawImage(img, 0, 0);
 
-    const imageData = ctx.getImageData(0, 0, img.width, img.height).data;
+    try {
+      const imageData = ctx.getImageData(0, 0, img.width, img.height).data;
 
-    const numRows = Math.round(img.height / PARTICLE_DIAMETER);
-    const numColumns = Math.round(img.width / PARTICLE_DIAMETER);
+      const numRows = Math.round(img.height / PARTICLE_DIAMETER);
+      const numColumns = Math.round(img.width / PARTICLE_DIAMETER);
 
-    for (let row = 0; row < numRows; row++) {
-      for (let column = 0; column < numColumns; column++) {
-        const pixelIndex = (row * PARTICLE_DIAMETER * img.width + column * PARTICLE_DIAMETER) * 4;
-        const red = imageData[pixelIndex];
-        const green = imageData[pixelIndex + 1];
-        const blue = imageData[pixelIndex + 2];
-        const alpha = imageData[pixelIndex + 3];
+      for (let row = 0; row < numRows; row++) {
+        for (let column = 0; column < numColumns; column++) {
+          const pixelIndex = (row * PARTICLE_DIAMETER * img.width + column * PARTICLE_DIAMETER) * 4;
+          const red = imageData[pixelIndex];
+          const green = imageData[pixelIndex + 1];
+          const blue = imageData[pixelIndex + 2];
+          const alpha = imageData[pixelIndex + 3];
 
-        particles.push({
-          axisX: Math.floor(Math.random() * numColumns * PARTICLE_DIAMETER),
-          axisY: Math.floor(Math.random() * numRows * PARTICLE_DIAMETER),
-          originX: column * PARTICLE_DIAMETER + PARTICLE_DIAMETER / 2,
-          originY: row * PARTICLE_DIAMETER + PARTICLE_DIAMETER / 2,
-          color: `rgba(${red}, ${green}, ${blue}, ${alpha / 255})`,
-        });
+          particles.push({
+            axisX: Math.floor(Math.random() * numColumns * PARTICLE_DIAMETER),
+            axisY: Math.floor(Math.random() * numRows * PARTICLE_DIAMETER),
+            originX: column * PARTICLE_DIAMETER + PARTICLE_DIAMETER / 2,
+            originY: row * PARTICLE_DIAMETER + PARTICLE_DIAMETER / 2,
+            color: `rgba(${red}, ${green}, ${blue}, ${alpha / 255})`,
+          });
+        }
       }
-    }
 
-    drawParticles(canvas, ctx);
+      drawParticles(canvas, ctx);
+    } catch (error) {
+      console.error('Failed to get image data:', error);
+    }
   };
 
   let mouseX = Infinity;
   let mouseY = Infinity;
 
   canvas.addEventListener('mousemove', (event: MouseEvent) => {
-    mouseX = event.offsetX;
-    mouseY = event.offsetY;
+    const rect = canvas.getBoundingClientRect();
+    mouseX = event.clientX - rect.left;
+    mouseY = event.clientY - rect.top;
+
+    console.log(mouseX);
   });
 
   canvas.addEventListener('mouseleave', () => {

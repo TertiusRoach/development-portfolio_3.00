@@ -1,10 +1,15 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import './Section.home.scss';
+import { useEffect, useRef } from 'react';
 import { useMediaQuery } from 'react-responsive';
-
-import ButtonGlow from '../../button/glow/Button.glow';
 import initCanvas from '../../canvas/Canvas.propel';
+import ButtonGlow from '../../button/glow/Button.glow';
 
+// Getting the canvas's bounding rectangle:
+
+// Calculating the mouse position relative to the canvas:
+// mouseX = event.clientX - rect.left;
+// mouseY = event.clientY - rect.top;
 interface HomeProps {
   view: 'visible' | 'hidden';
   className: string;
@@ -20,7 +25,6 @@ interface HomeProps {
   onMouseHover: (element: React.MouseEvent<HTMLElement>) => void;
   onMouseClick: (trigger: React.MouseEvent<HTMLElement>, string: '<header>' | '<main>' | '<footer>') => void;
 }
-
 const SectionHome: React.FC<HomeProps> = ({
   className,
   view,
@@ -29,7 +33,6 @@ const SectionHome: React.FC<HomeProps> = ({
   onMouseClick: scrollSection,
 }) => {
   const canvasTag = useRef<HTMLCanvasElement | null>(null);
-
   useEffect(() => {
     const canvas = canvasTag.current;
     if (canvas) {
