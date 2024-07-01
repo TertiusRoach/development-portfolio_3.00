@@ -208,8 +208,8 @@
 section {
   //--|🠊 display: grid; 🠈|--//
   div[class*='home'] {
-    @include desktop-landsacape();
     @include mobile-portrait();
+    @include desktop-landsacape();
 
     .hidden {
       z-index: 0;

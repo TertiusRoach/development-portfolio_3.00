@@ -28,13 +28,6 @@ const ButtonGlow: React.FC<GlowProps> = ({ className, buttonText, deviceRatio })
       case 'desktop':
         return (
           <button ref={element} className={`${className} glow`} onClick={handleClick} onMouseMove={glowingEffect}>
-            <h6>{buttonText}</h6>
-            <div className="background"></div>
-          </button>
-        );
-      case 'tablet':
-        return (
-          <button ref={element} className={`${className} glow`} onClick={handleClick} onMouseMove={glowingEffect}>
             <h3>{buttonText}</h3>
             <div className="background"></div>
           </button>
@@ -43,13 +36,6 @@ const ButtonGlow: React.FC<GlowProps> = ({ className, buttonText, deviceRatio })
         return (
           <button ref={element} className={`${className} glow`} onClick={handleClick} onMouseMove={glowingEffect}>
             <h1>{buttonText}</h1>
-            <div className="background"></div>
-          </button>
-        );
-      default:
-        return (
-          <button ref={element} className={`${className} glow`} onClick={handleClick} onMouseMove={glowingEffect}>
-            <h4>{buttonText}</h4>
             <div className="background"></div>
           </button>
         );
