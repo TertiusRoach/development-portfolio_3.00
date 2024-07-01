@@ -14,7 +14,7 @@ interface Particle {
 
 const particles: Particle[] = [];
 
-export default function CanvasPropel(canvas: HTMLCanvasElement) {
+function CanvasPropel(canvas: HTMLCanvasElement | any) {
   const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
   let img = new Image();
   img.crossOrigin = 'anonymous'; // Allow cross-origin image loading
@@ -116,3 +116,5 @@ export default function CanvasPropel(canvas: HTMLCanvasElement) {
 }
 
 let hideCanvas = () => {};
+
+export default CanvasPropel;
