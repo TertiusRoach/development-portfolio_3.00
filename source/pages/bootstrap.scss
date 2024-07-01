@@ -1,0 +1,51 @@
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/mixins/banner';
+@include bsBanner('');
+
+// scss-docs-start import-stack
+// Configuration
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/functions';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/variables';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/variables-dark';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/maps';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/mixins';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/utilities';
+
+// Layout & components
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/root';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/reboot';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/type';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/images';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/containers';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/grid';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/tables';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/forms';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/buttons';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/transitions';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/dropdown';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/button-group';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/nav';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/navbar';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/card';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/accordion';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/breadcrumb';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/pagination';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/badge';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/alert';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/progress';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/list-group';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/close';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/toasts';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/modal';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/tooltip';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/popover';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/carousel';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/spinners';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/offcanvas';
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/placeholders';
+
+// Helpers
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/helpers';
+
+// Utilities
+@import '../tools/vendors/bootstrap/5.3.3/source/scss/utilities/api';
+// scss-docs-end import-stack
