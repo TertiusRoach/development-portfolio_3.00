@@ -7,21 +7,28 @@ button[class*='glow'] {
   position: relative;
   border-radius: 0.25rem;
   filter: drop-shadow(0 0 0.5rem rgba(black, 0.75));
-  h6 {
-    z-index: 1;
-    cursor: pointer;
-    position: relative;
-    margin: 0.5rem 1rem;
-    color: $primary-medium;
-    transition: color 0.25s ease-in-out;
-    filter: drop-shadow(0 0 4px black);
+  & {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      z-index: 1;
+      cursor: pointer;
+      position: relative;
+      margin: 0.5rem 1rem;
+      color: $primary-medium;
+      transition: color 0.25s ease-in-out;
+      filter: drop-shadow(0 0 4px black);
 
-    &:hover {
-      color: white;
-      filter: drop-shadow(0 0 4px rgba($primary-light, 0.25));
-    }
-    &:hover ~ div {
-      background: $primary-light;
+      &:hover {
+        color: white;
+        filter: drop-shadow(0 0 4px rgba($primary-light, 0.25));
+      }
+      &:hover ~ div {
+        background: $primary-light;
+      }
     }
   }
   div {
@@ -57,7 +64,6 @@ button[class*='glow'] {
       background: radial-gradient(circle, rgba(black, 0.8) 0%, rgba(black, 0.75) 100%);
     }
   }
-
   &:hover div::before {
     //--|🠊 This keeps the glow when hoverwing over the button 🠈|--//
     opacity: 1;

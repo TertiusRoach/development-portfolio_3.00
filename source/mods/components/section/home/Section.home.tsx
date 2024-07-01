@@ -1,9 +1,8 @@
-import React from 'react';
 import './Section.home.scss';
 import { useMediaQuery } from 'react-responsive';
-import { useEffect, useRef, useState } from 'react';
 import propelEffect from '../../canvas/Canvas.propel';
 import ButtonGlow from '../../button/glow/Button.glow';
+import React, { useEffect, useRef, useState } from 'react';
 
 interface HomeProps {
   view: 'visible' | 'hidden';
@@ -20,6 +19,7 @@ interface HomeProps {
   onMouseHover: (element: React.MouseEvent<HTMLElement>) => void;
   onMouseClick: (trigger: React.MouseEvent<HTMLElement>, string: '<header>' | '<main>' | '<footer>') => void;
 }
+
 const SectionHome: React.FC<HomeProps> = ({
   className,
   view,
@@ -27,35 +27,19 @@ const SectionHome: React.FC<HomeProps> = ({
   onMouseHover: activateButton,
   onMouseClick: scrollSection,
 }) => {
-  const canvasToggle = useRef<HTMLCanvasElement | null>(null);
+  const [visibleCanvas, hiddenCanvas] = useState(true);
+  const loadCanvas = useRef<HTMLCanvasElement | null>(null);
+  const toggleCanvas = () => {
+    hiddenCanvas(!visibleCanvas);
+  };
   useEffect(() => {
-    const canvas = canvasToggle.current;
+    const canvas = loadCanvas.current;
     if (canvas) {
       propelEffect(canvas);
     } else {
-      console.log('Error')!;
+      console.log(`//--|🠊 No <canvas> element loaded for this orientation 🠈|--//`);
     }
   }, []);
-  const [visible, hidden] = useState(false);
-
-  const handleShowContent = () => {
-    // Change the className of .visible to .hidden
-    const hideElement = document.querySelector('main section canvas') as HTMLCanvasElement; // Or use a more specific selector
-    if (hideElement) {
-      hideElement.classList.add('hidden'); // Hide element using CSS class
-      hideElement.classList.remove('visible'); // Remove "visible" class if needed
-
-      // Set timeout to hide element after a delay (adjust delay as needed)
-      setTimeout(() => {
-        // Rather remove element completely.
-        hideElement.remove();
-        // hideElement.style.display = 'none';
-      }, 1000);
-    } else {
-      console.error('Error: Element not found!'); // Handle case where element doesn't exist
-    }
-    hidden(true);
-  };
 
   return (
     <section
@@ -63,73 +47,15 @@ const SectionHome: React.FC<HomeProps> = ({
       onMouseEnter={activateButton}
       onClick={(trigger) => scrollSection(trigger, '<main>')}
     >
+      {/*--|🠋 Desktop (Landscape) 🠋|--*/}
       {useMediaQuery({ query: '(orientation: landscape) and (min-aspect-ratio: 16/9)' }) && (
         <div className={`${className} desktop-landscape`}>
           <span className="home-title">
             <h1 data-text={sectionObject.title}>{sectionObject.title}</h1>
           </span>
           <span className="home-buttons">
-            <ButtonGlow className="career-button" text="My Career" />
-            <ButtonGlow className="contact-button" text="Contact Me" />
-          </span>
-          <span className="home-subject">
-            <h6>{sectionObject.subject}</h6>
-          </span>
-          <span className="home-description">
-            <p>
-              {sectionObject.description[0]}
-              <br />
-              <br />
-              {sectionObject.description[1]}
-            </p>
-            <h6>{sectionObject.description[2]}</h6>
-          </span>
-          <>
-            <aside className={visible ? 'home-profile visible' : 'home-profile hidden'}>
-              <img
-                src="https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content/png-files/profile-picture.png"
-                alt="Tertius Roach"
-              />
-            </aside>
-            <canvas onClick={handleShowContent} className="home-profile visible" ref={canvasToggle}></canvas>
-          </>
-        </div>
-      )}
-      {/*--|🠋 Desktop (Landscape) 🠋|--*/}
-      {useMediaQuery({ query: '(orientation: portrait) and (max-aspect-ratio: 1/1)' }) && (
-        <div className={`${className} mobile-portrait`}>
-          <aside className="home-profile">
-            <img
-              src="https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content/png-files/profile-picture.png"
-              alt="Tertius Roach"
-            />
-          </aside>
-
-          <span className="home-title">
-            <h3 data-text={sectionObject.title}>{sectionObject.title}</h3>
-          </span>
-          <span className="home-button">
-            <ButtonGlow className="career-button" text="My Career" />
-          </span>
-          <span className="home-subject">
-            <h6>{sectionObject.subject}</h6>
-          </span>
-          <span className="home-description">
-            <span className="home-description">
-              <p>{sectionObject.description[0]}</p>
-            </span>
-          </span>
-        </div>
-      )}
-      {/*--|🠋 Mobile (Portrait) 🠋|--*/}
-      {useMediaQuery({ query: '(max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)' }) && (
-        <div className={`${className} tablet-square`}>
-          <span className="home-title">
-            <h1 data-text={sectionObject.title}>{sectionObject.title}</h1>
-          </span>
-          <span className="home-buttons">
-            <ButtonGlow className="career-button" text="My Career" />
-            <ButtonGlow className="contact-button" text="Contact Me" />
+            <ButtonGlow className="career-button" buttonText="My Career" deviceRatio="desktop" />
+            <ButtonGlow className="contact-button" buttonText="Contact Me" deviceRatio="desktop" />
           </span>
           <span className="home-subject">
             <h3>{sectionObject.subject}</h3>
@@ -141,9 +67,45 @@ const SectionHome: React.FC<HomeProps> = ({
               <br />
               {sectionObject.description[1]}
             </p>
-            <h6>{sectionObject.description[2]}</h6>
+            <h4>{sectionObject.description[2]}</h4>
           </span>
-          <aside className="home-profile">
+
+          {/*  ref={loadCanvas} dissappears when I rotate the screen. How can I tell react to reload the canvas when the screen is rotated?*/}
+          <aside className="home-profile" onClick={toggleCanvas}>
+            <img
+              className={`${visibleCanvas ? 'hidden' : 'visible'}`}
+              src="https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content/png-files/profile-picture.png"
+              alt="Tertius Roach"
+            />
+            <canvas className={`${visibleCanvas ? 'visible' : 'hidden'}`} ref={loadCanvas}></canvas>
+          </aside>
+        </div>
+      )}
+      {/*--|🠋 Tablet (Square) 🠋|--*/}
+      {useMediaQuery({ query: '(max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)' }) && (
+        <div className={`${className} tablet-square`}>
+          <span className="home-title">
+            <h1 data-text={sectionObject.title}>{sectionObject.title}</h1>
+          </span>
+          <span className="home-buttons">
+            <ButtonGlow className="career-button" buttonText="My Career" deviceRatio="tablet" />
+            <ButtonGlow className="contact-button" buttonText="Contact Me" deviceRatio="tablet" />
+          </span>
+          <span className="home-subject">
+            <h3>{sectionObject.subject}</h3>
+          </span>
+          <span className="home-description">
+            <p>
+              {sectionObject.description[0]}
+              <br />
+              <br />
+              {sectionObject.description[1]}
+            </p>
+
+            <h4>{sectionObject.description[2]}</h4>
+          </span>
+
+          <aside className="home-profile" onClick={toggleCanvas}>
             <img
               src="https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content/png-files/profile-picture.png"
               alt="Tertius Roach"
@@ -151,7 +113,36 @@ const SectionHome: React.FC<HomeProps> = ({
           </aside>
         </div>
       )}
-      {/*--|🠋 Tablet (Square) 🠋|--*/}
+      {/*--|🠋 Mobile (Portrait) 🠋|--*/}
+      {useMediaQuery({ query: '(orientation: portrait) and (max-aspect-ratio: 1/1)' }) && (
+        <div className={`${className} mobile-portrait`}>
+          <span className="home-title">
+            <h1 data-text={sectionObject.title}>{sectionObject.title}</h1>
+          </span>
+          <span className="home-button">
+            <ButtonGlow className="career-button" buttonText="My Career" deviceRatio="mobile" />
+          </span>
+          <span className="home-subject">
+            <h3>{sectionObject.subject}</h3>
+          </span>
+          <span className="home-description">
+            <p>
+              {sectionObject.description[0]}
+              <br />
+              <br />
+              {sectionObject.description[1]}
+            </p>
+            <h4>{sectionObject.description[2]}</h4>
+          </span>
+
+          <aside className="home-profile" onClick={toggleCanvas}>
+            <img
+              src="https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content/png-files/profile-picture.png"
+              alt="Tertius Roach"
+            />
+          </aside>
+        </div>
+      )}
     </section>
   );
 };

@@ -26,20 +26,8 @@ main[id*='index'] {
       //--|🠊 display: grid; 🠈|--//
       grid-template: 2rem 1fr 2rem / 3rem 1fr 3rem; //~~|🠊 rows / columns 🠈|~~//
 
-      // background: rgba($red-dark, 0.75);
       //~~|🠊 border: 4px dashed $red-neon; 🠈|~~//
       //~~|🠊 background: rgba($red-dark, 0.75); 🠈|~~//
-      /*
-      .main-home {
-        // background: rgba($red-dark, 0.5);
-      }
-      .main-skills {
-        // background: rgba($red-light, 0.5);
-      }
-      .main-contact {
-        // background: rgba($red-neon, 0.5);
-      }
-      */
     }
   }
   //--|🠋 Mobile (Portrait) - ☒ 🠋|--//
@@ -49,23 +37,8 @@ main[id*='index'] {
       //--|🠊 display: grid; 🠈|--//
       grid-template: 3rem 1fr 3rem / 2rem 1fr 2rem; //~~|🠊 rows / columns 🠈|~~//
 
-      // background: rgba($blue-dark, 0.75);
       //~~|🠊 border: 4px dashed $blue-neon; 🠈|~~//
       //~~|🠊 background: rgba($blue-dark, 0.75); 🠈|~~//
-      /*
-      .main-home {
-        // display: none;
-        // background: rgba($blue-dark, 0.5);
-      }
-      .main-skills {
-        // display: none;
-        // background: rgba($blue-light, 0.5);
-      }
-      .main-contact {
-        // display: none;
-        // background: rgba($blue-neon, 0.5);
-      }
-      */
     }
   }
   //--|🠋 Tablet (Square) - ☒ 🠋|--//
@@ -75,46 +48,8 @@ main[id*='index'] {
       //--|🠊 display: grid; 🠈|--//
       grid-template: 2rem 1fr 2rem / 2rem 1fr 2rem; //~~|🠊 rows / columns 🠈|~~//
 
-      // background: rgba($green-dark, 0.75);
       //~~|🠊 border: 4px dashed $green-neon; 🠈|~~//
       //~~|🠊 background: rgba($green-dark, 0.75); 🠈|~~//
-      /*
-      .main-home {
-        // background: rgba($green-dark, 0.5);
-      }
-      .main-skills {
-        // background: rgba($green-light, 0.5);
-      }
-      .main-contact {
-        // background: rgba($green-neon, 0.5);
-      }
-      */
     }
   }
 }
-
-/*
-// @import './MainHome.scss';
-// @import './MainSkills.scss';
-// @import './MainContact.scss';
-main[id*='default'] {
-  section[id*='main'] {
-    display: grid;
-    grid-template: 1fr / 1fr; //~~|🠊 rows / columns 🠈|~~//
-    div[class*='margin'] {
-      width: 100%;
-      display: inherit;
-      position: relative;
-      grid-template: 1fr / 1fr; //~~|🠊 rows / columns 🠈|~~//
-      grid-area: 1 / 1 / 2 / 2; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-      .expanded {
-        z-index: 1;
-        clip-path: inset(0 0 0 0); //~~|🠊 top / right / bottom / left 🠈|~~//
-      }
-      .collapsed {
-        z-index: 0;
-      }
-    }
-  }
-}
-*/
