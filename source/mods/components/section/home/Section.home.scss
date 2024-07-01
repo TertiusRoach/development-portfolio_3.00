@@ -190,10 +190,12 @@
         grid-area: 2 / 1 / 6 / 2; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
         justify-content: space-around;
       }
+
       aside[class*='profile'] {
         z-index: 0;
         grid-area: 2 / 1 / 12 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-
+        display: flex;
+        justify-content: center;
         img {
           height: 100%;
           cursor: default;
@@ -302,10 +304,6 @@
       }
     }
   }
-  // &[class*='desktop-landscape'],
-  // &[class*='mobile-portrait'] {
-  //   display: none;
-  // }
 }
 section {
   //--|🠊 display: grid; 🠈|--//
