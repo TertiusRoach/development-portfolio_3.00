@@ -3,9 +3,9 @@ import $ from 'jquery';
 import React from 'react';
 
 import { findDevice } from '../../../../mods/containers/main/Main';
-import MainSectionHome from '../../../../mods/components/section/home/Section.home';
-import MainSectionSkills from '../../../../mods/components/section/skills/Section.skills';
-import MainSectionContact from '../../../../mods/components/section/contact/Section.contact';
+import ConSectionHome from '../../../../mods/components/section/home/Section.home';
+import ConSectionSkills from '../../../../mods/components/section/skills/Section.skills';
+import ConSectionContact from '../../../../mods/components/section/contact/Section.contact';
 
 console.log(findDevice());
 function DefaultMain(page: string | any, label: string | any, block: string | any) {
@@ -34,7 +34,7 @@ function DefaultMain(page: string | any, label: string | any, block: string | an
   let contactText: Object = {};
   return (
     <main style={{ zIndex: 0 }} id={`${page}-${block}`} className={`${label}-${block}`}>
-      <MainSectionHome
+      <ConSectionHome
         //--|🠋 Input 🠋|--//
         className="home"
         view="visible"
@@ -45,7 +45,7 @@ function DefaultMain(page: string | any, label: string | any, block: string | an
 
         /*?-|🠋 Output 🠋|-?*/
       />
-      <MainSectionSkills
+      <ConSectionSkills
         //--|🠋 Input 🠋|--//
         className="skills"
         view="hidden"
@@ -55,7 +55,7 @@ function DefaultMain(page: string | any, label: string | any, block: string | an
 
         /*?-|🠋 Output 🠋|-?*/
       />
-      <MainSectionContact
+      <ConSectionContact
         //--|🠋 Input 🠋|--//
         className="contact"
         view="hidden"

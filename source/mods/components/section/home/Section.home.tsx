@@ -84,23 +84,25 @@ const SectionHome: React.FC<HomeProps> = ({
       {/*--|🠋 Mobile (Portrait) 🠋|--*/}
       {useMediaQuery({ query: '(orientation: portrait)' }) && (
         <div className={`${className} mobile-portrait`}>
-          <span className="home-title">
-            <h1 data-text={Object.title}>{Object.title}</h1>
+          <span className="home-title max-width: 100%">
+            <h1 className="display-1" data-text={Object.title}>
+              {Object.title}
+            </h1>
           </span>
           <span className="home-button">
             <ButtonGlow className="career-button" buttonText="My Career" deviceRatio="mobile" />
           </span>
           <span className="home-subject">
-            <h3>{Object.subject}</h3>
+            <h3 className="display-3">{Object.subject}</h3>
           </span>
           <span className="home-description">
-            <p>
+            <p className="display-6">
               {Object.description[0]}
               <br />
               <br />
               {Object.description[1]}
             </p>
-            <h4>{Object.description[2]}</h4>
+            <h4 className="display-4">{Object.description[2]}</h4>
           </span>
 
           <aside className="home-profile" onClick={toggleCanvas}>

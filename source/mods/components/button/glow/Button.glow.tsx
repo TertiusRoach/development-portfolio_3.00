@@ -7,10 +7,8 @@ interface GlowProps {
   buttonText: string;
   deviceRatio: 'desktop' | 'mobile' | 'tablet' | string;
 }
-
 const ButtonGlow: React.FC<GlowProps> = ({ className, buttonText, deviceRatio }) => {
   const element = useRef<HTMLButtonElement>(null);
-
   const glowingEffect = (event: React.MouseEvent<HTMLButtonElement>) => {
     if (element.current) {
       const rect = element.current.getBoundingClientRect();
@@ -21,7 +19,6 @@ const ButtonGlow: React.FC<GlowProps> = ({ className, buttonText, deviceRatio })
       element.current.style.setProperty('--y', `${y}px`);
     }
   };
-
   const ButtonContent = (className: string, device: string) => {
     const handleClick = () => scrollSections(className);
     switch (device) {
@@ -35,7 +32,7 @@ const ButtonGlow: React.FC<GlowProps> = ({ className, buttonText, deviceRatio })
       case 'mobile':
         return (
           <button ref={element} className={`${className} glow`} onClick={handleClick} onMouseMove={glowingEffect}>
-            <h1>{buttonText}</h1>
+            <h1 className="display-1">{buttonText}</h1>
             <div className="background"></div>
           </button>
         );
