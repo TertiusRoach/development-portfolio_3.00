@@ -23,7 +23,7 @@ const SectionSkills: React.FC<SkillsProps> = ({
     >
       {
         //--|🠋 Desktop (Landscape) 🠋|--//
-        useMediaQuery({ query: desktop }) && (
+        useMediaQuery({ query: 'orientation: landscape' }) && (
           <div className={`${className} desktop-landscape`}>
             {/* <h1>{text}</h1>
               <p>Paragraph</p>
@@ -36,21 +36,8 @@ const SectionSkills: React.FC<SkillsProps> = ({
       }
       {
         //--|🠋 Mobile (Portrait) 🠋|--//
-        useMediaQuery({ query: mobile }) && (
+        useMediaQuery({ query: 'orientation: portrait' }) && (
           <div className={`${className} mobile-portrait`}>
-            {/* <h1>{text}</h1>
-              <p>Paragraph</p>
-              <article>
-                <h1>Article</h1>
-                <p>Another Paragraph</p>
-              </article> */}
-          </div>
-        )
-      }
-      {
-        //--|🠋 Tablet (Square) 🠋|--//
-        useMediaQuery({ query: tablet }) && (
-          <div className={`${className} tablet-square`}>
             {/* <h1>{text}</h1>
               <p>Paragraph</p>
               <article>
@@ -63,9 +50,8 @@ const SectionSkills: React.FC<SkillsProps> = ({
     </section>
   );
 };
-const desktop: string = '(orientation: landscape) and (min-aspect-ratio: 16/9)';
-const mobile: string = '(orientation: portrait) and (max-aspect-ratio: 1/1)';
-const tablet: string = '(max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)';
+const desktop: string = '';
+const mobile: string = '';
 export default SectionSkills;
 
 /*
