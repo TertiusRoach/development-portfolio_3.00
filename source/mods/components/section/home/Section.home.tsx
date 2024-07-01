@@ -1,8 +1,9 @@
+import React from 'react';
 import './Section.home.scss';
 import { useMediaQuery } from 'react-responsive';
+import { useEffect, useRef, useState } from 'react';
 import propelEffect from '../../canvas/Canvas.propel';
 import ButtonGlow from '../../button/glow/Button.glow';
-import React, { useEffect, useRef, useState } from 'react';
 
 interface HomeProps {
   view: 'visible' | 'hidden';
@@ -19,7 +20,6 @@ interface HomeProps {
   onMouseHover: (element: React.MouseEvent<HTMLElement>) => void;
   onMouseClick: (trigger: React.MouseEvent<HTMLElement>, string: '<header>' | '<main>' | '<footer>') => void;
 }
-
 const SectionHome: React.FC<HomeProps> = ({
   className,
   view,
@@ -81,6 +81,36 @@ const SectionHome: React.FC<HomeProps> = ({
           </aside>
         </div>
       )}
+      {/*--|🠋 Mobile (Portrait) 🠋|--*/}
+      {useMediaQuery({ query: '(orientation: portrait) and (max-aspect-ratio: 1/1)' }) && (
+        <div className={`${className} mobile-portrait`}>
+          <span className="home-title">
+            <h1 data-text={sectionObject.title}>{sectionObject.title}</h1>
+          </span>
+          <span className="home-button">
+            <ButtonGlow className="career-button" buttonText="My Career" deviceRatio="mobile" />
+          </span>
+          <span className="home-subject">
+            <h3>{sectionObject.subject}</h3>
+          </span>
+          <span className="home-description">
+            <p>
+              {sectionObject.description[0]}
+              <br />
+              <br />
+              {sectionObject.description[1]}
+            </p>
+            <h4>{sectionObject.description[2]}</h4>
+          </span>
+
+          <aside className="home-profile" onClick={toggleCanvas}>
+            <img
+              src="https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content/png-files/profile-picture.png"
+              alt="Tertius Roach"
+            />
+          </aside>
+        </div>
+      )}
       {/*--|🠋 Tablet (Square) 🠋|--*/}
       {useMediaQuery({ query: '(max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)' }) && (
         <div className={`${className} tablet-square`}>
@@ -102,36 +132,6 @@ const SectionHome: React.FC<HomeProps> = ({
               {sectionObject.description[1]}
             </p>
 
-            <h4>{sectionObject.description[2]}</h4>
-          </span>
-
-          <aside className="home-profile" onClick={toggleCanvas}>
-            <img
-              src="https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content/png-files/profile-picture.png"
-              alt="Tertius Roach"
-            />
-          </aside>
-        </div>
-      )}
-      {/*--|🠋 Mobile (Portrait) 🠋|--*/}
-      {useMediaQuery({ query: '(orientation: portrait) and (max-aspect-ratio: 1/1)' }) && (
-        <div className={`${className} mobile-portrait`}>
-          <span className="home-title">
-            <h1 data-text={sectionObject.title}>{sectionObject.title}</h1>
-          </span>
-          <span className="home-button">
-            <ButtonGlow className="career-button" buttonText="My Career" deviceRatio="mobile" />
-          </span>
-          <span className="home-subject">
-            <h3>{sectionObject.subject}</h3>
-          </span>
-          <span className="home-description">
-            <p>
-              {sectionObject.description[0]}
-              <br />
-              <br />
-              {sectionObject.description[1]}
-            </p>
             <h4>{sectionObject.description[2]}</h4>
           </span>
 
