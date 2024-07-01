@@ -146,5 +146,4 @@ const SectionHome: React.FC<HomeProps> = ({
     </section>
   );
 };
-
 export default SectionHome;
