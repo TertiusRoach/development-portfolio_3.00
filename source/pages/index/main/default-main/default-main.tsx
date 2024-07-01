@@ -2,10 +2,12 @@
 import $ from 'jquery';
 import React from 'react';
 
+import { findDevice } from '../../../../mods/containers/main/Main';
 import MainSectionHome from '../../../../mods/components/section/home/Section.home';
 import MainSectionSkills from '../../../../mods/components/section/skills/Section.skills';
 import MainSectionContact from '../../../../mods/components/section/contact/Section.contact';
 
+console.log(findDevice());
 function DefaultMain(page: string | any, label: string | any, block: string | any) {
   const imageURI: string = 'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content';
   const homeText = {
@@ -48,7 +50,6 @@ function DefaultMain(page: string | any, label: string | any, block: string | an
         className="skills"
         view="hidden"
         //--|🠋 Functions 🠋|--//
-
         onMouseClick={scrollToSection}
         onMouseHover={activateButtons}
 
