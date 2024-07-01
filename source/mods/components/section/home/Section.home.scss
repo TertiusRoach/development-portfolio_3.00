@@ -3,7 +3,7 @@
 @mixin desktop-landsacape {
   //--|🠋 Desktop (Landscape) - ☐ 🠋|--//
   &[class*='desktop-landscape'] {
-    @media screen and (orientation: landscape) and (min-aspect-ratio: 16/9) {
+    @media screen and (orientation: landscape) {
       //--|🠊 display: grid; 🠈|--//
       grid-template: auto 1fr 0.5fr 4fr / repeat(5, 1fr); //~~|🠊 rows / columns 🠈|~~//
       span[class*='title'] {
@@ -110,7 +110,7 @@
 @mixin mobile-portrait {
   //--|🠋 Mobile (Portrait) - ☐ 🠋|--//
   &[class*='mobile-portrait'] {
-    @media screen and (orientation: portrait) and (max-aspect-ratio: 1/1) {
+    @media screen and (orientation: portrait) {
       //--|🠊 display: grid; 🠈|--//
       grid-template: auto repeat(4, 1fr) auto repeat(5, 1fr) 3rem / repeat(2, 1fr); //~~|🠊 rows / columns 🠈|~~//
       span[class*='title'] {

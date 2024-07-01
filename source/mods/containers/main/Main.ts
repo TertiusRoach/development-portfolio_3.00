@@ -1,6 +1,6 @@
 function MainBlock() {}
 
 export function findDevice() {
-  console.log('Return ORIENTATION!');
+  console.log('Return Device');
 }
 // export MainBlock;
