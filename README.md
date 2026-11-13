@@ -89,6 +89,16 @@ The original ideas stayed. Every change is its own commit on the `homage` branch
 - **No password in the code.** The MongoDB study reads its address from `MONGO_URI`.
 - **Photoshop files removed.** They're still in the original release.
 
+## Other Versions
+
+| Version | Stack | Link |
+| ------- | ----- | ---- |
+| 2.00 | gulp, RequireJS, TypeScript, jQuery | [Repository](https://github.com/TertiusRoach/development-portfolio_2.00) · [Website](https://tertiusroach.github.io/development-portfolio_2.00/) |
+| **3.00** | webpack, React, TypeScript | You're here |
+| 4.00 | React, Express, MongoDB | [Repository](https://github.com/TertiusRoach/development-portfolio_4.00) |
+
+Contact: tertius.roach@outlook.com · [GitHub](https://github.com/TertiusRoach)
+
 ---
 
 [Design Syntax](https://www.compart.com/en/unicode/block/U+25A0)
