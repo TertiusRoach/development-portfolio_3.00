@@ -42,12 +42,15 @@ You need [Node.js](https://nodejs.org/en) (version 20 or newer).
 git clone https://github.com/TertiusRoach/development-portfolio_3.00.git
 cd development-portfolio_3.00
 npm install
+sudo sysctl net.ipv4.ip_unprivileged_port_start=55
 npm start
 ```
 
+The page runs on port 55. Linux only lets normal users open ports from 1024 up, so the `sudo` line lowers that limit until the computer restarts. Run it once after each restart.
+
 | Command          | What it does                                      |
 | ---------------- | ------------------------------------------------- |
-| `npm start`      | Serve on http://localhost:8080 and open a browser |
+| `npm start`      | Serve on http://localhost:55 and open a browser   |
 | `npm run launch` | The same, without opening a browser               |
 | `npm run deploy` | Build into `public/` for GitHub Pages             |
 

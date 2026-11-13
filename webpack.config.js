@@ -58,6 +58,6 @@ module.exports = {
   devServer: {
     static: path.join(__dirname, 'public'),
     compress: true,
-    port: 8080,
+    port: 55, //--|🠈 Under 1024 needs: sudo sysctl net.ipv4.ip_unprivileged_port_start=55 (until restart) 🠈|--//
   },
 };
