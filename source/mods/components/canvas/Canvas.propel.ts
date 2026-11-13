@@ -67,8 +67,10 @@ function CanvasPropel(canvas: HTMLCanvasElement | any) {
 
   const followMouse = (event: MouseEvent) => {
     const rect = canvas.getBoundingClientRect();
-    mouseX = event.clientX - rect.left;
-    mouseY = event.clientY - rect.top;
+    //--|🠊 The particles live in the photo's own pixels, but CSS stretches the canvas to fit the screen. 🠈|--//
+    //--|🠊 Scale the mouse by (photo size ÷ size on screen) so both measure in the same pixels. 🠈|--//
+    mouseX = (event.clientX - rect.left) * (canvas.width / rect.width);
+    mouseY = (event.clientY - rect.top) * (canvas.height / rect.height);
   };
   const loseMouse = () => {
     mouseX = Infinity;
