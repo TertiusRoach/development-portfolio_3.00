@@ -4,7 +4,7 @@ const { MongoClient } = require('mongodb');
 
 //--|▼| This connects the application to a MongoDB cluster |▼|--//
 async function main() {
-  const uri = 'mongodb+srv://TertiusRoach:F9MTuRf6dKXTfM0b@cluster0.n1t9opj.mongodb.net/?retryWrites=true&w=majority'; //--|◄| Keep Confidential |◄|--//
+  const uri = process.env.MONGO_URI; //--|◄| Keep Confidential |◄|--//
   const client = new MongoClient(uri);
   try {
     await client.connect();
