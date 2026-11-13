@@ -2,7 +2,6 @@
 import $ from 'jquery';
 import React from 'react';
 
-import { findDevice } from '../../../../mods/containers/main/Main';
 import { activateSection } from '../../../../mods/components/section/scrollSections';
 import { homeText, skillsText, careerText, contactText } from './default-text';
 import ConSectionHome from '../../../../mods/components/section/home/Section.home';
@@ -10,7 +9,6 @@ import ConSectionSkills from '../../../../mods/components/section/skills/Section
 import ConSectionCareer from '../../../../mods/components/section/career/Section.career';
 import ConSectionContact from '../../../../mods/components/section/contact/Section.contact';
 
-console.log(findDevice());
 function DefaultMain(page: string | any, label: string | any, block: string | any) {
   return (
     <main style={{ zIndex: 0 }} id={`${page}-${block}`} className={`${label}-${block}`} onScroll={followScroll}>

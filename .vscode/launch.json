@@ -5,7 +5,7 @@
       "type": "chrome",
       "request": "launch",
       "name": "Chrome Console",
-      "url": "http://localhost:8080",
+      "url": "http://localhost:55",
       "webRoot": "${workspaceFolder}"
     },
     {
@@ -14,7 +14,7 @@
       "name": "Go Webpack",
       "runtimeExecutable": "npm",
       "skipFiles": ["<node_internals>/**"],
-      "runtimeArgs": ["run-script", "public"]
+      "runtimeArgs": ["run-script", "launch"]
     }
   ],
   "compounds": [

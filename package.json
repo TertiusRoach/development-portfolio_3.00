@@ -2,7 +2,6 @@
   "name": "development-portfolio_3.00",
   "version": "1.0.0",
   "description": "",
-  "main": "server/server.js",
   "engines": {
     "node": ">=20.13.1"
   },
