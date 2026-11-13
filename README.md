@@ -58,6 +58,8 @@ The page runs on port 55. Linux only lets normal users open ports from 1024 up, 
 
 ## How the Page Is Built
 
+The full walkthrough, from clone to website, is in [source/utilities/document/PROCESS.md](source/utilities/document/PROCESS.md). Every folder is in [STRUCTURE.md](source/utilities/document/STRUCTURE.md). The short version:
+
 ```
 source/
 ├── pages/index/          the page: index.tsx renders the six blocks
@@ -66,6 +68,7 @@ source/
 └── mods/
     ├── containers/       the header and footer
     └── components/       sections, buttons, anchors and the canvas
+└── utilities/            document/, vendors/, and the experiments the canvas came from
 ```
 
 Every section gets its text through a `tag` prop, so the words never live inside a component. Each component asks `useMediaQuery` once whether the screen is landscape, and its SCSS has one mixin per orientation.
@@ -81,6 +84,8 @@ The original ideas stayed. Every change is its own commit on the `homage` branch
 - **The buttons work.** "My Career" and "Contact Me" only logged their name; the header and footer buttons were commented out.
 - **2,049 lines became one.** Every section height had its own `@media (height: Npx)` rule, and whole pixels never matched a zoomed browser.
 - **25 unused packages are gone,** including `babel-preset-es201`, a typo of `es2015` that npm keeps as a security placeholder.
+- **Pruned.** About 10,000 files the page never used: the full Font Awesome set, GIMP working files, spare logo colours, Bootstrap's docs and six unused components.
+- **Documented.** `source/utilities/document/` explains the whole process.
 - **No password in the code.** The MongoDB study reads its address from `MONGO_URI`.
 - **Photoshop files removed.** They're still in the original release.
 
