@@ -3,37 +3,17 @@ import $ from 'jquery';
 import React from 'react';
 
 import { findDevice } from '../../../../mods/containers/main/Main';
+import { activateSection } from '../../../../mods/components/section/scrollSections';
+import { homeText, skillsText, careerText, contactText } from './default-text';
 import ConSectionHome from '../../../../mods/components/section/home/Section.home';
 import ConSectionSkills from '../../../../mods/components/section/skills/Section.skills';
+import ConSectionCareer from '../../../../mods/components/section/career/Section.career';
 import ConSectionContact from '../../../../mods/components/section/contact/Section.contact';
 
 console.log(findDevice());
 function DefaultMain(page: string | any, label: string | any, block: string | any) {
-  const imageURI: string = 'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content';
-  const homeText = {
-    title: 'Multimedia Programmer',
-    career: 'My Career',
-    contact: 'Contact Me',
-    profile: `${imageURI}/png-files/profile-picture.png`,
-    subject: 'Welcome to my portfolio,',
-    portfolio: 'View Portfolio',
-    description: [
-      `As a Multimedia Programmer, I create immersive websites, captivating animations, and interactive
-       applications, blending cutting-edge technologies with an artistic vision for engaging experiences. My
-       curiosity drives me to experiment with upcoming tools to stay ahead in this fast-paced world of computer
-       technologies. I thrive in collaborative environments, and love to transform abstract ideas into impactful,
-       long-lasting applications.`,
-      `My strong work ethic and demonstrable skills equip me to excel in this field. I'm a quick learner, eager to
-       prove myself and bring value to your team. So if you're willing to take a chance on me then we can create
-       something extraordinary together. While I may not have a traditional "Computer Science De 😬 gree". Uhm, I
-       shouldn't have used those air quotes...take a chance on me?`,
-      `Well this pitch took an unexpected turn.`,
-    ],
-  };
-  let skillsText: Object = {};
-  let contactText: Object = {};
   return (
-    <main style={{ zIndex: 0 }} id={`${page}-${block}`} className={`${label}-${block}`}>
+    <main style={{ zIndex: 0 }} id={`${page}-${block}`} className={`${label}-${block}`} onScroll={followScroll}>
       <ConSectionHome
         //--|🠋 Input 🠋|--//
         className="home"
@@ -49,6 +29,18 @@ function DefaultMain(page: string | any, label: string | any, block: string | an
         //--|🠋 Input 🠋|--//
         className="skills"
         view="hidden"
+        tag={skillsText}
+        //--|🠋 Functions 🠋|--//
+        onMouseClick={scrollToSection}
+        onMouseHover={activateButtons}
+
+        /*?-|🠋 Output 🠋|-?*/
+      />
+      <ConSectionCareer
+        //--|🠋 Input 🠋|--//
+        className="career"
+        view="hidden"
+        tag={careerText}
         //--|🠋 Functions 🠋|--//
         onMouseClick={scrollToSection}
         onMouseHover={activateButtons}
@@ -59,7 +51,7 @@ function DefaultMain(page: string | any, label: string | any, block: string | an
         //--|🠋 Input 🠋|--//
         className="contact"
         view="hidden"
-        tag={(contactText = {})}
+        tag={contactText}
         //--|🠋 Functions 🠋|--//
         onMouseClick={scrollToSection}
         onMouseHover={activateButtons}
@@ -72,15 +64,20 @@ function DefaultMain(page: string | any, label: string | any, block: string | an
 }
 export default DefaultMain;
 
-const activateButtons = (): void => {
-  // console.log(element);
-  // console.log(`DesktopLandscape: (orientation: landscape) and (min-aspect-ratio: 16/9)`);
-  // console.log(`TabletSquare: (max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)`);
-  // console.log(`MobilePortrait: (orientation: portrait) and (max-aspect-ratio: 1/1)`);
-  // const desktopOrientation = ``;
-  // const tabletOrientation = ``;
-  // const mobileOrientation = ``;
-  // console.log(`${element} Hovered`);
+const activateButtons = (element: React.MouseEvent<HTMLElement>): void => {
+  //--|🠊 The mouse entered a <section>: light up its buttons in the <header> and <footer> 🠈|--//
+  let section = element.currentTarget as HTMLElement;
+  activateSection(section.classList[0]);
+};
+
+const followScroll = (element: React.UIEvent<HTMLElement>): void => {
+  //--|🠊 Phones have no mouse to hover with, so the buttons also follow the scroll 🠈|--//
+  let main = element.currentTarget as HTMLElement;
+  let slot: number = Math.round(main.scrollTop / main.clientHeight); //--|🠈 Every <section> is one screen tall 🠈|--//
+  let section = main.children[slot] as HTMLElement;
+  if (section) {
+    activateSection(section.classList[0]);
+  }
 };
 
 export const scrollToSection = (element: React.MouseEvent<HTMLElement>, navigation: '<header>' | '<main>' | '<footer>') => {

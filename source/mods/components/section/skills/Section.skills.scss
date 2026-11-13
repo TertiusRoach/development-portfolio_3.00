@@ -1,21 +1,108 @@
 @import '../../../../pages/color-palette.scss';
 
+@mixin skills-shared {
+  //--|🠊 display: grid; 🠈|--//
+  overflow: hidden;
+  grid-template: auto 1fr / 1fr; //~~|🠊 rows / columns 🠈|~~//
+  span[class*='title'] {
+    display: flex;
+    gap: 0 1.5rem;
+    flex-wrap: wrap;
+    align-items: baseline;
+    padding-bottom: 1rem;
+    grid-area: 1 / 1 / 2 / 2; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+    h1 {
+      color: $primary-light;
+      filter: drop-shadow(0 0 4px black);
+    }
+    h5 {
+      color: $primary-medium;
+      font-style: italic;
+    }
+  }
+  span[class*='groups'] {
+    display: grid;
+    gap: 1rem;
+    min-height: 0;
+    overflow-y: auto;
+    grid-area: 2 / 1 / 3 / 2; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+    &::-webkit-scrollbar {
+      display: none; //~~|🠊 Hide Scrollbar 🠈|~~//
+    }
+  }
+  article[class*='group'] {
+    padding: 1rem;
+    border-radius: 0.25rem;
+    background: rgba(black, 0.35);
+    border: 1px solid rgba($primary-medium, 0.5);
+    filter: drop-shadow(0 0 0.5rem rgba(black, 0.5));
+    h4 {
+      color: $primary-light;
+      padding-bottom: 0.5rem;
+    }
+    ul {
+      margin: 0;
+      list-style: none;
+    }
+    li {
+      display: grid;
+      gap: 0 0.75rem;
+      align-items: center;
+      padding: 0.25rem 0; //~~|🠊 top + bot / left + right 🠈|~~//
+      grid-template: auto / 1.75rem 1fr 5rem; //~~|🠊 rows / columns 🠈|~~//
+      img {
+        width: 100%;
+        filter: drop-shadow(0 0 2px black);
+      }
+      h6 {
+        margin: 0;
+        color: white;
+      }
+    }
+  }
+  span[class*='rating'] {
+    height: 0.5rem;
+    overflow: hidden;
+    border-radius: 0.25rem;
+    background: rgba($primary-medium, 0.35);
+    i {
+      height: 100%;
+      display: block;
+      border-radius: inherit;
+      background: linear-gradient(90deg, $primary-medium, $primary-light);
+    }
+    //--|🠊 One class per score, so the bar's width lives in SASS 🠈|--//
+    @for $score from 0 through 10 {
+      .rating-#{$score} {
+        width: $score * 10%;
+      }
+    }
+  }
+}
+@mixin desktop-landscape {
+  //--|🠋 Desktop (Landscape) - ☐ 🠋|--//
+  &[class*='landscape'] {
+    padding: 2rem 0; //~~|🠊 top + bot / left + right 🠈|~~//
+    span[class*='groups'] {
+      align-content: start;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+@mixin mobile-portrait {
+  //--|🠋 Mobile (Portrait) - ☐ 🠋|--//
+  &[class*='portrait'] {
+    padding: 3rem 0; //~~|🠊 top + bot / left + right 🠈|~~//
+    span[class*='groups'] {
+      grid-template-columns: 1fr;
+    }
+  }
+}
 section {
   //--|🠊 display: grid; 🠈|--//
   div[class*='skills'] {
-    //--|🠋 Desktop (Landscape) - ☐ 🠋|--//
-    @media screen and (orientation: landscape) {
-      & {
-        //--|🠊 display: grid; 🠈|--//
-        background: $red-neon;
-      }
-    }
-    //--|🠋 Mobile (Portrait) - ☐ 🠋|--//
-    @media screen and (orientation: portrait) {
-      & {
-        //--|🠊 display: grid; 🠈|--//
-        background: $blue-neon;
-      }
-    }
+    @include skills-shared();
+    @include desktop-landscape();
+    @include mobile-portrait();
   }
 }

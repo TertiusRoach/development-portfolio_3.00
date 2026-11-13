@@ -1,0 +1,112 @@
+@import '../../../../pages/color-palette.scss';
+
+@mixin career-shared {
+  //--|🠊 display: grid; 🠈|--//
+  overflow: hidden;
+  grid-template: auto 1fr / 1fr; //~~|🠊 rows / columns 🠈|~~//
+  span[class*='title'] {
+    display: flex;
+    padding-bottom: 1rem;
+    grid-area: 1 / 1 / 2 / 2; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+    h1 {
+      color: $primary-light;
+      filter: drop-shadow(0 0 4px black);
+    }
+  }
+  span[class*='jobs'] {
+    display: flex;
+    gap: 1rem;
+    min-height: 0;
+    grid-area: 2 / 1 / 3 / 2; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+    &::-webkit-scrollbar {
+      display: none; //~~|🠊 Hide Scrollbar 🠈|~~//
+    }
+  }
+  article[class*='job'] {
+    padding: 1.5rem;
+    overflow-y: auto;
+    scroll-snap-align: start;
+    border-radius: 0.25rem;
+    background: rgba(black, 0.35);
+    border: 1px solid rgba($primary-medium, 0.5);
+    &::-webkit-scrollbar {
+      display: none; //~~|🠊 Hide Scrollbar 🠈|~~//
+    }
+    span[class*='heading'] {
+      display: grid;
+      gap: 0 1rem;
+      align-items: center;
+      padding-bottom: 1rem;
+      grid-template: auto auto / 4rem 1fr; //~~|🠊 rows / columns 🠈|~~//
+      img {
+        width: 100%;
+        grid-area: 1 / 1 / 3 / 2; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+        filter: drop-shadow(0 0 4px black);
+      }
+      h4,
+      h6 {
+        margin: 0;
+        white-space: normal; //~~|🠊 Long names wrap instead of ending in ... 🠈|~~//
+      }
+      h4 {
+        color: $primary-light;
+      }
+      h6 {
+        color: $primary-medium;
+      }
+    }
+    p {
+      color: white;
+      line-height: 1.5;
+      text-align: justify;
+    }
+    summary {
+      cursor: pointer;
+      color: $primary-light;
+      padding-bottom: 1rem;
+      transition: color 0.25s ease-in-out;
+      &:hover {
+        color: white;
+      }
+    }
+    details[open] summary {
+      color: $primary-medium;
+    }
+  }
+}
+@mixin desktop-landscape {
+  //--|🠋 Desktop (Landscape) - ☐ 🠋|--//
+  &[class*='landscape'] {
+    padding: 2rem 0; //~~|🠊 top + bot / left + right 🠈|~~//
+    span[class*='jobs'] {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+    }
+    article[class*='job'] {
+      flex: 0 0 min(28rem, 85%);
+    }
+  }
+}
+@mixin mobile-portrait {
+  //--|🠋 Mobile (Portrait) - ☐ 🠋|--//
+  &[class*='portrait'] {
+    padding: 3rem 0; //~~|🠊 top + bot / left + right 🠈|~~//
+    span[class*='jobs'] {
+      overflow-y: auto;
+      flex-direction: column;
+      scroll-snap-type: y proximity;
+    }
+    article[class*='job'] {
+      flex: 0 0 auto;
+      overflow-y: visible;
+    }
+  }
+}
+section {
+  //--|🠊 display: grid; 🠈|--//
+  div[class*='career'] {
+    @include career-shared();
+    @include desktop-landscape();
+    @include mobile-portrait();
+  }
+}
