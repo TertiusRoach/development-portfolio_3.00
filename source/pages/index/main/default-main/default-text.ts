@@ -198,8 +198,8 @@ export const contactText: ContactText = {
   links: [
     {
       name: 'email',
-      text: 'tertius.roach@nerdsonsite.com',
-      url: 'mailto:tertius.roach@nerdsonsite.com',
+      text: 'tertius.roach@outlook.com',
+      url: 'mailto:tertius.roach@outlook.com',
       icon: `${imageURI}/svg-files/icon-collection/solid/envelope.svg`,
     },
     {
