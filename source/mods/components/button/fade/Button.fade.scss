@@ -1,5 +1,4 @@
-@import '../../backup-colors.scss';
-@import '../../../pages/select-colors.scss';
+@import '../../../../pages/color-palette.scss';
 
 button[class*='fade'] {
   display: flex;
@@ -8,10 +7,14 @@ button[class*='fade'] {
   justify-content: flex-start;
   filter: drop-shadow(0 0 4px rgba(black, 0.25));
   img {
-    height: 75%;
+    height: 50%;
+    cursor: pointer;
     padding: 0 1rem;
+    filter: invert(40%); //~~|🠊 The icons are black: invert turns them grey, then white 🠈|~~//
+    transition: filter 0.25s ease-in-out;
   }
   h6 {
+    margin: 0;
     cursor: pointer;
     color: $primary-medium;
     transition: color 0.25s ease-in-out;
@@ -19,12 +22,18 @@ button[class*='fade'] {
 
   &:hover {
     filter: drop-shadow(0 0 4px rgba(white, 0.25));
+    img {
+      filter: invert(100%);
+    }
     h6 {
       color: white;
     }
   }
   &[class*='active'] {
     filter: drop-shadow(0 0 4px rgba(white, 0.25));
+    img {
+      filter: invert(75%);
+    }
     h6 {
       cursor: default;
       color: $primary-light;

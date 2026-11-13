@@ -1,5 +1,4 @@
-@import '../../backup-colors.scss';
-@import '../../../pages/select-colors.scss';
+@import '../../../../pages/color-palette.scss';
 
 a[class*='icon'] {
   display: flex;
@@ -9,14 +8,14 @@ a[class*='icon'] {
   text-decoration: none;
   justify-content: center;
   img {
-    height: 75%;
+    height: 50%;
     cursor: pointer;
-    filter: drop-shadow(0 0 4px rgba(black, 0.25));
+    filter: invert(40%) drop-shadow(0 0 4px rgba(black, 0.25)); //~~|🠊 The icons are black: invert turns them grey, then white 🠈|~~//
+    transition: filter 0.25s ease-in-out;
   }
   &:hover {
-    //~~|🠊 transition: opacity 0.25s ease-in-out; 🠈|~~//
     img {
-      filter: drop-shadow(0 0 4px rgba(white, 0.25));
+      filter: invert(100%) drop-shadow(0 0 4px rgba(white, 0.25));
     }
   }
 

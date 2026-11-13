@@ -1,21 +1,25 @@
 // Header.resume.scss
-@import '../../../pages/color-palette.scss';
+@import '../../../../pages/color-palette.scss';
 
-@import '../Header.scss';
 #index-header {
   display: inherit; //~~|🠈 display: grid; 🠈|~~//
   grid-area: 1 / 1 / 2 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+  backdrop-filter: blur(0.5rem);
+  background: rgba($primary-dark, 0.75);
+  border-bottom: 1px solid rgba($primary-medium, 0.5);
   div {
     display: flex;
+    cursor: pointer;
     align-items: center;
     img {
       height: 50%;
+      max-width: 100%;
     }
   }
   //--|🠋 Desktop (Landscape) - ☒ 🠋|--//
-  @media screen and (orientation: landscape) and (min-aspect-ratio: 16/9) {
+  @media screen and (orientation: landscape) {
     //--|🠊 display: grid; 🠈|--//
-    grid-template: 4rem / 3rem 2fr repeat(3, 1fr) 3rem; //~~|🠊 rows / columns 🠈|~~//
+    grid-template: 4rem / 3rem 2fr repeat(4, 1fr) 3rem; //~~|🠊 rows / columns 🠈|~~//
     div {
       grid-area: 1 / 2 / 2 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
       justify-content: flex-start;
@@ -30,42 +34,26 @@
     .header-skills {
       grid-area: 1 / 4 / 2 / 5; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
     }
-    .header-contact {
+    .header-career {
       grid-area: 1 / 5 / 2 / 6; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
     }
-    // background: rgba($red-dark, 0.75);
-    //~~|🠊 border: 4px dashed $red-neon; 🠈|~~//
-    //~~|🠊 background: rgba($red-dark, 0.75); 🠈|~~//
-  }
-  //--|🠋 Tablet (Square) - ☒ 🠋|--//
-  @media screen and (max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1) {
-    //--|🠊 display: grid; 🠈|--//
-    div {
-      width: 100%;
-      height: 4rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      grid-area: 1 / 1 / 2 / 2; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+    .header-contact {
+      grid-area: 1 / 6 / 2 / 7; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
     }
-    // background: rgba($blue-dark, 0.75);
-    //~~|🠊 border: 4px dashed $blue-neon; 🠈|~~//
-    //~~|🠊 background: rgba($blue-dark, 0.75); 🠈|~~//
   }
   //--|🠋 Mobile (Portrait) - ☒ 🠋|--//
-  @media screen and (orientation: portrait) and (max-aspect-ratio: 1/1) {
+  @media screen and (orientation: portrait) {
     //--|🠊 display: grid; 🠈|--//
+    grid-template: 6rem / 1fr; //~~|🠊 rows / columns 🠈|~~//
     div {
       width: 100%;
       height: 6rem;
-      display: flex;
-      align-items: center;
+      padding: 0 2rem; //~~|🠊 top + bot / left + right 🠈|~~//
       justify-content: center;
       grid-area: 1 / 1 / 2 / 2; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+      img {
+        height: 40%;
+      }
     }
-
-    // background: rgba($blue-dark, 0.75);
-    //~~|🠊 border: 4px dashed $blue-neon; 🠈|~~//
-    //~~|🠊 background: rgba($blue-dark, 0.75); 🠈|~~//
   }
 }

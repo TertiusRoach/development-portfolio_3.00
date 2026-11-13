@@ -1,70 +1,50 @@
 // Footer.resume.tsx
 // ----------------
-import $ from 'jquery';
 import React from 'react';
-// import { anchorIcon, buttonIcon } from '../..';
+import './Footer.resume.scss';
 import { useMediaQuery } from 'react-responsive';
-
-// import { activeButton, scrollToSection } from '../../main/default-main/default-main';
-
-// import AnchorIcon from '../../../../mods/anchor/icon/Anchor.icon'; //--|🠈 Desktop (Landscape) 🠈|--//
-// import ButtonFade from '../../../../mods/button/fade/Button.fade'; //--|🠈 Mobile (Portrait) 🠈|--//
-// import ButtonIcon from '../../../../mods/button/icon/Button.icon'; //--|🠈 Tablet (Square) 🠈|--//
+import { sectionButtons } from '../../header/resume/Header.resume';
+import AnchorIcon from '../../../components/anchor/icon/Anchor.icon'; //--|🠈 Desktop (Landscape) 🠈|--//
+import ButtonIcon from '../../../components/button/icon/Button.icon'; //--|🠈 Mobile (Portrait) 🠈|--//
+import scrollSections from '../../../components/section/scrollSections';
+import { contactText } from '../../../../pages/index/main/default-main/default-text';
 
 function defaultFooter(page: string | any, label: string | any, block: string | any) {
-  const wrapperFunction = (element: React.MouseEvent<HTMLElement>): void => {
-    // scrollToSection(element, '<footer>');
-    // activeButton(element.target as HTMLButtonElement);
-  };
+  const landscape: boolean = useMediaQuery({ query: '(orientation: landscape)' });
+  const anchors = contactText.links.filter((link) => link.url.startsWith('http')); //--|🠈 GitHub, LinkedIn and YouTube 🠈|--//
 
   return (
     <footer style={{ zIndex: 3 }} id={`${page}-${block}`} className={`${label}-${block}`}>
       {
         //--|🠋 Desktop (Landscape) 🠋|--//
-        useMediaQuery({ query: '(orientation: landscape) and (min-aspect-ratio: 16/9)' }) && (
+        landscape && (
           <>
-            {/* <AnchorIcon
-              grid="footer-github"
-              icon={anchorIcon.github[0]}
-              url={anchorIcon.github[1]}
-              text="GitHub"
-              action="_blank"
-            />
-            <AnchorIcon
-              grid="footer-youtube"
-              icon={anchorIcon.youtube[0]}
-              url={anchorIcon.youtube[1]}
-              text="YouTube"
-              action="_blank"
-            />
-            <AnchorIcon
-              grid="footer-linkedin"
-              icon={anchorIcon.linkedin[0]}
-              url={anchorIcon.linkedin[1]}
-              text="LinkedIn"
-              action="_blank"
-            /> */}
+            {anchors.map((link) => (
+              <AnchorIcon
+                key={link.name}
+                grid={`footer-${link.name}`}
+                icon={link.icon}
+                url={link.url}
+                text={link.text}
+                action="_blank"
+              />
+            ))}
           </>
         )
       }
       {
         //--|🠋 Mobile (Portrait) 🠋|--//
-        useMediaQuery({ query: '(orientation: portrait) and (max-aspect-ratio: 1/1)' }) && (
+        !landscape && (
           <>
-            {/* <ButtonIcon click={wrapperFunction} grid="footer-home" icon={buttonIcon.home} state="active" />
-            <ButtonIcon click={wrapperFunction} grid="footer-skills" icon={buttonIcon.skills} />
-            <ButtonIcon click={wrapperFunction} grid="footer-contact" icon={buttonIcon.cellphone} />
-            <ButtonIcon grid="footer-projects" icon={buttonIcon.projects} /> */}
-          </>
-        )
-      }
-      {
-        //--|🠋 Tablet (Square) 🠋|--//
-        useMediaQuery({ query: '(max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1)' }) && (
-          <>
-            {/* <ButtonFade click={wrapperFunction} className="footer-home" icon={buttonIcon.home} text="Home" state="active" />
-            <ButtonFade click={wrapperFunction} className="footer-skills" icon={buttonIcon.skills} text="Skills" />
-            <ButtonFade click={wrapperFunction} className="footer-contact" icon={buttonIcon.email} text="Contact" /> */}
+            {sectionButtons.map(([name, , icon]) => (
+              <ButtonIcon
+                key={name}
+                click={() => scrollSections(name)}
+                grid={`footer-${name}`}
+                icon={icon}
+                state={name === 'home' ? 'active' : undefined}
+              />
+            ))}
           </>
         )
       }
