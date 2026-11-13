@@ -12,9 +12,10 @@ interface Particle {
   axisX: number;
 }
 
-const particles: Particle[] = [];
-
 function CanvasPropel(canvas: HTMLCanvasElement | any) {
+  //--|🠊 Each <canvas> gets its own particles. Shared ones doubled up every time the screen turned 🠈|--//
+  const particles: Particle[] = [];
+  let frame: number = 0;
   const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
   let img = new Image();
   img.crossOrigin = 'anonymous'; // Allow cross-origin image loading
@@ -64,16 +65,17 @@ function CanvasPropel(canvas: HTMLCanvasElement | any) {
   //   // Hide effect and use img.src
   // });
 
-  canvas.addEventListener('mousemove', (event: MouseEvent) => {
+  const followMouse = (event: MouseEvent) => {
     const rect = canvas.getBoundingClientRect();
     mouseX = event.clientX - rect.left;
     mouseY = event.clientY - rect.top;
-  });
-
-  canvas.addEventListener('mouseleave', () => {
+  };
+  const loseMouse = () => {
     mouseX = Infinity;
     mouseY = Infinity;
-  });
+  };
+  canvas.addEventListener('mousemove', followMouse);
+  canvas.addEventListener('mouseleave', loseMouse);
 
   function drawParticles(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -86,7 +88,7 @@ function CanvasPropel(canvas: HTMLCanvasElement | any) {
     });
 
     applyRepelEffect();
-    requestAnimationFrame(() => drawParticles(canvas, ctx));
+    frame = requestAnimationFrame(() => drawParticles(canvas, ctx));
   }
 
   function applyRepelEffect() {
@@ -113,6 +115,14 @@ function CanvasPropel(canvas: HTMLCanvasElement | any) {
       }
     });
   }
+
+  //--|🠋 Hand back an off switch: stop drawing and stop listening 🠋|--//
+  return () => {
+    img.onload = null;
+    cancelAnimationFrame(frame);
+    canvas.removeEventListener('mousemove', followMouse);
+    canvas.removeEventListener('mouseleave', loseMouse);
+  };
 }
 
 let hideCanvas = () => {};

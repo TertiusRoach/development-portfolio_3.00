@@ -32,14 +32,16 @@ const SectionHome: React.FC<HomeProps> = ({
   const toggleCanvas = () => {
     hiddenCanvas(!visibleCanvas);
   };
+  //--|🠊 Asked once, up here, so the effect below can listen for it changing 🠈|--//
+  const landscape: boolean = useMediaQuery({ query: '(orientation: landscape)' });
   useEffect(() => {
     let canvas = loadCanvas.current;
     if (canvas) {
-      propelEffect(canvas);
+      return propelEffect(canvas); //--|🠈 React calls what comes back before the next run, which stops the old animation 🠈|--//
     } else {
       console.log(`//--|🠊 No <canvas> element loaded for this orientation 🠈|--//`);
     }
-  }, []);
+  }, [landscape]); //--|🠈 Run again every time the screen turns 🠈|--//
 
   return (
     <section
@@ -48,7 +50,7 @@ const SectionHome: React.FC<HomeProps> = ({
       onClick={(trigger) => scrollSection(trigger, '<main>')}
     >
       {/*--|🠋 Desktop (Landscape) 🠋|--*/}
-      {useMediaQuery({ query: '(orientation: landscape)' }) && (
+      {landscape && (
         <div className={`${className} desktop-landscape`}>
           <span className="home-title">
             <h1 data-text={Object.title}>{Object.title}</h1>
@@ -70,11 +72,13 @@ const SectionHome: React.FC<HomeProps> = ({
             <h4>{Object.description[2]}</h4>
           </span>
 
-          {/*  ref={loadCanvas} dissappears when I rotate the screen. How can I tell react to reload the canvas when the screen is rotated?*/}
+          {/*--|🠊 2024: ref={loadCanvas} dissappears when I rotate the screen. How can I tell react to reload the canvas when the screen is rotated? 🠈|--*/}
+          {/*--|🠊 2026: Turning the screen throws this <div> away and builds a new <canvas> when you turn back. 🠈|--*/}
+          {/*--|🠊 useEffect(..., []) only ever ran for the first one. With [landscape] it runs for every new one. 🠈|--*/}
           <aside className="home-profile" onClick={toggleCanvas}>
             <img
               className={`${visibleCanvas ? 'hidden' : 'visible'}`}
-              src="https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content/png-files/profile-picture.png"
+              src={Object.profile}
               alt="Tertius Roach"
             />
             <canvas className={`${visibleCanvas ? 'visible' : 'hidden'}`} ref={loadCanvas}></canvas>
@@ -82,7 +86,7 @@ const SectionHome: React.FC<HomeProps> = ({
         </div>
       )}
       {/*--|🠋 Mobile (Portrait) 🠋|--*/}
-      {useMediaQuery({ query: '(orientation: portrait)' }) && (
+      {!landscape && (
         <div className={`${className} mobile-portrait`}>
           <span className="home-title max-width: 100%">
             <h1 className="display-1" data-text={Object.title}>
@@ -107,7 +111,7 @@ const SectionHome: React.FC<HomeProps> = ({
 
           <aside className="home-profile" onClick={toggleCanvas}>
             <img
-              src="https://raw.githubusercontent.com/TertiusRoach/development-portfolio_3.00/main/public/content/png-files/profile-picture.png"
+              src={Object.profile}
               alt="Tertius Roach"
             />
           </aside>
